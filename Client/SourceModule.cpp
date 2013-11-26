@@ -54,6 +54,15 @@ void	SourceModule::initialize()
 	this->_images.add(SFMLImage::BUTTON_REFRESH, new SFMLImage("Assets/Menu/buttonRefreshNormal.png"));
 	this->_images.add(SFMLImage::BUTTON_HOVER_REFRESH, new SFMLImage("Assets/Menu/buttonRefreshHover.png"));
 	this->_images.add(SFMLImage::BUTTON_CLICKED_REFRESH, new SFMLImage("Assets/Menu/buttonRefreshClicked.png"));
+	this->_images.add(SFMLImage::BUTTON_GO, new SFMLImage("Assets/Menu/buttonGoNormal.png"));
+	this->_images.add(SFMLImage::BUTTON_HOVER_GO, new SFMLImage("Assets/Menu/buttonGoHover.png"));
+	this->_images.add(SFMLImage::BUTTON_CLICKED_GO, new SFMLImage("Assets/Menu/buttonGoClicked.png"));
+	this->_images.add(SFMLImage::BUTTON_NEXT, new SFMLImage("Assets/Menu/ArrowRightNormal.png"));
+	this->_images.add(SFMLImage::BUTTON_HOVER_NEXT, new SFMLImage("Assets/Menu/ArrowRightHover.png"));
+	this->_images.add(SFMLImage::BUTTON_CLICKED_NEXT, new SFMLImage("Assets/Menu/ArrowRightClicked.png"));
+	this->_images.add(SFMLImage::BUTTON_PREV, new SFMLImage("Assets/Menu/ArrowLeftNormal.png"));
+	this->_images.add(SFMLImage::BUTTON_HOVER_PREV, new SFMLImage("Assets/Menu/ArrowLeftHover.png"));
+	this->_images.add(SFMLImage::BUTTON_CLICKED_PREV, new SFMLImage("Assets/Menu/ArrowLeftClicked.png"));
 
 	this->_images.add(SFMLImage::CHECKBOX_CHECKED_NORMAL_READY, new SFMLImage("Assets/Menu/checkBoxReadyCheckedNormal.png"));
 	this->_images.add(SFMLImage::CHECKBOX_CHECKED_CLICKED_READY, new SFMLImage("Assets/Menu/checkBoxReadyCheckedNormal.png"));
@@ -81,6 +90,10 @@ void	SourceModule::initialize()
 	this->_images.add(SFMLImage::CONNECTION_BACKGROUND, new SFMLImage("Assets/Menu/ConnectionBackground.png"));
 	this->_images.add(SFMLImage::PLAY_BACKGROUND, new SFMLImage("Assets/Menu/PlayBackground.png"));
 	this->_images.add(SFMLImage::JOIN_BACKGROUND, new SFMLImage("Assets/Menu/JoinBackground.png"));
+	this->_images.add(SFMLImage::ROOM_BACKGROUND, new SFMLImage("Assets/Menu/RoomBackground.png"));
+	this->_images.add(SFMLImage::POWER, new SFMLImage("Assets/Menu/power.png"));
+	this->_images.add(SFMLImage::ARMOR, new SFMLImage("Assets/Menu/armor.png"));
+	this->_images.add(SFMLImage::SPEED, new SFMLImage("Assets/Menu/speed.png"));
 	// Put all texts objects
 	this->_texts.add(SFMLText::TEXTBOX, new SFMLText(SFMLText::TEXTBOX, "Assets/Font/prototype.ttf"));
 }

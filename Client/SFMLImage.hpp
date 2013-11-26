@@ -76,6 +76,15 @@ public:
 	static std::string const	BUTTON_REFRESH;
 	static std::string const	BUTTON_HOVER_REFRESH;
 	static std::string const	BUTTON_CLICKED_REFRESH;
+	static std::string const	BUTTON_GO;
+	static std::string const	BUTTON_HOVER_GO;
+	static std::string const	BUTTON_CLICKED_GO;
+	static std::string const	BUTTON_NEXT;
+	static std::string const	BUTTON_HOVER_NEXT;
+	static std::string const	BUTTON_CLICKED_NEXT;
+	static std::string const	BUTTON_PREV;
+	static std::string const	BUTTON_HOVER_PREV;
+	static std::string const	BUTTON_CLICKED_PREV;
 
 	static std::string const	CHECKBOX_CHECKED_NORMAL_PRIVATE;
 	static std::string const	CHECKBOX_CHECKED_CLICKED_PRIVATE;
@@ -103,6 +112,11 @@ public:
 	static std::string const	CONNECTION_BACKGROUND;
 	static std::string const	PLAY_BACKGROUND;
 	static std::string const	JOIN_BACKGROUND;
+	static std::string const	ROOM_BACKGROUND;
+
+	static std::string const	ARMOR;
+	static std::string const	POWER;
+	static std::string const	SPEED;
 };
 
 #endif

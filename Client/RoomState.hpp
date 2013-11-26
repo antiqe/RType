@@ -6,18 +6,34 @@
 # include "Button.hpp"
 # include "TextBox.hpp"
 # include "Background.hpp"
+# include "SFMLAnimation.hpp"
+# include "AGauge.hpp"
+# include "ListBox.hpp"
+# include "CheckBox.hpp"
 
 class RoomState : public Engine::AState
 {
 private:
+	enum Statistic
+	{
+		ARMOR = 0,
+		POWER,
+		SPEED,
+		STAT_SIZE
+	};
+
 	DataModule*				_dataModule;
 	Engine::Background*		_background;
-	Engine::Button*			_create;
-	Engine::Button*			_join;
+	Engine::Button*			_go;
+	Engine::ListBox*		_chatBox;
 	Engine::Button*			_quit;
 	Engine::Button*			_settings;
 	Engine::Button*			_back;
 	Engine::Background*		_loading;
+	Engine::CheckBox*		_ready[4];
+	SFMLImage*				_iconStats[STAT_SIZE];
+	Engine::AGauge*			_stats[STAT_SIZE];
+	//Engine::Selector*		_characterSelector[4];
 
 public:
 	RoomState();

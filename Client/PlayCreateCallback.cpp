@@ -3,6 +3,7 @@
 #include "MouseEvent.hpp"
 #include "Core.hpp"
 #include "ScopeLock.hpp"
+#include "StateRoom.hpp"
 
 namespace Callback
 {
@@ -33,9 +34,20 @@ namespace Callback
 		void	checkRoomState(Engine::Widget* widget, Engine::Event* event)
 		{
 			unsigned short id = event->getAttr<unsigned short>("id");
-			char state = event->getAttr<char>("state");
+			char status = event->getAttr<char>("state");
+
+			if (status == Network::OK)
+			{
+				PlayCreateState* state = dynamic_cast<PlayCreateState *>(widget);
+				state->goToRoom();
+			}
+			else
+			{
+				PlayCreateState* state = dynamic_cast<PlayCreateState *>(widget);
+				state->displayError("Can't connect to room");
+			}
 			std::cout << "Join room id = " << id << std::endl;
-			std::cout << "State room = " << (int)state << std::endl;
+			std::cout << "State room = " << (int)status << std::endl;
 		}
 	}
 }

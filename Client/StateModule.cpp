@@ -6,6 +6,7 @@
 #include "PlayState.hpp"
 #include "PlayCreateState.hpp"
 #include "PlayJoinState.hpp"
+#include "RoomState.hpp"
 
 StateModule::StateModule()
 	: Engine::AStateModule(State::CONNECTION)
@@ -25,6 +26,7 @@ void	StateModule::initialize()
 	this->_statePool[State::PLAY] = new PlayState;
 	this->_statePool[State::PLAY_CREATE] = new PlayCreateState;
 	this->_statePool[State::PLAY_JOIN] = new PlayJoinState;
+	this->_statePool[State::ROOM] = new RoomState;
 	for (std::map<std::string, Engine::AState*>::iterator it = this->_statePool.begin(); it != this->_statePool.end(); ++it)
 		it->second->initialize();
 	this->_stateStack.push(this->_statePool[this->_mainName]);
