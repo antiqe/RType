@@ -41,6 +41,9 @@ std::string const	SFMLImage::BUTTON_CLICKED_NEXT = "button_clicked_next";
 std::string const	SFMLImage::BUTTON_PREV = "button_prev";
 std::string const	SFMLImage::BUTTON_HOVER_PREV = "button_hover_prev";
 std::string const	SFMLImage::BUTTON_CLICKED_PREV = "button_clicked_prev";
+std::string const	SFMLImage::BUTTON_SEND = "button_send";
+std::string const	SFMLImage::BUTTON_HOVER_SEND = "button_hover_send";
+std::string const	SFMLImage::BUTTON_CLICKED_SEND = "button_clicked_send";
 
 std::string const	SFMLImage::CHECKBOX_CHECKED_NORMAL_PRIVATE = "checkbox_checked_normal_private";
 std::string const	SFMLImage::CHECKBOX_CHECKED_CLICKED_PRIVATE = "checkbox_checked_clicked_private";

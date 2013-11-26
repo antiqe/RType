@@ -26,6 +26,8 @@ private:
 	Engine::Background*		_background;
 	Engine::Button*			_go;
 	Engine::ListBox*		_chatBox;
+	Engine::TextBox*		_msg;
+	Engine::Button*			_send;
 	Engine::Button*			_quit;
 	Engine::Button*			_settings;
 	Engine::Button*			_back;

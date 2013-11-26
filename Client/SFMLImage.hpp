@@ -85,6 +85,9 @@ public:
 	static std::string const	BUTTON_PREV;
 	static std::string const	BUTTON_HOVER_PREV;
 	static std::string const	BUTTON_CLICKED_PREV;
+	static std::string const	BUTTON_SEND;
+	static std::string const	BUTTON_HOVER_SEND;
+	static std::string const	BUTTON_CLICKED_SEND;
 
 	static std::string const	CHECKBOX_CHECKED_NORMAL_PRIVATE;
 	static std::string const	CHECKBOX_CHECKED_CLICKED_PRIVATE;

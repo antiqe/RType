@@ -63,6 +63,9 @@ void	SourceModule::initialize()
 	this->_images.add(SFMLImage::BUTTON_PREV, new SFMLImage("Assets/Menu/ArrowLeftNormal.png"));
 	this->_images.add(SFMLImage::BUTTON_HOVER_PREV, new SFMLImage("Assets/Menu/ArrowLeftHover.png"));
 	this->_images.add(SFMLImage::BUTTON_CLICKED_PREV, new SFMLImage("Assets/Menu/ArrowLeftClicked.png"));
+	this->_images.add(SFMLImage::BUTTON_SEND, new SFMLImage("Assets/Menu/buttonSendNormal.png"));
+	this->_images.add(SFMLImage::BUTTON_HOVER_SEND, new SFMLImage("Assets/Menu/buttonSendHover.png"));
+	this->_images.add(SFMLImage::BUTTON_CLICKED_SEND, new SFMLImage("Assets/Menu/buttonSendClicked.png"));
 
 	this->_images.add(SFMLImage::CHECKBOX_CHECKED_NORMAL_READY, new SFMLImage("Assets/Menu/checkBoxReadyCheckedNormal.png"));
 	this->_images.add(SFMLImage::CHECKBOX_CHECKED_CLICKED_READY, new SFMLImage("Assets/Menu/checkBoxReadyCheckedNormal.png"));
