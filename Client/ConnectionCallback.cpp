@@ -19,16 +19,16 @@ namespace Callback
 			if (button->hit(mouseEvent->getX(), mouseEvent->getY()))
 			{
 				if (mouseEvent->isPressed())
-					button->setStatus(Engine::Button::Status::CLICKED);
+					button->setStatus(Engine::Button::CLICKED);
 				else
 				{
-					button->setStatus(Engine::Button::Status::HOVER);
+					button->setStatus(Engine::Button::HOVER);
 					ConnectionState* state = dynamic_cast<ConnectionState *>(button->getParent());
 					state->connect();
 				}
 			}
 			else
-				button->setStatus(Engine::Button::Status::NORMAL);
+				button->setStatus(Engine::Button::NORMAL);
 		}
 
 		void	checkAvailability(Engine::Widget* widget, Engine::Event* event)

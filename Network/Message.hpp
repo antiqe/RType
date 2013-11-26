@@ -22,6 +22,7 @@ public:
       ROOM_PLAYER_INFO,
       ROOM_LIST,
       ROOM_INFO,
+	  ROOM_TALK,
       ROOM_KICK,
       ROOM_START,
       ROOM_ERROR,

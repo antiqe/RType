@@ -21,6 +21,7 @@ public:
 	};
 
 private:
+	int						_sock;
 	Network::Client*		_client;
 	ListenerTCP*			_ltcp;
 	Ultra::IThread*			_thread;
@@ -36,6 +37,8 @@ public:
 	void	unload();
 	bool	start();
 	void	stop();
+
+	int		getSock() const;
 };
 
 #endif

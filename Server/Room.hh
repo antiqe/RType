@@ -57,6 +57,7 @@ public:
   static void *run(void *room);
   void notify(InternalMessage *msg);
   bool isReachable() const;
+  unsigned char getCurrentPlayer() const;
 
 private:
 
@@ -66,6 +67,8 @@ private:
   void onPlayerInfo(int const to, Message *msg);
   void onPing(InternalMessage *imsg);
   void onPlayerInfoInGame(InternalMessage *imsg);
+  void onPlayerTalk(int const to, Message *msg);
+
 };
 
 #endif

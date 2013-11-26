@@ -31,8 +31,8 @@ Room *RoomManager::createRoom(std::string const &name, std::string const &passwo
   
   if (!this->_idq.empty())
     {
+	  id = this->_idq.front();
       this->_idq.pop();
-      id = this->_idq.front();
     }
   else
     {
@@ -53,9 +53,12 @@ Room *RoomManager::createRoom(std::string const &name, std::string const &passwo
   return (room);
 }
 
-void RoomManager::deleteRoom(unsigned short const)
+void RoomManager::deleteRoom(unsigned short const id)
 {
-  
+    Ultra::ScopeLock sl(this->_mutex);
+
+	this->_idq.push(id);
+	this->_mroom.erase(id);
 }
 
 void RoomManager::run()
@@ -65,11 +68,15 @@ void RoomManager::run()
 
 Room *RoomManager::getRoom(unsigned short const id)
 {
+  Ultra::ScopeLock sl(this->_mutex);
+
   return (this->_mroom[id]);
 }
 
 void RoomManager::notifyAll(InternalMessage *msg)
 {
+  Ultra::ScopeLock sl(this->_mutex);
+
   std::map<unsigned short, Room *>::iterator it = this->_mroom.begin();
   for (; it != this->_mroom.end(); ++it)
     it->second->notify(msg);

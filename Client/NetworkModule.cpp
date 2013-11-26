@@ -39,6 +39,7 @@ bool	NetworkModule::start()
 		this->_client = new Network::Client(this->_host, this->_port);
 		if (this->_client->connect())
 		{
+			this->_sock =  this->_client->getSocket(ISocket::TCP);
 			this->_ltcp = new ListenerTCP(_client);
 			this->_ltcp->setRunning(true);
 			this->_thread->create(ListenerTCP::run, this->_ltcp);
@@ -120,4 +121,9 @@ void	NetworkModule::stop()
 		this->_port = 0;
 		this->_host = "";
 	}
+}
+
+int	NetworkModule::getSock() const
+{
+	return (this->_sock);
 }

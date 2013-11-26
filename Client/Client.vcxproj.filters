@@ -111,9 +111,6 @@
     <ClCompile Include="GameState.cpp">
       <Filter>Source Files\Module\State</Filter>
     </ClCompile>
-    <ClCompile Include="FactoryModule.cpp">
-      <Filter>Source Files\Module</Filter>
-    </ClCompile>
     <ClCompile Include="ConnectionCallback.cpp">
       <Filter>Source Files\Callback</Filter>
     </ClCompile>
@@ -180,7 +177,10 @@
     <ClCompile Include="RoomState.cpp">
       <Filter>Source Files\Module\State</Filter>
     </ClCompile>
-    <ClCompile Include="FormatRoomInfo.cpp">
+    <ClCompile Include="RoomStateCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomInfo.cpp">
       <Filter>Source Files\Module\State\Join</Filter>
     </ClCompile>
   </ItemGroup>
@@ -269,14 +269,17 @@
     <ClInclude Include="RoomState.hpp">
       <Filter>Header Files\Module\State</Filter>
     </ClInclude>
-    <ClInclude Include="FormatRoomInfo.hpp">
+    <ClInclude Include="ListBox.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomStateCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomInfo.hpp">
       <Filter>Header Files\Module\State\Join</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="VSliderCallback.hpp">
-      <Filter>Header Files\Callback</Filter>
-    </ClInclude>
     <ClInclude Include="ArmorConstantComponent.hpp">
       <Filter>Header Files\Object</Filter>
     </ClInclude>
