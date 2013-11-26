@@ -13,7 +13,7 @@ class PlayJoinState : public Engine::AState
 private:
 	DataModule*				_dataModule;
 	Engine::Background*		_background;
-	Engine::ListBox*		_list;
+	Engine::ListBox<>*		_list;
 	Engine::Button*			_select;
 	Engine::Button*			_refresh;
 	Engine::Button*			_quit;

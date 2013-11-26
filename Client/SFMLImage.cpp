@@ -32,6 +32,18 @@ std::string const	SFMLImage::BUTTON_CLICKED_SELECT = "button_clicked_select";
 std::string const	SFMLImage::BUTTON_REFRESH = "button_refresh";
 std::string const	SFMLImage::BUTTON_HOVER_REFRESH = "button_hover_refresh";
 std::string const	SFMLImage::BUTTON_CLICKED_REFRESH = "button_clicked_refresh";
+std::string const	SFMLImage::BUTTON_GO = "button_go";
+std::string const	SFMLImage::BUTTON_HOVER_GO = "button_hover_go";
+std::string const	SFMLImage::BUTTON_CLICKED_GO = "button_clicked_go";
+std::string const	SFMLImage::BUTTON_NEXT = "button_next";
+std::string const	SFMLImage::BUTTON_HOVER_NEXT = "button_hover_next";
+std::string const	SFMLImage::BUTTON_CLICKED_NEXT = "button_clicked_next";
+std::string const	SFMLImage::BUTTON_PREV = "button_prev";
+std::string const	SFMLImage::BUTTON_HOVER_PREV = "button_hover_prev";
+std::string const	SFMLImage::BUTTON_CLICKED_PREV = "button_clicked_prev";
+std::string const	SFMLImage::BUTTON_SEND = "button_send";
+std::string const	SFMLImage::BUTTON_HOVER_SEND = "button_hover_send";
+std::string const	SFMLImage::BUTTON_CLICKED_SEND = "button_clicked_send";
 
 std::string const	SFMLImage::CHECKBOX_CHECKED_NORMAL_PRIVATE = "checkbox_checked_normal_private";
 std::string const	SFMLImage::CHECKBOX_CHECKED_CLICKED_PRIVATE = "checkbox_checked_clicked_private";
@@ -61,8 +73,13 @@ std::string const	SFMLImage::GAUGE_FILLED = "gauge_filled";
 std::string const	SFMLImage::CONNECTION_BACKGROUND = "connection_background";
 std::string const	SFMLImage::PLAY_BACKGROUND = "play_background";
 std::string const	SFMLImage::JOIN_BACKGROUND = "join_background";
+std::string const	SFMLImage::ROOM_BACKGROUND = "room_background";
 std::string const	SFMLImage::BACKGROUND = "background";
+
 std::string const	SFMLImage::TERRE = "terre";
+std::string const	SFMLImage::POWER = "power";
+std::string const	SFMLImage::ARMOR = "armor";
+std::string const	SFMLImage::SPEED = "speed";
 
 SFMLImage::SFMLImage(std::string const& filename)
 	: _cut(false), _filename(filename)

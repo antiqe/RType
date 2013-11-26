@@ -5,13 +5,14 @@
 
 class RoomInfo
 {
+  unsigned short _id;
   std::string	_name;
   bool		_isPrivate;
   int		_playerIn;
   int		_playerMax;
 
 public:
-  RoomInfo(const std::string &name, bool isPrivate, int playerIn, int playerMax);
+  RoomInfo(unsigned short const id, const std::string &name, bool isPrivate, int playerIn, int playerMax);
   ~RoomInfo();
   std::string toString();
 
@@ -26,6 +27,9 @@ public:
 
   int		getPlayerMax() const;
   void		setPlayerMax(int playerMax);
+
+  unsigned short getID() const;
+  void			 setID(unsigned short const id);
 
 };
 

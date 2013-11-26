@@ -3,8 +3,8 @@
 
 #include "RoomInfo.hpp"
 
-RoomInfo::RoomInfo(const std::string &name, bool isPrivate, int playerIn, int playerMax)
-  : _name(name), _isPrivate(isPrivate), _playerIn(playerIn), _playerMax(playerMax)
+RoomInfo::RoomInfo(unsigned short const id, const std::string &name, bool isPrivate, int playerIn, int playerMax)
+  : _id(id), _name(name), _isPrivate(isPrivate), _playerIn(playerIn), _playerMax(playerMax)
 {
 }
 
@@ -62,4 +62,14 @@ int		RoomInfo::getPlayerMax() const
 void		RoomInfo::setPlayerMax(int playerMax)
 {
   this->_playerMax = playerMax;
+}
+
+unsigned short		RoomInfo::getID() const
+{
+	return (this->_id);
+}
+
+void	RoomInfo::setID(unsigned short const id)
+{
+	this->_id = id;
 }

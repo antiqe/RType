@@ -27,7 +27,7 @@ PlayCreateState::PlayCreateState()
 	SFMLImage::CHECKBOX_CHECKED_HOVER_PRIVATE,  SFMLImage::CHECKBOX_UNCHECKED_NORMAL_PRIVATE,  SFMLImage::CHECKBOX_UNCHECKED_CLICKED_PRIVATE,
 	SFMLImage::CHECKBOX_UNCHECKED_HOVER_PRIVATE)),
 	_password(new Engine::TextBox("password", SFMLImage::TEXTBOX, SFMLImage::TEXTBOX_SELECTED, SFMLImage::TEXTBOX_HOVER, SFMLText::TEXTBOX, 10, "password", '*')),
-	_ok(new Engine::Button("ok", SFMLImage::BUTTON_OK, SFMLImage::BUTTON_CLICKED_OK, SFMLImage::BUTTON_HOVER_OK, State::GAME)),
+	_ok(new Engine::Button("ok", SFMLImage::BUTTON_OK, SFMLImage::BUTTON_CLICKED_OK, SFMLImage::BUTTON_HOVER_OK, State::ROOM)),
 	_quit(new Engine::Button("quit", SFMLImage::BUTTON_QUIT, SFMLImage::BUTTON_CLICKED_QUIT, SFMLImage::BUTTON_HOVER_QUIT)),
 	_settings(new Engine::Button("settings", SFMLImage::BUTTON_SETTINGS, SFMLImage::BUTTON_CLICKED_SETTINGS, SFMLImage::BUTTON_HOVER_SETTINGS, State::SETTINGS)),
 	_back(new Engine::Button("back", SFMLImage::BUTTON_BACK, SFMLImage::BUTTON_CLICKED_BACK, SFMLImage::BUTTON_HOVER_BACK)),
@@ -130,6 +130,8 @@ void	PlayCreateState::unload()
 
 void	PlayCreateState::reset()
 {
+	this->_name->setText("");
+	this->_password->setText("");
 }
 
 void	PlayCreateState::reload()
@@ -142,26 +144,24 @@ void	PlayCreateState::reload()
 
 void	PlayCreateState::createRoom()
 {
-	Ultra::ScopeLock	lock(Engine::Core::getInstance()->access(Engine::AModule::NETWORK));
-
+	this->_loading->show();
+	
 	Message *msg = new Message(Message::ROOM_CREATE);
 	msg->setAttr("name", Ultra::Value(std::string(this->_name->getText())));
 	msg->setAttr("password", Ultra::Value(std::string(this->_password->getText())));
 
+	Ultra::ScopeLock lock(Engine::Core::getInstance()->access(Engine::AModule::NETWORK));
 	this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
 }
 
-void	goToRoom()
+void	PlayCreateState::goToRoom()
 {
-	/* RONANINO:
-	** on cache le loading et on change d'état avec la fonction membre "active" du bon "button"
-	*/
+	this->_loading->hide();
+	this->_ok->active();
 }
 
-void	displayError(std::string const &msg)
+void	PlayCreateState::displayError(std::string const &msg)
 {
-	/* RONANINO:
-	** afficher message erreur
-	** si on a perdu la connection, StateModule::popTo(State::CONNECTION) + stop de network_module
-	*/
+	this->_loading->hide();
+	std::cerr << msg << std::endl;
 }

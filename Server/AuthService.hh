@@ -29,7 +29,7 @@ private:
 
   bool _run;
   typedef void (AuthService::*MsgFunc)(int const to, Message *msg);
-  MsgFunc _mfunc[5];
+  MsgFunc _mfunc[Message::COUNT];
   SafeQueue<InternalMessage *> _q;
   AuthService::StateService _state;
   Logging::Logger _log;

@@ -6,15 +6,17 @@
 #include "ListBox.hpp"
 #include "VSlider.hpp"
 
+/*
 namespace Engine
 {
 	namespace Callback
 	{
 		namespace ListBox
 		{
+			template <typename T>
 			void	mouseWheel(Engine::Widget* widget, Engine::Event* event)
 			{
-				Engine::ListBox *ListBox = dynamic_cast< Engine::ListBox*>(widget);
+				Engine::ListBox<T> *ListBox = dynamic_cast<Engine::ListBox<T>*>(widget);
 				Engine::MouseEvent *mouseEvent = dynamic_cast<Engine::MouseEvent*>(event);
 
 				if (ListBox->hit(mouseEvent->getX(), mouseEvent->getY()))
@@ -24,9 +26,10 @@ namespace Engine
 				}
 			}
 
+			template <typename T>
 			void	mouseClick(Engine::Widget* widget, Engine::Event* event)
 			{
-				Engine::ListBox *ListBox = dynamic_cast< Engine::ListBox*>(widget);
+				Engine::ListBox<T> *ListBox = dynamic_cast< Engine::ListBox<T>*>(widget);
 				Engine::MouseEvent *mouseEvent = dynamic_cast<Engine::MouseEvent*>(event);
 
 				if (ListBox->hit(mouseEvent->getX(), mouseEvent->getY()))
@@ -48,3 +51,4 @@ namespace Engine
 		}
 	}
 }
+*/
