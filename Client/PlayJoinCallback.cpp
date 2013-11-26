@@ -19,7 +19,7 @@ namespace Callback
 
 			PlayJoinState *state = dynamic_cast<PlayJoinState *>(widget);
 			Engine::Widget * wlb = state->getChild("list");
-			Engine::ListBox *lb = dynamic_cast<Engine::ListBox *>(wlb);
+			Engine::ListBox<> *lb = dynamic_cast<Engine::ListBox<> *>(wlb);
 			unsigned short id = event->getAttr<unsigned short>("id");
 			std::string name = event->getAttr<std::string>("name");
 			bool priv = event->getAttr<bool>("private");

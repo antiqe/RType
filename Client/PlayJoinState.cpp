@@ -22,7 +22,7 @@ PlayJoinState::PlayJoinState()
 	: AState(State::CONNECTION),
 	_dataModule(0),
 	_background(new Engine::Background("background", SFMLImage::JOIN_BACKGROUND)),
-	_list(new Engine::ListBox("list", SFMLImage::LISTBOX_EVEN, SFMLImage::LISTBOX_ODD, SFMLImage::LISTBOX_FOCUS, SFMLImage::SLIDER,
+	_list(new Engine::ListBox<>("list", SFMLImage::LISTBOX_EVEN, SFMLImage::LISTBOX_ODD, SFMLImage::LISTBOX_FOCUS, SFMLImage::SLIDER,
 	SFMLImage::SLIDER_CURSOR_NORMAL, SFMLImage::SLIDER_CURSOR_CLICKED, SFMLImage::SLIDER_CURSOR_HOVER, 15, SFMLText::TEXTBOX)),
 	_select(new Engine::Button("select", SFMLImage::BUTTON_SELECT, SFMLImage::BUTTON_CLICKED_SELECT, SFMLImage::BUTTON_HOVER_SELECT, State::ROOM)),
 	_refresh(new Engine::Button("refresh", SFMLImage::BUTTON_REFRESH, SFMLImage::BUTTON_CLICKED_REFRESH, SFMLImage::BUTTON_HOVER_REFRESH)),

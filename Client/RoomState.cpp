@@ -22,7 +22,7 @@ RoomState::RoomState()
 	_dataModule(0),
 	_background(new Engine::Background("background", SFMLImage::ROOM_BACKGROUND)),
 	_go(new Engine::Button("go", SFMLImage::BUTTON_GO, SFMLImage::BUTTON_CLICKED_GO, SFMLImage::BUTTON_HOVER_GO, State::GAME)),
-	_chatBox(new Engine::ListBox("chatBox", SFMLImage::LISTBOX_EVEN, SFMLImage::LISTBOX_ODD, SFMLImage::LISTBOX_FOCUS, SFMLImage::SLIDER,
+	_chatBox(new Engine::ListBox<>("chatBox", SFMLImage::LISTBOX_EVEN, SFMLImage::LISTBOX_ODD, SFMLImage::LISTBOX_FOCUS, SFMLImage::SLIDER,
 	SFMLImage::SLIDER_CURSOR_NORMAL, SFMLImage::SLIDER_CURSOR_CLICKED, SFMLImage::SLIDER_CURSOR_HOVER, 8, SFMLText::TEXTBOX)),
 	_msg(new Engine::TextBox("msg", SFMLImage::TEXTBOX, SFMLImage::TEXTBOX_SELECTED, SFMLImage::TEXTBOX_HOVER, SFMLText::TEXTBOX, 64, "message")),
 	_send(new Engine::Button("send", SFMLImage::BUTTON_SEND, SFMLImage::BUTTON_CLICKED_SEND, SFMLImage::BUTTON_HOVER_SEND)),
