@@ -69,6 +69,13 @@ MessageFactory::MessageFactory()
 
   msg.clearAttrs();
 
+  msg.setID(Message::ROOM_TALK);
+  msg.setAttr("from", Ultra::Value(std::string("")));
+  msg.setAttr("msg", Ultra::Value(std::string("")));
+  this->learn(Message::ROOM_TALK, msg);
+
+  msg.clearAttrs();
+
   msg.setID(Message::GAME_PING);
   msg.setAttr("id", Ultra::Value((int)0));
   msg.setAttr("time", Ultra::Value((unsigned long int)0));

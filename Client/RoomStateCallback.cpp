@@ -24,6 +24,7 @@ namespace Callback
 				{
 					RoomState *state = dynamic_cast<RoomState *>(widget->getParent());
 					state->quitRoom();
+					button->setStatus(Engine::Button::NORMAL);
 					Engine::AStateModule* stateModule = dynamic_cast<Engine::AStateModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::STATE));
 					Ultra::ScopeLock lock(Engine::Core::getInstance()->access(Engine::AModule::STATE));
 					stateModule->pop();

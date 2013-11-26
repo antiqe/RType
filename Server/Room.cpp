@@ -19,6 +19,7 @@ Room::Room(unsigned short const id, std::string const &name, std::string const &
 {
   this->_mfuncTCP[Message::ROOM_JOIN] = &Room::onJoin;
   this->_mfuncTCP[Message::ROOM_LIST] = &Room::onInfo;
+  this->_mfuncTCP[Message::ROOM_TALK] = &Room::onPlayerTalk;
   this->_mfuncTCP[Message::ROOM_PLAYER_INFO] = &Room::onPlayerInfo;
   this->_mfuncUDP[Message::GAME_PING] = &Room::onPing;
   this->_mfuncUDP[Message::ROOM_PLAYER_INFO] = &Room::onPlayerInfoInGame;
@@ -153,6 +154,18 @@ void Room::onPlayerInfo(int const to, Message *msg)
 	  Core::srv_manager->notifyService(ServiceManager::DISPATCH, imsg);
 	}
     }
+}
+
+void Room::onPlayerTalk(int const to, Message *msg)
+{
+	Ultra::ScopeLock sl(this->_mutex);
+
+	InternalMessage *imsg = new InternalMessage(new TCPPacket(msg, 0), 0);
+	
+	for (Room::ListPlayer::iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
+	    imsg->addReceiver(it->second->getID());
+
+	Core::srv_manager->notifyService(ServiceManager::DISPATCH, imsg);
 }
 
 void Room::onPing(InternalMessage *imsg)

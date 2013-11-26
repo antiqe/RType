@@ -23,6 +23,7 @@ RoomService::RoomService()
   _mfuncTCP[Message::ROOM_CREATE] = &RoomService::onRoomCreate;
   _mfuncTCP[Message::ROOM_JOIN] = &RoomService::onRoomJoin;
   _mfuncTCP[Message::ROOM_LIST] = &RoomService::onRoomList;
+  _mfuncTCP[Message::ROOM_TALK] = &RoomService::onRoomTalk;
   _mfuncTCP[Message::ROOM_PLAYER_INFO] = &RoomService::onRoomPlayerInfo;
 }
 
@@ -105,6 +106,18 @@ void RoomService::onRoomList(int const to, Message *msg)
 {
   InternalMessage *imsg = new InternalMessage(new TCPPacket(msg, 0), to);
   Core::room_manager->notifyAll(imsg);
+}
+
+void RoomService::onRoomTalk(int const to, Message *msg)
+{
+	Account *acc = Core::acc_manager->getAccount(to);
+	
+	if (acc)
+	{
+		Room *room = acc->getRoom();
+		if (room)
+			room->notify(new InternalMessage(new TCPPacket(msg), to));
+	}
 }
 
 void RoomService::onRoomPlayerInfo(int const to, Message *msg)

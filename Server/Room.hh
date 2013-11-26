@@ -67,6 +67,8 @@ private:
   void onPlayerInfo(int const to, Message *msg);
   void onPing(InternalMessage *imsg);
   void onPlayerInfoInGame(InternalMessage *imsg);
+  void onPlayerTalk(int const to, Message *msg);
+
 };
 
 #endif
