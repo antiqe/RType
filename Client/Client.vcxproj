@@ -77,6 +77,7 @@
     <ClCompile Include="LifeConstantComponent.cpp" />
     <ClCompile Include="Move2DComponent.cpp" />
     <ClCompile Include="Position2DComponent.cpp" />
+    <ClCompile Include="RoomStateCallback.cpp" />
     <ClCompile Include="SFMLAnimation.cpp" />
     <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="ConnectionCallback.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="LifeConstantComponent.hpp" />
     <ClInclude Include="Move2DComponent.hpp" />
     <ClInclude Include="Position2DComponent.hpp" />
+    <ClInclude Include="RoomStateCallback.hpp" />
     <ClInclude Include="SFMLAnimation.hpp" />
     <ClInclude Include="Configuration.hpp" />
     <ClInclude Include="ConnectionCallback.hpp" />

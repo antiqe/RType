@@ -236,3 +236,10 @@ bool Room::isReachable() const
 
   return (this->_lplayer.size() < this->_max ? true : false);
 }
+
+unsigned char Room::getCurrentPlayer() const
+{
+	Ultra::ScopeLock sl(this->_mutex);  
+
+	return (this->_lplayer.size());
+}
