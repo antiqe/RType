@@ -120,7 +120,7 @@ bool	SFMLAnimation::isRepeat() const
 
 bool	SFMLAnimation::isStopped() const
 {
-	for (ContextConstIterator it = this->_context.cbegin(); it != this->_context.cend(); ++it)
+	for (ContextConstIterator it = this->_context.begin(); it != this->_context.end(); ++it)
 		if ((*it)->timer->isRunning())
 			return (false);
 	return (true);
