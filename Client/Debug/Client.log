@@ -1,18 +1,18 @@
-﻿Build started 26/11/2013 17:01:06.
-     1>Project "C:\Users\leprov_a\workspace\tmp\rtype\Client\Client.vcxproj" on node 2 (Build target(s)).
+﻿La génération a démarré 26/11/2013 18:07:21.
+     1>Projet "C:\Users\GUIHO\Documents\GitHub\RType\Client\Client.vcxproj" sur le nœud 2 (Build cible(s)).
      1>InitializeBuildStatus:
-         Creating "Debug\Client.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Création de "Debug\Client.unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
        ClCompile:
-         All outputs are up-to-date.
-         All outputs are up-to-date.
+         Toutes les sorties sont à jour.
+         Toutes les sorties sont à jour.
        Link:
-         All outputs are up-to-date.
-         Client.vcxproj -> C:\Users\leprov_a\workspace\tmp\rtype\Debug\Client.exe
+         Toutes les sorties sont à jour.
+         Client.vcxproj -> C:\Users\GUIHO\Documents\GitHub\RType\Debug\Client.exe
        FinalizeBuildStatus:
-         Deleting file "Debug\Client.unsuccessfulbuild".
-         Touching "Debug\Client.lastbuildstate".
-     1>Done Building Project "C:\Users\leprov_a\workspace\tmp\rtype\Client\Client.vcxproj" (Build target(s)).
+         Suppression du fichier "Debug\Client.unsuccessfulbuild".
+         Mise à jour de l'horodatage "Debug\Client.lastbuildstate".
+     1>Génération du projet "C:\Users\GUIHO\Documents\GitHub\RType\Client\Client.vcxproj" terminée (Build cible(s)).
 
-Build succeeded.
+La génération a réussi.
 
-Time Elapsed 00:00:00.24
+Temps écoulé 00:00:00.36

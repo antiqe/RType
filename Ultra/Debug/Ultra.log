@@ -1,47 +1,17 @@
-﻿Build started 26/11/2013 15:25:34.
-     1>Project "C:\Users\leprov_a\workspace\tmp\rtype\Ultra\Ultra.vcxproj" on node 2 (Rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "Debug\Ultra.lastbuildstate".
-       InitializeBuildStatus:
-         Creating "Debug\Ultra.unsuccessfulbuild" because "AlwaysCreate" was specified.
+﻿La génération a démarré 26/11/2013 18:05:02.
+     1>Projet "C:\Users\GUIHO\Documents\GitHub\RType\Ultra\Ultra.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>InitializeBuildStatus:
+         Création de "Debug\Ultra.unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _DEBUG /D _MBCS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt AFramer.cpp Attr.cpp Color.cpp DecoratorThread.cpp Exception.cpp INIReader.cpp INISection.cpp ScopeLock.cpp Sleep.cpp Value.cpp WFramer.cpp WMutex.cpp WThread.cpp WTimer.cpp
-         WTimer.cpp
-         WThread.cpp
-         WMutex.cpp
-         WFramer.cpp
-         Value.cpp
-         Sleep.cpp
-         ScopeLock.cpp
-         INISection.cpp
-         INIReader.cpp
-         Exception.cpp
-         DecoratorThread.cpp
-         Color.cpp
-         Attr.cpp
-         AFramer.cpp
-         Generating Code...
+         Toutes les sorties sont à jour.
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\leprov_a\workspace\tmp\rtype\Debug\Ultra.lib" /NOLOGO Debug\AFramer.obj
-         Debug\Attr.obj
-         Debug\Color.obj
-         Debug\DecoratorThread.obj
-         Debug\Exception.obj
-         Debug\INIReader.obj
-         Debug\INISection.obj
-         Debug\ScopeLock.obj
-         Debug\Sleep.obj
-         Debug\Value.obj
-         Debug\WFramer.obj
-         Debug\WMutex.obj
-         Debug\WThread.obj
-         Debug\WTimer.obj
-         Ultra.vcxproj -> C:\Users\leprov_a\workspace\tmp\rtype\Debug\Ultra.lib
+         Toutes les sorties sont à jour.
+         Ultra.vcxproj -> C:\Users\GUIHO\Documents\GitHub\RType\Debug\Ultra.lib
        FinalizeBuildStatus:
-         Deleting file "Debug\Ultra.unsuccessfulbuild".
-         Touching "Debug\Ultra.lastbuildstate".
-     1>Done Building Project "C:\Users\leprov_a\workspace\tmp\rtype\Ultra\Ultra.vcxproj" (Rebuild target(s)).
+         Suppression du fichier "Debug\Ultra.unsuccessfulbuild".
+         Mise à jour de l'horodatage "Debug\Ultra.lastbuildstate".
+     1>Génération du projet "C:\Users\GUIHO\Documents\GitHub\RType\Ultra\Ultra.vcxproj" terminée (Build cible(s)).
 
-Build succeeded.
+La génération a réussi.
 
-Time Elapsed 00:00:08.06
+Temps écoulé 00:00:00.14

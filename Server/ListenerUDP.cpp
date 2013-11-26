@@ -8,7 +8,7 @@
 #include "Client.hpp"
 #include "Server.hpp"
 #include "Value.hpp"
-#include "IPacket.hh"
+#include "IPacket.hpp"
 #include "UDPPacket.hh"
 
 ListenerUDP::ListenerUDP(unsigned short port)

@@ -1,7 +1,7 @@
 #ifndef __TCPPACKET_HH__
 #define __TCPPACKET_HH__
 
-#include "APacket.hh"
+#include "APacket.hpp"
 
 class TCPPacket : public APacket
 {

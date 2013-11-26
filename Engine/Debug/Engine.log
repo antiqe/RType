@@ -1,71 +1,17 @@
-﻿Build started 26/11/2013 16:43:34.
-     1>Project "C:\Users\leprov_a\workspace\tmp\rtype\Engine\Engine.vcxproj" on node 2 (Build target(s)).
+﻿La génération a démarré 26/11/2013 18:07:20.
+     1>Projet "C:\Users\GUIHO\Documents\GitHub\RType\Engine\Engine.vcxproj" sur le nœud 2 (Build cible(s)).
      1>InitializeBuildStatus:
-         Touching "Debug\Engine.unsuccessfulbuild".
+         Création de "Debug\Engine.unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\Users\leprov_a\workspace\tmp\rtype\Ultra /IC:\Users\leprov_a\workspace\tmp\rtype\Network /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ListBox.cpp
-         ListBox.cpp
+         Toutes les sorties sont à jour.
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\leprov_a\workspace\tmp\rtype\Debug\Engine.lib" /NOLOGO Debug\AArmorComponent.obj
-         Debug\ACollidorComponent.obj
-         Debug\AComponent.obj
-         Debug\ADataModule.obj
-         Debug\AEventDispatcher.obj
-         Debug\AEventModule.obj
-         Debug\AGauge.obj
-         Debug\AInvincibilityComponent.obj
-         Debug\ALifeComponent.obj
-         Debug\AModule.obj
-         Debug\AMoveComponent.obj
-         Debug\ANetworkModule.obj
-         Debug\AParallax.obj
-         Debug\ARenderComponent.obj
-         Debug\ARenderModule.obj
-         Debug\AShieldComponent.obj
-         Debug\AShootComponent.obj
-         Debug\ASlider.obj
-         Debug\ASoundModule.obj
-         Debug\ASourceModule.obj
-         Debug\ASpeedComponent.obj
-         Debug\AState.obj
-         Debug\AStateModule.obj
-         Debug\Background.obj
-         Debug\Button.obj
-         Debug\ButtonCallback.obj
-         Debug\Callback.obj
-         Debug\CheckBox.obj
-         Debug\CheckBoxCallBack.obj
-         Debug\Core.obj
-         Debug\Event.obj
-         Debug\EventListener.obj
-         Debug\GameObject.obj
-         Debug\Governor.obj
-         Debug\HGauge.obj
-         Debug\HParallax.obj
-         Debug\HSlider.obj
-         Debug\HSliderCallback.obj
-         Debug\KeyboardEvent.obj
-         Debug\Label.obj
-         Debug\ListBox.obj
-         Debug\ListBoxCallback.obj
-         Debug\MouseEvent.obj
-         Debug\NetworkEvent.obj
-         Debug\SliderCursor.obj
-         Debug\SliderCursorCallback.obj
-         Debug\TextBox.obj
-         Debug\TextBoxCallback.obj
-         Debug\VGauge.obj
-         Debug\VParallax.obj
-         Debug\VSlider.obj
-         Debug\VSliderCallback.obj
-         Debug\Widget.obj
-         Debug\WindowEvent.obj
-         Engine.vcxproj -> C:\Users\leprov_a\workspace\tmp\rtype\Debug\Engine.lib
+         Toutes les sorties sont à jour.
+         Engine.vcxproj -> C:\Users\GUIHO\Documents\GitHub\RType\Debug\Engine.lib
        FinalizeBuildStatus:
-         Deleting file "Debug\Engine.unsuccessfulbuild".
-         Touching "Debug\Engine.lastbuildstate".
-     1>Done Building Project "C:\Users\leprov_a\workspace\tmp\rtype\Engine\Engine.vcxproj" (Build target(s)).
+         Suppression du fichier "Debug\Engine.unsuccessfulbuild".
+         Mise à jour de l'horodatage "Debug\Engine.lastbuildstate".
+     1>Génération du projet "C:\Users\GUIHO\Documents\GitHub\RType\Engine\Engine.vcxproj" terminée (Build cible(s)).
 
-Build succeeded.
+La génération a réussi.
 
-Time Elapsed 00:00:01.76
+Temps écoulé 00:00:00.11

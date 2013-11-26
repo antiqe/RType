@@ -2,7 +2,7 @@
 
 #include "Core.hh"
 #include "IThread.hpp"
-#include "IPacket.hh"
+#include "IPacket.hpp"
 #include "TCPPacket.hh"
 #include "Value.hpp"
 #include "ListenerTCP.hpp"

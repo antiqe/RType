@@ -1,7 +1,7 @@
 #ifndef __UDPPACKET_HH__
 #define __UDPPACKET_HH__
 
-#include "APacket.hh"
+#include "APacket.hpp"
 
 class UDPPacket : public APacket
 {
