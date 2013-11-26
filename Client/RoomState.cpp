@@ -5,9 +5,13 @@
 #include "WindowEvent.hpp"
 #include "Core.hpp"
 #include "ButtonCallback.hpp"
+#include "NetworkModule.hpp"
+#include "RoomStateCallback.hpp"
+#include "StatePlayer.hpp"
 #include "Callback.hpp"
 #include "Message.hpp"
 #include "SFMLText.hpp"
+#include "TCPPacket.hpp"
 
 //
 // CTOR / DTOR
@@ -67,11 +71,12 @@ void	RoomState::initialize()
 		this->_back->setSize(width * 9 / 100, height * 3 / 100);
 		this->_back->setPosition(width * 1.5 / 100, height * 96.5 / 100);
 		this->_back->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
-		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::back);
+		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::backOnClick);
 		// Settings button
 		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
 		this->_settings->setPosition(width * 90 / 100, height * 4.5 / 100);
 	}
+	this->_networkModule = dynamic_cast<NetworkModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::NETWORK));
 }
 
 void	RoomState::update()
@@ -93,4 +98,16 @@ void	RoomState::reset()
 
 void	RoomState::reload()
 {
+}
+
+void	RoomState::quitRoom()
+{
+	Message *msg = new Message(Message::ROOM_PLAYER_INFO);
+
+	msg->setAttr("id_player", Ultra::Value((char)this->_networkModule->getSock()));
+	msg->setAttr("name", Ultra::Value(std::string("")));
+	msg->setAttr("id_ship", Ultra::Value((char)0));
+	msg->setAttr("state", Ultra::Value((char)Network::LEFT));
+
+	this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
 }

@@ -130,6 +130,8 @@ void	PlayCreateState::unload()
 
 void	PlayCreateState::reset()
 {
+	this->_name->setText("");
+	this->_password->setText("");
 }
 
 void	PlayCreateState::reload()

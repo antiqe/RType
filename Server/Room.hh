@@ -57,6 +57,7 @@ public:
   static void *run(void *room);
   void notify(InternalMessage *msg);
   bool isReachable() const;
+  unsigned char getCurrentPlayer() const;
 
 private:
 

@@ -17,8 +17,6 @@ namespace Network
       REFUSED = 2,
       BAN = 3
     };
-
-
 }
 
 #endif

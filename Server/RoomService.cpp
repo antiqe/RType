@@ -1,6 +1,7 @@
 #include <sstream>
 
 #include "Core.hh"
+#include "Room.hh"
 #include "IThread.hpp"
 #include "RoomService.hh"
 #include "ChannelConsole.hh"
@@ -108,8 +109,27 @@ void RoomService::onRoomList(int const to, Message *msg)
 
 void RoomService::onRoomPlayerInfo(int const to, Message *msg)
 {
-  InternalMessage *imsg = new InternalMessage(new TCPPacket(msg, 0), to);
-  Core::room_manager->notifyAll(imsg);
+	Account *acc = Core::acc_manager->getAccount(to);
+	
+	if (acc)
+	{
+		Room *room = acc->getRoom();
+		if (room)
+		{
+			char state = msg->getAttr<char>("state");
+			if (state == Player::LEFT && room->getCurrentPlayer() == 1)
+			{
+				std::stringstream ss;
+				ss << room->getID();
+				Core::room_manager->deleteRoom(room->getID());
+				Logging::Message lm("Room deleted [id = " + ss.str() + ']', "RoomService", Logging::Message::DEBUG);
+				this->_log << lm;
+			}
+			else
+				room->notify(new InternalMessage(new TCPPacket(msg), to));
+
+		}
+	}
 }
 
 void RoomService::onRoomJoin(int const to, Message *msg)

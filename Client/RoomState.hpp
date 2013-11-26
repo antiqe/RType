@@ -7,6 +7,7 @@
 # include "TextBox.hpp"
 # include "Background.hpp"
 # include "SFMLAnimation.hpp"
+# include "NetworkModule.hpp"
 # include "AGauge.hpp"
 # include "ListBox.hpp"
 # include "CheckBox.hpp"
@@ -34,6 +35,7 @@ private:
 	SFMLImage*				_iconStats[STAT_SIZE];
 	Engine::AGauge*			_stats[STAT_SIZE];
 	//Engine::Selector*		_characterSelector[4];
+	NetworkModule*			_networkModule;
 
 public:
 	RoomState();
@@ -44,6 +46,8 @@ public:
 	void	unload();
 	void	reset();
 	void	reload();
+
+	void	quitRoom();
 };
 
 #endif

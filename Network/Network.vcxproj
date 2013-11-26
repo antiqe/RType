@@ -34,6 +34,7 @@
     <ClInclude Include="SafeQueue.hpp" />
     <ClInclude Include="Server.hpp" />
     <ClInclude Include="StateAuth.hpp" />
+    <ClInclude Include="StatePlayer.hpp" />
     <ClInclude Include="WSocket.hpp" />
   </ItemGroup>
   <ItemGroup>
