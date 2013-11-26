@@ -120,27 +120,27 @@ void RoomService::onRoomJoin(int const to, Message *msg)
     {
       unsigned short id = msg->getAttr<unsigned short>("id");
       Room *room = Core::room_manager->getRoom(id);
-      if (room)
-	{
-	  acc->setRoom(room);
-	  std::string password = msg->getAttr<std::string>("password");
-	  Message *rmsg = new Message(Message::ROOM_STATE);
-	  InternalMessage *imsg = new InternalMessage(new TCPPacket(rmsg, 0), to);
-	  imsg->addReceiver(to);
-	  rmsg->setAttr("id", Ultra::Value((unsigned short)id));
-	  if (room->getPassword() == password)
-	    {
-	      if (room->isReachable())
+	  if (room)
 		{
-		  rmsg->setAttr("state", Ultra::Value(Room::OK));
-		  room->notify(new InternalMessage(new TCPPacket(msg, 0), to));
+		  acc->setRoom(room);
+		  std::string password = msg->getAttr<std::string>("password");
+		  Message *rmsg = new Message(Message::ROOM_STATE);
+		  InternalMessage *imsg = new InternalMessage(new TCPPacket(rmsg, 0), to);
+		  imsg->addReceiver(to);
+		  rmsg->setAttr("id", Ultra::Value((unsigned short)id));
+		  if (room->getPassword() == password)
+			{
+				if (room->isReachable())
+				{
+				  rmsg->setAttr("state", Ultra::Value(Room::OK));
+				  room->notify(new InternalMessage(new TCPPacket(msg, 0), to));
+				}
+			  else
+				rmsg->setAttr("state", Ultra::Value(Room::LIMIT));
+			}
+		  else
+			rmsg->setAttr("state", Ultra::Value((char)Room::KO));
+		  Core::srv_manager->notifyService(ServiceManager::DISPATCH, imsg);
 		}
-	      else
-		rmsg->setAttr("state", Ultra::Value(Room::LIMIT));
-	    }
-	  else
-	    rmsg->setAttr("state", Ultra::Value((char)Room::KO));
-	  Core::srv_manager->notifyService(ServiceManager::DISPATCH, imsg);
-	}
-    }  
+    }
 }

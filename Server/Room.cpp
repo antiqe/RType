@@ -206,7 +206,7 @@ void Room::onJoin(int const to, Message *)
 
       this->_mutex->lock();
       for (Room::ListPlayer::iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
-	imsg->addReceiver(it->second->getID());
+		imsg->addReceiver(it->second->getID());
       this->_mutex->unlock();
 
       Core::srv_manager->notifyService(ServiceManager::DISPATCH, imsg);
@@ -216,16 +216,16 @@ void Room::onJoin(int const to, Message *)
       iamsg->addReceiver(to);
       this->_mutex->lock();
       for (Room::ListPlayer::iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
-	{
-	  if (it->second->getID() != to)
-	    {
-	      amsg->setAttr("id_player", Ultra::Value((char)(std::distance(this->_lplayer.begin(), it) + 1)));
-	      amsg->setAttr("name", Ultra::Value(it->second->getAccount()->getLogin()));
-	      amsg->setAttr("id_ship", Ultra::Value(it->second->getShip()));
-	      amsg->setAttr("state", Ultra::Value(it->second->getState()));
-	      Core::srv_manager->notifyService(ServiceManager::DISPATCH, iamsg);
-	    }
-	}
+		{
+			if (it->second->getID() != to)
+				{
+				  amsg->setAttr("id_player", Ultra::Value((char)(std::distance(this->_lplayer.begin(), it) + 1)));
+				  amsg->setAttr("name", Ultra::Value(it->second->getAccount()->getLogin()));
+				  amsg->setAttr("id_ship", Ultra::Value(it->second->getShip()));
+				  amsg->setAttr("state", Ultra::Value(it->second->getState()));
+				  Core::srv_manager->notifyService(ServiceManager::DISPATCH, iamsg);
+				}
+		}
       this->_mutex->unlock();
     }
 }

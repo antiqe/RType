@@ -143,5 +143,6 @@ void	PlayJoinState::selectServer()
 	Message *msg = new Message(Message::ROOM_JOIN);
 
 	msg->setAttr("id", Ultra::Value((unsigned short)1));
+	msg->setAttr("password", Ultra::Value(std::string("")));
 	this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
 }
