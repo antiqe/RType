@@ -148,6 +148,7 @@ void Room::onPlayerInfo(int const to, Message *msg)
 			  readymsg->addReceiver(this->_lplayer.begin()->second->getID());
 			  Core::srv_manager->notifyService(ServiceManager::DISPATCH, readymsg);
 		  }
+		  this->_mutex->unlock();
 	  }
 	  Core::srv_manager->notifyService(ServiceManager::DISPATCH, imsg);
 	}
