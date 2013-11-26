@@ -1,5 +1,5 @@
 #include "FactoryModule.hpp"
-#include "Player.hpp"
+#include "Player.hh"
 
 FactoryModule::FactoryModule()
 {
