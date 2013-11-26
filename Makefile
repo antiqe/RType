@@ -56,29 +56,15 @@ SRC_NETWORK	=	$(NET_DIR)Aggregator.cpp \
 			$(NET_DIR)LSocket.cpp \
 			$(NET_DIR)InternalMessage.cpp
 
-SRC_CLIENT	=	$(CLIENT_DIR)Animation.cpp \
-			$(CLIENT_DIR)AParallax.cpp \
-			$(CLIENT_DIR)ASlider.cpp \
-			$(CLIENT_DIR)Background.cpp \
-			$(CLIENT_DIR)ButtonCallback.cpp \
-			$(CLIENT_DIR)Button.cpp \
-			$(CLIENT_DIR)CheckBoxCallBack.cpp \
-			$(CLIENT_DIR)CheckBox.cpp \
-			$(CLIENT_DIR)Configuration.cpp \
+SRC_CLIENT	=	$(CLIENT_DIR)Configuration.cpp \
 			$(CLIENT_DIR)ConnectionState.cpp \
 			$(CLIENT_DIR)ConnectionCallback.cpp \
 			$(CLIENT_DIR)DataModule.cpp \
 			$(CLIENT_DIR)EventModule.cpp \
 			$(CLIENT_DIR)FactoryModule.cpp \
 			$(CLIENT_DIR)GameState.cpp \
-			$(CLIENT_DIR)GlobalCallback.cpp \
-			$(CLIENT_DIR)HParallax.cpp \
-			$(CLIENT_DIR)HSliderCallback.cpp \
-			$(CLIENT_DIR)HSlider.cpp \
-			$(CLIENT_DIR)Image.cpp \
+			$(CLIENT_DIR)GameObjectFactory.cpp \
 			$(CLIENT_DIR)ListenerTCP.cpp \
-			$(CLIENT_DIR)ListBoxCallback.cpp \
-			$(CLIENT_DIR)ListBox.cpp \
 			$(CLIENT_DIR)main.cpp \
 			$(CLIENT_DIR)MD5encode.cpp \
 			$(CLIENT_DIR)NetworkModule.cpp \
@@ -90,22 +76,32 @@ SRC_CLIENT	=	$(CLIENT_DIR)Animation.cpp \
 			$(CLIENT_DIR)RenderModule.cpp \
 			$(CLIENT_DIR)SFMLInput.cpp \
 			$(CLIENT_DIR)SFMLRender.cpp \
-			$(CLIENT_DIR)SliderCursorCallback.cpp \
-			$(CLIENT_DIR)SliderCursor.cpp \
 			$(CLIENT_DIR)SourceModule.cpp \
 			$(CLIENT_DIR)State.cpp \
 			$(CLIENT_DIR)StateModule.cpp \
 			$(CLIENT_DIR)TCPPacket.cpp \
-			$(CLIENT_DIR)TextBoxCallback.cpp \
-			$(CLIENT_DIR)TextBox.cpp \
-			$(CLIENT_DIR)Text.cpp \
-			$(CLIENT_DIR)UDPPacket.cpp \
-			$(CLIENT_DIR)VParallax.cpp \
-			$(CLIENT_DIR)VSliderCallback.cpp \
-			$(CLIENT_DIR)VSlider.cpp
+			$(CLIENT_DIR)SFMLText.cpp \
+			$(CLIENT_DIR)UDPPacket.cpp
 
 SRC_ENGINE	=	$(ENGINE_DIR)AComponent.cpp \
+			$(ENGINE_DIR)AParallax.cpp \
+			$(ENGINE_DIR)SliderCursorCallback.cpp \
+			$(ENGINE_DIR)SliderCursor.cpp \
+			$(ENGINE_DIR)Background.cpp \
 			$(ENGINE_DIR)ADataModule.cpp \
+			$(ENGINE_DIR)VSliderCallback.cpp \
+			$(ENGINE_DIR)VSlider.cpp \
+			$(ENGINE_DIR)ASlider.cpp \
+			$(ENGINE_DIR)HSliderCallback.cpp \
+			$(ENGINE_DIR)HSlider.cpp \
+			$(ENGINE_DIR)ButtonCallback.cpp \
+			$(ENGINE_DIR)Button.cpp \
+			$(ENGINE_DIR)CheckBoxCallBack.cpp \
+			$(ENGINE_DIR)CheckBox.cpp \
+			$(ENGINE_DIR)TextBoxCallback.cpp \
+			$(ENGINE_DIR)TextBox.cpp \
+			$(ENGINE_DIR)ListBoxCallback.cpp \
+			$(ENGINE_DIR)ListBox.cpp \
 			$(ENGINE_DIR)AEventDispatcher.cpp \
 			$(ENGINE_DIR)AEventModule.cpp \
 			$(ENGINE_DIR)AFactoryModule.cpp \
@@ -119,14 +115,15 @@ SRC_ENGINE	=	$(ENGINE_DIR)AComponent.cpp \
 			$(ENGINE_DIR)Callback.cpp \
 			$(ENGINE_DIR)Core.cpp \
 			$(ENGINE_DIR)Event.cpp \
+			$(ENGINE_DIR)HParallax.cpp \
 			$(ENGINE_DIR)EventListener.cpp \
 			$(ENGINE_DIR)GameObject.cpp \
-			$(ENGINE_DIR)GameObjectFactory.cpp \
 			$(ENGINE_DIR)Governor.cpp \
 			$(ENGINE_DIR)KeyboardEvent.cpp \
 			$(ENGINE_DIR)MouseEvent.cpp \
 			$(ENGINE_DIR)NetworkEvent.cpp \
 			$(ENGINE_DIR)Widget.cpp \
+			$(ENGINE_DIR)VParallax.cpp \
 			$(ENGINE_DIR)WindowEvent.cpp
 
 OBJ_SRV		=	$(SRC_SRV:.cpp=.o)
