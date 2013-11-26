@@ -232,7 +232,8 @@ namespace Engine
 		}
 		void	focus(int nbr)
 		{
-			this->_focus = nbr + this->_valueSaved;
+			if (nbr < this->_content.size())
+				this->_focus = nbr + this->_valueSaved;
 		}
 		void	unfocus()
 		{
