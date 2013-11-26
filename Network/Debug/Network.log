@@ -1,0 +1,27 @@
+﻿Build started 26/11/2013 16:36:37.
+     1>Project "C:\Users\leprov_a\workspace\tmp\rtype\Network\Network.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Network.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _DEBUG /D _MBCS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Aggregator.cpp
+         Aggregator.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\leprov_a\workspace\tmp\rtype\Debug\Network.lib" /NOLOGO Debug\Aggregator.obj
+         Debug\APacket.obj
+         Debug\ASocket.obj
+         Debug\BinaryStream.obj
+         Debug\Client.obj
+         Debug\InternalMessage.obj
+         Debug\Message.obj
+         Debug\MessageFactory.obj
+         Debug\Server.obj
+         Debug\WSocket.obj
+         Network.vcxproj -> C:\Users\leprov_a\workspace\tmp\rtype\Debug\Network.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\Network.unsuccessfulbuild".
+         Touching "Debug\Network.lastbuildstate".
+     1>Done Building Project "C:\Users\leprov_a\workspace\tmp\rtype\Network\Network.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.84

@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Object">
+      <UniqueIdentifier>{91ac9763-2789-4b37-831d-3883d1d28c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Module">
+      <UniqueIdentifier>{49f0b0f6-11af-403c-bc73-59b5cc226abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Module">
+      <UniqueIdentifier>{714bc5bb-c0d6-4abe-9d29-ced0fc5a05a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object">
+      <UniqueIdentifier>{6f4a5b61-f1c9-4458-a4d1-793f76a76a7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Callback">
+      <UniqueIdentifier>{2676a8f2-9c77-47d2-8d15-0d17d49a8562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Module\Event">
+      <UniqueIdentifier>{6fc75b50-614b-4af0-9089-805284d396b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Module\Event">
+      <UniqueIdentifier>{5030d88d-a137-4e9d-a369-0fd7c5080c22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Module\State">
+      <UniqueIdentifier>{0472a6ba-a807-44ed-91fc-4cc7ea5886e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Module\State">
+      <UniqueIdentifier>{303a13ec-e8d3-4a44-9c66-1a3563c63424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Module\Widget">
+      <UniqueIdentifier>{dc395844-b5ba-45c9-b8c4-89abf94571d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Module\Widget">
+      <UniqueIdentifier>{ff28bd43-9d61-492c-83b5-b6bb122581cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Module\Render">
+      <UniqueIdentifier>{0aa62b5b-8e69-4c6b-a876-288cedbda27e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Object\Component">
+      <UniqueIdentifier>{08d26ab7-3b7e-42aa-83c3-e793a389eb78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Object\Game Object">
+      <UniqueIdentifier>{8d3660b4-74e2-4c51-a606-62690a007415}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object\Component">
+      <UniqueIdentifier>{1ab0188f-4efc-40e7-a305-ef71db791d0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object\Game Object">
+      <UniqueIdentifier>{1f86a135-d3f7-4477-bc60-19aefb620dda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Callback">
+      <UniqueIdentifier>{eb4edc61-e554-4ae4-85c6-221b20868b6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphic">
+      <UniqueIdentifier>{82071324-1e5d-48aa-b125-8b64b2bbba32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphic">
+      <UniqueIdentifier>{771bfb61-ed43-4b4a-baac-c1528fba5040}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Governor.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="AModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="ASoundModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="AStateModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="ARenderModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="ADataModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.hpp">
+      <Filter>Header Files\Module\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardEvent.hpp">
+      <Filter>Header Files\Module\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseEvent.hpp">
+      <Filter>Header Files\Module\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowEvent.hpp">
+      <Filter>Header Files\Module\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="AEventDispatcher.hpp">
+      <Filter>Header Files\Module\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Callback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="EventListener.hpp">
+      <Filter>Header Files\Module\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="AEventModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="AState.hpp">
+      <Filter>Header Files\Module\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget.hpp">
+      <Filter>Header Files\Module\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="IRender.hpp">
+      <Filter>Header Files\Module\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="AComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="IObject.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="IVisualObject.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.hpp">
+      <Filter>Header Files\Object\Game Object</Filter>
+    </ClInclude>
+    <ClInclude Include="IInput.hpp">
+      <Filter>Header Files\Module\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="ASourceModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="ANetworkModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkEvent.hpp">
+      <Filter>Header Files\Module\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="ARenderComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ARotationComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ALifeComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ASizeComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AArmorComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AShieldComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ACollidorComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AInvincibilityComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="IImage.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="IText.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="AGauge.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="AParallax.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="ASlider.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckBox.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="HGauge.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="HParallax.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="HSlider.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Label.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="ListBox.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="SliderCursor.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBox.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="VGauge.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="VParallax.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="VSlider.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckBoxCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="HSliderCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="ListBoxCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="SliderCursorCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBoxCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="VSliderCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="AShootComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AMoveComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="APositionComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ASpeedComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AVectorComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Governor.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="AModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="ASoundModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="ADataModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="ARenderModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="AEventModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="AStateModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Source Files\Module\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardEvent.cpp">
+      <Filter>Source Files\Module\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseEvent.cpp">
+      <Filter>Source Files\Module\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowEvent.cpp">
+      <Filter>Source Files\Module\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="AEventDispatcher.cpp">
+      <Filter>Source Files\Module\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="EventListener.cpp">
+      <Filter>Source Files\Module\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="AState.cpp">
+      <Filter>Source Files\Module\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget.cpp">
+      <Filter>Source Files\Module\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Object\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Callback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="ANetworkModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkEvent.cpp">
+      <Filter>Source Files\Module\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="ASourceModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="ARenderComponent.cpp">
+      <Filter>Source Files\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="ALifeComponent.cpp">
+      <Filter>Source Files\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="AComponent.cpp">
+      <Filter>Source Files\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="AArmorComponent.cpp">
+      <Filter>Source Files\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="AShieldComponent.cpp">
+      <Filter>Source Files\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="ACollidorComponent.cpp">
+      <Filter>Source Files\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="AGauge.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="AParallax.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="ASlider.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckBox.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="HGauge.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="HParallax.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="HSlider.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Label.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="ListBox.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="SliderCursor.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBox.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="VGauge.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="VParallax.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="VSlider.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckBoxCallBack.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="HSliderCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="ListBoxCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="SliderCursorCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBoxCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="VSliderCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="AShootComponent.cpp">
+      <Filter>Source Files\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="AMoveComponent.cpp">
+      <Filter>Source Files\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="ASpeedComponent.cpp">
+      <Filter>Source Files\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="AInvincibilityComponent.cpp">
+      <Filter>Source Files\Object\Component</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

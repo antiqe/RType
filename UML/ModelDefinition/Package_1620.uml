@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="312d9995-c992-41f7-945e-c0b2697e1714"
+  name="Engine" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="da8d71e5-9b3b-49ca-b742-20e73ecfe8f5"
+        name="Button"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="c2ba7cf6-40bc-430a-b0a8-356938f6cb5b"
+            isSubstitutable="false">
+            <classMoniker
+              Id="9be62b1e-ad4c-4107-97d4-4fe000cfbbd6"
+              LastKnownName="Widget"
+              LastKnownLocation="Package_1620.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="79e1f02c-c82d-4a88-bb49-2c4f4f3bf195"
+            isDerived="false"
+            sourceEndRoleName="Button"
+            targetEndRoleName="Image"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7c8c5adf-845c-48cb-9f81-63121c4d71dd"
+              LastKnownName="Image"
+              LastKnownLocation="Package_1620.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ebf6875b-4f2f-4868-b65f-745542b03992"
+                  name="Button"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2fa9da34-8cb0-44f5-b111-03d6398a8693"
+                  name="Image"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="b57a01e8-800f-43dd-ad86-4bbea95bd47f"
+            name="_imgButtons"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d3ccbba5-c46c-4532-83b6-e3042cd439cf"
+                LastKnownName="UML::Engine::Image[]"
+                LastKnownLocation="Package_1819.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8ac664e0-5dfb-493b-ae3e-26f3e9749e3f"
+            name="_currentStatus"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="46f33296-2f52-43ac-a91d-896f9febdd08"
+                LastKnownName="Image::e_buttonImage"
+                LastKnownLocation="Package_1620.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8edfb411-dfee-4b73-a9e7-440b61354c1e"
+            name="_stateTarget"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b45ddb83-52c0-49c2-a3ea-3f5391fe2b4d"
+                LastKnownName="string"
+                LastKnownLocation="Package_1620.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="5cbe6905-1fe5-44e0-8644-5a4b150f40e1"
+            name="Button"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a0c880f3-dc63-4719-9452-2c0f73eed94e"
+                  name="string const &amp;file"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ab17d310-b9be-489d-8680-4fe51d4da3fd"
+                  name="Widget *parent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="20664f52-9c54-4114-80d4-e73fa5ef41f5"
+                  name="string target"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="0106ac8e-1745-4b90-8cbd-408af4820296"
+                      name="DefaultValue"
+                      value="&quot;&quot;" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7e422ec8-2d8c-4a00-9269-cb74204c52a3"
+            name="Button"
+            visibility="Package"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="37c421ab-145e-43f6-a476-3bb3b0667485"
+            name="virtual initialize"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="de72fb46-5e3a-4c2a-8bb3-74e6c5f32c1d"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0af68313-3a1a-498a-b63b-66d062b05ef4"
+            name="virtual update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0fb676a2-84d3-4a5f-bc78-c0f889c0e86b"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e59d40ab-c603-437a-b628-b17bb17a3cc0"
+            name="virtual unload"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4e864c1d-652b-467f-81d9-47b6ba26b518"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="122b1152-0a20-4489-959f-e9aa6543a1fd"
+            name="virtual draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8018d5f2-a664-40fc-863c-d5ea58f0771b"
+                  name="Ultra::IRender&lt;Event&gt; *render"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5cfdb6e7-fe9e-49f9-a4c0-9a166b899941"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a4330f74-a7b7-4882-8956-c52228d5a48d"
+            name="virtual onClick"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="136b02dd-9faa-4257-a302-ed56c13729db"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1511de42-b1db-4fe3-86e0-f98c49f89348"
+            name="virtual onMouseOver"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f7176498-bcec-48c5-a51f-8b6da49faf76"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="26391a0a-002d-4832-9c94-10d367ded543"
+            name="virtual onUnOver"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="77a3429a-efd7-4649-a724-0f0e42633273"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9be62b1e-ad4c-4107-97d4-4fe000cfbbd6"
+        name="Widget"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7c8c5adf-845c-48cb-9f81-63121c4d71dd"
+        name="Image"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="67d83653-401f-4a79-b437-79ad13db5abb"
+        name="Image::" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="2bba0a20-0000-4ce5-aa66-30105be090c2"
+        name="Image::e_ImageType" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b45ddb83-52c0-49c2-a3ea-3f5391fe2b4d"
+        name="string" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="03baa262-526c-403d-a213-2034a9a68bdc"
+        name="Image::e_buttonImageType" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="46f33296-2f52-43ac-a91d-896f9febdd08"
+        name="Image::e_buttonImage" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Listeners">
+      <UniqueIdentifier>{0a617b37-3d91-42b3-a029-4500591a2b9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers">
+      <UniqueIdentifier>{2629e60e-5df2-49aa-8f30-6aca460b88f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Configuration">
+      <UniqueIdentifier>{80248edd-b6fd-4e03-890e-19cba99c9807}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logging">
+      <UniqueIdentifier>{a14a2328-569c-400d-9418-76e440227c8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{c19da9fa-49d4-4f81-9bea-07cdf26d1035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Database">
+      <UniqueIdentifier>{6549417e-4d9b-4e8b-b8c9-b8b8d91a2f4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Listeners">
+      <UniqueIdentifier>{68b1cd63-234c-44de-a0dd-303aae082815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Managers">
+      <UniqueIdentifier>{b6f7cf9c-4233-4989-9638-3aeab2f6ce2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Configuration">
+      <UniqueIdentifier>{7273ef89-fb40-4d87-b9f2-d703451875ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Logging">
+      <UniqueIdentifier>{0271b6a5-70cb-4b28-81e8-07940b64a8dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{f9ee5a21-939e-478c-b22f-de040554ec36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Database">
+      <UniqueIdentifier>{527321a7-b87e-489d-8bb2-b55a8b0c3d62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Services">
+      <UniqueIdentifier>{08f53ba1-6b82-43e6-ae72-7ef93d24f65d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Packet">
+      <UniqueIdentifier>{484632bd-fdd1-4bc9-b2ec-0e63b3fd58b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Packet">
+      <UniqueIdentifier>{87b8ab6f-4678-438c-9999-fcff162f8a00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Services">
+      <UniqueIdentifier>{a1be02cd-2237-4f7b-bbb6-801b90088b5e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AccountManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ListenerTCP.cpp">
+      <Filter>Source Files\Listeners</Filter>
+    </ClCompile>
+    <ClCompile Include="ListenerUDP.cpp">
+      <Filter>Source Files\Listeners</Filter>
+    </ClCompile>
+    <ClCompile Include="LogMessage.cpp">
+      <Filter>Source Files\Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="Configuration.cpp">
+      <Filter>Source Files\Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="AuthService.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="DispatchService.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomService.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="ChannelConsole.cpp">
+      <Filter>Source Files\Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Account.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="MySQLResultDatabase.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="MySQLDatabase.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPPacket.cpp">
+      <Filter>Source Files\Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="UDPPacket.cpp">
+      <Filter>Source Files\Packet</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Core.hh">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Account.hh">
+      <Filter>Header Files\Core</Filter>
+    </None>
+    <None Include="AccountManager.hh">
+      <Filter>Header Files\Managers</Filter>
+    </None>
+    <None Include="AuthService.hh">
+      <Filter>Header Files\Services</Filter>
+    </None>
+    <None Include="ChannelConsole.hh">
+      <Filter>Header Files\Logging</Filter>
+    </None>
+    <None Include="DispatchService.hh">
+      <Filter>Header Files\Services</Filter>
+    </None>
+    <None Include="IChannel.hh">
+      <Filter>Header Files\Logging</Filter>
+    </None>
+    <None Include="IDatabase.hh">
+      <Filter>Header Files\Database</Filter>
+    </None>
+    <None Include="IManager.hh">
+      <Filter>Header Files\Managers</Filter>
+    </None>
+    <None Include="IResultDatabase.hh">
+      <Filter>Header Files\Database</Filter>
+    </None>
+    <None Include="IService.hh">
+      <Filter>Header Files\Services</Filter>
+    </None>
+    <None Include="MySQLDatabase.hh">
+      <Filter>Header Files\Database</Filter>
+    </None>
+    <None Include="MySQLResultDatabase.hh">
+      <Filter>Header Files\Database</Filter>
+    </None>
+    <None Include="Player.hh">
+      <Filter>Header Files\Core</Filter>
+    </None>
+    <None Include="Room.hh">
+      <Filter>Header Files\Core</Filter>
+    </None>
+    <None Include="RoomManager.hh">
+      <Filter>Header Files\Managers</Filter>
+    </None>
+    <None Include="ServiceManager.hh">
+      <Filter>Header Files\Managers</Filter>
+    </None>
+    <None Include="RoomService.hh">
+      <Filter>Header Files\Services</Filter>
+    </None>
+    <None Include="TCPPacket.hh">
+      <Filter>Header Files\Packet</Filter>
+    </None>
+    <None Include="UDPPacket.hh">
+      <Filter>Header Files\Packet</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Configuration.hpp">
+      <Filter>Header Files\Configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="IListener.hpp">
+      <Filter>Header Files\Listeners</Filter>
+    </ClInclude>
+    <ClInclude Include="ListenerTCP.hpp">
+      <Filter>Header Files\Listeners</Filter>
+    </ClInclude>
+    <ClInclude Include="ListenerUDP.hpp">
+      <Filter>Header Files\Listeners</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.hpp">
+      <Filter>Header Files\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="LogMessage.hpp">
+      <Filter>Header Files\Logging</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

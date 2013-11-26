@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="4fa1f64e-3336-4373-ada9-827ac9f518c1" name="Mutex" linkedPackageId="2a435f26-95c9-4f41-a392-e780b3d59d26" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="418d6e43-e397-4f77-a0d4-690c5f28bfa4">
+      <profileInstance Id="06fcc1a4-98e5-442b-8d10-3e70ff9419af" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="6e42935a-67e3-480f-bd79-74ef8a94d8a4">
+      <profileInstance Id="0c4b5cc5-d005-40b9-a0a0-e70334800f70" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="282f237a-3b6b-42f0-8bc1-5d09ec9592a1">
+      <profileInstance Id="461cca28-25b6-4570-8f5e-d62bcc00eb37" name="TextTemplateBindings">
+        <elementDefinition Id="5520fe91-70c2-4045-bd2f-31757d5be489" />
+      </profileInstance>
+      <elementDefinition Id="7646af80-6114-4431-9d1b-ec0ef904134c" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <referencedType Id="7c92a43f-1079-47b8-94de-a65355cb79ee" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="b9aeeaf1-6ee6-4a38-8e08-b8b0aa9363c3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e73688a7-df52-4cc9-8c12-70dc1e45d9bd" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="babf3ed6-d75c-44e3-8c26-da648cddf485" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="4af92c26-480f-4ed7-97e0-8f3ba54d86a4" name="CRITICAL_SECTION" isAbstract="false" isLeaf="false" cachedFullName="CRITICAL_SECTION">
+        <elementDefinition Id="3ee370c0-1ef6-40ff-b74f-76bdae6d03f5" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c05894a5-f00b-415b-b252-0ab8df1cea75" name="pthread_mutex_t" isAbstract="false" isLeaf="false" cachedFullName="pthread_mutex_t">
+        <elementDefinition Id="c18c042a-d9d1-4cdc-a723-e40d3b0213cd" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="163031e3-6758-4d86-9b18-877a23d34f43" name="IMutex*" isAbstract="false" isLeaf="false" cachedFullName="IMutex*">
+        <elementDefinition Id="aa0168cc-03de-4fdd-a46a-ab216e290817" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="cb2ef682-4599-46cc-826f-3b4b735e4087" name="Ultra">
+        <elementDefinition Id="b77d5266-60fa-4359-8b3d-b2ba125b34ed" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="360c7b28-d2ec-4aa9-aa32-6329393f2cc1" name="ScopeLock" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="6f4196a1-3d9b-4c10-b966-302b97e37a70" />
+              <targetEnds>
+                <association Id="5fa0f33e-7168-456e-840d-0072489325ac" isDerived="false" sourceEndRoleName="ScopeLock" targetEndRoleName="IMutex" isLeaf="false" isAbstract="false">
+                  <interfaceMoniker Id="d57f106f-38cf-4a6f-9959-7f468e97577a" LastKnownName="IMutex" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="ba5eebf0-4022-40f8-9ae4-fc5e0da8f4ae" name="ScopeLock" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="80b5b089-c526-4d72-b7b9-e5b9f632265d" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="31ddf012-86e3-441d-bf5a-175a6d12bcf6" name="IMutex" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                        <elementDefinition Id="c7eb5bc6-005f-4da1-8510-6777a003236b" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="27ee5f56-bc10-4c6e-bb88-386feb2806cb" />
+                </association>
+              </targetEnds>
+              <ownedAttributesInternal>
+                <property Id="ac774f47-d032-41bb-a887-0bc532ff5d93" name="_mutex" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e947f4f2-599d-4b60-9930-c861e4378493" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="163031e3-6758-4d86-9b18-877a23d34f43" LastKnownName="IMutex*" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="ec3f93f1-6969-41e6-90f5-832bf0b9b276" name="ScopeLock" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="07de66ad-a6bb-4d81-bc33-bd4b177ef899" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="071bbbfc-12bc-4aa5-8d77-d0c2bcfbadf6" name="mutex" direction="In" isUnique="false">
+                        <elementDefinition Id="5841bc6a-cb7d-4329-91d1-5deebc99d562" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="163031e3-6758-4d86-9b18-877a23d34f43" LastKnownName="IMutex*" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="438f53a4-7b08-4dc6-a025-6f80e6000f2e" name="LMutex" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="3b176852-90d2-4381-892a-9c6ddc8b3f9d" />
+              <suppliersInternal>
+                <interfaceRealization Id="0a5c529a-ffa4-4440-bb88-9c1e96f11644">
+                  <interfaceMoniker Id="d57f106f-38cf-4a6f-9959-7f468e97577a" LastKnownName="IMutex" />
+                  <elementDefinition Id="2a10d4da-28a7-4fb4-a40f-c0a7add49d03" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedAttributesInternal>
+                <property Id="830937cc-b9b8-4b49-9066-4b52b01662b7" name="_mutex" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d40b7628-65c3-4aa1-bb1c-98c393387c76" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c05894a5-f00b-415b-b252-0ab8df1cea75" LastKnownName="pthread_mutex_t" />
+                  </type_NamedElement>
+                </property>
+                <property Id="b29ea3f2-907a-4231-bdf5-f14df8b72e8e" name="_isLock" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d3cd81d4-d547-4a6e-8cc9-cfc686ac6bba" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7c92a43f-1079-47b8-94de-a65355cb79ee" LastKnownName="bool" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="80ea56a2-eeac-45ce-9b78-e9728edc6c25" name="trylock" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="331077da-51e1-4421-a061-a3f296bf881a" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="4e278f63-96d3-4030-b5b4-5c2aa31d01b3" direction="Return" isUnique="false">
+                        <elementDefinition Id="2c6cccb9-3bb5-4d95-9dc1-49855fbf0b0e" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="7c92a43f-1079-47b8-94de-a65355cb79ee" LastKnownName="bool" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="bae1041d-832c-47ee-a9dc-443360da4323" name="lock" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="dda9ebc9-2644-42d3-b728-75f673f5c23f" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="8c43bcbe-de5a-401d-b1f2-68d33cdded8d" direction="Return" isUnique="false">
+                        <elementDefinition Id="4630e3b6-4452-4beb-a3d8-73ff89e1cf59" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="e73688a7-df52-4cc9-8c12-70dc1e45d9bd" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="850dba4e-683f-4dfc-877b-52090c57a290" name="unlock" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="f3247d56-4908-4d8d-b483-97292f2b037b" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="7dc9a6db-1f37-47b2-98ce-52f36f288dfd" direction="Return" isUnique="false">
+                        <elementDefinition Id="dd30e9f8-62c7-4d56-8ba9-18110702178f" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="e73688a7-df52-4cc9-8c12-70dc1e45d9bd" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="6cc8061c-bbb9-461a-816f-5ef6ec59665c" name="WMutex" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="eefb1be4-a76c-40c2-96ca-2c912c361233" />
+              <suppliersInternal>
+                <interfaceRealization Id="15a3fa3c-1ba5-4fb2-954f-7deb609dda52">
+                  <interfaceMoniker Id="d57f106f-38cf-4a6f-9959-7f468e97577a" LastKnownName="IMutex" />
+                  <elementDefinition Id="0e75550a-cc7b-4752-9e9f-d475f7caa4b6" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedAttributesInternal>
+                <property Id="7033a95a-9f91-4949-9db3-beb7fb57179c" name="_cs" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="01c6f187-f15f-433f-b56f-4f7c83f7c697" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="4af92c26-480f-4ed7-97e0-8f3ba54d86a4" LastKnownName="CRITICAL_SECTION" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="ad70c7b9-7246-42ff-907b-b89806a394a9" name="trylock" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="20514b50-ba16-450d-939f-2f1f8f313e00" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="93f7169b-0c55-4081-a20e-c675dd0be218" direction="Return" isUnique="false">
+                        <elementDefinition Id="cbcc8cf1-7ee5-407a-abbb-12208a8b0d82" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="7c92a43f-1079-47b8-94de-a65355cb79ee" LastKnownName="bool" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="721c1401-67fa-468b-a520-5f34fc29a6ac" name="lock" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="db081602-f9b4-4ad4-96a4-b6d5af9737ed" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="06132ec4-1427-4762-9b19-983b272114a6" direction="Return" isUnique="false">
+                        <elementDefinition Id="a4c1cab0-3ef5-4ccb-8897-3202f66ec207" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="e73688a7-df52-4cc9-8c12-70dc1e45d9bd" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="9fefb038-207e-4d3a-b900-a9e13ae2ec8e" name="unlock" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="c2876319-64f1-45c5-a36f-5d6f7678d529" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="11c46aea-ae7e-4edb-9a33-c5b79b2f581a" direction="Return" isUnique="false">
+                        <elementDefinition Id="e97263d2-2d0f-4c9d-9b96-77bedbb994cb" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="e73688a7-df52-4cc9-8c12-70dc1e45d9bd" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="d57f106f-38cf-4a6f-9959-7f468e97577a" name="IMutex" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="55a2bcaf-fa3a-45f9-847d-ea2be9035800" />
+              <ownedOperations>
+                <operation Id="7f081c68-e4a4-4edf-bd09-da4d218ebc73" name="trylock" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="3eaa4885-618e-427f-8aa4-492db18b7c75" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="6c35399b-eae3-4731-93a7-6f8bb3e55935" direction="Return" isUnique="false">
+                        <elementDefinition Id="a4e5d285-dfc1-44dc-8891-1884cc6cdc2a" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="7c92a43f-1079-47b8-94de-a65355cb79ee" LastKnownName="bool" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="32bbd14d-2a90-4bde-b910-3768bb016e8f" name="lock" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="72ad0907-548a-46b5-974b-1ccca8b00302" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="e3126547-198f-4871-a1a5-59966bdddbb9" direction="Return" isUnique="false">
+                        <elementDefinition Id="e4c3d333-6bba-4a84-8f55-a3fd98cb660b" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="e73688a7-df52-4cc9-8c12-70dc1e45d9bd" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="72bc54d0-e6f8-4895-9fe2-c02b485cf3df" name="unlock" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="5c7ab75e-c0e3-4ece-af96-e50a208bb8f3" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="de9380b1-db4c-4d08-a9d7-ab01d16d3257" direction="Return" isUnique="false">
+                        <elementDefinition Id="bb2f999a-fade-4e4f-90b1-fc9800f3dfce" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="e73688a7-df52-4cc9-8c12-70dc1e45d9bd" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperations>
+            </Interface>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="2a435f26-95c9-4f41-a392-e780b3d59d26" name="UML">
+    <elementDefinition Id="804cbabf-a4bf-485e-b919-ec86806644a2" />
+  </package>
+</logicalClassDesignerModel>

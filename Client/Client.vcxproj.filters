@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Graphic">
+      <UniqueIdentifier>{52776602-2e69-49fc-a5c9-d27854342195}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphic">
+      <UniqueIdentifier>{5312827f-46a8-47c1-bb7e-f2ff4678afd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Module">
+      <UniqueIdentifier>{198c452c-355c-4f42-9b32-03bb79363f69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Module">
+      <UniqueIdentifier>{b1652cb2-e2a0-4a39-9db7-fe22fffad841}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Module\State">
+      <UniqueIdentifier>{bbc41252-5886-4113-84de-8b56a4a765aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Module\State">
+      <UniqueIdentifier>{3d63582f-807a-4d9b-974e-652a39c70937}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Module\Render">
+      <UniqueIdentifier>{b5d020d7-705f-4361-99ec-bd8430513671}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Module\Render">
+      <UniqueIdentifier>{fa3c33f4-e7ff-4491-8231-75d3eaebe7e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Callback">
+      <UniqueIdentifier>{5c84a63e-9a00-4763-806c-d72e708ad82a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Callback">
+      <UniqueIdentifier>{74d967c6-18c8-4582-b3c8-7489d137a81a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Module\Configuration">
+      <UniqueIdentifier>{fa4804a7-0f4a-4e00-955f-e7a4a17bd5ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Module\Configuration">
+      <UniqueIdentifier>{968a8d6f-6280-4456-ad4a-42ebdea2c437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Module\Network">
+      <UniqueIdentifier>{1f28ae8c-5320-431d-a654-db6ee4c56d89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Module\Network">
+      <UniqueIdentifier>{f7e83c04-b6f4-4159-b8f1-7ff1cd4654e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Object">
+      <UniqueIdentifier>{19f7d061-1ba6-4172-9bf4-8d970e6b66b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object">
+      <UniqueIdentifier>{c21f7dd7-86d7-44ba-b200-2c21cf12a6f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Module\State\Join">
+      <UniqueIdentifier>{07c80cca-7d57-4c87-824a-643119d6bf71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Module\State\Join">
+      <UniqueIdentifier>{a65724bc-63cb-44e6-801f-83464bbb9fb3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SFMLRender.cpp">
+      <Filter>Source Files\Module\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\Module\State</Filter>
+    </ClCompile>
+    <ClCompile Include="SFMLInput.cpp">
+      <Filter>Source Files\Module\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionState.cpp">
+      <Filter>Source Files\Module\State</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="EventModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="StateModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="Configuration.cpp">
+      <Filter>Source Files\Module\Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\Module\State</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryModule.cpp">
+      <Filter>Source Files\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPPacket.cpp">
+      <Filter>Source Files\Module\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="UDPPacket.cpp">
+      <Filter>Source Files\Module\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ListenerTCP.cpp">
+      <Filter>Source Files\Module\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="SFMLAnimation.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="SFMLImage.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="SFMLText.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Source Files\Module\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Move2DComponent.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Position2DComponent.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="SpeedConstantComponent.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2DComponent.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectFactory.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="LifeConstantComponent.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="ArmorConstantComponent.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayCreateState.cpp">
+      <Filter>Source Files\Module\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayJoinState.cpp">
+      <Filter>Source Files\Module\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayCreateCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayStateCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayJoinCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="MD5encode.cpp">
+      <Filter>Source Files\Module\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomState.cpp">
+      <Filter>Source Files\Module\State</Filter>
+    </ClCompile>
+    <ClCompile Include="FormatRoomInfo.cpp">
+      <Filter>Source Files\Module\State\Join</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="State.hpp">
+      <Filter>Header Files\Module\State</Filter>
+    </ClInclude>
+    <ClInclude Include="SFMLInput.hpp">
+      <Filter>Header Files\Module\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="SFMLRender.hpp">
+      <Filter>Header Files\Module\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionState.hpp">
+      <Filter>Header Files\Module\State</Filter>
+    </ClInclude>
+    <ClInclude Include="DataModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="EventModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="StateModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkModule.hpp">
+      <Filter>Header Files\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="Configuration.hpp">
+      <Filter>Header Files\Module\Configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.hpp">
+      <Filter>Header Files\Module\State</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="TCPPacket.hpp">
+      <Filter>Header Files\Module\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.hpp">
+      <Filter>Header Files\Module\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Move2DComponent.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Position2DComponent.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="SpeedConstantComponent.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2DComponent.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectFactory.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="LifeConstantComponent.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayCreateState.hpp">
+      <Filter>Header Files\Module\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayJoinState.hpp">
+      <Filter>Header Files\Module\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayCreateCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayStateCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayJoinCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="MD5encode.hpp">
+      <Filter>Header Files\Module\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomState.hpp">
+      <Filter>Header Files\Module\State</Filter>
+    </ClInclude>
+    <ClInclude Include="FormatRoomInfo.hpp">
+      <Filter>Header Files\Module\State\Join</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="VSliderCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="ArmorConstantComponent.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UDPPacket.hpp">
+      <Filter>Header Files\Module\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ListenerTCP.hpp">
+      <Filter>Header Files\Module\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFMLAnimation.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="SFMLImage.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="SFMLText.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

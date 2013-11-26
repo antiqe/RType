@@ -1,0 +1,159 @@
+#include "Image.hpp"
+#include "Core.hpp"
+
+std::string const	Image::TEXTBOX = "textbox";
+std::string const	Image::TEXTBOX_HOVER = "textbox_hover";
+std::string const	Image::TEXTBOX_SELECTED = "textbox_selected";
+
+std::string const	Image::BUTTON_BACK = "button_back";
+std::string const	Image::BUTTON_HOVER_BACK = "button_hover_back";
+std::string const	Image::BUTTON_CLICKED_BACK = "button_clicked_back";
+std::string const	Image::BUTTON_QUIT = "button_quit";
+std::string const	Image::BUTTON_HOVER_QUIT = "button_hover_quit";
+std::string const	Image::BUTTON_CLICKED_QUIT = "button_clicked_quit";
+std::string const	Image::BUTTON_LOGIN = "button_login";
+std::string const	Image::BUTTON_HOVER_LOGIN = "button_hover_login";
+std::string const	Image::BUTTON_CLICKED_LOGIN = "button_clicked_login";
+std::string const	Image::BUTTON_SETTINGS = "button_settings";
+std::string const	Image::BUTTON_HOVER_SETTINGS = "button_hover_settings";
+std::string const	Image::BUTTON_CLICKED_SETTINGS = "button_clicked_settings";
+std::string const	Image::BUTTON_CREATE = "button_create";
+std::string const	Image::BUTTON_HOVER_CREATE = "button_hover_create";
+std::string const	Image::BUTTON_CLICKED_CREATE = "button_clicked_create";
+std::string const	Image::BUTTON_JOIN = "button_join";
+std::string const	Image::BUTTON_HOVER_JOIN = "button_hover_join";
+std::string const	Image::BUTTON_CLICKED_JOIN = "button_clicked_join";
+std::string const	Image::BUTTON_OK = "button_ok";
+std::string const	Image::BUTTON_HOVER_OK = "button_hover_ok";
+std::string const	Image::BUTTON_CLICKED_OK = "button_clicked_ok";
+std::string const	Image::BUTTON_SELECT = "button_select";
+std::string const	Image::BUTTON_HOVER_SELECT = "button_hover_select";
+std::string const	Image::BUTTON_CLICKED_SELECT = "button_clicked_select";
+std::string const	Image::BUTTON_REFRESH = "button_refresh";
+std::string const	Image::BUTTON_HOVER_REFRESH = "button_hover_refresh";
+std::string const	Image::BUTTON_CLICKED_REFRESH = "button_clicked_refresh";
+
+std::string const	Image::CHECKBOX_CHECKED_NORMAL_PRIVATE = "checkbox_checked_normal_private";
+std::string const	Image::CHECKBOX_CHECKED_CLICKED_PRIVATE = "checkbox_checked_clicked_private";
+std::string const	Image::CHECKBOX_CHECKED_HOVER_PRIVATE = "checkbox_checked_hover_private";
+std::string const	Image::CHECKBOX_UNCHECKED_NORMAL_PRIVATE = "checkbox_unchecked_normal_private";
+std::string const	Image::CHECKBOX_UNCHECKED_CLICKED_PRIVATE = "checkbox_unchecked_clicked_private";
+std::string const	Image::CHECKBOX_UNCHECKED_HOVER_PRIVATE = "checkbox_unchecked_hover_private";
+std::string const	Image::CHECKBOX_CHECKED_NORMAL_READY = "checkbox_checked_normal_ready";
+std::string const	Image::CHECKBOX_CHECKED_CLICKED_READY = "checkbox_checked_clicked_ready";
+std::string const	Image::CHECKBOX_CHECKED_HOVER_READY = "checkbox_checked_hover_ready";
+std::string const	Image::CHECKBOX_UNCHECKED_NORMAL_READY = "checkbox_unchecked_normal_ready";
+std::string const	Image::CHECKBOX_UNCHECKED_CLICKED_READY = "checkbox_unchecked_clicked_ready";
+std::string const	Image::CHECKBOX_UNCHECKED_HOVER_READY = "checkbox_unchecked_hover_ready";
+
+std::string const	Image::SLIDER = "slider";
+std::string const	Image::SLIDER_CURSOR_NORMAL = "slider_cursor_normal";
+std::string const	Image::SLIDER_CURSOR_CLICKED = "slider_cursor_clicked";
+std::string const	Image::SLIDER_CURSOR_HOVER = "slider_cursor_hover";
+
+std::string const	Image::LISTBOX_EVEN = "list_box_even";
+std::string const	Image::LISTBOX_ODD = "list_box_odd";
+std::string const	Image::LISTBOX_FOCUS = "list_box_focus";
+
+std::string const	Image::GAUGE_BACKGROUND = "gauge_background";
+std::string const	Image::GAUGE_FILLED = "gauge_filled";
+
+std::string const	Image::CONNECTION_BACKGROUND = "connection_background";
+std::string const	Image::PLAY_BACKGROUND = "play_background";
+std::string const	Image::JOIN_BACKGROUND = "join_background";
+std::string const	Image::BACKGROUND = "background";
+std::string const	Image::TERRE = "terre";
+
+
+Image::Image(std::string const& filename)
+	: _cut(false), _filename(filename)
+{
+
+}
+
+Image::Image(std::string const& filename, int x, int y, size_t width, size_t height)
+	: _cut(true), _filename(filename),  _sizeRect(Ultra::Vector2D<size_t>(width, height)), _positionRect(Ultra::Vector2D<int>(x, y))
+{
+
+}
+
+Image::~Image()
+{
+
+}
+
+void	Image::setColor(Ultra::Color const& color)
+{
+	this->_color = color;
+	this->_sprite.setColor(sf::Color(this->_color.getComposante(Ultra::Color::RED),
+		this->_color.getComposante(Ultra::Color::GREEN),
+		this->_color.getComposante(Ultra::Color::BLUE),
+		this->_color.getComposante(Ultra::Color::ALPHA)));
+}
+
+void	Image::setPosition(Ultra::Vector2D<int> const &position)
+{
+	this->_position = position;
+	this->_sprite.setPosition((float)this->_position.getX(), (float)this->_position.getY());
+}
+
+void	Image::setSize(Ultra::Vector2D<size_t> const &size)
+{
+	this->_size = size;
+	if (!this->_scale.getX() || !this->_scale.getY())
+		this->_sprite.setScale(0.0f, 0.0f);
+	else
+		this->_sprite.setScale((float)this->_size.getX() / this->_scale.getX(), (float)this->_size.getY() / this->_scale.getY());
+}
+
+std::string const&	Image::getFile() const
+{
+	return (this->_filename);
+}
+
+Ultra::Color const&	Image::getColor() const
+{
+	return (this->_color);
+}
+
+Ultra::Vector2D<int> const&	Image::getPosition()
+{
+	return (this->_position);
+}
+
+Ultra::Vector2D<size_t> const&	Image::getSize() const
+{
+	return (this->_size);
+}
+
+void	Image::initialize()
+{
+	if (!this->_filename.empty())
+	{
+		if (!this->_cut)
+			this->_texture.loadFromFile(this->_filename);
+		else
+			this->_texture.loadFromFile(this->_filename,
+			sf::IntRect(this->_positionRect.getX(), this->_positionRect.getY(), (int)this->_sizeRect.getX(), (int)this->_sizeRect.getY()));
+		this->_texture.setSmooth(true);
+		this->_sprite.setTexture(this->_texture);
+		sf::FloatRect scale = this->_sprite.getGlobalBounds();
+		this->_scale.setX(scale.width);
+		this->_scale.setY(scale.height);
+	}
+}
+
+void	Image::update()
+{
+
+}
+
+void	Image::unload()
+{
+
+}
+
+void	Image::draw(Engine::IRender* render)
+{
+	render->draw(&this->_sprite);
+}

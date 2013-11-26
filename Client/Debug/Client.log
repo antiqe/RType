@@ -1,0 +1,18 @@
+﻿Build started 26/11/2013 17:01:06.
+     1>Project "C:\Users\leprov_a\workspace\tmp\rtype\Client\Client.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Client.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         Client.vcxproj -> C:\Users\leprov_a\workspace\tmp\rtype\Debug\Client.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\Client.unsuccessfulbuild".
+         Touching "Debug\Client.lastbuildstate".
+     1>Done Building Project "C:\Users\leprov_a\workspace\tmp\rtype\Client\Client.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.24

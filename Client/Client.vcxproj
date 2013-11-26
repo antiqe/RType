@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{73A319D2-B3E6-4966-AEB0-C9E6A7FC2775}</ProjectGuid>
+    <RootNamespace>Client</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)SFML\include;$(SolutionDir)Ultra;$(SolutionDir)Engine;$(SolutionDir)Network;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)SFML\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)SFML\include;$(SolutionDir)lib\cryptopp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\cryptopp\debug;$(SolutionDir)SFML\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cryptlib.lib;sfml-audio.lib;sfml-graphics.lib;sfml-network.lib;sfml-system.lib;sfml-window.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)SFML\include;$(SolutionDir)lib\cryptopp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)SFML\lib\release;$(SolutionDir)lib\cryptopp\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cryptlib.lib;sfml-audio.lib;sfml-graphics.lib;sfml-network.lib;sfml-system.lib;sfml-window.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ArmorConstantComponent.cpp" />
+    <ClCompile Include="GameObjectFactory.cpp" />
+    <ClCompile Include="LifeConstantComponent.cpp" />
+    <ClCompile Include="Move2DComponent.cpp" />
+    <ClCompile Include="Position2DComponent.cpp" />
+    <ClCompile Include="SFMLAnimation.cpp" />
+    <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="ConnectionCallback.cpp" />
+    <ClCompile Include="ConnectionState.cpp" />
+    <ClCompile Include="DataModule.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="EventModule.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="FormatRoomInfo.cpp" />
+    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="ListenerTCP.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MD5encode.cpp" />
+    <ClCompile Include="NetworkModule.cpp" />
+    <ClCompile Include="PlayCreateCallback.cpp" />
+    <ClCompile Include="PlayCreateState.cpp" />
+    <ClCompile Include="PlayJoinCallback.cpp" />
+    <ClCompile Include="PlayJoinState.cpp" />
+    <ClCompile Include="PlayState.cpp" />
+    <ClCompile Include="PlayStateCallback.cpp" />
+    <ClCompile Include="RenderModule.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="RoomState.cpp" />
+    <ClCompile Include="SFMLInput.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="SFMLRender.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="SourceModule.cpp" />
+    <ClCompile Include="SpeedConstantComponent.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateModule.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="SFMLImage.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TCPPacket.cpp" />
+    <ClCompile Include="SFMLText.cpp" />
+    <ClCompile Include="UDPPacket.cpp" />
+    <ClCompile Include="Vector2DComponent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.vcxproj">
+      <Project>{fa0ea7a5-ec74-4210-b6d2-c7f7ce980541}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Network\Network.vcxproj">
+      <Project>{2635e17e-e306-4448-a25b-2c8e6ecd19c9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Ultra\Ultra.vcxproj">
+      <Project>{bce3febb-14b9-444f-ba44-09555894907c}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArmorConstantComponent.hpp" />
+    <ClInclude Include="GameObjectFactory.hpp" />
+    <ClInclude Include="LifeConstantComponent.hpp" />
+    <ClInclude Include="Move2DComponent.hpp" />
+    <ClInclude Include="Position2DComponent.hpp" />
+    <ClInclude Include="SFMLAnimation.hpp" />
+    <ClInclude Include="Configuration.hpp" />
+    <ClInclude Include="ConnectionCallback.hpp" />
+    <ClInclude Include="ConnectionState.hpp" />
+    <ClInclude Include="DataModule.hpp" />
+    <ClInclude Include="EventModule.hpp" />
+    <ClInclude Include="FormatRoomInfo.hpp" />
+    <ClInclude Include="GameState.hpp" />
+    <ClInclude Include="ListenerTCP.hpp" />
+    <ClInclude Include="ListBox.hpp" />
+    <ClInclude Include="MD5encode.hpp" />
+    <ClInclude Include="NetworkModule.hpp" />
+    <ClInclude Include="PlayCreateCallback.hpp" />
+    <ClInclude Include="PlayCreateState.hpp" />
+    <ClInclude Include="PlayJoinCallback.hpp" />
+    <ClInclude Include="PlayJoinState.hpp" />
+    <ClInclude Include="PlayState.hpp" />
+    <ClInclude Include="PlayStateCallback.hpp" />
+    <ClInclude Include="RenderModule.hpp" />
+    <ClInclude Include="RoomState.hpp" />
+    <ClInclude Include="SourceModule.hpp" />
+    <ClInclude Include="SpeedConstantComponent.hpp" />
+    <ClInclude Include="State.hpp" />
+    <ClInclude Include="SFMLImage.hpp" />
+    <ClInclude Include="SFMLInput.hpp" />
+    <ClInclude Include="SFMLRender.hpp" />
+    <ClInclude Include="StateModule.hpp" />
+    <ClInclude Include="TCPPacket.hpp" />
+    <ClInclude Include="SFMLText.hpp" />
+    <ClInclude Include="UDPPacket.hpp" />
+    <ClInclude Include="Vector2DComponent.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1a878a2e-afd5-43bc-9f7c-337a4bcd7ff1}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>UML</Name>
+    <RootNamespace>UML</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Content Include="Engine\Graphic\Button.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Engine\Graphic\Button.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Engine\Graphic\Button.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Engine\Graphic\Image.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Engine\Graphic\Image.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Engine\Graphic\Image.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Engine\Graphic\SlideBar.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Engine\Graphic\SlideBar.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Engine\Graphic\SlideBar.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Engine\Graphic\TextBox.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Engine\Graphic\TextBox.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Engine\Graphic\TextBox.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Engine\Module\Event.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Engine\Module\Event.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Engine\Module\Event.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Engine\Module\Module.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Engine\Module\Module.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Engine\Module\Module.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Engine\Module\State.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Engine\Module\State.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Engine\Module\State.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Engine\Module\Widget.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Engine\Module\Widget.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Engine\Module\Widget.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Engine\Object.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Engine\Object.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Engine\Object.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package_1405.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1451.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1457.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1514.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1516.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1535.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1543.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1624.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1636.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1620.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1651.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1713.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1714.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1739.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1804.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1816.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1819.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_2126.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Ultra\Abstraction\Framer.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Ultra\Abstraction\Framer.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Ultra\Abstraction\Framer.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Ultra\Abstraction\Mutex.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Ultra\Abstraction\Mutex.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Ultra\Abstraction\Mutex.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Ultra\Abstraction\Thread.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Ultra\Abstraction\Thread.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Ultra\Abstraction\Thread.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Ultra\Abstraction\Timer.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Ultra\Abstraction\Timer.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Ultra\Abstraction\Timer.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Ultra\DesignPattern.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Ultra\DesignPattern.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Ultra\DesignPattern.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Ultra\Tool.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Ultra\Tool.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Ultra\Tool.classdiagram</DependentUpon>
+    </Content>
+    <Folder Include="Engine\Graphic" />
+    <Folder Include="Engine\Module" />
+    <Folder Include="ModelDefinition\" />
+    <Content Include="Engine\Core.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Engine\Core.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Engine\Core.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package1_1422.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1422.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\UML.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Folder Include="Engine" />
+    <Folder Include="Ultra" />
+    <Folder Include="Ultra\Abstraction" />
+  </ItemGroup>
+</Project>

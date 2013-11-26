@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="0e3b44b6-7786-405f-acc8-cbaf7e4680c9"
+  name="Engine" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="f3d49453-b841-424e-a37c-b0deae53cd70"
+        name="&lt;&lt;abstract&gt;&gt; ASlideBar"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="86d21529-34f1-4af7-ae44-87c558b5c7de"
+            isSubstitutable="false">
+            <classMoniker
+              Id="5a726a3b-a266-4951-aa9b-5298e2c76487"
+              LastKnownName="Widget"
+              LastKnownLocation="Package_1819.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="468d8955-cc28-4a94-9687-289e1a856270"
+            isDerived="false"
+            sourceEndRoleName="TextBox"
+            targetEndRoleName="Image"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="cb7137cc-3bb3-4b54-8b0a-a73d149e28df"
+              LastKnownName="Image"
+              LastKnownLocation="Package_1819.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f0ff4ba2-ec96-4b42-a566-a9c68d869469"
+                  name="TextBox"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="61641b23-6a36-465f-a19b-fe0c27cdcbad"
+                  name="Image"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="53c0f513-bc83-4219-94b2-743cfb07b6a4"
+            name="_imgSlidebar"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d3ccbba5-c46c-4532-83b6-e3042cd439cf"
+                LastKnownName="UML::Engine::Image[]"
+                LastKnownLocation="Package_1819.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d4620879-6e75-41b5-a8b6-0033354675ec"
+            name="_currentStatus"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="dd9cfd42-8413-4621-bca1-bf6d1ad5734f"
+                LastKnownName="Image::e_slideBarImageType"
+                LastKnownLocation="Package_1819.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="55b17161-166e-4d3a-b6e5-97abcbc07658"
+            name="_cursorLocation"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="bede4554-562e-486b-b05b-25abe7423dd0"
+                LastKnownName="int"
+                LastKnownLocation="Package_1457.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9ae3742e-bcd8-443f-b09b-e59d26bdf1a4"
+            name="_clicked"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b9aeeaf1-6ee6-4a38-8e08-b8b0aa9363c3"
+                LastKnownName="bool"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="96697534-9666-4832-8331-d8e179ec82f4"
+            name="_maxLocation"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="bede4554-562e-486b-b05b-25abe7423dd0"
+                LastKnownName="int"
+                LastKnownLocation="Package_1457.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="7a4604b9-7ac6-43b2-950d-9f206d60e425"
+            name="_minLocation"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="bede4554-562e-486b-b05b-25abe7423dd0"
+                LastKnownName="int"
+                LastKnownLocation="Package_1457.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="84760028-578a-4f51-96aa-bf870d92c9b1"
+            name="TextBox"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9590bbb3-d21b-41c2-ae4a-5e97181e5f76"
+                  name="string const &amp;file"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="98d30bd6-a4c6-4084-a390-e9ddc4526765"
+                  name="Widget *parent"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="55c13463-3d5a-40be-b73f-66e251544690"
+                  name="int defaultPercent"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="fb981f8f-1012-4ca9-9e0e-96f57411e989"
+                      name="DefaultValue"
+                      value="50" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b971e0e7-f6ad-4b62-b6c2-344ed092fa23"
+            name="virtual ~SlideBar"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="ee309974-75e7-43a2-83d4-7aa069b3e809"
+            name="virtual initialize"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="426b4a08-6507-48ce-8906-02039d8bd373"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b87f1125-00d2-4456-9897-851de9f31c92"
+            name="virtual update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8433d778-4e14-414c-a3a1-d696f3ac9440"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d36d4d1c-b736-40a4-89fa-bfb58b309243"
+            name="virtual unload"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8d55efb9-07c4-4db6-840d-d47a9cac17b4"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="32914313-abbe-470c-9e28-82a18b5f2b65"
+            name="virtual draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b5f58564-6735-4e25-b6f5-f40d72c61360"
+                  name="Ultra::IRender&lt;Event&gt; *render"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b43ddaad-2109-4a51-94a5-f20bb136e463"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6b16d0dd-03c3-4995-b9ea-f5ccf334e2fe"
+            name="virtual onClickCursor"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="52f030b3-eae9-4191-bc4b-3b3aa1809147"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="da2225e8-3d78-4348-baff-e0e123d34174"
+            name="virtual onUnclicked"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="589122d1-b537-4e43-92a2-4e8a825093ae"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2e294192-cd7f-4b59-9f14-5e8491451d97"
+            name="virtual onMouseMove"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a3403542-d6b6-437a-bf0d-9cef41b1b004"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="babf3ed6-d75c-44e3-8c26-da648cddf485"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5a726a3b-a266-4951-aa9b-5298e2c76487"
+        name="Widget"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="cb7137cc-3bb3-4b54-8b0a-a73d149e28df"
+        name="Image"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="dd9cfd42-8413-4621-bca1-bf6d1ad5734f"
+        name="Image::e_slideBarImageType" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a3114f45-bdfa-4e6b-bc7f-206d65cc214a"
+        name="HSlideBar"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="fdf186d4-54dd-4f4f-b444-cf03d2436bcd"
+            isSubstitutable="false">
+            <classMoniker
+              Id="f3d49453-b841-424e-a37c-b0deae53cd70"
+              LastKnownName="&lt;&lt;abstract&gt;&gt; ASlideBar"
+              LastKnownLocation="Package_1819.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a345ec29-928b-4285-87fb-d753c2e38a86"
+        name="VSlideBar"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="85533f9e-5575-4601-af39-ff435c14501c"
+            isSubstitutable="false">
+            <classMoniker
+              Id="f3d49453-b841-424e-a37c-b0deae53cd70"
+              LastKnownName="&lt;&lt;abstract&gt;&gt; ASlideBar"
+              LastKnownLocation="Package_1819.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="15f60f8d-cf37-49be-85c8-64d87913524c"
+        name="void(" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="d3ccbba5-c46c-4532-83b6-e3042cd439cf"
+        name="UML::Engine::Image[]" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

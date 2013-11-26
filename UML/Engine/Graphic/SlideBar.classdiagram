@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="10d497ea-c69c-49bb-8470-89b0469fa9b7" name="SlideBar" linkedPackageId="427d7c8a-d1c8-4bbf-b611-dc620beb5c5a" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="cdb6632d-7f9f-499d-a684-574a62d07a6c">
+      <profileInstance Id="b7c8bc8f-67e5-486a-bd80-686f4362de1f" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="2db1624f-715d-4536-9e1c-459e4b1683aa">
+      <profileInstance Id="d8c70cda-7a56-4d22-a8c7-d28db5e8429e" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="a6d3fc48-4ba0-47e5-a934-f49c3845b718">
+      <profileInstance Id="9b29cd4a-1c3d-421e-9fe1-8bff8ebf4e15" name="TextTemplateBindings">
+        <elementDefinition Id="5520fe91-70c2-4045-bd2f-31757d5be489" />
+      </profileInstance>
+      <elementDefinition Id="7646af80-6114-4431-9d1b-ec0ef904134c" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <referencedType Id="79eecad2-e3de-4c22-8988-18212da848a9" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="babf3ed6-d75c-44e3-8c26-da648cddf485" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="1e578d4f-9c8e-46b1-a260-fb97d353399b" name="Engine">
+        <elementDefinition Id="0e3b44b6-7786-405f-acc8-cbaf7e4680c9" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="a14f5a47-1e14-4893-8333-ac69d59b45be" name="&lt;&lt;abstract&gt;&gt; ASlideBar" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="f3d49453-b841-424e-a37c-b0deae53cd70" />
+              <generalsInternal>
+                <generalization Id="2b7f37d8-15c0-4451-ac03-3a0f6121d643" isSubstitutable="false">
+                  <classMoniker Id="60a25a5b-50f5-472f-9a18-255a8442321d" LastKnownName="Widget" />
+                  <elementDefinition Id="86d21529-34f1-4af7-ae44-87c558b5c7de" />
+                </generalization>
+              </generalsInternal>
+              <targetEnds>
+                <association Id="164431a3-856c-4584-91c7-a384537a67ff" isDerived="false" sourceEndRoleName="TextBox" targetEndRoleName="Image" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="83ae0a5a-ea5c-4050-b605-d6006bb93837" LastKnownName="Image" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="5131aeef-1177-4284-821b-9e1b1997e550" name="TextBox" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="f0ff4ba2-ec96-4b42-a566-a9c68d869469" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="dd90193b-5183-4423-b96f-573f84c685b7" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                        <elementDefinition Id="61641b23-6a36-465f-a19b-fe0c27cdcbad" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="468d8955-cc28-4a94-9687-289e1a856270" />
+                </association>
+              </targetEnds>
+              <ownedAttributesInternal>
+                <property Id="7591cb87-6d92-4422-a224-ec89417df9e5" name="_imgSlidebar" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="53c0f513-bc83-4219-94b2-743cfb07b6a4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="920cc44c-3c2f-4586-a530-cab015d270b0" LastKnownName="UML::Engine::Image[]" />
+                  </type_NamedElement>
+                </property>
+                <property Id="9cb5d077-8235-477b-be5f-9e95f65b4845" name="_currentStatus" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d4620879-6e75-41b5-a8b6-0033354675ec" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1ac92b95-ac40-409f-9bbc-6bf3846bb7e2" LastKnownName="Image::e_slideBarImageType" />
+                  </type_NamedElement>
+                </property>
+                <property Id="d5e7ed56-0e99-437d-981d-e08969ac7c7a" name="_cursorLocation" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="55b17161-166e-4d3a-b6e5-97abcbc07658" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0360a339-384e-4b9b-a389-93cf407765e2" LastKnownName="int" />
+                  </type_NamedElement>
+                </property>
+                <property Id="6ced7bb4-8085-4a95-aab6-16e8aaaff5c8" name="_clicked" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9ae3742e-bcd8-443f-b09b-e59d26bdf1a4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ff873ff3-8946-4846-8d18-7d2b6ca63eb1" LastKnownName="bool" />
+                  </type_NamedElement>
+                </property>
+                <property Id="0aa59366-225b-4a08-97a8-dea3845380de" name="_maxLocation" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="96697534-9666-4832-8331-d8e179ec82f4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0360a339-384e-4b9b-a389-93cf407765e2" LastKnownName="int" />
+                  </type_NamedElement>
+                </property>
+                <property Id="1fab8e36-207c-4cca-892e-a6df9fd2dba0" name="_minLocation" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7a4604b9-7ac6-43b2-950d-9f206d60e425" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0360a339-384e-4b9b-a389-93cf407765e2" LastKnownName="int" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="0a13a9bb-25f9-4af3-bb04-b0b3c0780651" name="TextBox" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="84760028-578a-4f51-96aa-bf870d92c9b1" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="7f8c0d47-7fce-430c-8b42-2afa972b1009" name="string const &amp;file" direction="In" isUnique="false">
+                        <elementDefinition Id="9590bbb3-d21b-41c2-ae4a-5e97181e5f76" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="1c4a52ca-af83-4e50-bdec-b64bdac21772" name="Widget *parent" direction="In" isUnique="false">
+                        <elementDefinition Id="98d30bd6-a4c6-4084-a390-e9ddc4526765" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="172038f9-03f8-491d-865a-828715fa20c4" name="int defaultPercent" direction="In" isUnique="false">
+                        <elementDefinition Id="55c13463-3d5a-40be-b73f-66e251544690" />
+                        <defaultValue>
+                          <literalString Id="3f090088-ca03-4536-a852-f1d1d4aaf86c" name="DefaultValue" value="50">
+                            <elementDefinition Id="fb981f8f-1012-4ca9-9e0e-96f57411e989" />
+                          </literalString>
+                        </defaultValue>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="c414f46c-5195-48dd-80ab-1617b1f4c04b" name="virtual ~SlideBar" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="b971e0e7-f6ad-4b62-b6c2-344ed092fa23" />
+                </operation>
+                <operation Id="83d6015a-be96-4665-9f74-70fc7c338a81" name="virtual initialize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="ee309974-75e7-43a2-83d4-7aa069b3e809" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="e0619b6c-5df3-4f52-8cc5-b292079fb150" direction="Return" isUnique="false">
+                        <elementDefinition Id="426b4a08-6507-48ce-8906-02039d8bd373" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="79eecad2-e3de-4c22-8988-18212da848a9" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="77382689-c988-44b0-87f8-0f13bba091ea" name="virtual update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="b87f1125-00d2-4456-9897-851de9f31c92" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="13519a4b-d064-4b59-969d-d63c44804c64" direction="Return" isUnique="false">
+                        <elementDefinition Id="8433d778-4e14-414c-a3a1-d696f3ac9440" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="79eecad2-e3de-4c22-8988-18212da848a9" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="6dcb1d9b-41f6-4eb8-8755-3a9fd1614a13" name="virtual unload" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="d36d4d1c-b736-40a4-89fa-bfb58b309243" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="50eb5b70-efa9-441e-8dea-8438a05eddb2" direction="Return" isUnique="false">
+                        <elementDefinition Id="8d55efb9-07c4-4db6-840d-d47a9cac17b4" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="79eecad2-e3de-4c22-8988-18212da848a9" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="2d74719a-0503-42a5-8b23-3655f48b77ef" name="virtual draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="32914313-abbe-470c-9e28-82a18b5f2b65" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="b088b1b0-b1f4-4c16-8d6c-d2414ae193cd" name="Ultra::IRender&lt;Event&gt; *render" direction="In" isUnique="false">
+                        <elementDefinition Id="b5f58564-6735-4e25-b6f5-f40d72c61360" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="c65f64d7-e075-41ec-9fb2-2be0c25cadeb" direction="Return" isUnique="false">
+                        <elementDefinition Id="b43ddaad-2109-4a51-94a5-f20bb136e463" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="79eecad2-e3de-4c22-8988-18212da848a9" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="0259edfa-7e4c-4844-8c4c-2942c1d47745" name="virtual onClickCursor" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="6b16d0dd-03c3-4995-b9ea-f5ccf334e2fe" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="db3e2d25-7c75-4d69-926b-fa825ab07807" direction="Return" isUnique="false">
+                        <elementDefinition Id="52f030b3-eae9-4191-bc4b-3b3aa1809147" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="79eecad2-e3de-4c22-8988-18212da848a9" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="9e8a86ac-f7fe-4d61-bd66-d5f939c205c6" name="virtual onUnclicked" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="da2225e8-3d78-4348-baff-e0e123d34174" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="7369e351-2413-49a4-aa02-2157df3ce4e9" direction="Return" isUnique="false">
+                        <elementDefinition Id="589122d1-b537-4e43-92a2-4e8a825093ae" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="79eecad2-e3de-4c22-8988-18212da848a9" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="a82cd9d4-593a-461d-bf95-3a882d774f61" name="virtual onMouseMove" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="2e294192-cd7f-4b59-9f14-5e8491451d97" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="f94d4151-a305-44eb-a722-ba022c3e1d14" direction="Return" isUnique="false">
+                        <elementDefinition Id="a3403542-d6b6-437a-bf0d-9cef41b1b004" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="79eecad2-e3de-4c22-8988-18212da848a9" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="60a25a5b-50f5-472f-9a18-255a8442321d" name="Widget" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="5a726a3b-a266-4951-aa9b-5298e2c76487" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="83ae0a5a-ea5c-4050-b605-d6006bb93837" name="Image" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="cb7137cc-3bb3-4b54-8b0a-a73d149e28df" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="591cd786-a5ac-4d30-9fe4-075577b7a890" name="HSlideBar" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="a3114f45-bdfa-4e6b-bc7f-206d65cc214a" />
+              <generalsInternal>
+                <generalization Id="7fec512a-d67e-40f0-ac69-10b8a1cd1ab0" isSubstitutable="false">
+                  <classMoniker Id="a14f5a47-1e14-4893-8333-ac69d59b45be" LastKnownName="&lt;&lt;abstract&gt;&gt; ASlideBar" />
+                  <elementDefinition Id="fdf186d4-54dd-4f4f-b444-cf03d2436bcd" />
+                </generalization>
+              </generalsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="dbd152d8-77ec-412b-b433-576c37edc366" name="VSlideBar" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="a345ec29-928b-4285-87fb-d753c2e38a86" />
+              <generalsInternal>
+                <generalization Id="f340035c-5552-4699-8b74-cd1ca3d6922e" isSubstitutable="false">
+                  <classMoniker Id="a14f5a47-1e14-4893-8333-ac69d59b45be" LastKnownName="&lt;&lt;abstract&gt;&gt; ASlideBar" />
+                  <elementDefinition Id="85533f9e-5575-4601-af39-ff435c14501c" />
+                </generalization>
+              </generalsInternal>
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <packageHasNamedElement>
+      <referencedType Id="1ac92b95-ac40-409f-9bbc-6bf3846bb7e2" name="Image::e_slideBarImageType" isAbstract="false" isLeaf="false" cachedFullName="Image::e_slideBarImageType">
+        <elementDefinition Id="dd9cfd42-8413-4621-bca1-bf6d1ad5734f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ff873ff3-8946-4846-8d18-7d2b6ca63eb1" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="b9aeeaf1-6ee6-4a38-8e08-b8b0aa9363c3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0360a339-384e-4b9b-a389-93cf407765e2" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="bede4554-562e-486b-b05b-25abe7423dd0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="920cc44c-3c2f-4586-a530-cab015d270b0" name="UML::Engine::Image[]" isAbstract="false" isLeaf="false" cachedFullName="UML::Engine::Image[]">
+        <elementDefinition Id="d3ccbba5-c46c-4532-83b6-e3042cd439cf" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="427d7c8a-d1c8-4bbf-b611-dc620beb5c5a" name="UML">
+    <elementDefinition Id="804cbabf-a4bf-485e-b919-ec86806644a2" />
+  </package>
+</logicalClassDesignerModel>

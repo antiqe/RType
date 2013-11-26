@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers sources\Protocol">
+      <UniqueIdentifier>{55eb5eff-1b95-432d-9416-d34e2794defb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Protocol\Packet">
+      <UniqueIdentifier>{fbb7dca0-c813-4066-ba67-af86e50665dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Protocol\Message">
+      <UniqueIdentifier>{eb874c76-70c7-4d8c-8615-ae23094265f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Protocol">
+      <UniqueIdentifier>{ff4a4faa-e2ae-40c1-9627-9b5f02885bdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Protocol\Message">
+      <UniqueIdentifier>{dea0c724-e311-417c-bb3e-db35e8277d73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Protocol\Packet">
+      <UniqueIdentifier>{d72f5ec2-6179-44de-89c4-047a8879ce7a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Aggregator.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ASocket.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryStream.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="WSocket.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="APacket.cpp">
+      <Filter>Fichiers sources\Protocol\Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="InternalMessage.cpp">
+      <Filter>Fichiers sources\Protocol\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Fichiers sources\Protocol\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageFactory.cpp">
+      <Filter>Fichiers sources\Protocol\Message</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Aggregator.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="IMessage.hpp">
+      <Filter>Fichiers d%27en-tête\Protocol\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.hpp">
+      <Filter>Fichiers d%27en-tête\Protocol\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageFactory.hpp">
+      <Filter>Fichiers d%27en-tête\Protocol\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="ASocket.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryStream.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="SafeQueue.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ISocket.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="WSocket.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="StateAuth.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="InternalMessage.hh">
+      <Filter>Fichiers d%27en-tête\Protocol\Message</Filter>
+    </None>
+    <None Include="APacket.hpp">
+      <Filter>Fichiers d%27en-tête\Protocol\Packet</Filter>
+    </None>
+    <None Include="IPacket.hpp">
+      <Filter>Fichiers d%27en-tête\Protocol\Packet</Filter>
+    </None>
+  </ItemGroup>
+</Project>

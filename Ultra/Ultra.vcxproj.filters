@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Design Pattern">
+      <UniqueIdentifier>{2b411009-a930-4347-8368-41a2a34370a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Abstraction">
+      <UniqueIdentifier>{f624732d-7c0b-424b-a368-23d0034a813c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Abstraction\Framer">
+      <UniqueIdentifier>{6d843683-6cc5-4178-94f9-05b6aec816aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Abstraction\Thread">
+      <UniqueIdentifier>{a485b397-c793-4d75-a0f4-5e1505fdf4ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Abstraction\Mutex">
+      <UniqueIdentifier>{e67cf06f-8565-4250-99bc-2014886c5702}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Abstraction\Timer">
+      <UniqueIdentifier>{2fbc2b20-8a5d-4929-b95f-7ed762c092a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Abstraction">
+      <UniqueIdentifier>{4ee80150-57c9-4e4b-8bf0-f80bc2bfb594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Abstraction\Mutex">
+      <UniqueIdentifier>{cd125a2b-ffe3-49b0-9081-66a2162e0c77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Abstraction\Framer">
+      <UniqueIdentifier>{dd98fd53-72b5-428d-ac8c-e1764e64a7ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Abstraction\Thread">
+      <UniqueIdentifier>{567ea639-d50b-4936-b17b-f9b701a6acea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Abstraction\Timer">
+      <UniqueIdentifier>{ed0e8ed2-5567-410b-9a29-9546e8359026}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tool">
+      <UniqueIdentifier>{c255801d-1ac8-44ff-804d-a2dd82efa83b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tool\Vector">
+      <UniqueIdentifier>{096c0b85-9936-46a1-ba04-ee1b319ed829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tool">
+      <UniqueIdentifier>{e73bbdd4-57a1-46c7-8b95-fa27af5e4cc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tool\Reader">
+      <UniqueIdentifier>{32ae7931-e78a-479b-be73-9b4fbf039886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tool\Reader">
+      <UniqueIdentifier>{7879d712-8174-441c-b231-84e77ca5295b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AFramer.hpp">
+      <Filter>Header Files\Abstraction\Framer</Filter>
+    </ClInclude>
+    <ClInclude Include="WFramer.hpp">
+      <Filter>Header Files\Abstraction\Framer</Filter>
+    </ClInclude>
+    <ClInclude Include="LFramer.hpp">
+      <Filter>Header Files\Abstraction\Framer</Filter>
+    </ClInclude>
+    <ClInclude Include="ATimer.hpp">
+      <Filter>Header Files\Abstraction\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.hpp">
+      <Filter>Header Files\Abstraction\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="LTimer.hpp">
+      <Filter>Header Files\Abstraction\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="WTimer.hpp">
+      <Filter>Header Files\Abstraction\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.hpp">
+      <Filter>Header Files\Design Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="IPrototype.hpp">
+      <Filter>Header Files\Design Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.hpp">
+      <Filter>Header Files\Design Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Pool.hpp">
+      <Filter>Header Files\Design Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="IFunctor.hpp">
+      <Filter>Header Files\Design Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="ICompare.hpp">
+      <Filter>Header Files\Design Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="AObserver.hpp">
+      <Filter>Header Files\Design Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="ASubject.hpp">
+      <Filter>Header Files\Design Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="IMutex.hpp">
+      <Filter>Header Files\Abstraction\Mutex</Filter>
+    </ClInclude>
+    <ClInclude Include="WMutex.hpp">
+      <Filter>Header Files\Abstraction\Mutex</Filter>
+    </ClInclude>
+    <ClInclude Include="ScopeLock.hpp">
+      <Filter>Header Files\Abstraction\Mutex</Filter>
+    </ClInclude>
+    <ClInclude Include="IThread.hpp">
+      <Filter>Header Files\Abstraction\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="WThread.hpp">
+      <Filter>Header Files\Abstraction\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="DecoratorThread.hpp">
+      <Filter>Header Files\Abstraction\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="ITimer.hpp">
+      <Filter>Header Files\Abstraction\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.hpp">
+      <Filter>Header Files\Tool\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.hpp">
+      <Filter>Header Files\Tool\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Attr.hpp">
+      <Filter>Header Files\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.hpp">
+      <Filter>Header Files\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Converter.hpp">
+      <Filter>Header Files\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.hpp">
+      <Filter>Header Files\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Value.hpp">
+      <Filter>Header Files\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.hpp">
+      <Filter>Header Files\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Sleep.hpp">
+      <Filter>Header Files\Abstraction\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source.hpp">
+      <Filter>Header Files\Design Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Sleep.hpp">
+      <Filter>Header Files\Abstraction\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Coordinate.hpp">
+      <Filter>Header Files\Tool\Vector</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AFramer.cpp">
+      <Filter>Source Files\Abstraction\Framer</Filter>
+    </ClCompile>
+    <ClCompile Include="LFramer.cpp">
+      <Filter>Source Files\Abstraction\Framer</Filter>
+    </ClCompile>
+    <ClCompile Include="WFramer.cpp">
+      <Filter>Source Files\Abstraction\Framer</Filter>
+    </ClCompile>
+    <ClCompile Include="LTimer.cpp">
+      <Filter>Source Files\Abstraction\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="WTimer.cpp">
+      <Filter>Source Files\Abstraction\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="WMutex.cpp">
+      <Filter>Source Files\Abstraction\Mutex</Filter>
+    </ClCompile>
+    <ClCompile Include="ScopeLock.cpp">
+      <Filter>Source Files\Abstraction\Mutex</Filter>
+    </ClCompile>
+    <ClCompile Include="WThread.cpp">
+      <Filter>Source Files\Abstraction\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="DecoratorThread.cpp">
+      <Filter>Source Files\Abstraction\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Value.cpp">
+      <Filter>Source Files\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Attr.cpp">
+      <Filter>Source Files\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>Source Files\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Source Files\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Sleep.cpp">
+      <Filter>Source Files\Abstraction\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="INIReader.cpp">
+      <Filter>Source Files\Tool\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="INISection.cpp">
+      <Filter>Source Files\Tool\Reader</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="INISection.hpp">
+      <Filter>Header Files\Tool\Reader</Filter>
+    </None>
+    <None Include="INIReader.hpp">
+      <Filter>Header Files\Tool\Reader</Filter>
+    </None>
+  </ItemGroup>
+</Project>

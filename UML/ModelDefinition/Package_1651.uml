@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="ce3df1a0-761b-48c0-a595-8125c53f0aaa"
+  name="Engine" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="6184c094-8ef8-45e8-b636-8cfcaa9b4c3d"
+        name="Image"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="c9612ff4-d633-44ec-b30c-158f07777ccd">
+            <enumerationMoniker
+              Id="a04308b0-af28-43ec-896f-53e58da3ae25"
+              LastKnownName="Image::e_buttonImage"
+              LastKnownLocation="Package_1651.uml" />
+          </dependency>
+          <dependency
+            Id="54d496e8-4b90-4d68-97b5-25a7b953be1a">
+            <enumerationMoniker
+              Id="67e454e8-62b6-4369-bbd8-1a907a2d2443"
+              LastKnownName="Image::e_textBoxImage"
+              LastKnownLocation="Package_1651.uml" />
+          </dependency>
+          <dependency
+            Id="9fab3294-5d29-45f6-bffe-fb952d66e24f">
+            <enumerationMoniker
+              Id="516360d1-8e1e-4620-ab1e-534ce1ec8495"
+              LastKnownName="Image::e_slideBarImage"
+              LastKnownLocation="Package_1651.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="b0899d60-fbe8-4999-83c1-56aa788c162d"
+            name="_sprites"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="6b74c831-0b7d-46ac-be54-7f779a745f62"
+                LastKnownName="sf::Sprite"
+                LastKnownLocation="Package_1651.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d88cfa98-e70e-4c08-8fce-fd375a2da293"
+            name="_texture"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="afcac2c4-b938-4087-8781-48e620342158"
+                LastKnownName="sf::Texture"
+                LastKnownLocation="Package_1651.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ee7f98ed-685c-4f8c-ab3f-dbeca2a30492"
+        name="sf::Sprites[]" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b89c2cd3-2f94-41e7-bb3b-1393b109bde1"
+        name="sf::Texture[]" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="a04308b0-af28-43ec-896f-53e58da3ae25"
+        name="Image::e_buttonImage"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="9ffee5e0-17e8-4c85-a008-3c0b32810c63"
+            name="NORMAL" />
+          <enumerationLiteral
+            Id="f9f24ca6-dba2-4617-b76b-a9bc23eb63e1"
+            name="MOUSEOVER" />
+          <enumerationLiteral
+            Id="cf8c9065-db93-4647-a0ef-18aa45a057ed"
+            name="CLICKED" />
+          <enumerationLiteral
+            Id="e6ed6cf7-9c3d-4929-90bb-c9231b95c925"
+            name="LAST" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="1eb2263d-e383-4105-839d-0367058feecc"
+        name="sf::Sprite[]" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="67e454e8-62b6-4369-bbd8-1a907a2d2443"
+        name="Image::e_textBoxImage"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="33ba8ac2-13b3-448b-82de-95938d06c5e2"
+            name="SELECTED" />
+          <enumerationLiteral
+            Id="16ef3f61-6142-4d42-81dc-3107df70984b"
+            name="NOT_SELECTED" />
+          <enumerationLiteral
+            Id="4db01681-dc44-4e91-8ee1-9afbffee052b"
+            name="LAST" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="516360d1-8e1e-4620-ab1e-534ce1ec8495"
+        name="Image::e_slideBarImage"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="333fd735-b141-4893-a677-8f3a3193224a"
+            name="CURSOR" />
+          <enumerationLiteral
+            Id="e9934196-b421-44b4-ada2-b18eef13e82b"
+            name="BAR" />
+          <enumerationLiteral
+            Id="c156cb67-b83b-4226-ae23-7afb7b2123cf"
+            name="LAST" />
+          <enumerationLiteral
+            Id="bb655403-0605-4bab-8ff5-2acf41a80017"
+            name="SELECTED_CURSOR" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="6b74c831-0b7d-46ac-be54-7f779a745f62"
+        name="sf::Sprite" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="afcac2c4-b938-4087-8781-48e620342158"
+        name="sf::Texture" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="88783d9b-7175-40c8-8cf8-351991859ce5" name="TextBox" linkedPackageId="914a780d-ad9a-4ad9-8258-f109689d5a24" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <packageHasNamedElement>
+      <referencedType Id="5607f3e3-5e08-4030-a7bf-8480e482792a" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="babf3ed6-d75c-44e3-8c26-da648cddf485" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="5f0f7e4c-18f1-42ad-9462-009364ab5863" name="Engine">
+        <elementDefinition Id="8526c525-f1d0-4bc5-b1d0-df3c3da5812c" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="a7d94673-416b-4495-821d-9b5f4092e7a9" name="TextBox" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="e6619d6b-5e9b-47aa-991d-525d95ff7636" />
+              <generalsInternal>
+                <generalization Id="0c459efd-f7ee-4cdb-a664-87ebc5182958" isSubstitutable="false">
+                  <classMoniker Id="8ccaefcd-7231-45a6-a6a1-0f12ee1a3f75" LastKnownName="Widget" />
+                  <elementDefinition Id="4c038f6e-2402-4c21-8efe-34199c07eeb5" />
+                </generalization>
+              </generalsInternal>
+              <targetEnds>
+                <association Id="70c41526-8c60-4ab6-a006-757b5b03d1c0" isDerived="false" sourceEndRoleName="TextBox" targetEndRoleName="Image" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="f8269bbd-fe5d-4ae9-83eb-339c5005edc0" LastKnownName="Image" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="8c872740-da73-46d1-bd9e-6bb11918a0dd" name="TextBox" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="7a70225e-b752-4a6a-aa95-f951ae0f3bbe" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="d53253b5-2ec1-4671-9b84-c045499d3c96" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                        <elementDefinition Id="41a050ba-d109-492b-895e-e17931ebafc0" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="b7613fee-66dd-412e-b0b5-51734586f640" />
+                </association>
+              </targetEnds>
+              <ownedAttributesInternal>
+                <property Id="f5fbdf0b-c912-4ced-9d45-edd88c7aafc5" name="_imgTextBox" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a32165cc-27bf-4292-87fe-e339abe42afb" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5b27e571-46f5-4f8f-8335-f6f435cf6cfa" LastKnownName="UML::Engine::Image[]" />
+                  </type_NamedElement>
+                </property>
+                <property Id="bbfe114f-cbc1-43f3-a0c6-2029557ae5de" name="_currentStatus" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2d73aa20-14b8-4867-ba6b-19376b505fe4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9b0a7dd6-7ee9-472d-972b-4f87e0e53523" LastKnownName="Image::e_textBoxImage" />
+                  </type_NamedElement>
+                </property>
+                <property Id="9a75e678-5b9f-4381-a254-89d615bc7a20" name="_defaultText" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f38c9636-c0a5-453d-afb4-be51aa66e92d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="78282620-56ca-4761-ae39-c5a26237bfab" LastKnownName="string" />
+                  </type_NamedElement>
+                </property>
+                <property Id="f33f8d55-55b8-47de-bad8-e3dbdf669b0b" name="_text" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1f765047-f302-4fcc-88dc-d8c0067d70b3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="78282620-56ca-4761-ae39-c5a26237bfab" LastKnownName="string" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="0dc952f9-72b2-4e75-be07-9680e36dc210" name="TextBox" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="ac229e2b-a388-40b8-b72d-16999cde1559" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="bfd6cb05-7b40-429e-82bb-693a50b3198a" name="string const &amp;file" direction="In" isUnique="false">
+                        <elementDefinition Id="f20b76f6-2a82-466a-bb52-2cb8fc9d638f" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="b1826178-9010-49f1-8781-8e44ae2711ce" name="Widget *parent" direction="In" isUnique="false">
+                        <elementDefinition Id="027deb2c-f618-4c41-a77a-322ad406c8a2" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="d8443361-b811-45bb-a4d6-244385f03968" name="string const &amp;defaultText" direction="In" isUnique="false">
+                        <elementDefinition Id="ca83ed74-408a-4bef-8aef-471ac8e161b5" />
+                        <defaultValue>
+                          <literalString Id="53ea202c-3103-418c-8d3f-9f0032f09adc" name="DefaultValue" value="&quot;&quot;">
+                            <elementDefinition Id="80468741-7b4e-4594-ae65-d0705ff9ff40" />
+                          </literalString>
+                        </defaultValue>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="c6f63197-10a6-428a-bae0-792380c045bc" name="TextBox" visibility="Package" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="24a6953e-51bc-44e3-8948-fae8c3e41a9f" />
+                </operation>
+                <operation Id="c445f38b-88b2-41a5-9f07-0f505fff2878" name="virtual initialize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="8bd6aaef-662d-4f81-a916-721369a1ddb2" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="45a660ba-8fcf-4c7e-9de8-89cdfd9dac08" direction="Return" isUnique="false">
+                        <elementDefinition Id="38a0e8fd-e07a-4e5f-8cf3-2bb8bcb4cb86" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="5607f3e3-5e08-4030-a7bf-8480e482792a" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="eec71627-01c8-4328-a2ae-a53829d25714" name="virtual update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="dc79fc93-811c-4749-9363-8bc166f786ff" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="94994bbd-13ad-45c5-b6eb-785b2b2ec9bf" direction="Return" isUnique="false">
+                        <elementDefinition Id="24bfa45d-4e58-4a23-91b4-691df43a5515" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="5607f3e3-5e08-4030-a7bf-8480e482792a" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="483ef049-0ec9-42bb-a2c1-3166681ec636" name="virtual unload" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="37d98d4e-679f-4503-8fec-7d941d87fd29" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="f56e752d-8191-4a8e-8fae-c6378dc4ad26" direction="Return" isUnique="false">
+                        <elementDefinition Id="d259393f-0823-495c-971c-f29b0c553697" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="5607f3e3-5e08-4030-a7bf-8480e482792a" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="b1f19c93-584d-44d9-9303-c479ac5fec0f" name="virtual draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="742bee04-0977-454c-9776-781b2d5b16ed" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="4fe8516a-a883-4c91-924f-4bb6c9f86dc3" name="Ultra::IRender&lt;Event&gt; *render" direction="In" isUnique="false">
+                        <elementDefinition Id="4ada9eb2-5e4e-47f3-9c37-797ac9a0b5a4" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="2a1c2878-3108-48ba-b00a-28427f228c2d" direction="Return" isUnique="false">
+                        <elementDefinition Id="10a8364d-37fd-42f3-b011-f1a328ce8074" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="5607f3e3-5e08-4030-a7bf-8480e482792a" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="1fbdcd83-e154-4eb4-ba40-8a682997c3c2" name="virtual onClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="81963557-e09e-4291-bbbc-3b4a2a206d3e" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="50e43144-a408-430f-b402-dbc95e5344db" direction="Return" isUnique="false">
+                        <elementDefinition Id="f4b3ec28-347d-4ee5-b8b6-a11539deff81" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="5607f3e3-5e08-4030-a7bf-8480e482792a" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="76a3f1ea-6036-407e-bf6e-1ccba67cb528" name="virtual onUnClicked" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="15dda5a1-388e-4d2c-ab60-6e645893ddb6" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="876fafaf-0fc5-4b0e-a7e1-837b5bd7068b" direction="Return" isUnique="false">
+                        <elementDefinition Id="d6ea2136-a127-4585-8fcf-8b8c5d513b61" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="5607f3e3-5e08-4030-a7bf-8480e482792a" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="a5c23c4f-2f82-4680-9943-5c848e70e2dd" name="virtual onKeyboard" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="7ade0917-c402-4459-8de1-80ae26990ada" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="bf07022c-85f2-4f08-8129-41f3ab1ef052" name="char c" direction="In" isUnique="false">
+                        <elementDefinition Id="eb9142e5-1501-4c0a-b320-e1e0a2806ffa" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="702824ed-a58d-4516-85aa-d937d01dfa11" direction="Return" isUnique="false">
+                        <elementDefinition Id="b1dd3318-99ab-49ea-8163-94310df60225" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="5607f3e3-5e08-4030-a7bf-8480e482792a" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="8ccaefcd-7231-45a6-a6a1-0f12ee1a3f75" name="Widget" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="0bef2579-70f9-4768-a247-fda828a400bf" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="f8269bbd-fe5d-4ae9-83eb-339c5005edc0" name="Image" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="06b9926d-f5f1-4e44-a377-5b264a3e47e7" />
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <packageHasNamedElement>
+      <referencedType Id="78282620-56ca-4761-ae39-c5a26237bfab" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="b45ddb83-52c0-49c2-a3ea-3f5391fe2b4d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5b27e571-46f5-4f8f-8335-f6f435cf6cfa" name="UML::Engine::Image[]" isAbstract="false" isLeaf="false" cachedFullName="UML::Engine::Image[]">
+        <elementDefinition Id="d3ccbba5-c46c-4532-83b6-e3042cd439cf" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="9b0a7dd6-7ee9-472d-972b-4f87e0e53523" name="Image::e_textBoxImage" isAbstract="false" isLeaf="false" cachedFullName="Image::e_textBoxImage">
+        <elementDefinition Id="560a4cba-e445-40a4-8f44-c1656ce683c5" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="914a780d-ad9a-4ad9-8258-f109689d5a24" name="UML">
+    <elementDefinition Id="804cbabf-a4bf-485e-b919-ec86806644a2" />
+    <profileInstances>
+      <packageHasProfileInstances Id="81a8e340-2a1b-44f6-8c8f-6c6334bc5016">
+        <profileInstance Id="e0486276-cc38-4500-bb4a-ab073102b028" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="032654c1-9de7-4787-8884-4a33c1864d2a">
+        <profileInstance Id="ae1fdffd-56f9-42c4-a54f-0ea9f1134cca" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="21782e7a-f32b-4496-a33b-163d79ef58fb">
+        <profileInstance Id="90f17a0b-c0d8-416c-878f-f009ec742884" name="TextTemplateBindings">
+          <elementDefinition Id="5520fe91-70c2-4045-bd2f-31757d5be489" />
+        </profileInstance>
+        <elementDefinition Id="7646af80-6114-4431-9d1b-ec0ef904134c" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

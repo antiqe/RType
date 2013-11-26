@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="acf8f098-62e8-497d-b8fe-babad5859854" name="Button" linkedPackageId="8438ed1b-1ff0-47ae-9a50-fee5d0d8c6c1" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="01098b1f-df46-4a65-bd86-70ccfe979631" name="Engine">
+        <elementDefinition Id="312d9995-c992-41f7-945e-c0b2697e1714" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="f3e647dd-abac-4f5a-98da-7f68f9574a49" name="Button" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="da8d71e5-9b3b-49ca-b742-20e73ecfe8f5" />
+              <generalsInternal>
+                <generalization Id="5ee8fd1d-02dd-4aa4-8610-e8461804a3e4" isSubstitutable="false">
+                  <classMoniker Id="f8df998f-78b0-4fbe-90bc-2e20f172fb6a" LastKnownName="Widget" />
+                  <elementDefinition Id="c2ba7cf6-40bc-430a-b0a8-356938f6cb5b" />
+                </generalization>
+              </generalsInternal>
+              <targetEnds>
+                <association Id="e8b778ce-5b28-428d-b757-83b24c78e7dd" isDerived="false" sourceEndRoleName="Button" targetEndRoleName="Image" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="9bb45f6e-1465-4a64-8b07-bf9146e613c3" LastKnownName="Image" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="16207a2e-f0aa-4623-9e07-c53be51dd253" name="Button" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="ebf6875b-4f2f-4868-b65f-745542b03992" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="e544f6da-1ff0-4d14-87fc-438fb5f59d86" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                        <elementDefinition Id="2fa9da34-8cb0-44f5-b111-03d6398a8693" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="79e1f02c-c82d-4a88-bb49-2c4f4f3bf195" />
+                </association>
+              </targetEnds>
+              <ownedAttributesInternal>
+                <property Id="eb75e536-5fa3-43e4-a415-43e77ee08a9f" name="_imgButtons" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b57a01e8-800f-43dd-ad86-4bbea95bd47f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bbfb8015-f51e-429c-a033-19a8df494523" LastKnownName="UML::Engine::Image[]" />
+                  </type_NamedElement>
+                </property>
+                <property Id="8e825985-1ad6-42b9-bd42-f7cd5ce609dd" name="_currentStatus" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8ac664e0-5dfb-493b-ae3e-26f3e9749e3f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="30904efc-0844-4a8e-bbbd-3c872ab44850" LastKnownName="Image::e_buttonImage" />
+                  </type_NamedElement>
+                </property>
+                <property Id="5bdf459f-a5fd-4fd9-ba47-ce528a9cac38" name="_stateTarget" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8edfb411-dfee-4b73-a9e7-440b61354c1e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="18b9a8d4-7cb0-4e7b-9e51-e76afdad2496" LastKnownName="string" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="7e731d9a-e4e8-4f47-838c-4a8a11f19d4f" name="Button" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="5cbe6905-1fe5-44e0-8644-5a4b150f40e1" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="ce31a536-b5f2-47de-857c-49c87368d446" name="string const &amp;file" direction="In" isUnique="false">
+                        <elementDefinition Id="a0c880f3-dc63-4719-9452-2c0f73eed94e" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="8f8c3d0f-3170-4ec7-b308-05edcf91537c" name="Widget *parent" direction="In" isUnique="false">
+                        <elementDefinition Id="ab17d310-b9be-489d-8680-4fe51d4da3fd" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="282b52c8-d83a-499f-8abb-e0e3b5a74bba" name="string target" direction="In" isUnique="false">
+                        <elementDefinition Id="20664f52-9c54-4114-80d4-e73fa5ef41f5" />
+                        <defaultValue>
+                          <literalString Id="5888cb04-3974-43b8-aed8-30916eef80e0" name="DefaultValue" value="&quot;&quot;">
+                            <elementDefinition Id="0106ac8e-1745-4b90-8cbd-408af4820296" />
+                          </literalString>
+                        </defaultValue>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="031c6145-6d3b-47ea-9f8d-8dcb2fc63edd" name="Button" visibility="Package" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="7e422ec8-2d8c-4a00-9269-cb74204c52a3" />
+                </operation>
+                <operation Id="45f4ddab-0c5b-43e0-ba92-ccdfbaaa1771" name="virtual initialize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="37c421ab-145e-43f6-a476-3bb3b0667485" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="4f8808d7-a209-49c8-a37e-866f9cf2c440" direction="Return" isUnique="false">
+                        <elementDefinition Id="de72fb46-5e3a-4c2a-8bb3-74e6c5f32c1d" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="17409bff-5230-4320-98a5-dc0e7834a4ec" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="58a188b7-2c85-4a5b-9af4-8b1c988a4a1c" name="virtual update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="0af68313-3a1a-498a-b63b-66d062b05ef4" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="46699c0b-614a-4f0e-80a3-a43c693f71a0" direction="Return" isUnique="false">
+                        <elementDefinition Id="0fb676a2-84d3-4a5f-bc78-c0f889c0e86b" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="17409bff-5230-4320-98a5-dc0e7834a4ec" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="89bae5d4-8e47-43c8-b088-d1a9793aae48" name="virtual unload" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="e59d40ab-c603-437a-b628-b17bb17a3cc0" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="6e93b9be-5c14-4f50-bd26-5e49f073aed6" direction="Return" isUnique="false">
+                        <elementDefinition Id="4e864c1d-652b-467f-81d9-47b6ba26b518" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="17409bff-5230-4320-98a5-dc0e7834a4ec" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="af8066aa-ab84-428f-aa4b-33356e52c1ac" name="virtual draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="122b1152-0a20-4489-959f-e9aa6543a1fd" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="a8866dcd-f32a-4b3b-826e-8ed26eabd5a2" name="Ultra::IRender&lt;Event&gt; *render" direction="In" isUnique="false">
+                        <elementDefinition Id="8018d5f2-a664-40fc-863c-d5ea58f0771b" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="e275f12a-2be5-43c6-9739-af5aae983bc9" direction="Return" isUnique="false">
+                        <elementDefinition Id="5cfdb6e7-fe9e-49f9-a4c0-9a166b899941" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="17409bff-5230-4320-98a5-dc0e7834a4ec" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="2866798c-ffaf-4de5-a667-4d345cd35d8a" name="virtual onClick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="a4330f74-a7b7-4882-8956-c52228d5a48d" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="501c22c3-a484-4b2c-9d0d-0190bfdb341d" direction="Return" isUnique="false">
+                        <elementDefinition Id="136b02dd-9faa-4257-a302-ed56c13729db" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="17409bff-5230-4320-98a5-dc0e7834a4ec" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="b165fcc3-cc58-437c-bd46-216ea505f169" name="virtual onMouseMove" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="1511de42-b1db-4fe3-86e0-f98c49f89348" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="c122f3c6-fa55-408f-b315-1d984c278ed7" direction="Return" isUnique="false">
+                        <elementDefinition Id="f7176498-bcec-48c5-a51f-8b6da49faf76" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="17409bff-5230-4320-98a5-dc0e7834a4ec" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="048024f0-e7f8-4238-b25a-eaa97dcf45ac" name="virtual onUnclick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="111d8a2e-5bd4-4bc7-b267-42d36309f802" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="5952ecc0-93c6-4bf1-b2e8-caf82f4c35cf" direction="Return" isUnique="false">
+                        <elementDefinition Id="cd5aa637-49a0-4991-b00e-8ef59592ec8c" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="17409bff-5230-4320-98a5-dc0e7834a4ec" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="f8df998f-78b0-4fbe-90bc-2e20f172fb6a" name="Widget" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="9be62b1e-ad4c-4107-97d4-4fe000cfbbd6" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="9bb45f6e-1465-4a64-8b07-bf9146e613c3" name="Image" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="7c8c5adf-845c-48cb-9f81-63121c4d71dd" />
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <packageHasNamedElement>
+      <referencedType Id="17409bff-5230-4320-98a5-dc0e7834a4ec" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="babf3ed6-d75c-44e3-8c26-da648cddf485" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="18b9a8d4-7cb0-4e7b-9e51-e76afdad2496" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="b45ddb83-52c0-49c2-a3ea-3f5391fe2b4d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="30904efc-0844-4a8e-bbbd-3c872ab44850" name="Image::e_buttonImage" isAbstract="false" isLeaf="false" cachedFullName="Image::e_buttonImage">
+        <elementDefinition Id="46f33296-2f52-43ac-a91d-896f9febdd08" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="bbfb8015-f51e-429c-a033-19a8df494523" name="UML::Engine::Image[]" isAbstract="false" isLeaf="false" cachedFullName="UML::Engine::Image[]">
+        <elementDefinition Id="d3ccbba5-c46c-4532-83b6-e3042cd439cf" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="8438ed1b-1ff0-47ae-9a50-fee5d0d8c6c1" name="UML">
+    <elementDefinition Id="804cbabf-a4bf-485e-b919-ec86806644a2" />
+    <profileInstances>
+      <packageHasProfileInstances Id="c0f09799-0d36-40a3-bd4a-13812bd5ce44">
+        <profileInstance Id="d51bd552-ea21-4230-8786-56fa016a46db" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="f477ebd4-809c-4ecc-a2dc-416bf54ff6c5">
+        <profileInstance Id="8cc26f86-cc46-4da5-bcc7-abfe18b31824" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="6df21306-e323-4e62-8453-e9a2adc8899a">
+        <profileInstance Id="d056283b-6aa4-4b17-97ff-e9544db8fe32" name="TextTemplateBindings">
+          <elementDefinition Id="5520fe91-70c2-4045-bd2f-31757d5be489" />
+        </profileInstance>
+        <elementDefinition Id="7646af80-6114-4431-9d1b-ec0ef904134c" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

@@ -1,0 +1,47 @@
+﻿Build started 26/11/2013 15:25:34.
+     1>Project "C:\Users\leprov_a\workspace\tmp\rtype\Ultra\Ultra.vcxproj" on node 2 (Rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\Ultra.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Debug\Ultra.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _DEBUG /D _MBCS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt AFramer.cpp Attr.cpp Color.cpp DecoratorThread.cpp Exception.cpp INIReader.cpp INISection.cpp ScopeLock.cpp Sleep.cpp Value.cpp WFramer.cpp WMutex.cpp WThread.cpp WTimer.cpp
+         WTimer.cpp
+         WThread.cpp
+         WMutex.cpp
+         WFramer.cpp
+         Value.cpp
+         Sleep.cpp
+         ScopeLock.cpp
+         INISection.cpp
+         INIReader.cpp
+         Exception.cpp
+         DecoratorThread.cpp
+         Color.cpp
+         Attr.cpp
+         AFramer.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\leprov_a\workspace\tmp\rtype\Debug\Ultra.lib" /NOLOGO Debug\AFramer.obj
+         Debug\Attr.obj
+         Debug\Color.obj
+         Debug\DecoratorThread.obj
+         Debug\Exception.obj
+         Debug\INIReader.obj
+         Debug\INISection.obj
+         Debug\ScopeLock.obj
+         Debug\Sleep.obj
+         Debug\Value.obj
+         Debug\WFramer.obj
+         Debug\WMutex.obj
+         Debug\WThread.obj
+         Debug\WTimer.obj
+         Ultra.vcxproj -> C:\Users\leprov_a\workspace\tmp\rtype\Debug\Ultra.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\Ultra.unsuccessfulbuild".
+         Touching "Debug\Ultra.lastbuildstate".
+     1>Done Building Project "C:\Users\leprov_a\workspace\tmp\rtype\Ultra\Ultra.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.06

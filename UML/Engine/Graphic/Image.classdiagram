@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="ed60eb86-e2e2-4171-a3bd-f41d43f03d28" name="Image" linkedPackageId="eafc7cc2-e2df-4bee-9e2f-c4e92c624271" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="9b133900-2892-41f3-af5b-14828ccd606e" name="Engine">
+        <elementDefinition Id="ce3df1a0-761b-48c0-a595-8125c53f0aaa" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="b4e55e18-9fde-4d45-953c-f9abd887fb67" name="Image" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="6184c094-8ef8-45e8-b636-8cfcaa9b4c3d" />
+              <suppliersInternal>
+                <dependency Id="95d4bd4e-95d7-4c29-9238-4553d239e75f">
+                  <enumerationMoniker Id="f5cc421d-47f6-4ba1-8ba6-b30a883ed9b6" LastKnownName="Image::e_buttonImage" />
+                  <elementDefinition Id="c9612ff4-d633-44ec-b30c-158f07777ccd" />
+                </dependency>
+                <dependency Id="2a7fc887-85f4-4006-a9f2-4a5b9cc50ef7">
+                  <enumerationMoniker Id="523a4190-f681-4b99-bbba-1870830f6a90" LastKnownName="Image::e_textBoxImage" />
+                  <elementDefinition Id="54d496e8-4b90-4d68-97b5-25a7b953be1a" />
+                </dependency>
+                <dependency Id="8f670e8c-6024-47fd-9d59-12e9fb6b173e">
+                  <enumerationMoniker Id="77bb2420-1747-40db-9821-46585ad1b5a6" LastKnownName="Image::e_slideBarImage" />
+                  <elementDefinition Id="9fab3294-5d29-45f6-bffe-fb952d66e24f" />
+                </dependency>
+                <dependency Id="51b46a40-f7be-4b9f-8d7a-f728ed9358b9">
+                  <enumerationMoniker Id="10b2ec69-1358-4f20-aa2f-0fe5a2406627" LastKnownName="Image::e_checkBoxImage" />
+                  <elementDefinition Id="ab8881a0-ed66-460c-a1aa-f7e141ef7e28" />
+                </dependency>
+              </suppliersInternal>
+              <ownedAttributesInternal>
+                <property Id="faa9ea20-e184-449d-89c3-571991476b3d" name="_sprites" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b0899d60-fbe8-4999-83c1-56aa788c162d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c01eba32-9c29-4e48-86cc-7e80d45e98b9" LastKnownName="sf::Sprite" />
+                  </type_NamedElement>
+                </property>
+                <property Id="796af273-4246-4e6e-a808-c4a433fd5435" name="_texture" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d88cfa98-e70e-4c08-8fce-fd375a2da293" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="aad46dbc-b0bc-4eee-a6df-ec92517cfd29" LastKnownName="sf::Texture" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributesInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <enumeration Id="f5cc421d-47f6-4ba1-8ba6-b30a883ed9b6" name="Image::e_buttonImage" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="a04308b0-af28-43ec-896f-53e58da3ae25" />
+              <ownedLiterals>
+                <enumerationLiteral Id="f5bc50be-ee0b-43d6-9fbc-91894b54b73b" name="NORMAL">
+                  <elementDefinition Id="9ffee5e0-17e8-4c85-a008-3c0b32810c63" />
+                </enumerationLiteral>
+                <enumerationLiteral Id="55c41de1-de42-4aae-aab2-cdc50bac2a72" name="MOUSEOVER">
+                  <elementDefinition Id="f9f24ca6-dba2-4617-b76b-a9bc23eb63e1" />
+                </enumerationLiteral>
+                <enumerationLiteral Id="d3c28290-5063-4b94-8ddf-ddf17d6cc353" name="CLICKED">
+                  <elementDefinition Id="cf8c9065-db93-4647-a0ef-18aa45a057ed" />
+                </enumerationLiteral>
+                <enumerationLiteral Id="dfec21a1-0399-4aa7-99b5-21ca7fda2f5c" name="LAST">
+                  <elementDefinition Id="e6ed6cf7-9c3d-4929-90bb-c9231b95c925" />
+                </enumerationLiteral>
+              </ownedLiterals>
+            </enumeration>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <enumeration Id="523a4190-f681-4b99-bbba-1870830f6a90" name="Image::e_textBoxImage" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="67e454e8-62b6-4369-bbd8-1a907a2d2443" />
+              <ownedLiterals>
+                <enumerationLiteral Id="e04ee578-9f48-4f01-838d-51ddb1b261e8" name="SELECTED">
+                  <elementDefinition Id="33ba8ac2-13b3-448b-82de-95938d06c5e2" />
+                </enumerationLiteral>
+                <enumerationLiteral Id="91eef535-cbac-4aee-84c6-224de3f86159" name="NOT_SELECTED">
+                  <elementDefinition Id="16ef3f61-6142-4d42-81dc-3107df70984b" />
+                </enumerationLiteral>
+                <enumerationLiteral Id="438ba6d1-b919-4340-9de8-72863a241a41" name="LAST">
+                  <elementDefinition Id="4db01681-dc44-4e91-8ee1-9afbffee052b" />
+                </enumerationLiteral>
+              </ownedLiterals>
+            </enumeration>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <enumeration Id="77bb2420-1747-40db-9821-46585ad1b5a6" name="Image::e_slideBarImage" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="516360d1-8e1e-4620-ab1e-534ce1ec8495" />
+              <ownedLiterals>
+                <enumerationLiteral Id="7a0a2f46-7c5e-44f9-bde8-38871cce6ace" name="CURSOR">
+                  <elementDefinition Id="333fd735-b141-4893-a677-8f3a3193224a" />
+                </enumerationLiteral>
+                <enumerationLiteral Id="993a85ab-d7a3-41f6-a4c8-8e4e3eba2bc1" name="BAR">
+                  <elementDefinition Id="e9934196-b421-44b4-ada2-b18eef13e82b" />
+                </enumerationLiteral>
+                <enumerationLiteral Id="0d4a1055-c7dd-4836-89d3-d785c8e97420" name="LAST">
+                  <elementDefinition Id="c156cb67-b83b-4226-ae23-7afb7b2123cf" />
+                </enumerationLiteral>
+                <enumerationLiteral Id="c950bb92-7d02-459c-a1d3-3bf18e0b93f5" name="SELECTED_CURSOR">
+                  <elementDefinition Id="bb655403-0605-4bab-8ff5-2acf41a80017" />
+                </enumerationLiteral>
+              </ownedLiterals>
+            </enumeration>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <enumeration Id="10b2ec69-1358-4f20-aa2f-0fe5a2406627" name="Image::e_checkBoxImage" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="0f241a52-dab9-4614-acd0-1cc9a9b271dc" />
+              <ownedLiterals>
+                <enumerationLiteral Id="f93ae36a-c0f9-40cf-afa8-663af51e2932" name="CHECKED">
+                  <elementDefinition Id="a34443e7-66a1-47f0-a532-ef6b2a3593dc" />
+                </enumerationLiteral>
+                <enumerationLiteral Id="f331c4ff-07ae-483a-8a95-846afc8c7262" name="NOT_CHECKED">
+                  <elementDefinition Id="ffc58d0a-11ad-4b81-b4b5-f1ec6d763a3a" />
+                </enumerationLiteral>
+                <enumerationLiteral Id="07aee920-5d47-4407-a4b9-d7866fe415ab" name="LAST">
+                  <elementDefinition Id="1507236e-3a84-40c8-b9de-ea67112b85b5" />
+                </enumerationLiteral>
+              </ownedLiterals>
+            </enumeration>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <packageHasNamedElement>
+      <referencedType Id="c01eba32-9c29-4e48-86cc-7e80d45e98b9" name="sf::Sprite" isAbstract="false" isLeaf="false" cachedFullName="sf::Sprite">
+        <elementDefinition Id="6b74c831-0b7d-46ac-be54-7f779a745f62" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="aad46dbc-b0bc-4eee-a6df-ec92517cfd29" name="sf::Texture" isAbstract="false" isLeaf="false" cachedFullName="sf::Texture">
+        <elementDefinition Id="afcac2c4-b938-4087-8781-48e620342158" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="eafc7cc2-e2df-4bee-9e2f-c4e92c624271" name="UML">
+    <elementDefinition Id="804cbabf-a4bf-485e-b919-ec86806644a2" />
+    <profileInstances>
+      <packageHasProfileInstances Id="1f206ed5-a605-4596-b9f4-e9cd04cf379d">
+        <profileInstance Id="d4ad9919-cb55-4562-bd0d-0d518db2207c" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="ce7839ad-f013-4474-a5a2-4c4052da12ed">
+        <profileInstance Id="601be498-b477-4e97-b67e-b5687ac655cb" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="4e071494-bab3-4359-8a18-4e71a1c5ff1d">
+        <profileInstance Id="55bf218b-03cb-4827-97ff-50ef6c9c8690" name="TextTemplateBindings">
+          <elementDefinition Id="5520fe91-70c2-4045-bd2f-31757d5be489" />
+        </profileInstance>
+        <elementDefinition Id="7646af80-6114-4431-9d1b-ec0ef904134c" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

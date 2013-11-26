@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FA0EA7A5-EC74-4210-B6D2-C7F7CE980541}</ProjectGuid>
+    <RootNamespace>Engine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetExt>.lib</TargetExt>
+    <IncludePath>$(SolutionDir)Ultra;$(SolutionDir)Network;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)Ultra;$(SolutionDir)Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="AArmorComponent.hpp" />
+    <ClInclude Include="ACollidorComponent.hpp" />
+    <ClInclude Include="AComponent.hpp" />
+    <ClInclude Include="ADataModule.hpp" />
+    <ClInclude Include="AEventDispatcher.hpp" />
+    <ClInclude Include="AEventModule.hpp" />
+    <ClInclude Include="AGauge.hpp" />
+    <ClInclude Include="AInvincibilityComponent.hpp" />
+    <ClInclude Include="ALifeComponent.hpp" />
+    <ClInclude Include="AModule.hpp" />
+    <ClInclude Include="AMoveComponent.hpp" />
+    <ClInclude Include="ANetworkModule.hpp" />
+    <ClInclude Include="AParallax.hpp" />
+    <ClInclude Include="APositionComponent.hpp" />
+    <ClInclude Include="ARenderComponent.hpp" />
+    <ClInclude Include="ARenderModule.hpp" />
+    <ClInclude Include="ARotationComponent.hpp" />
+    <ClInclude Include="AShieldComponent.hpp" />
+    <ClInclude Include="AShootComponent.hpp" />
+    <ClInclude Include="ASizeComponent.hpp" />
+    <ClInclude Include="ASlider.hpp" />
+    <ClInclude Include="ASoundModule.hpp" />
+    <ClInclude Include="ASourceModule.hpp" />
+    <ClInclude Include="ASpeedComponent.hpp" />
+    <ClInclude Include="AState.hpp" />
+    <ClInclude Include="AStateModule.hpp" />
+    <ClInclude Include="AVectorComponent.hpp" />
+    <ClInclude Include="Background.hpp" />
+    <ClInclude Include="Button.hpp" />
+    <ClInclude Include="ButtonCallback.hpp" />
+    <ClInclude Include="Callback.hpp" />
+    <ClInclude Include="CheckBox.hpp" />
+    <ClInclude Include="CheckBoxCallback.hpp" />
+    <ClInclude Include="Core.hpp" />
+    <ClInclude Include="Event.hpp" />
+    <ClInclude Include="EventListener.hpp" />
+    <ClInclude Include="GameObject.hpp" />
+    <ClInclude Include="Governor.hpp" />
+    <ClInclude Include="HGauge.hpp" />
+    <ClInclude Include="HParallax.hpp" />
+    <ClInclude Include="HSlider.hpp" />
+    <ClInclude Include="HSliderCallback.hpp" />
+    <ClInclude Include="IImage.hpp" />
+    <ClInclude Include="IInput.hpp" />
+    <ClInclude Include="IObject.hpp" />
+    <ClInclude Include="IRender.hpp" />
+    <ClInclude Include="IText.hpp" />
+    <ClInclude Include="IVisualObject.hpp" />
+    <ClInclude Include="KeyboardEvent.hpp" />
+    <ClInclude Include="Label.hpp" />
+    <ClInclude Include="ListBox.hpp" />
+    <ClInclude Include="ListBoxCallback.hpp" />
+    <ClInclude Include="MouseEvent.hpp" />
+    <ClInclude Include="NetworkEvent.hpp" />
+    <ClInclude Include="SliderCursor.hpp" />
+    <ClInclude Include="SliderCursorCallback.hpp" />
+    <ClInclude Include="TextBox.hpp" />
+    <ClInclude Include="TextBoxCallback.hpp" />
+    <ClInclude Include="VGauge.hpp" />
+    <ClInclude Include="VParallax.hpp" />
+    <ClInclude Include="VSlider.hpp" />
+    <ClInclude Include="VSliderCallback.hpp" />
+    <ClInclude Include="Widget.hpp" />
+    <ClInclude Include="WindowEvent.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AArmorComponent.cpp" />
+    <ClCompile Include="ACollidorComponent.cpp" />
+    <ClCompile Include="AComponent.cpp" />
+    <ClCompile Include="ADataModule.cpp" />
+    <ClCompile Include="AEventDispatcher.cpp" />
+    <ClCompile Include="AEventModule.cpp" />
+    <ClCompile Include="AGauge.cpp" />
+    <ClCompile Include="AInvincibilityComponent.cpp" />
+    <ClCompile Include="ALifeComponent.cpp" />
+    <ClCompile Include="AModule.cpp" />
+    <ClCompile Include="AMoveComponent.cpp" />
+    <ClCompile Include="ANetworkModule.cpp" />
+    <ClCompile Include="AParallax.cpp" />
+    <ClCompile Include="ARenderComponent.cpp" />
+    <ClCompile Include="ARenderModule.cpp" />
+    <ClCompile Include="AShieldComponent.cpp" />
+    <ClCompile Include="AShootComponent.cpp" />
+    <ClCompile Include="ASlider.cpp" />
+    <ClCompile Include="ASoundModule.cpp" />
+    <ClCompile Include="ASourceModule.cpp" />
+    <ClCompile Include="ASpeedComponent.cpp" />
+    <ClCompile Include="AState.cpp" />
+    <ClCompile Include="AStateModule.cpp" />
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ButtonCallback.cpp" />
+    <ClCompile Include="Callback.cpp" />
+    <ClCompile Include="CheckBox.cpp" />
+    <ClCompile Include="CheckBoxCallBack.cpp" />
+    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="Event.cpp" />
+    <ClCompile Include="EventListener.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Governor.cpp" />
+    <ClCompile Include="HGauge.cpp" />
+    <ClCompile Include="HParallax.cpp" />
+    <ClCompile Include="HSlider.cpp" />
+    <ClCompile Include="HSliderCallback.cpp" />
+    <ClCompile Include="KeyboardEvent.cpp" />
+    <ClCompile Include="Label.cpp" />
+    <ClCompile Include="ListBox.cpp" />
+    <ClCompile Include="ListBoxCallback.cpp" />
+    <ClCompile Include="MouseEvent.cpp" />
+    <ClCompile Include="NetworkEvent.cpp" />
+    <ClCompile Include="SliderCursor.cpp" />
+    <ClCompile Include="SliderCursorCallback.cpp" />
+    <ClCompile Include="TextBox.cpp" />
+    <ClCompile Include="TextBoxCallback.cpp" />
+    <ClCompile Include="VGauge.cpp" />
+    <ClCompile Include="VParallax.cpp" />
+    <ClCompile Include="VSlider.cpp" />
+    <ClCompile Include="VSliderCallback.cpp" />
+    <ClCompile Include="Widget.cpp" />
+    <ClCompile Include="WindowEvent.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
