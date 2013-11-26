@@ -173,6 +173,14 @@ void	ConnectionState::login()
 {
 	Message *msg = new Message(Message::AUTH_LOGIN);
 	MD5encode md5;
+
+	Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+	
+	mutex->lock();
+	DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+	dm->setAttr("login", Ultra::Value(std::string(this->_login->getText())));
+	mutex->unlock();
+
 	msg->setAttr("login", Ultra::Value(std::string(this->_login->getText())));
 	msg->setAttr("password", Ultra::Value(md5.encode(this->_password->getText())));
 	Ultra::ScopeLock lock(Engine::Core::getInstance()->access(Engine::AModule::NETWORK));
