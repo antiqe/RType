@@ -12,9 +12,10 @@ namespace Ultra
 	class Factory
 	{
 	protected:
-		std::map<U, T>	_objects;
+		std::map<U, T>						_objects;
 	public:
 		Factory() {}
+
 		virtual ~Factory() {}
 
 		void	learn(U const& key, T object)
@@ -29,7 +30,7 @@ namespace Ultra
 				this->_objects.erase(key);
 		}
 
-		T*	create(U const& key) const
+		T*		create(U const& key) const
 		{
 			typename std::map<U, T>::const_iterator it = this->_objects.find(key);
 
@@ -38,7 +39,10 @@ namespace Ultra
 			return (0);
 		}
 
-
+		std::map<U, T> const&		getAllObject() const
+		{
+			return (this->_objects);
+		}
 	};
 }
 
