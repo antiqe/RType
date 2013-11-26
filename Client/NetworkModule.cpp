@@ -75,6 +75,7 @@ void	NetworkModule::update()
 			{
 				unsigned short length = 0;
 				char *data = p.first->pack(length);
+				std::cout << "Send!" << std::endl;
 			    this->_client->send(data, length);
 			}
 			//else
