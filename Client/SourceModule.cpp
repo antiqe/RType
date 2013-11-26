@@ -68,17 +68,17 @@ void	SourceModule::initialize()
 	this->_images.add(SFMLImage::BUTTON_CLICKED_SEND, new SFMLImage("Assets/Menu/buttonSendClicked.png"));
 
 	this->_images.add(SFMLImage::CHECKBOX_CHECKED_NORMAL_READY, new SFMLImage("Assets/Menu/checkBoxReadyCheckedNormal.png"));
-	this->_images.add(SFMLImage::CHECKBOX_CHECKED_CLICKED_READY, new SFMLImage("Assets/Menu/checkBoxReadyCheckedNormal.png"));
-	this->_images.add(SFMLImage::CHECKBOX_CHECKED_HOVER_READY, new SFMLImage("Assets/Menu/checkBoxReadyCheckedNormal.png"));
+	this->_images.add(SFMLImage::CHECKBOX_CHECKED_CLICKED_READY, new SFMLImage("Assets/Menu/checkBoxReadyCheckedClicked.png"));
+	this->_images.add(SFMLImage::CHECKBOX_CHECKED_HOVER_READY, new SFMLImage("Assets/Menu/checkBoxReadyCheckedHover.png"));
 	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_NORMAL_READY, new SFMLImage("Assets/Menu/checkBoxReadyUncheckedNormal.png"));
-	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_CLICKED_READY, new SFMLImage("Assets/Menu/checkBoxReadyUncheckedNormal.png"));
-	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_HOVER_READY, new SFMLImage("Assets/Menu/checkBoxReadyUncheckedNormal.png"));
-	this->_images.add(SFMLImage::CHECKBOX_CHECKED_NORMAL_PRIVATE, new SFMLImage("Assets/Menu/checkBoxReadyCheckedNormal.png"));
-	this->_images.add(SFMLImage::CHECKBOX_CHECKED_CLICKED_PRIVATE, new SFMLImage("Assets/Menu/checkBoxReadyCheckedNormal.png"));
-	this->_images.add(SFMLImage::CHECKBOX_CHECKED_HOVER_PRIVATE, new SFMLImage("Assets/Menu/checkBoxReadyCheckedNormal.png"));
-	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_NORMAL_PRIVATE, new SFMLImage("Assets/Menu/checkBoxReadyUncheckedNormal.png"));
-	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_CLICKED_PRIVATE, new SFMLImage("Assets/Menu/checkBoxReadyUncheckedNormal.png"));
-	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_HOVER_PRIVATE, new SFMLImage("Assets/Menu/checkBoxReadyUncheckedNormal.png"));
+	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_CLICKED_READY, new SFMLImage("Assets/Menu/checkBoxReadyUncheckedClicked.png"));
+	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_HOVER_READY, new SFMLImage("Assets/Menu/checkBoxReadyUncheckedHover.png"));
+	this->_images.add(SFMLImage::CHECKBOX_CHECKED_NORMAL_PRIVATE, new SFMLImage("Assets/Menu/checkBoxPrivateCheckedNormal.png"));
+	this->_images.add(SFMLImage::CHECKBOX_CHECKED_CLICKED_PRIVATE, new SFMLImage("Assets/Menu/checkBoxPrivateCheckedClicked.png"));
+	this->_images.add(SFMLImage::CHECKBOX_CHECKED_HOVER_PRIVATE, new SFMLImage("Assets/Menu/checkBoxPrivateCheckedHover.png"));
+	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_NORMAL_PRIVATE, new SFMLImage("Assets/Menu/checkBoxPrivateUncheckedNormal.png"));
+	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_CLICKED_PRIVATE, new SFMLImage("Assets/Menu/checkBoxPrivateUncheckedClicked.png"));
+	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_HOVER_PRIVATE, new SFMLImage("Assets/Menu/checkBoxPrivateUncheckedHover.png"));
 
 	this->_images.add(SFMLImage::SLIDER, new SFMLImage("Assets/Menu/slidebar.png"));
 	this->_images.add(SFMLImage::SLIDER_CURSOR_NORMAL, new SFMLImage("Assets/Menu/CursorNormal.png"));

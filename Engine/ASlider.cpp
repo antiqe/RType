@@ -17,7 +17,7 @@ namespace Engine
 		this->_file = normalFile;
 		this->_cursor = new SliderCursor(name, cursorNormalFile, cursorClickedFile, cursorHoverFile, moveCursorCallback);
 		this->addChild(this->_cursor);
-		this->setSize(1, 1);
+		this->setSize(0, 0);
 		this->setPosition(0, 0);
 	}
 

@@ -15,7 +15,7 @@ namespace Engine
 		this->_file[SliderCursor::CLICKED] = clickedFile;
 		this->_file[SliderCursor::HOVER] = hoverFile;
 		this->_moveCallback = moveCallback;
-		this->setSize(1, 1);
+		this->setSize(0, 0);
 		this->setPosition(0, 0);
 	}
 
