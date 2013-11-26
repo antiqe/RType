@@ -11,18 +11,21 @@
 
 namespace Engine
 {
-	class GameObject : public IObject, public Ultra::IPrototype<GameObject>, protected Ultra::Container<AComponent>
+	class GameObject : public IObject, public Ultra::IPrototype<GameObject>, public Ultra::Container<AComponent>
 	{
 	private:
+		std::string _familyID;
 		std::string	_id;
 	public:
-		GameObject(std::string const& id);
+		GameObject(std::string const& familyID, std::string const& id);
 		GameObject(GameObject const& cpy);
 		~GameObject();
 		GameObject&	operator=(GameObject const& cpy);
 
 		std::string const&	getID() const;
+		std::string const&	getFamilyID() const;
 		void				setID(std::string const& id);
+		void				setFamilyID(std::string const& familyID);
 
 		AComponent*	getComponent(std::string const& id) const;
 		AComponent*	setComponent(AComponent* component);
@@ -34,6 +37,9 @@ namespace Engine
 		void			update();
 		void			unload();
 		GameObject*		clone() const;
+
+		static std::string const	PLAYER;
+		static std::string const	BULLET;
 
 		static std::string const	STARSHIP1;
 		static std::string const	STARSHIP2;

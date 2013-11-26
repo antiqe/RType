@@ -61,6 +61,12 @@
     <Filter Include="Header Files\Tool\Reader">
       <UniqueIdentifier>{7879d712-8174-441c-b231-84e77ca5295b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Abstraction\Chrono">
+      <UniqueIdentifier>{a0ba1c04-02e4-4639-8c96-7a95330f0e98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Abstraction\Chrono">
+      <UniqueIdentifier>{c8522625-c28f-485a-958a-9e8fbe790474}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AFramer.hpp">
@@ -165,6 +171,18 @@
     <ClInclude Include="Coordinate.hpp">
       <Filter>Header Files\Tool\Vector</Filter>
     </ClInclude>
+    <ClInclude Include="IChrono.hpp">
+      <Filter>Header Files\Abstraction\Chrono</Filter>
+    </ClInclude>
+    <ClInclude Include="WChrono.hpp">
+      <Filter>Header Files\Abstraction\Chrono</Filter>
+    </ClInclude>
+    <ClInclude Include="AChrono.hpp">
+      <Filter>Header Files\Abstraction\Chrono</Filter>
+    </ClInclude>
+    <ClInclude Include="LChrono.hpp">
+      <Filter>Header Files\Abstraction\Chrono</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AFramer.cpp">
@@ -214,6 +232,12 @@
     </ClCompile>
     <ClCompile Include="INISection.cpp">
       <Filter>Source Files\Tool\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="WChrono.cpp">
+      <Filter>Source Files\Abstraction\Chrono</Filter>
+    </ClCompile>
+    <ClCompile Include="LChrono.cpp">
+      <Filter>Source Files\Abstraction\Chrono</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

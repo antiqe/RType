@@ -121,6 +121,7 @@
     <ClInclude Include="Label.hpp" />
     <ClInclude Include="ListBox.hpp" />
     <ClInclude Include="ListBoxCallback.hpp" />
+    <ClInclude Include="LogicTree.hpp" />
     <ClInclude Include="MouseEvent.hpp" />
     <ClInclude Include="NetworkEvent.hpp" />
     <ClInclude Include="SliderCursor.hpp" />
@@ -177,6 +178,7 @@
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="ListBox.cpp" />
     <ClCompile Include="ListBoxCallback.cpp" />
+    <ClCompile Include="LogicTree.cpp" />
     <ClCompile Include="MouseEvent.cpp" />
     <ClCompile Include="NetworkEvent.cpp" />
     <ClCompile Include="SliderCursor.cpp" />

@@ -149,7 +149,6 @@
     <ClInclude Include="FormatRoomInfo.hpp" />
     <ClInclude Include="GameState.hpp" />
     <ClInclude Include="ListenerTCP.hpp" />
-    <ClInclude Include="ListBox.hpp" />
     <ClInclude Include="MD5encode.hpp" />
     <ClInclude Include="NetworkModule.hpp" />
     <ClInclude Include="PlayCreateCallback.hpp" />
