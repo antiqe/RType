@@ -46,8 +46,6 @@ namespace Callback
 				PlayCreateState* state = dynamic_cast<PlayCreateState *>(widget);
 				state->displayError("Can't connect to room");
 			}
-			std::cout << "Join room id = " << id << std::endl;
-			std::cout << "State room = " << (int)status << std::endl;
 		}
 	}
 }

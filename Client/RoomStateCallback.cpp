@@ -64,7 +64,7 @@ namespace Callback
 			Engine::ListBox<> *lb = dynamic_cast<Engine::ListBox<> *>(wlb);
 			std::string from = event->getAttr<std::string>("from");
 			std::string msg = event->getAttr<std::string>("msg");
-			lb->push(from + " : " + msg, 0);
+			lb->push(from + " : " + msg, 0, true);
 		}
 	}
 }

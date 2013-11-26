@@ -46,8 +46,6 @@ namespace Engine
 						slice++;
 					ListBox->focus(slice - 1);
 				}
-				else
-					ListBox->unfocus();
 			}
 		}
 	}

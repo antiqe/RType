@@ -142,7 +142,6 @@ void	PlayJoinState::selectServer()
 	if (this->_list->getFocusLine() != -1)
 	{
 		RoomInfo *rm = this->_list->getFocusData();
-
 		Message *msg = new Message(Message::ROOM_JOIN);
 
 		msg->setAttr("id", Ultra::Value((unsigned short)rm->getID()));
