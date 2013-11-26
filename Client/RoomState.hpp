@@ -23,6 +23,8 @@ private:
 		STAT_SIZE
 	};
 
+	static unsigned int nbrPlayer;
+
 	DataModule*				_dataModule;
 	Engine::Background*		_background;
 	Engine::Button*			_go;
