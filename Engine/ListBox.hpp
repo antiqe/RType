@@ -146,7 +146,7 @@ namespace Engine
 		}
 		void	draw(Engine::IRender* render)
 		{
-			std::list<line>::iterator it = this->_start;
+		  typename std::list<line>::iterator it = this->_start;
 			unsigned int i = 0;
 
 			for(; i < this->_nbrLine && it != this->_content.end() ; ++i)
@@ -300,7 +300,7 @@ namespace Engine
 		{
 			if ((int)this->_focus == -1)
 				return ("");
-			std::list<line>::iterator it = this->_start;
+			typename std::list<line>::iterator it = this->_start;
 			for (unsigned int i = 0 ; i < this->_focus - this->_valueSaved && it != this->_content.end() ; ++i)
 				++it;
 			return (it != this->_content.end() ? it->first : "");
