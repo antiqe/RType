@@ -27,7 +27,7 @@ namespace Callback
 			int max_player = event->getAttr<char>("max_player");
 
 			RoomInfo *iroom = new RoomInfo(id, name, priv, cur_player, max_player);
-			lb->push(iroom->toString(), iroom);
+			//lb->push(iroom->toString(), iroom);
 		}
 
 		void refreshOnClick(Engine::Widget* widget, Engine::Event* event)
