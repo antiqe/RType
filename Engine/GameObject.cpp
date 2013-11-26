@@ -5,19 +5,22 @@
 
 namespace Engine
 {
+	std::string const	GameObject::PLAYER = "player";
+	std::string const	GameObject::BULLET = "bullet";
+
 	std::string const	GameObject::STARSHIP1 = "starship1";
 	std::string const	GameObject::STARSHIP2 = "starship2";
 	std::string const	GameObject::STARSHIP3 = "starship3";
 	std::string const	GameObject::STARSHIP4 = "starship4";
 
-	GameObject::GameObject(std::string const& id)
-		: Ultra::Container<Engine::AComponent>(), _id(id)
+	GameObject::GameObject(std::string const& familyID, std::string const& id)
+		: Ultra::Container<Engine::AComponent>(), _familyID(familyID), _id(id)
 	{
 
 	}
 
 	GameObject::GameObject(GameObject const& cpy)
-		: Ultra::Container<Engine::AComponent>(), _id(cpy._id)
+		: Ultra::Container<Engine::AComponent>(), _familyID(cpy._familyID), _id(cpy._id)
 	{
 		for (std::list<AComponent*>::const_iterator	it = cpy._contents.begin(); it != cpy._contents.end(); ++it)
 			this->setComponent((*it)->clone());
@@ -30,9 +33,10 @@ namespace Engine
 
 	GameObject&	GameObject::operator=(GameObject const& cpy)
 	{
-		Ultra::Container<AComponent>::operator=(cpy);
 		if (this != &cpy)
 		{
+			this->_familyID = cpy._familyID;
+			this->_id = cpy._id;
 			for (std::list<AComponent*>::const_iterator	it = cpy._contents.begin(); it != cpy._contents.end(); ++it)
 				this->setComponent((*it)->clone());
 		}
@@ -44,9 +48,19 @@ namespace Engine
 		return (this->_id);
 	}
 
+	std::string const&	GameObject::getFamilyID() const
+	{
+		return (this->_familyID);
+	}
+
 	void			GameObject::setID(std::string const& id)
 	{
 		this->_id = id;
+	}
+
+	void			GameObject::setFamilyID(std::string const& familyID)
+	{
+		this->_familyID = familyID;
 	}
 
 	AComponent* GameObject::getComponent(std::string const& id) const

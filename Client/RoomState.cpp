@@ -65,6 +65,7 @@ void	RoomState::initialize()
 	Widget::initialize();
 	this->_loading->hide();
 	this->addEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED, &Engine::Callback::quit);
+	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_TALK), Callback::Room::onReceiveTalk);
 	if ((this->_dataModule = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
 	{
 		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
@@ -110,6 +111,8 @@ void	RoomState::initialize()
 		// Send button
 		this->_send->setSize(width * 7.5 / 100, height * 2.5 / 100);
 		this->_send->setPosition(width * 67.45 / 100, height * 91 / 100);
+		this->_send->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+		this->_send->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::sendOnClick);
 		// Quit button
 		this->_quit->setSize(width * 9 / 100, height * 3 / 100);
 		this->_quit->setPosition(width * 90 / 100, height * 1 / 100);
@@ -158,4 +161,23 @@ void	RoomState::quitRoom()
 	msg->setAttr("state", Ultra::Value((char)Network::LEFT));
 
 	this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
+}
+
+void	RoomState::roomTalk()
+{
+	Message *msg = new Message(Message::ROOM_TALK);
+
+	Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+	
+	mutex->lock();
+	DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+	std::string login = dm->getAttr<std::string>("login");
+	mutex->unlock();
+
+	msg->setAttr("from", Ultra::Value(std::string(login)));
+	msg->setAttr("msg", Ultra::Value(std::string(this->_msg->getText())));
+
+	this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
+
+	this->_msg->setText("");
 }

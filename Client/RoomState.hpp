@@ -52,6 +52,8 @@ public:
 	void	reload();
 
 	void	quitRoom();
+
+	void	roomTalk();
 };
 
 #endif

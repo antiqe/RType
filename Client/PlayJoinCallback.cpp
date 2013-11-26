@@ -8,6 +8,7 @@
 #include "ScopeLock.hpp"
 #include "NetworkModule.hpp"
 #include "RoomInfo.hpp"
+#include "StateRoom.hpp"
 
 namespace Callback
 {
@@ -19,7 +20,7 @@ namespace Callback
 
 			PlayJoinState *state = dynamic_cast<PlayJoinState *>(widget);
 			Engine::Widget * wlb = state->getChild("list");
-			Engine::ListBox<> *lb = dynamic_cast<Engine::ListBox<> *>(wlb);
+			Engine::ListBox<RoomInfo *> *lb = dynamic_cast<Engine::ListBox<RoomInfo *> *>(wlb);
 			unsigned short id = event->getAttr<unsigned short>("id");
 			std::string name = event->getAttr<std::string>("name");
 			bool priv = event->getAttr<bool>("private");
@@ -27,7 +28,7 @@ namespace Callback
 			int max_player = event->getAttr<char>("max_player");
 
 			RoomInfo *iroom = new RoomInfo(id, name, priv, cur_player, max_player);
-			//lb->push(iroom->toString(), iroom);
+			lb->push(iroom->toString(), iroom);
 		}
 
 		void refreshOnClick(Engine::Widget* widget, Engine::Event* event)
@@ -72,6 +73,26 @@ namespace Callback
 			}
 			else
 				button->setStatus(Engine::Button::NORMAL);
+		}
+
+		void onRoomState(Engine::Widget* widget, Engine::Event* event)
+		{
+			unsigned short id = event->getAttr<unsigned short>("id");
+			char status = event->getAttr<char>("state");
+
+			if (status == Network::OK)
+			{
+				PlayJoinState* state = dynamic_cast<PlayJoinState *>(widget);
+				state->goToRoom();
+			}
+			/*else
+			{
+				PlayJoinState* state = dynamic_cast<PlayJoinState *>(widget);
+				state->displayError("Can't connect to room");
+			}*/
+			std::cout << "Join room id = " << id << std::endl;
+			std::cout << "State room = " << (int)status << std::endl;
+
 		}
 	}
 }

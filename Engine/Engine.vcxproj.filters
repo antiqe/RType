@@ -264,6 +264,9 @@
     <ClInclude Include="AVectorComponent.hpp">
       <Filter>Header Files\Object\Component</Filter>
     </ClInclude>
+    <ClInclude Include="LogicTree.hpp">
+      <Filter>Header Files\Object\Game Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -427,6 +430,9 @@
     </ClCompile>
     <ClCompile Include="AInvincibilityComponent.cpp">
       <Filter>Source Files\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicTree.cpp">
+      <Filter>Source Files\Object\Game Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
