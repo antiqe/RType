@@ -31,8 +31,8 @@ Room *RoomManager::createRoom(std::string const &name, std::string const &passwo
   
   if (!this->_idq.empty())
     {
+	  id = this->_idq.front();
       this->_idq.pop();
-      id = this->_idq.front();
     }
   else
     {
