@@ -13,7 +13,7 @@ class RoomService : public IService
 private:
   SafeQueue<InternalMessage *> _q;
   typedef void (RoomService::*MsgFuncTCP)(int const to, Message *msg);
-  MsgFuncTCP _mfuncTCP[10];
+  MsgFuncTCP _mfuncTCP[Message::COUNT];
   bool _run;
   Logging::Logger _log;
 public:

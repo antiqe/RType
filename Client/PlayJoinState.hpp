@@ -4,6 +4,7 @@
 # include "IRender.hpp"
 # include "DataModule.hpp"
 # include "Button.hpp"
+# include "RoomInfo.hpp"
 # include "ListBox.hpp"
 # include "Background.hpp"
 # include "NetworkModule.hpp"
@@ -13,7 +14,7 @@ class PlayJoinState : public Engine::AState
 private:
 	DataModule*				_dataModule;
 	Engine::Background*		_background;
-	Engine::ListBox<>*		_list;
+	Engine::ListBox<RoomInfo *>*		_list;
 	Engine::Button*			_select;
 	Engine::Button*			_refresh;
 	Engine::Button*			_quit;
@@ -35,6 +36,8 @@ public:
 	void	roomListRequest();
 	void    refresh();
 	void	selectServer();
+
+	void	goToRoom();
 };
 
 #endif
