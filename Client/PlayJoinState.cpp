@@ -23,8 +23,8 @@ PlayJoinState::PlayJoinState()
 	_dataModule(0),
 	_background(new Engine::Background("background", SFMLImage::JOIN_BACKGROUND)),
 	_list(new Engine::ListBox("list", SFMLImage::LISTBOX_EVEN, SFMLImage::LISTBOX_ODD, SFMLImage::LISTBOX_FOCUS, SFMLImage::SLIDER,
-	SFMLImage::SLIDER_CURSOR_NORMAL, SFMLImage::SLIDER_CURSOR_CLICKED, SFMLImage::SLIDER_CURSOR_HOVER, 15, SFMLText::TEXTBOX)), // TODO: dynamic nbrLine
-	_select(new Engine::Button("select", SFMLImage::BUTTON_SELECT, SFMLImage::BUTTON_CLICKED_SELECT, SFMLImage::BUTTON_HOVER_SELECT, State::GAME)),
+	SFMLImage::SLIDER_CURSOR_NORMAL, SFMLImage::SLIDER_CURSOR_CLICKED, SFMLImage::SLIDER_CURSOR_HOVER, 15, SFMLText::TEXTBOX)),
+	_select(new Engine::Button("select", SFMLImage::BUTTON_SELECT, SFMLImage::BUTTON_CLICKED_SELECT, SFMLImage::BUTTON_HOVER_SELECT, State::ROOM)),
 	_refresh(new Engine::Button("refresh", SFMLImage::BUTTON_REFRESH, SFMLImage::BUTTON_CLICKED_REFRESH, SFMLImage::BUTTON_HOVER_REFRESH)),
 	_quit(new Engine::Button("quit", SFMLImage::BUTTON_QUIT, SFMLImage::BUTTON_CLICKED_QUIT, SFMLImage::BUTTON_HOVER_QUIT)),
 	_settings(new Engine::Button("settings", SFMLImage::BUTTON_SETTINGS, SFMLImage::BUTTON_CLICKED_SETTINGS, SFMLImage::BUTTON_HOVER_SETTINGS, State::SETTINGS)),
