@@ -7,7 +7,7 @@
 #include "State.hpp"
 #include "ScopeLock.hpp"
 #include "NetworkModule.hpp"
-#include "FormatRoomInfo.hpp"
+#include "RoomInfo.hpp"
 
 namespace Callback
 {
@@ -25,7 +25,9 @@ namespace Callback
 			bool priv = event->getAttr<bool>("private");
 			int cur_player = event->getAttr<char>("cur_player");
 			int max_player = event->getAttr<char>("max_player");
-			lb->push(FormatRoomInfo::toString(name, priv, cur_player, max_player), id);
+
+			RoomInfo *iroom = new RoomInfo(id, name, priv, cur_player, max_player);
+			lb->push(iroom->toString(), iroom);
 		}
 
 		void refreshOnClick(Engine::Widget* widget, Engine::Event* event)

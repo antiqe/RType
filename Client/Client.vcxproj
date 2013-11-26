@@ -77,6 +77,7 @@
     <ClCompile Include="LifeConstantComponent.cpp" />
     <ClCompile Include="Move2DComponent.cpp" />
     <ClCompile Include="Position2DComponent.cpp" />
+    <ClCompile Include="RoomInfo.cpp" />
     <ClCompile Include="RoomStateCallback.cpp" />
     <ClCompile Include="SFMLAnimation.cpp" />
     <ClCompile Include="Configuration.cpp" />
@@ -88,7 +89,6 @@
     <ClCompile Include="EventModule.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="FormatRoomInfo.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="ListenerTCP.cpp" />
     <ClCompile Include="main.cpp" />
@@ -141,6 +141,7 @@
     <ClInclude Include="LifeConstantComponent.hpp" />
     <ClInclude Include="Move2DComponent.hpp" />
     <ClInclude Include="Position2DComponent.hpp" />
+    <ClInclude Include="RoomInfo.hpp" />
     <ClInclude Include="RoomStateCallback.hpp" />
     <ClInclude Include="SFMLAnimation.hpp" />
     <ClInclude Include="Configuration.hpp" />
@@ -148,7 +149,6 @@
     <ClInclude Include="ConnectionState.hpp" />
     <ClInclude Include="DataModule.hpp" />
     <ClInclude Include="EventModule.hpp" />
-    <ClInclude Include="FormatRoomInfo.hpp" />
     <ClInclude Include="GameState.hpp" />
     <ClInclude Include="ListenerTCP.hpp" />
     <ClInclude Include="ListBox.hpp" />
