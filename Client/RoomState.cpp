@@ -169,6 +169,7 @@ void	RoomState::quitRoom()
 	msg->setAttr("name", Ultra::Value(std::string(login)));
 	msg->setAttr("id_ship", Ultra::Value((char)0));
 	msg->setAttr("state", Ultra::Value((char)Network::LEFT));
+	msg->setAttr("stateSpec", Ultra::Value((char)0));
 
 	this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
 }

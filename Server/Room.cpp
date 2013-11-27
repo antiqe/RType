@@ -125,6 +125,7 @@ void Room::onPlayerInfo(int const to, Message *msg)
 	if (acc)
 	{
 		char state = msg->getAttr<char>("state");
+		std::cout << "onPlayerInfo" << std::endl;
 		Player *player = this->getPlayer(to);
 		if (player)
 		{
