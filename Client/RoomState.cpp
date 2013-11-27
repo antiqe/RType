@@ -167,6 +167,7 @@ void	RoomState::reset()
 {
 	for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
 		{
+			this->_players[i]->hide();
 			this->_ready[i]->hide();
 			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);

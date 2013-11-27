@@ -98,6 +98,12 @@ void	Player::draw(Engine::IRender* render)
 // GETTER
 //
 
+void	Player::setLogin(std::string const &login)
+{
+	this->_login->setText(login);
+}
+
+
 bool	Player::isReady() const
 {
 	return (this->_ready->isChecked());

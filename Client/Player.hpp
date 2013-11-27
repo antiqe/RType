@@ -44,6 +44,8 @@ public:
 	virtual void	unload();
 	virtual void	draw(Engine::IRender* render);
 
+	void			setLogin(std::string const &login);
+
 	bool	isReady() const;
 
 	Engine::CheckBox*	getReadyButton();

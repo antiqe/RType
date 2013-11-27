@@ -156,8 +156,12 @@ namespace Callback
 			RoomState *state = dynamic_cast<RoomState *>(widget);
 			std::stringstream ss;
 			ss << (int)id_player;
-			Engine::Widget * wcb = state->getChild("player" + ss.str())->getChild("ready" + ss.str());
+			Engine::Widget * wpl = state->getChild("player" + ss.str());
+			Engine::Widget * wcb = wpl->getChild("ready" + ss.str());
 			Engine::CheckBox *cb = dynamic_cast<Engine::CheckBox *>(wcb);
+			Player *pl = dynamic_cast<Player *>(wpl);
+
+			std::cout << "PLAYER INFO [ID=" << (int)id_player << "] [NAME=" << name << "] " << std::endl;
 
 			Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
 			mutex->lock();
@@ -169,11 +173,14 @@ namespace Callback
 				dm->setAttr("id_ship", Ultra::Value((char)event->getAttr<char>("id_ship")));
 				char stateSpec = event->getAttr<char>("stateSpec");
 				dm->setAttr("stateSpec", Ultra::Value((char)stateSpec));
-				if (cb->isHidden())
+				if (pl->isHidden())
 				{
+					
 					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &onPlayerReady);
 					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::CheckBox::mouseOver);
-					cb->show();
+					pl->setLogin(login);
+					pl->show();
+					//cb->show();
 				}
 				if (stateSpec == Network::MASTER)
 				{
@@ -188,11 +195,18 @@ namespace Callback
 			{
 				mutex->unlock();
 				if (pstate == Network::LEFT)
-					cb->hide();
+				{
+					pl->hide();
+					//cb->hide();
+				}
 				else
 				{
-					if (cb->isHidden())
-						cb->show();
+					if (pl->isHidden())
+					{
+						pl->setLogin(name);
+						pl->show();
+						//cb->show();
+					}
 				}
 			}
 		}
