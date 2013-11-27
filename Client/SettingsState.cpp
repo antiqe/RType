@@ -143,6 +143,7 @@ void	SettingsState::initialize()
 		// Settings button
 		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
 		this->_settings->setPosition((int)((float)width * 90.0f / 100.0f), (int)((float)height * 4.5f / 100.0f));
+		this->_settings->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 	}
 }
 
