@@ -125,7 +125,6 @@ void Room::onPlayerInfo(int const to, Message *msg)
 	if (acc)
 	{
 		char state = msg->getAttr<char>("state");
-		std::cout << "onPlayerInfo" << std::endl;
 		Player *player = this->getPlayer(to);
 		if (player)
 		{
@@ -226,8 +225,8 @@ void Room::onJoin(int const to, Message *)
 		{
 			Message *rmsg = new Message(Message::ROOM_PLAYER_INFO);
 			InternalMessage *imsg = new InternalMessage(new TCPPacket(rmsg, 0), 0);
-			rmsg->setAttr("id_player", Ultra::Value((char)this->_lplayer.size() - 1));
-			rmsg->setAttr("name", Ultra::Value(acc->getLogin()));
+			rmsg->setAttr("id_player", Ultra::Value((char)(this->_lplayer.size() - 1)));
+			rmsg->setAttr("name", Ultra::Value(std::string(acc->getLogin())));
 			rmsg->setAttr("id_ship", Ultra::Value((char)player->getShip()));
 			rmsg->setAttr("state", Ultra::Value((char)player->getState()));
 			rmsg->setAttr("stateSpec", Ultra::Value((char)player->getStateSpec()));
@@ -248,10 +247,10 @@ void Room::onJoin(int const to, Message *)
 				if (it->second->getID() != to)
 				{
 					amsg->setAttr("id_player", Ultra::Value((char)(std::distance(this->_lplayer.begin(), it))));
-					amsg->setAttr("name", Ultra::Value(it->second->getAccount()->getLogin()));
-					amsg->setAttr("id_ship", Ultra::Value(it->second->getShip()));
-					amsg->setAttr("state", Ultra::Value(it->second->getState()));
-					amsg->setAttr("stateSpec", Ultra::Value(it->second->getStateSpec()));
+					amsg->setAttr("name", Ultra::Value(std::string(it->second->getAccount()->getLogin())));
+					amsg->setAttr("id_ship", Ultra::Value((char)it->second->getShip()));
+					amsg->setAttr("state", Ultra::Value((char)it->second->getState()));
+					amsg->setAttr("stateSpec", Ultra::Value((char)it->second->getStateSpec()));
 					Core::srv_manager->notifyService(ServiceManager::DISPATCH, iamsg);
 				}
 			}

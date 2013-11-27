@@ -101,13 +101,14 @@ namespace Callback
 
 	  void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event)
 		{
-			/*std::string name = event->getAttr<std::string>("name");
+			std::string name = event->getAttr<std::string>("name");
 			char id_player = (char)event->getAttr<char>("id_player");
 			char specState = event->getAttr<char>("stateSpec");
 
 			RoomState *state = dynamic_cast<RoomState *>(widget);
 			std::stringstream ss;
 			ss << (int)id_player;
+			std::cout << "ID Player = " << (int)id_player << std::endl;
 			Engine::Widget * wcb = state->getChild("ready" + ss.str());
 			Engine::CheckBox *cb = dynamic_cast<Engine::CheckBox *>(wcb);
 
@@ -135,7 +136,7 @@ namespace Callback
 			{
 				mutex->unlock();
 				cb->show();
-			}*/
+			}
 		}
 	  }
 }
