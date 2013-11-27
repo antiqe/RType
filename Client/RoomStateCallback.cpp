@@ -103,17 +103,15 @@ namespace Callback
 		
 	  void	onPlayerReady(Engine::Widget *widget, Engine::Event *event)
 	  {
-		  RoomState *state = dynamic_cast<RoomState *>(widget);
-		  Engine::Widget * wb = state->getChild("go");
-		  Engine::CheckBox *cb = dynamic_cast<Engine::CheckBox *>(wb);
-
 		  Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
 		  mutex->lock();
 		  DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
 		  char statePlayer = dm->getAttr<char>("statePlayer");
+		  std::stringstream ss;
 		  dm->setAttr("statePlayer", Ultra::Value((char)((statePlayer == Network::READY)?Network::NONE:Network::READY)));
 		  mutex->unlock();
-		  cb->toggle();
+		  RoomState *state = dynamic_cast<RoomState *>(widget->getParent());
+		  state->sendPlayerInfo();
 	  }
 
 	  void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event)
@@ -139,7 +137,12 @@ namespace Callback
 				dm->setAttr("id_ship", Ultra::Value((char)event->getAttr<char>("id_ship")));
 				char stateSpec = event->getAttr<char>("stateSpec");
 				dm->setAttr("stateSpec", Ultra::Value((char)stateSpec));
-				cb->show();
+				if (cb->isHidden())
+				{
+					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &onPlayerReady);
+					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::CheckBox::mouseOver);
+					cb->show();
+				}
 				if (stateSpec == Network::MASTER)
 				{
 					RoomState *state = dynamic_cast<RoomState *>(widget);
@@ -147,8 +150,6 @@ namespace Callback
 					Engine::Button *go = dynamic_cast<Engine::Button *>(wb);
 					go->show();
 				}
-				cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &onPlayerReady);
-				cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::CheckBox::mouseOver);
 				mutex->unlock();
 			}
 			else
@@ -157,7 +158,10 @@ namespace Callback
 				if (pstate == Network::LEFT)
 					cb->hide();
 				else
-					cb->show();
+				{
+					if (cb->isHidden())
+						cb->show();
+				}
 			}
 		}
 	  }
