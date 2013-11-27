@@ -10,8 +10,8 @@
 #include "IRender.hpp"
 #include "AStateModule.hpp"
 #include "ASourceModule.hpp"
-#include "GameObject.hpp"
 #include "Button.hpp"
+#include "GameObject.hpp"
 
 namespace Engine
 {
@@ -38,7 +38,7 @@ namespace Engine
 		virtual void	draw(Engine::IRender* render);
 
 		void	clear();
-		void	push(std::string const &id, GameObject *gameObject);
+		void	push(std::string const &id, GameObject* gameObject);
 		void	moveTo(std::string const &id);
 		void	next();
 		void	prev();

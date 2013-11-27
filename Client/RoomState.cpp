@@ -13,8 +13,6 @@
 #include "SFMLText.hpp"
 #include "TCPPacket.hpp"
 
-unsigned int RoomState::nbrPlayer = 4;
-
 //
 // CTOR / DTOR
 //
@@ -42,9 +40,13 @@ RoomState::RoomState()
 			SFMLImage::CHECKBOX_UNCHECKED_HOVER_READY);
 		ss.clear();
 		ss.str("");
+		this->_shipViewer[i] = new Engine::GameObjectViewer("shipViewer" + ss.str(), SFMLImage::BUTTON_NEXT, SFMLImage::BUTTON_CLICKED_NEXT,
+			SFMLImage::BUTTON_HOVER_NEXT, SFMLImage::BUTTON_PREV, SFMLImage::BUTTON_CLICKED_PREV, SFMLImage::BUTTON_HOVER_PREV);
+		this->_shipViewer[i]->push(Engine::GameObject::STARSHIP1, this->_gameObjectFactory.create(Engine::GameObject::STARSHIP1));
+		this->_shipViewer[i]->push(Engine::GameObject::STARSHIP2, this->_gameObjectFactory.create(Engine::GameObject::STARSHIP2));
+		this->_shipViewer[i]->push(Engine::GameObject::STARSHIP3, this->_gameObjectFactory.create(Engine::GameObject::STARSHIP3));
+		this->_shipViewer[i]->push(Engine::GameObject::STARSHIP4, this->_gameObjectFactory.create(Engine::GameObject::STARSHIP4));
 	}
-	this->_shipViewer[0] = new Engine::GameObjectViewer("shipViewer0", SFMLImage::BUTTON_NEXT, SFMLImage::BUTTON_CLICKED_NEXT,
-		SFMLImage::BUTTON_HOVER_NEXT, SFMLImage::BUTTON_PREV, SFMLImage::BUTTON_CLICKED_PREV, SFMLImage::BUTTON_HOVER_PREV);
 }
 
 RoomState::~RoomState()
@@ -67,7 +69,10 @@ void	RoomState::initialize()
 	this->addChild(this->_msg);
 	this->addChild(this->_send);
 	for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
+	{
 		this->addChild(this->_ready[i]);
+	}
+	this->addChild(this->_shipViewer[0]);
 	Widget::initialize();
 	this->_loading->hide();
 	this->addEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED, &Engine::Callback::quit);
@@ -107,6 +112,9 @@ void	RoomState::initialize()
 		this->_ready[1]->hide();
 		this->_ready[2]->hide();
 		this->_ready[3]->hide();
+		// Shipviewer gameobjectviewer
+		this->_shipViewer[0]->setSize(width * 12 / 100, height * 12 / 100);
+		this->_shipViewer[0]->setPosition(width * 35 / 100, height * 15 / 100);
 		// Chatbox button
 		this->_chatBox->setSize((size_t)((float)width * 47.50 / 100), height * 20 / 100);
 		this->_chatBox->setPosition((int)((float)width * 26.45 / 100), height * 71 / 100);
@@ -145,7 +153,6 @@ void	RoomState::initialize()
 void	RoomState::update()
 {
 	Widget::update();
-
 }
 
 void	RoomState::unload()
