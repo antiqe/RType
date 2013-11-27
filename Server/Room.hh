@@ -44,6 +44,7 @@ private:
   unsigned short _id;
   std::string _name;
   std::string _password;
+  unsigned char _cur;
   unsigned char _max;
 
 public:
@@ -58,6 +59,9 @@ public:
   void notify(InternalMessage *msg);
   bool isReachable() const;
   unsigned char getCurrentPlayer() const;
+  int getIDMaster() const;
+  ListPlayer::iterator getLastPlayer();
+  void kickAll();
 
 private:
 
@@ -69,6 +73,8 @@ private:
   void onPlayerInfoInGame(InternalMessage *imsg);
   void onPlayerTalk(int const to, Message *msg);
   void onCreate(int const to, Message *msg);
+  void onKick(int const to, Message *msg);
+  void onStart(int const to, Message *msg);
 };
 
 #endif

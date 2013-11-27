@@ -102,3 +102,8 @@ bool	Player::isReady() const
 {
 	return (this->_ready->isChecked());
 }
+
+Engine::CheckBox*	Player::getReadyButton()
+{
+	return (this->_ready);
+}

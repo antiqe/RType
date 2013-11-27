@@ -15,6 +15,8 @@ namespace Callback
 		void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event);
 		void	onRoomStart(Engine::Widget *widget, Engine::Event *event);
 		void	onPlayerReady(Engine::Widget *widget, Engine::Event *event);
+		void	onKickEvent(Engine::Widget *widget, Engine::Event *event);
+		void	onGameStart(Engine::Widget *widget, Engine::Event *event);
 	}
 }
 

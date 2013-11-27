@@ -11,6 +11,21 @@ namespace Callback
 {
 	namespace Room
 	{
+			
+		void	onKickEvent(Engine::Widget *widget, Engine::Event *event)
+		{
+			Engine::AStateModule* stateModule = dynamic_cast<Engine::AStateModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::STATE));
+			Ultra::ScopeLock lock(Engine::Core::getInstance()->access(Engine::AModule::STATE));
+			stateModule->pop();
+		}
+
+		void	onGameStart(Engine::Widget *widget, Engine::Event *event)
+		{
+			Engine::AStateModule* stateModule = dynamic_cast<Engine::AStateModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::STATE));
+			Ultra::ScopeLock lock(Engine::Core::getInstance()->access(Engine::AModule::STATE));
+			stateModule->push(State::GAME);
+		}
+
 		void	backOnClick(Engine::Widget* widget, Engine::Event* event)
 		{
 			Engine::Button* button = dynamic_cast< Engine::Button*>(widget);
@@ -75,7 +90,9 @@ namespace Callback
 					button->setStatus(Engine::Button::CLICKED);
 				else
 				{
-					button->active();
+					RoomState *state = dynamic_cast<RoomState *>(widget->getParent());
+					state->sendStartRoom();
+					button->setStatus(Engine::Button::NORMAL);
 				}
 			}
 			else
@@ -87,7 +104,10 @@ namespace Callback
 			RoomState *state = dynamic_cast<RoomState *>(widget);
 			Engine::Widget * wb = state->getChild("go");
 			Engine::Button *go = dynamic_cast<Engine::Button *>(wb);
-			go->unlock();
+			if (go->isLock())
+				go->unlock();
+			else
+				go->lock();
 		}
 
 		void	onReceiveTalk(Engine::Widget* widget, Engine::Event* event)
@@ -103,15 +123,27 @@ namespace Callback
 		
 	  void	onPlayerReady(Engine::Widget *widget, Engine::Event *event)
 	  {
-		  Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
-		  mutex->lock();
-		  DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
-		  char statePlayer = dm->getAttr<char>("statePlayer");
-		  std::stringstream ss;
-		  dm->setAttr("statePlayer", Ultra::Value((char)((statePlayer == Network::READY)?Network::NONE:Network::READY)));
-		  mutex->unlock();
-		  RoomState *state = dynamic_cast<RoomState *>(widget->getParent());
-		  state->sendPlayerInfo();
+		  Engine::CheckBox* button = dynamic_cast< Engine::CheckBox*>(widget);
+		  Engine::MouseEvent*	mouseEvent = dynamic_cast<Engine::MouseEvent*>(event);
+
+			if (button->isHidden())
+				return ;
+			if (button->hit(mouseEvent->getX(), mouseEvent->getY()))
+			{
+				if (mouseEvent->isPressed())
+				{
+					  Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+					  mutex->lock();
+					  DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+					  char statePlayer = dm->getAttr<char>("statePlayer");
+					  std::stringstream ss;
+					  dm->setAttr("statePlayer", Ultra::Value((char)((statePlayer == Network::READY)?Network::NONE:Network::READY)));
+					  mutex->unlock();
+					  RoomState *state = dynamic_cast<RoomState *>(widget->getParent());
+					  state->sendPlayerInfo();
+					  button->toggle();
+				}
+			}
 	  }
 
 	  void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event)

@@ -29,6 +29,7 @@ class RoomState : public Engine::AState
 	Engine::Background*			_loading;
 	NetworkModule*				_networkModule;
 	Player*						_players[nbrPlayer];
+	Engine::CheckBox*			_ready[nbrPlayer];
 
 public:
 	RoomState();
@@ -44,6 +45,7 @@ public:
 
 	void	roomTalk();
 	void	sendPlayerInfo();
+	void	sendStartRoom();
 };
 
 #endif

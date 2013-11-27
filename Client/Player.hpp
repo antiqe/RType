@@ -45,6 +45,8 @@ public:
 	virtual void	draw(Engine::IRender* render);
 
 	bool	isReady() const;
+
+	Engine::CheckBox*	getReadyButton();
 };
 
 #endif
