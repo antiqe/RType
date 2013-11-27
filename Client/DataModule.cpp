@@ -22,7 +22,10 @@ void	DataModule::initialize()
 	this->_attr["winMode"] = Ultra::Value((unsigned long)Configuration::MODE);
 	this->_attr["winX"] = Ultra::Value(Configuration::X);
 	this->_attr["winY"] = Ultra::Value(Configuration::Y);
-	//this->_attr["login"] = Ultra::Value(std::string(""));
+	this->_attr["login"] = Ultra::Value(std::string(""));
+	this->_attr["id_room"] = Ultra::Value((unsigned short)0);
+	this->_attr["id_player"] = Ultra::Value((char)0);
+	this->_attr["id_ship"] = Ultra::Value((char)0);
 }
 
 void	DataModule::update()

@@ -57,6 +57,11 @@ MessageFactory::MessageFactory()
   msg.setID(Message::ROOM_LIST);
   this->learn(Message::ROOM_LIST, msg);
 
+   msg.clearAttrs();
+  
+  msg.setID(Message::ROOM_PLAYERS);
+  this->learn(Message::ROOM_PLAYERS, msg);
+
   msg.clearAttrs();
 
   msg.setID(Message::ROOM_INFO);

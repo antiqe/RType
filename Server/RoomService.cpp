@@ -22,6 +22,7 @@ RoomService::RoomService()
   _log.addChannel(new Logging::ChannelConsole);
   _mfuncTCP[Message::ROOM_CREATE] = &RoomService::onRoomCreate;
   _mfuncTCP[Message::ROOM_JOIN] = &RoomService::onRoomJoin;
+  _mfuncTCP[Message::ROOM_PLAYERS] = &RoomService::onRoomPlayers;
   _mfuncTCP[Message::ROOM_LIST] = &RoomService::onRoomList;
   _mfuncTCP[Message::ROOM_TALK] = &RoomService::onRoomTalk;
   _mfuncTCP[Message::ROOM_PLAYER_INFO] = &RoomService::onRoomPlayerInfo;
@@ -99,7 +100,7 @@ void RoomService::onRoomCreate(int const to, Message *msg)
       this->_log << lm;
 
       Core::srv_manager->notifyService(ServiceManager::DISPATCH, imsg);
-    }
+  }
 }
 
 void RoomService::onRoomList(int const to, Message *msg)
@@ -109,6 +110,18 @@ void RoomService::onRoomList(int const to, Message *msg)
 }
 
 void RoomService::onRoomTalk(int const to, Message *msg)
+{
+	Account *acc = Core::acc_manager->getAccount(to);
+	
+	if (acc)
+	{
+		Room *room = acc->getRoom();
+		if (room)
+			room->notify(new InternalMessage(new TCPPacket(msg), to));
+	}
+}
+
+void RoomService::onRoomPlayers(int const to, Message *msg)
 {
 	Account *acc = Core::acc_manager->getAccount(to);
 	
@@ -156,6 +169,7 @@ void RoomService::onRoomJoin(int const to, Message *msg)
 	  if (room)
 		{
 		  acc->setRoom(room);
+		  room->addPlayer(new Player(to, acc));
 		  std::string password = msg->getAttr<std::string>("password");
 		  Message *rmsg = new Message(Message::ROOM_STATE);
 		  InternalMessage *imsg = new InternalMessage(new TCPPacket(rmsg, 0), to);
@@ -164,12 +178,9 @@ void RoomService::onRoomJoin(int const to, Message *msg)
 		  if (room->getPassword() == password)
 			{
 				if (room->isReachable())
-				{
 				  rmsg->setAttr("state", Ultra::Value(Room::OK));
-				  room->notify(new InternalMessage(new TCPPacket(msg, 0), to));
-				}
-			  else
-				rmsg->setAttr("state", Ultra::Value(Room::LIMIT));
+				else
+				   rmsg->setAttr("state", Ultra::Value(Room::LIMIT));
 			}
 		  else
 			rmsg->setAttr("state", Ultra::Value((char)Room::KO));
