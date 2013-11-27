@@ -58,6 +58,37 @@ namespace Callback
 				button->setStatus(Engine::Button::NORMAL);
 		}
 
+		void	goOnClick(Engine::Widget* widget, Engine::Event* event)
+		{
+			
+			Engine::Button* button = dynamic_cast< Engine::Button*>(widget);
+			Engine::MouseEvent*	mouseEvent = dynamic_cast<Engine::MouseEvent*>(event);
+
+			if (button->isHidden())
+				return ;
+			if (button->isLock())
+				return ;
+			if (button->hit(mouseEvent->getX(), mouseEvent->getY()))
+			{
+				if (mouseEvent->isPressed())
+					button->setStatus(Engine::Button::CLICKED);
+				else
+				{
+					button->active();
+				}
+			}
+			else
+				button->setStatus(Engine::Button::NORMAL);
+		}
+
+		void	onRoomStart(Engine::Widget* widget, Engine::Event* event)
+		{
+			RoomState *state = dynamic_cast<RoomState *>(widget);
+			Engine::Widget * wb = state->getChild("go");
+			Engine::Button *go = dynamic_cast<Engine::Button *>(wb);
+			go->unlock();
+		}
+
 		void	onReceiveTalk(Engine::Widget* widget, Engine::Event* event)
 		{
 			RoomState *state = dynamic_cast<RoomState *>(widget);
@@ -68,7 +99,7 @@ namespace Callback
 			lb->push(from + " : " + msg, 0, true);
 		}
 
-	  void	onRoomPlayerInfo(Engine::Widget* /*widget*/, Engine::Event* event)
+	  void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event)
 		{
 			std::string name = event->getAttr<std::string>("name");
 			char specState = event->getAttr<char>("stateSpec");
@@ -82,6 +113,15 @@ namespace Callback
 			{
 				dm->setAttr("id_player", Ultra::Value((char)event->getAttr<char>("id_player")));
 				dm->setAttr("id_ship", Ultra::Value((char)event->getAttr<char>("id_ship")));
+				char stateSpec = event->getAttr<char>("stateSpec");
+				dm->setAttr("stateSpec", Ultra::Value((char)stateSpec));
+				if (stateSpec == Network::MASTER)
+				{
+					RoomState *state = dynamic_cast<RoomState *>(widget);
+					Engine::Widget * wb = state->getChild("go");
+					Engine::Button *go = dynamic_cast<Engine::Button *>(wb);
+					go->show();
+				}
 				mutex->unlock();
 			}
 			else

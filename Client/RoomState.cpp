@@ -82,6 +82,10 @@ void	RoomState::initialize()
 		// Go button
 		this->_go->setSize(width * 5 / 100, height * 7 / 100);
 		this->_go->setPosition((int)((float)width * 48.33 / 100), height * 37 / 100);
+		this->_go->hide();
+		this->_go->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+		this->_go->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::goOnClick);
+		this->_go->lock();
 		// Ready button
 		for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
 		{
@@ -123,7 +127,7 @@ void	RoomState::initialize()
 		this->_back->setSize(width * 9 / 100, height * 3 / 100);
 		this->_back->setPosition((int)((float)width * 1.5 / 100), (int)((float)height * 96.5 / 100));
 		this->_back->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
-		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::back);
+		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::backOnClick);
 		// Settings button
 		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
 		this->_settings->setPosition(width * 90 / 100, (size_t)((float)height * 4.5 / 100));
@@ -134,6 +138,7 @@ void	RoomState::initialize()
 void	RoomState::update()
 {
 	Widget::update();
+
 }
 
 void	RoomState::unload()
