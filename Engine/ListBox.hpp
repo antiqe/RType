@@ -38,7 +38,7 @@ namespace Engine
 		// ATTRIBUTES
 		//
 
-		ASourceModule*						_sourceModule;
+		ASourceModule*							_sourceModule;
 		IImage*								_img[ListBox::STATUSSIZE];
 		std::string							_file[ListBox::STATUSSIZE];
 		IText*								_drawer;

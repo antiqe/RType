@@ -156,7 +156,7 @@ void Room::onPlayerInfo(int const to, Message *msg)
     }
 }
 
-void Room::onPlayerTalk(int const to, Message *msg)
+void Room::onPlayerTalk(int const /*to*/, Message *msg)
 {
 	Ultra::ScopeLock sl(this->_mutex);
 
