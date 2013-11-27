@@ -58,10 +58,14 @@ MessageFactory::MessageFactory()
   msg.setID(Message::ROOM_LIST);
   this->learn(Message::ROOM_LIST, msg);
 
-   msg.clearAttrs();
+  msg.clearAttrs();
   
   msg.setID(Message::ROOM_PLAYERS);
   this->learn(Message::ROOM_PLAYERS, msg);
+
+  msg.clearAttrs();
+  msg.setID(Message::ROOM_KICK);
+  this->learn(Message::ROOM_KICK, msg);
 
   msg.clearAttrs();
 
@@ -92,6 +96,11 @@ MessageFactory::MessageFactory()
   msg.setID(Message::ROOM_START);
   msg.setAttr("port", Ultra::Value((unsigned short)0));
   this->learn(Message::ROOM_START, msg);
+
+  msg.clearAttrs();
+
+  msg.setID(Message::GAME_START);
+  this->learn(Message::GAME_START, msg);
 }
 
 MessageFactory::~MessageFactory()

@@ -29,6 +29,7 @@ private:
   void  onRoomPlayerInfo(int const to, Message *msg);
   void  onRoomPlayers(int const to, Message *msg);
   void  onRoomTalk(int const to, Message *msg);
+  void	onRoomStart(int const to, Message *msg);
 };
 
 #endif

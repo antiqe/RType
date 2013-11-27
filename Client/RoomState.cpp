@@ -23,7 +23,7 @@ RoomState::RoomState()
 	: AState(State::CONNECTION),
 	_dataModule(0),
 	_background(new Engine::Background("background", SFMLImage::ROOM_BACKGROUND)),
-	_go(new Engine::Button("go", SFMLImage::BUTTON_GO, SFMLImage::BUTTON_CLICKED_GO, SFMLImage::BUTTON_HOVER_GO, State::GAME)),
+	_go(new Engine::Button("go", SFMLImage::BUTTON_GO, SFMLImage::BUTTON_CLICKED_GO, SFMLImage::BUTTON_HOVER_GO)),
 	_chatBox(new Engine::ListBox<>("chatBox", SFMLImage::LISTBOX_EVEN, SFMLImage::LISTBOX_ODD, SFMLImage::LISTBOX_FOCUS, SFMLImage::SLIDER,
 	SFMLImage::SLIDER_CURSOR_NORMAL, SFMLImage::SLIDER_CURSOR_CLICKED, SFMLImage::SLIDER_CURSOR_HOVER, 8, SFMLText::TEXTBOX)),
 	_msg(new Engine::TextBox("msg", SFMLImage::TEXTBOX, SFMLImage::TEXTBOX_SELECTED, SFMLImage::TEXTBOX_HOVER, SFMLText::TEXTBOX, 64, "Enter message ...")),
@@ -73,6 +73,9 @@ void	RoomState::initialize()
 	this->addEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED, &Engine::Callback::quit);
 	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_TALK), Callback::Room::onReceiveTalk);
 	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_PLAYER_INFO), Callback::Room::onRoomPlayerInfo);
+	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_START), Callback::Room::onRoomStart);
+	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_KICK), Callback::Room::onKickEvent);
+	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::GAME_START), Callback::Room::onGameStart);
 	if ((this->_dataModule = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
 	{
 		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
@@ -103,10 +106,6 @@ void	RoomState::initialize()
 		this->_ready[1]->setPosition(width * 65 / 100, height * 35 / 100);
 		this->_ready[2]->setPosition(width * 39 / 100, height * 66 / 100);
 		this->_ready[3]->setPosition(width * 65 / 100, height * 66 / 100);
-		this->_ready[0]->hide();
-		this->_ready[1]->hide();
-		this->_ready[2]->hide();
-		this->_ready[3]->hide();
 		// Chatbox button
 		this->_chatBox->setSize((size_t)((float)width * 47.50 / 100), height * 20 / 100);
 		this->_chatBox->setPosition((int)((float)width * 26.45 / 100), height * 71 / 100);
@@ -158,11 +157,23 @@ void	RoomState::unload()
 
 void	RoomState::reset()
 {
+	for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
+		{
+			this->_ready[i]->hide();
+			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);
+		}
 	this->_networkModule->addMessage(new TCPPacket(new Message(Message::ROOM_PLAYERS), NetworkModule::ROOM), ISocket::TCP);
 }
 
 void	RoomState::reload()
 {
+	for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
+		{
+			this->_ready[i]->hide();
+			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);
+		}
 }
 
 void	RoomState::quitRoom()
@@ -172,6 +183,7 @@ void	RoomState::quitRoom()
 	mutex->lock();
 	DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
 	std::string login = dm->getAttr<std::string>("login");
+	char specState = dm->getAttr<char>("stateSpec");
 	char id_player = dm->getAttr<char>("id_player");
 	mutex->unlock();
 
@@ -181,7 +193,7 @@ void	RoomState::quitRoom()
 	msg->setAttr("name", Ultra::Value(std::string(login)));
 	msg->setAttr("id_ship", Ultra::Value((char)0));
 	msg->setAttr("state", Ultra::Value((char)Network::LEFT));
-	msg->setAttr("stateSpec", Ultra::Value((char)0));
+	msg->setAttr("stateSpec", Ultra::Value((char)specState));
 
 	this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
 }
@@ -221,4 +233,12 @@ void	RoomState::sendPlayerInfo()
 
 	mutex->unlock();
 	this->_networkModule->addMessage(new TCPPacket(amsg, NetworkModule::ROOM), ISocket::TCP);
+}
+
+void RoomState::sendStartRoom()
+{
+	Message *msg = new Message(Message::ROOM_START);
+	msg->setAttr("port", Ultra::Value((unsigned short)0));
+
+	this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
 }

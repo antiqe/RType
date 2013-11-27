@@ -56,6 +56,7 @@ public:
 
 	void	roomTalk();
 	void	sendPlayerInfo();
+	void	sendStartRoom();
 };
 
 #endif

@@ -5,6 +5,7 @@
 #include "Sleep.hpp"
 #include "Account.hh"
 #include "TCPPacket.hh"
+#include "Configuration.hpp"
 #include "ScopeLock.hpp"
 
 #ifdef _WIN32
@@ -15,13 +16,16 @@
 #endif
 
 Room::Room(unsigned short const id, std::string const &name, std::string const &password)
-	: _stateRoom(Room::REACHABLE), _id(id), _name(name), _password(password), _max(4)
+	: _stateRoom(Room::REACHABLE), _id(id), _name(name), _password(password), _cur(0), _max(4)
 {
 	this->_mfuncTCP[Message::ROOM_PLAYERS] = &Room::onJoin;
 	this->_mfuncTCP[Message::ROOM_LIST] = &Room::onInfo;
+	this->_mfuncTCP[Message::ROOM_KICK] = &Room::onKick;
+	this->_mfuncTCP[Message::ROOM_START] = &Room::onStart;
 	this->_mfuncTCP[Message::ROOM_TALK] = &Room::onPlayerTalk;
 	this->_mfuncTCP[Message::ROOM_PLAYER_INFO] = &Room::onPlayerInfo;
 	this->_mfuncUDP[Message::GAME_PING] = &Room::onPing;
+
 	this->_mfuncUDP[Message::ROOM_PLAYER_INFO] = &Room::onPlayerInfoInGame;
 #ifdef _WIN32
 	_mutex = new Ultra::WMutex();
@@ -63,6 +67,7 @@ void Room::addPlayer(Player *player)
 	Ultra::ScopeLock sl(this->_mutex);
 
 	this->_lplayer[player->getID()] = player;
+	this->_cur++;
 }
 
 unsigned short Room::getID() const
@@ -88,9 +93,11 @@ void Room::delPlayer(int const to)
 {
 	Ultra::ScopeLock sl(this->_mutex);
 
-	Room::ListPlayer::iterator it = this->_lplayer.find(to);
+	/*Room::ListPlayer::iterator it = this->_lplayer.find(to);
 	if (it != this->_lplayer.end())
-		this->_lplayer.erase(it);
+		this->_lplayer.erase(it);*/
+	this->_lplayer[to] = 0;
+	this->_cur--;
 }
 
 Player *Room::getPlayer(const int to)
@@ -98,6 +105,19 @@ Player *Room::getPlayer(const int to)
 	Ultra::ScopeLock sl(this->_mutex);
 
 	return (this->_lplayer[to]);
+}
+
+void Room::onStart(int const to, Message *)
+{
+	Ultra::ScopeLock sl(this->_mutex);
+
+	InternalMessage *imsg = new InternalMessage(new TCPPacket(new Message(Message::GAME_START), 0), 0);
+
+	for (Room::ListPlayer::iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
+		if (it->second)
+			imsg->addReceiver(it->second->getID());
+
+	Core::srv_manager->notifyService(ServiceManager::DISPATCH, imsg);
 }
 
 void Room::onInfo(int const to, Message *)
@@ -111,11 +131,31 @@ void Room::onInfo(int const to, Message *)
 		rmsg->setAttr("id", Ultra::Value((unsigned short)this->_id));
 		rmsg->setAttr("name", Ultra::Value(std::string(this->_name)));
 		rmsg->setAttr("private", Ultra::Value((this->_password == "" ? false : true)));
-		rmsg->setAttr("cur_player", Ultra::Value((char)_lplayer.size()));
+		rmsg->setAttr("cur_player", Ultra::Value((char)this->getCurrentPlayer()));
 		rmsg->setAttr("max_player", Ultra::Value((char)this->_max));
 
 		Core::srv_manager->notifyService(ServiceManager::DISPATCH, imsg);
 	}
+}
+
+void Room::onKick(int const to, Message *)
+{
+	this->delPlayer(to);
+	InternalMessage *iamsg = new InternalMessage(new TCPPacket(new Message(Message::ROOM_KICK), 0), to);
+	iamsg->addReceiver(to);
+	Core::srv_manager->notifyService(ServiceManager::DISPATCH, iamsg);
+}
+
+Room::ListPlayer::iterator Room::getLastPlayer()
+{
+	this->_mutex->lock();
+	Room::ListPlayer::iterator it = this->_lplayer.begin();
+	for (; it != this->_lplayer.end(); ++it)
+	{
+		if (it->second)
+			return it;
+	}
+	this->_mutex->unlock();
 }
 
 void Room::onPlayerInfo(int const to, Message *msg)
@@ -132,12 +172,15 @@ void Room::onPlayerInfo(int const to, Message *msg)
 			InternalMessage *imsg = new InternalMessage(new TCPPacket(msg, 0), 0);
 			this->_mutex->lock();
 			for (Room::ListPlayer::iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
-				imsg->addReceiver(it->second->getID());
+			{
+				if (it->second)
+					imsg->addReceiver(it->second->getID());
+			}
 			this->_mutex->unlock();
 			if (state == Player::LEFT)
 			{
 				this->delPlayer(to);
-				Room::ListPlayer::iterator it = this->_lplayer.begin();
+				Room::ListPlayer::iterator it = this->getLastPlayer();
 				it->second->setStateSpec(Player::MASTER);
 				Message *amsg = new Message(Message::ROOM_PLAYER_INFO);
 				InternalMessage *iamsg = new InternalMessage(new TCPPacket(amsg, 0), to);
@@ -153,13 +196,19 @@ void Room::onPlayerInfo(int const to, Message *msg)
 			{
 				this->_mutex->lock();
 				Room::ListPlayer::iterator it = this->_lplayer.begin();
-				for (; it != this->_lplayer.end() && it->second->getState() == Player::READY; ++it);
-				if (it == this->_lplayer.end() || this->_stateRoom == Room::READY)
+				int countReady = 0;
+				for (; it != this->_lplayer.end(); ++it)
 				{
-					this->_stateRoom = (this->_stateRoom != Room::READY) ? Room::READY : Room::REACHABLE;
+					if (it->second && it->second->getState() == Player::READY)
+						countReady++;
+				}
+				if (countReady == this->getCurrentPlayer() || this->_stateRoom == Room::READY)
+				{
+					this->_stateRoom = (this->_stateRoom == Room::READY) ? Room::REACHABLE : Room::READY;
 					Message *msg = new Message(Message::ROOM_START);
+					msg->setAttr("port", Ultra::Value((unsigned short)Configuration::UDP_PORT));
 					InternalMessage *readymsg = new InternalMessage(new TCPPacket(msg, 0), 0);
-					readymsg->addReceiver(this->_lplayer.begin()->second->getID());
+					readymsg->addReceiver(this->getIDMaster());
 					Core::srv_manager->notifyService(ServiceManager::DISPATCH, readymsg);
 				}
 				this->_mutex->unlock();
@@ -169,6 +218,31 @@ void Room::onPlayerInfo(int const to, Message *msg)
 	}
 }
 
+int Room::getIDMaster() const
+{
+	Ultra::ScopeLock sl(this->_mutex);
+	
+	for (Room::ListPlayer::const_iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
+	{
+		if (it->second && it->second->getStateSpec() == Player::MASTER)
+			return (it->second->getID());
+	}
+	return (-1);
+}
+
+void Room::kickAll()
+{
+	Ultra::ScopeLock sl(this->_mutex);
+
+	InternalMessage *imsg = new InternalMessage(new TCPPacket(new Message(Message::ROOM_KICK), 0), 0);
+
+	for (Room::ListPlayer::iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
+		if (it->second)
+			imsg->addReceiver(it->second->getID());
+
+	Core::srv_manager->notifyService(ServiceManager::DISPATCH, imsg);
+}
+
 void Room::onPlayerTalk(int const /*to*/, Message *msg)
 {
 	Ultra::ScopeLock sl(this->_mutex);
@@ -176,7 +250,10 @@ void Room::onPlayerTalk(int const /*to*/, Message *msg)
 	InternalMessage *imsg = new InternalMessage(new TCPPacket(msg, 0), 0);
 
 	for (Room::ListPlayer::iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
-		imsg->addReceiver(it->second->getID());
+	{
+		if (it->second)
+			imsg->addReceiver(it->second->getID());
+	}
 
 	Core::srv_manager->notifyService(ServiceManager::DISPATCH, imsg);
 }
@@ -244,7 +321,7 @@ void Room::onJoin(int const to, Message *)
 			this->_mutex->lock();
 			for (Room::ListPlayer::iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
 			{
-				if (it->second->getID() != to)
+				if (it->second && it->second->getID() != to)
 				{
 					amsg->setAttr("id_player", Ultra::Value((char)(std::distance(this->_lplayer.begin(), it))));
 					amsg->setAttr("name", Ultra::Value(std::string(it->second->getAccount()->getLogin())));
@@ -270,5 +347,5 @@ unsigned char Room::getCurrentPlayer() const
 {
 	Ultra::ScopeLock sl(this->_mutex);  
 
-	return (this->_lplayer.size());
+	return (this->_cur);
 }

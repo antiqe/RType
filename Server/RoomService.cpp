@@ -25,6 +25,7 @@ RoomService::RoomService()
   _mfuncTCP[Message::ROOM_PLAYERS] = &RoomService::onRoomPlayers;
   _mfuncTCP[Message::ROOM_LIST] = &RoomService::onRoomList;
   _mfuncTCP[Message::ROOM_TALK] = &RoomService::onRoomTalk;
+  _mfuncTCP[Message::ROOM_START] = &RoomService::onRoomStart;
   _mfuncTCP[Message::ROOM_PLAYER_INFO] = &RoomService::onRoomPlayerInfo;
 }
 
@@ -123,6 +124,18 @@ void RoomService::onRoomTalk(int const to, Message *msg)
 	}
 }
 
+void RoomService::onRoomStart(int const to, Message *msg)
+{
+	Account *acc = Core::acc_manager->getAccount(to);
+	
+	if (acc)
+	{
+		Room *room = acc->getRoom();
+		if (room)
+			room->notify(new InternalMessage(new TCPPacket(msg), to));
+	}
+}
+
 void RoomService::onRoomPlayers(int const to, Message *msg)
 {
 	Account *acc = Core::acc_manager->getAccount(to);
@@ -145,10 +158,12 @@ void RoomService::onRoomPlayerInfo(int const to, Message *msg)
 		if (room)
 		{
 			char state = msg->getAttr<char>("state");
-			if (state == Player::LEFT && room->getCurrentPlayer() == 1)
+			char specState = msg->getAttr<char>("stateSpec");
+			if (state == Player::LEFT && (room->getCurrentPlayer() == 1 || specState == Player::MASTER))
 			{
 				std::stringstream ss;
 				ss << room->getID();
+				room->kickAll();
 				Core::room_manager->deleteRoom(room->getID());
 				Logging::Message lm("Room deleted [id = " + ss.str() + ']', "RoomService", Logging::Message::DEBUG);
 				this->_log << lm;
