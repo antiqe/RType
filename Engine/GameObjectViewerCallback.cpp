@@ -18,7 +18,7 @@ namespace Engine
 				Engine::Button* button = dynamic_cast< Engine::Button*>(widget);
 				Engine::MouseEvent*	mouseEvent = dynamic_cast<Engine::MouseEvent*>(event);
 
-				if (button->hit(mouseEvent->getX(), mouseEvent->getY()))
+				if (!button->isLock() && button->hit(mouseEvent->getX(), mouseEvent->getY()))
 				{
 					if (mouseEvent->isPressed())
 						button->setStatus(Engine::Button::CLICKED);
@@ -38,7 +38,7 @@ namespace Engine
 				Engine::Button* button = dynamic_cast< Engine::Button*>(widget);
 				Engine::MouseEvent*	mouseEvent = dynamic_cast<Engine::MouseEvent*>(event);
 
-				if (button->hit(mouseEvent->getX(), mouseEvent->getY()))
+				if (!button->isLock() && button->hit(mouseEvent->getX(), mouseEvent->getY()))
 				{
 					if (mouseEvent->isPressed())
 						button->setStatus(Engine::Button::CLICKED);

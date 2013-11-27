@@ -10,21 +10,12 @@
 # include "NetworkModule.hpp"
 # include "AGauge.hpp"
 # include "ListBox.hpp"
-# include "CheckBox.hpp"
-# include "GameObjectViewer.hpp"
+# include "SFMLText.hpp"
+# include "Player.hpp"
 
 class RoomState : public Engine::AState
 {
-private:
-	enum Statistic
-	{
-		ARMOR = 0,
-		POWER,
-		SPEED,
-		STAT_SIZE
-	};
-
-	static unsigned int nbrPlayer;
+	static const unsigned int nbrPlayer = 4;
 
 	DataModule*					_dataModule;
 	Engine::Background*			_background;
@@ -36,11 +27,9 @@ private:
 	Engine::Button*				_settings;
 	Engine::Button*				_back;
 	Engine::Background*			_loading;
-	Engine::CheckBox*			_ready[4];
-	SFMLImage*					_iconStats[STAT_SIZE];
-	Engine::AGauge*				_stats[STAT_SIZE];
-	Engine::GameObjectViewer*	_shipViewer[4];
 	NetworkModule*				_networkModule;
+	Player*						_players[nbrPlayer];
+	Engine::CheckBox*			_ready[nbrPlayer];
 
 public:
 	RoomState();
@@ -56,6 +45,8 @@ public:
 	void	quitRoom();
 
 	void	roomTalk();
+	void	sendPlayerInfo();
+	void	sendStartRoom();
 };
 
 #endif

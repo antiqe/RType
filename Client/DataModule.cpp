@@ -38,6 +38,8 @@ void	DataModule::initialize()
 	this->_attr["id_player"] = Ultra::Value((char)0);
 	this->_attr["id_ship"] = Ultra::Value((char)0);
 	this->_attr["stateSpec"] = Ultra::Value((char)0);
+	this->_attr["statePlayer"] = Ultra::Value((char)0);
+	this->_attr["tmp"] = Ultra::Value(std::string(""));
 }
 
 void	DataModule::update()

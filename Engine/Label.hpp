@@ -38,6 +38,7 @@ namespace Engine
 		void	setTextSize(size_t size);
 		void	setTextPosition(int x, int y);
 		void	setTextStyle(unsigned long style);
+		void    setText(std::string const &text);
 
 		std::string const&		getContent() const;
 		std::string const&		getTextFont() const;

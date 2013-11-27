@@ -108,7 +108,7 @@ void	PlayCreateState::reload()
 
 void	PlayCreateState::createRoom()
 {
-	this->_loading->show();
+	//this->_loading->show();
 
 	Message *msg = new Message(Message::ROOM_CREATE);
 	msg->setAttr("name", Ultra::Value(std::string(this->_name->getText())));

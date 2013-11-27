@@ -32,6 +32,8 @@ void DispatchService::start()
 	{
 	  msg = this->_q.pop();
 	  (this->*_tabDisp[msg->getProto()])(msg);
+	  /* check delete */
+	  //delete msg;
 	}
       Ultra::Sleep::usleep(300);
     }

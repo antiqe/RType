@@ -10,8 +10,9 @@
 #include "IRender.hpp"
 #include "AStateModule.hpp"
 #include "ASourceModule.hpp"
-#include "GameObject.hpp"
 #include "Button.hpp"
+#include "GameObject.hpp"
+#include "ADataModule.hpp"
 
 namespace Engine
 {
@@ -26,6 +27,8 @@ namespace Engine
 		IImage*	_img;
 		Button*	_next;
 
+		ADataModule*	_dataModule;
+
 	public:
 		GameObjectViewer(std::string const &name, std::string const &normalNextFile, std::string const &clickedNextFile, 
 			std::string const &hoverNextFile, std::string const &normalPrevFile, std::string const &clickedPrevFile, 
@@ -38,10 +41,14 @@ namespace Engine
 		virtual void	draw(Engine::IRender* render);
 
 		void	clear();
-		void	push(std::string const &id, GameObject *gameObject);
+		void	push(std::string const &id, GameObject* gameObject);
 		void	moveTo(std::string const &id);
 		void	next();
 		void	prev();
+
+		void	lock();
+		void	unlock();
+		bool	isLocked();
 
 		std::string const&	getFocusId() const;
 		GameObject const*	getFocusGameObject() const;

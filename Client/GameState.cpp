@@ -45,9 +45,6 @@ void	GameState::initialize()
 	}
 	this->addChild(this->_logicTree);
 	this->_logicTree->initialize();
-	Engine::GameObject*	tmp = Engine::Core::gameObjectFactory->create(Engine::GameObject::STARSHIP1);
-	this->_logicTree->addObject(tmp);
-	this->_logicTree->setTarget(tmp->getID());
 }
 
 void	GameState::update()
@@ -77,6 +74,9 @@ void	GameState::reset()
 	this->_vectorMap[this->_dataModule->getAttr<int>("leftKey")] = false;
 	this->_vectorMap[this->_dataModule->getAttr<int>("rightKey")] = false;
 	this->_vectorMap[this->_dataModule->getAttr<int>("shootKey")] = false;
+	Engine::GameObject*	tmp = Engine::Core::gameObjectFactory->create(this->_dataModule->getAttr<std::string>("tmp"));
+	this->_logicTree->addObject(tmp);
+	this->_logicTree->setTarget(tmp->getID());
 }
 
 void	GameState::reload()

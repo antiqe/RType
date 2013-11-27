@@ -77,6 +77,7 @@
     <ClCompile Include="GameObjectFactory.cpp" />
     <ClCompile Include="LifeConstantComponent.cpp" />
     <ClCompile Include="Move2DComponent.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position2DComponent.cpp" />
     <ClCompile Include="PowerConstantComponent.cpp" />
     <ClCompile Include="RenderAnimationComponent.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="GameObjectFactory.hpp" />
     <ClInclude Include="LifeConstantComponent.hpp" />
     <ClInclude Include="Move2DComponent.hpp" />
+    <ClInclude Include="Player.hpp" />
     <ClInclude Include="Position2DComponent.hpp" />
     <ClInclude Include="PowerConstantComponent.hpp" />
     <ClInclude Include="RenderAnimationComponent.hpp" />

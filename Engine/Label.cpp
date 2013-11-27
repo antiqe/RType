@@ -55,6 +55,11 @@ namespace Engine
 	// SETTER
 	//
 
+	void	Label::setText(std::string const &text)
+	{
+		this->_content = text;
+	}
+
 	void	Label::setContent(std::string const& text)
 	{
 		this->_content = text;

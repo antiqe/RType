@@ -59,7 +59,21 @@ namespace Engine
 
 	void	CheckBox::toggle()
 	{
+		if (this->_isChecked)
+			this->_status = CheckBox::UNCHECKED_HOVER;
+		else
+			this->_status = CheckBox::CHECKED_HOVER;
 		this->_isChecked = !this->_isChecked;
+	}
+
+	void	CheckBox::check()
+	{
+		this->_isChecked = true;
+	}
+
+	void	CheckBox::uncheck()
+	{
+		this->_isChecked = false;
 	}
 
 	void	CheckBox::setStatus(CheckBox::Status status)

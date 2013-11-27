@@ -36,6 +36,7 @@ private:
   SafeQueue<InternalMessage *> _q;
   typedef std::map<int, Player *> ListPlayer;
   ListPlayer _lplayer;
+  std::queue<int> _qid;
   StateRoom _stateRoom;
   typedef void (Room::*MsgFuncTCP)(int const to, Message *msg);
   typedef void (Room::*MsgFuncUDP)(InternalMessage *msg);
@@ -44,6 +45,7 @@ private:
   unsigned short _id;
   std::string _name;
   std::string _password;
+  unsigned char _cur;
   unsigned char _max;
 
 public:
@@ -58,6 +60,10 @@ public:
   void notify(InternalMessage *msg);
   bool isReachable() const;
   unsigned char getCurrentPlayer() const;
+  int getIDMaster() const;
+  ListPlayer::iterator getLastPlayer();
+  char getMaxID() const;
+  void kickAll();
 
 private:
 
@@ -69,6 +75,8 @@ private:
   void onPlayerInfoInGame(InternalMessage *imsg);
   void onPlayerTalk(int const to, Message *msg);
   void onCreate(int const to, Message *msg);
+  void onKick(int const to, Message *msg);
+  void onStart(int const to, Message *msg);
 };
 
 #endif

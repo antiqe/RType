@@ -25,6 +25,7 @@ RoomService::RoomService()
   _mfuncTCP[Message::ROOM_PLAYERS] = &RoomService::onRoomPlayers;
   _mfuncTCP[Message::ROOM_LIST] = &RoomService::onRoomList;
   _mfuncTCP[Message::ROOM_TALK] = &RoomService::onRoomTalk;
+  _mfuncTCP[Message::ROOM_START] = &RoomService::onRoomStart;
   _mfuncTCP[Message::ROOM_PLAYER_INFO] = &RoomService::onRoomPlayerInfo;
 }
 
@@ -54,6 +55,8 @@ void RoomService::start()
 	      if (room)
 			room->notify(new InternalMessage(pudp, imsg->getFromUDP()));
 	    }
+	  /* check delete */
+	  delete imsg;
 
 	}
            Ultra::Sleep::usleep(300);
@@ -83,8 +86,8 @@ void RoomService::onRoomCreate(int const to, Message *msg)
       name = msg->getAttr<std::string>(std::string("name"));
       password = msg->getAttr<std::string>(std::string("password"));
       room = Core::room_manager->createRoom(name, password);
-	  room->addPlayer(new Player(to, acc, Player::MASTER));
-      acc->setRoom(room);
+	  room->addPlayer(new Player(0, to, acc, Player::MASTER));
+	  acc->setRoom(room);
 
       Message *rmsg = new Message(Message::ROOM_STATE);
       InternalMessage *imsg = new InternalMessage(new TCPPacket(rmsg, 0), to);
@@ -121,6 +124,18 @@ void RoomService::onRoomTalk(int const to, Message *msg)
 	}
 }
 
+void RoomService::onRoomStart(int const to, Message *msg)
+{
+	Account *acc = Core::acc_manager->getAccount(to);
+	
+	if (acc)
+	{
+		Room *room = acc->getRoom();
+		if (room)
+			room->notify(new InternalMessage(new TCPPacket(msg), to));
+	}
+}
+
 void RoomService::onRoomPlayers(int const to, Message *msg)
 {
 	Account *acc = Core::acc_manager->getAccount(to);
@@ -143,17 +158,18 @@ void RoomService::onRoomPlayerInfo(int const to, Message *msg)
 		if (room)
 		{
 			char state = msg->getAttr<char>("state");
-			if (state == Player::LEFT && room->getCurrentPlayer() == 1)
+			char specState = msg->getAttr<char>("stateSpec");
+			if (state == Player::LEFT && (room->getCurrentPlayer() == 1 || specState == Player::MASTER))
 			{
 				std::stringstream ss;
 				ss << room->getID();
+				room->kickAll();
 				Core::room_manager->deleteRoom(room->getID());
 				Logging::Message lm("Room deleted [id = " + ss.str() + ']', "RoomService", Logging::Message::DEBUG);
 				this->_log << lm;
 			}
 			else
 				room->notify(new InternalMessage(new TCPPacket(msg), to));
-
 		}
 	}
 }
@@ -169,7 +185,7 @@ void RoomService::onRoomJoin(int const to, Message *msg)
 	  if (room)
 		{
 		  acc->setRoom(room);
-		  room->addPlayer(new Player(to, acc));
+		  room->addPlayer(new Player(0, to, acc));
 		  std::string password = msg->getAttr<std::string>("password");
 		  Message *rmsg = new Message(Message::ROOM_STATE);
 		  InternalMessage *imsg = new InternalMessage(new TCPPacket(rmsg, 0), to);

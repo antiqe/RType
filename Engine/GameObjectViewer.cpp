@@ -34,30 +34,52 @@ namespace Engine
 
 	void	GameObjectViewer::initialize()
 	{
+		this->addChild(this->_next);
+		this->addChild(this->_prev);
+		Widget::initialize();
 		this->_sourceModule = dynamic_cast<ASourceModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::SOURCE));
-		this->_next->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::GameObjectViewer::nextOnClick);
-		this->_prev->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::GameObjectViewer::prevOnClick);
+		if ((this->_dataModule = dynamic_cast<ADataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
+		{
+			size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
+			size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
+
+			this->_next->setSize(width * 2 / 100, height * 2 / 100);
+			this->_next->setPosition(width * 8 / 100, height * 3 / 100);
+			this->_next->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::GameObjectViewer::nextOnClick);
+			this->_prev->setSize(width * 2 / 100, height * 2 / 100);
+			this->_prev->setPosition(width * 0 / 100, height * 3 / 100);
+			this->_prev->setLocalPosition(width * 0 / 100, height * 3 / 100);
+			this->_prev->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::GameObjectViewer::prevOnClick);
+		}
 	}
 
 	void	GameObjectViewer::update()
 	{
+		Widget::update();
+		if (this->_focus != this->_content.end())
+			this->_focus->second->update();
 	}
 
 	void	GameObjectViewer::unload()
 	{
 		this->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);
+		Widget::unload();
+		this->removeAllChild();
 	}
 
 	void	GameObjectViewer::draw(Engine::IRender* render)
 	{
 		this->_next->draw(render);
-		ARenderComponent* renderComponent = dynamic_cast<ARenderComponent*>(this->_focus->second->getComponent(AComponent::RENDER));
-		//this->_img = renderComponent->getImage();
-		this->_img->setSize(this->_size);
-		this->_img->setPosition(this->_globalPosition);
-		this->_img->draw(render);
-		this->_img->draw(render);
+		if (this->_focus != this->_content.end())
+		{
+			ARenderComponent* renderComponent = dynamic_cast<ARenderComponent*>(this->_focus->second->getComponent(AComponent::RENDER));
+			renderComponent->initialize();
+			this->_img = renderComponent->getImage();
+			this->_img->setSize(this->_size);
+			this->_img->setPosition(this->_globalPosition);
+			this->_img->draw(render);
+		}
 		this->_prev->draw(render);
 	}
 
@@ -71,7 +93,7 @@ namespace Engine
 		this->_focus = this->_content.end();
 	}
 
-	void	GameObjectViewer::push(std::string const &id, GameObject *gameObject)
+	void	GameObjectViewer::push(std::string const &id, GameObject* gameObject)
 	{
 		if (this->_content.empty())
 		{
@@ -120,4 +142,21 @@ namespace Engine
 	{
 		return (this->_focus->second);
 	}
-}
+
+	void	GameObjectViewer::lock()
+	{
+		this->_next->lock();
+		this->_prev->lock();
+	}
+
+	void	GameObjectViewer::unlock()
+	{
+		this->_next->unlock();
+		this->_prev->unlock();
+	}
+
+	bool	GameObjectViewer::isLocked()
+	{
+		return (this->_next->isLock() && this->_prev->isLock());
+	}
+}	

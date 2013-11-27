@@ -1,5 +1,5 @@
-#ifndef  _ARMORCONSTANTCOMPONENT_H_
-# define _ARMORCONSTANTCOMPONENT_H_
+#ifndef  _POWERCONSTANTCOMPONENT_H_
+# define _POWERCONSTANTCOMPONENT_H_
 
 #include "APowerComponent.hpp"
 

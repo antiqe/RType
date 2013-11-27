@@ -204,6 +204,9 @@
     <ClCompile Include="PowerConstantComponent.cpp">
       <Filter>Source Files\Object</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.hpp">
@@ -316,6 +319,9 @@
     </ClInclude>
     <ClInclude Include="PowerConstantComponent.hpp">
       <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.hpp">
+      <Filter>Header Files\Graphic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

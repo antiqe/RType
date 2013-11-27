@@ -45,6 +45,8 @@ namespace Engine
 		virtual void	draw(Engine::IRender* render);
 
 		void	toggle();
+		void	check();
+		void	uncheck();
 
 		void				setStatus(CheckBox::Status status);
 		CheckBox::Status	getStatus() const;

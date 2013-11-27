@@ -92,6 +92,8 @@ void	PlayJoinState::reset()
 
 void	PlayJoinState::reload()
 {
+	this->_loading->hide();
+	this->refresh();
 }
 
 void	PlayJoinState::roomListRequest()

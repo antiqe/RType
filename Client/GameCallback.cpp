@@ -20,7 +20,6 @@ namespace Callback
 		{
 			GameState*				state = dynamic_cast<GameState*>(widget);
 
-			std::cout << dynamic_cast<Engine::KeyboardEvent*>(event)->getKeycode() << std::endl;
 			if (event->getType() == Engine::KeyboardEvent::KEY_PRESSED)
 				state->enableAction(dynamic_cast<Engine::KeyboardEvent*>(event));
 			else

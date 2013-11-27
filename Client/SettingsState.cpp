@@ -143,7 +143,6 @@ void	SettingsState::reload()
 
 void	SettingsState::resize(size_t width, size_t height)
 {
-	std::cout << "Resize !!!" << width << " - " << height << std::endl;
 	if (this->_dataModule)
 	{
 		size_t	fontSize = (size_t)((float)(width * 1.5 / 100));
