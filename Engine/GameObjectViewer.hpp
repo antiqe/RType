@@ -12,6 +12,7 @@
 #include "ASourceModule.hpp"
 #include "Button.hpp"
 #include "GameObject.hpp"
+#include "ADataModule.hpp"
 
 namespace Engine
 {
@@ -25,6 +26,8 @@ namespace Engine
 		Button*	_prev;
 		IImage*	_img;
 		Button*	_next;
+
+		ADataModule*	_dataModule;
 
 	public:
 		GameObjectViewer(std::string const &name, std::string const &normalNextFile, std::string const &clickedNextFile, 

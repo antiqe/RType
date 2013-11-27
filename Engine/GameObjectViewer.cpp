@@ -38,12 +38,19 @@ namespace Engine
 		this->addChild(this->_prev);
 		Widget::initialize();
 		this->_sourceModule = dynamic_cast<ASourceModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::SOURCE));
-		this->_next->setSize(this->getWidth() * 50 / 100, this->getHeight() * 50 / 100);
-		this->_next->setPosition(this->getX(), this->getY());
-		this->_next->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::GameObjectViewer::nextOnClick);
-		this->_prev->setSize(this->getWidth() * 50 / 100, this->getHeight() * 50 / 100);
-		this->_prev->setPosition(this->getX(), this->getY());
-		this->_prev->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::GameObjectViewer::prevOnClick);
+		if ((this->_dataModule = dynamic_cast<ADataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
+		{
+			size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
+			size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
+
+			this->_next->setSize(width * 2 / 100, height * 2 / 100);
+			this->_next->setPosition(width * 8 / 100, height * 3 / 100);
+			this->_next->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::GameObjectViewer::nextOnClick);
+			this->_prev->setSize(width * 2 / 100, height * 2 / 100);
+			this->_prev->setPosition(width * 0 / 100, height * 3 / 100);
+			this->_prev->setLocalPosition(width * 0 / 100, height * 3 / 100);
+			this->_prev->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::GameObjectViewer::prevOnClick);
+		}
 	}
 
 	void	GameObjectViewer::update()

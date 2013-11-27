@@ -35,17 +35,9 @@ RoomState::RoomState()
 	for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
 	{
 		ss << i;
-		this->_ready[i] = new Engine::CheckBox("ready" + ss.str(), SFMLImage::CHECKBOX_CHECKED_NORMAL_READY, SFMLImage::CHECKBOX_CHECKED_CLICKED_READY,
-			SFMLImage::CHECKBOX_CHECKED_HOVER_READY, SFMLImage::CHECKBOX_UNCHECKED_NORMAL_READY, SFMLImage::CHECKBOX_UNCHECKED_CLICKED_READY,
-			SFMLImage::CHECKBOX_UNCHECKED_HOVER_READY);
+		this->_players[i] = new Player(ss.str());
 		ss.clear();
 		ss.str("");
-		this->_shipViewer[i] = new Engine::GameObjectViewer("shipViewer" + ss.str(), SFMLImage::BUTTON_NEXT, SFMLImage::BUTTON_CLICKED_NEXT,
-			SFMLImage::BUTTON_HOVER_NEXT, SFMLImage::BUTTON_PREV, SFMLImage::BUTTON_CLICKED_PREV, SFMLImage::BUTTON_HOVER_PREV);
-		this->_shipViewer[i]->push(Engine::GameObject::STARSHIP1, this->_gameObjectFactory.create(Engine::GameObject::STARSHIP1));
-		this->_shipViewer[i]->push(Engine::GameObject::STARSHIP2, this->_gameObjectFactory.create(Engine::GameObject::STARSHIP2));
-		this->_shipViewer[i]->push(Engine::GameObject::STARSHIP3, this->_gameObjectFactory.create(Engine::GameObject::STARSHIP3));
-		this->_shipViewer[i]->push(Engine::GameObject::STARSHIP4, this->_gameObjectFactory.create(Engine::GameObject::STARSHIP4));
 	}
 }
 
@@ -69,10 +61,7 @@ void	RoomState::initialize()
 	this->addChild(this->_msg);
 	this->addChild(this->_send);
 	for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
-	{
-		this->addChild(this->_ready[i]);
-	}
-	this->addChild(this->_shipViewer[0]);
+		this->addChild(this->_players[i]);
 	Widget::initialize();
 	this->_loading->hide();
 	this->addEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED, &Engine::Callback::quit);
@@ -97,24 +86,15 @@ void	RoomState::initialize()
 		this->_go->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_go->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::goOnClick);
 		this->_go->lock();
-		// Ready button
-		for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
-		{
-			this->_ready[i]->setSize(width * 9 / 100, height * 3 / 100);
-			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
-			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);
-		}
-		this->_ready[0]->setPosition(width * 39 / 100, height * 35 / 100);
-		this->_ready[1]->setPosition(width * 65 / 100, height * 35 / 100);
-		this->_ready[2]->setPosition(width * 39 / 100, height * 66 / 100);
-		this->_ready[3]->setPosition(width * 65 / 100, height * 66 / 100);
-		this->_ready[0]->hide();
-		this->_ready[1]->hide();
-		this->_ready[2]->hide();
-		this->_ready[3]->hide();
-		// Shipviewer gameobjectviewer
-		this->_shipViewer[0]->setSize(width * 12 / 100, height * 12 / 100);
-		this->_shipViewer[0]->setPosition(width * 35 / 100, height * 15 / 100);
+		// Players
+		this->_players[0]->setSize(width * 25 / 100, height * 25 / 100);
+		this->_players[0]->setPosition((width * 28 / 100), (height * 11 / 100));
+		this->_players[1]->setSize(width * 25 / 100, height * 11 / 100);
+		this->_players[1]->setPosition(width * 54 / 100, height * 11 / 100);
+		this->_players[2]->setSize(width * 25 / 100, height * 25 / 100);
+		this->_players[2]->setPosition((width * 28 / 100), (height * 42 / 100));
+		this->_players[3]->setSize(width * 25 / 100, height * 11 / 100);
+		this->_players[3]->setPosition(width * 54 / 100, height * 42 / 100);
 		// Chatbox button
 		this->_chatBox->setSize((size_t)((float)width * 47.50 / 100), height * 20 / 100);
 		this->_chatBox->setPosition((int)((float)width * 26.45 / 100), height * 71 / 100);
@@ -215,7 +195,7 @@ void	RoomState::roomTalk()
 void	RoomState::sendPlayerInfo()
 {
 	Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
-	
+
 	mutex->lock();
 	DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
 

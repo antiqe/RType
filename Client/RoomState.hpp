@@ -10,8 +10,8 @@
 # include "NetworkModule.hpp"
 # include "AGauge.hpp"
 # include "ListBox.hpp"
-# include "GameObjectFactory.hpp"
 # include "SFMLText.hpp"
+# include "Player.hpp"
 
 class RoomState : public Engine::AState
 {
@@ -28,7 +28,7 @@ class RoomState : public Engine::AState
 	Engine::Button*				_back;
 	Engine::Background*			_loading;
 	NetworkModule*				_networkModule;
-	GameObjectFactory			_gameObjectFactory;
+	Player*						_players[nbrPlayer];
 
 public:
 	RoomState();
