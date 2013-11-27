@@ -121,7 +121,6 @@ SRC_ENGINE	=	$(ENGINE_DIR)AArmorComponent.cpp \
 			$(ENGINE_DIR)ASpeedComponent.cpp \
 			$(ENGINE_DIR)AState.cpp \
 			$(ENGINE_DIR)AStateModule.cpp \
-#			$(ENGINE_DIR)AVisualComponent.cpp \
 			$(ENGINE_DIR)Background.cpp \
 			$(ENGINE_DIR)ButtonCallback.cpp \
 			$(ENGINE_DIR)Button.cpp \
