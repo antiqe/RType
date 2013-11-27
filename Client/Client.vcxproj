@@ -77,6 +77,9 @@
     <ClCompile Include="LifeConstantComponent.cpp" />
     <ClCompile Include="Move2DComponent.cpp" />
     <ClCompile Include="Position2DComponent.cpp" />
+    <ClCompile Include="RenderAnimationComponent.cpp" />
+    <ClCompile Include="RenderImageComponent.cpp" />
+    <ClCompile Include="RenderStarshipComponent.cpp" />
     <ClCompile Include="RoomInfo.cpp" />
     <ClCompile Include="RoomStateCallback.cpp" />
     <ClCompile Include="SFMLAnimation.cpp" />
@@ -110,6 +113,7 @@
     <ClCompile Include="SFMLRender.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Size2DComponent.cpp" />
     <ClCompile Include="SourceModule.cpp" />
     <ClCompile Include="SpeedConstantComponent.cpp" />
     <ClCompile Include="State.cpp" />
@@ -141,6 +145,9 @@
     <ClInclude Include="LifeConstantComponent.hpp" />
     <ClInclude Include="Move2DComponent.hpp" />
     <ClInclude Include="Position2DComponent.hpp" />
+    <ClInclude Include="RenderAnimationComponent.hpp" />
+    <ClInclude Include="RenderImageComponent.hpp" />
+    <ClInclude Include="RenderStarshipComponent.hpp" />
     <ClInclude Include="RoomInfo.hpp" />
     <ClInclude Include="RoomStateCallback.hpp" />
     <ClInclude Include="SFMLAnimation.hpp" />
@@ -161,6 +168,7 @@
     <ClInclude Include="PlayStateCallback.hpp" />
     <ClInclude Include="RenderModule.hpp" />
     <ClInclude Include="RoomState.hpp" />
+    <ClInclude Include="Size2DComponent.hpp" />
     <ClInclude Include="SourceModule.hpp" />
     <ClInclude Include="SpeedConstantComponent.hpp" />
     <ClInclude Include="State.hpp" />

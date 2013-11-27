@@ -11,7 +11,8 @@ GameState::GameState()
 	: AState(State::CONNECTION),
 	_dataModule(0),
 	_background (new Engine::HParallax("background", SFMLImage::BACKGROUND, 0.25f)),
-	_terre(new Engine::HParallax("terre", SFMLImage::TERRE, 0.8f))
+	_terre(new Engine::HParallax("terre", SFMLImage::TERRE, 0.8f)),
+	_logicTree(new Engine::LogicTree(Engine::Core::gameObjectFactory))
 {
 
 }
@@ -21,10 +22,13 @@ GameState::~GameState()
 
 }
 
+#include "AVectorComponent.hpp"
+
 void	GameState::initialize()
 {
 	this->addChild(this->_background);
 	this->addChild(this->_terre);
+	this->addChild(this->_logicTree);
 	Widget::initialize();
 	this->addEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED, &Engine::Callback::quit);
 	if ((this->_dataModule = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
@@ -38,6 +42,8 @@ void	GameState::initialize()
 		this->_terre->setSize(width * 2, height * 2);
 		this->_terre->setPosition(-(int)width, 0);
 	}
+	Engine::GameObject*	tmp = Engine::Core::gameObjectFactory->create(Engine::GameObject::STARSHIP1);
+	this->_logicTree->addObject(tmp);
 }
 
 void	GameState::update()

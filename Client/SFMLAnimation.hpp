@@ -57,6 +57,10 @@ public:
 	static std::string const	ASTEROID1;
 	static std::string const	ASTEROID2;
 	static std::string const	LOADING;
+
+	static std::string const	STARSHIP2;
+	static std::string const	STARSHIP3;
+	static std::string const	STARSHIP4;
 };
 
 #endif

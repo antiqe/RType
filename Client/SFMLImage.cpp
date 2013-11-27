@@ -81,6 +81,10 @@ std::string const	SFMLImage::POWER = "power";
 std::string const	SFMLImage::ARMOR = "armor";
 std::string const	SFMLImage::SPEED = "speed";
 
+std::string const	SFMLImage::STARSHIP1NORMAL = "starship1_normal";
+std::string const	SFMLImage::STARSHIP1UP = "starship1_up";
+std::string const	SFMLImage::STARSHIP1DOWN = "starship1_down";
+
 SFMLImage::SFMLImage(std::string const& filename)
 	: _cut(false), _filename(filename)
 {

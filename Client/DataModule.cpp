@@ -22,7 +22,10 @@ void	DataModule::initialize()
 	this->_attr["winMode"] = Ultra::Value((unsigned long)Configuration::MODE);
 	this->_attr["winX"] = Ultra::Value(Configuration::X);
 	this->_attr["winY"] = Ultra::Value(Configuration::Y);
-	//this->_attr["login"] = Ultra::Value(std::string(""));
+	this->_attr["mapUnit"] = Ultra::Value((short)64);
+	this->_attr["mapWidth"] = Ultra::Value((size_t)1600);
+	this->_attr["mapHeight"] = Ultra::Value((size_t)900);
+	this->_attr["login"] = Ultra::Value(std::string(""));
 }
 
 void	DataModule::update()

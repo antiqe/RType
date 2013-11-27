@@ -14,6 +14,10 @@ std::string const	SFMLAnimation::ASTEROID1 = "asteroid1";
 std::string const	SFMLAnimation::ASTEROID2 = "asteroid2";
 std::string const	SFMLAnimation::LOADING = "loading";
 
+std::string const	SFMLAnimation::STARSHIP2 = "starship2";
+std::string const	SFMLAnimation::STARSHIP3 = "starship3";
+std::string const	SFMLAnimation::STARSHIP4 = "starship4";
+
 SFMLAnimation::Context::Context()
 	: frame(0), timer(0)
 {

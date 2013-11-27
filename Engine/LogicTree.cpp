@@ -2,6 +2,7 @@
 #include "AComponent.hpp"
 #include "ARenderComponent.hpp"
 #include "APositionComponent.hpp"
+#include "IChrono.hpp"
 #ifdef _WIN32
 #include "WChrono.hpp"
 #else
@@ -11,19 +12,19 @@
 namespace Engine
 {
 	LogicTree::LogicTree(Ultra::Factory<GameObject>* factory, short unity, size_t width, size_t height)
-		: _unity(unity), _size(Ultra::Vector2D<size_t>(width, height)), _target(0), _factory(factory)
+		: Widget("logicTree"), _unity(unity), _size(Ultra::Vector2D<size_t>(width, height)), _target(0), _factory(factory)
 	{
 
 	}
 
 	LogicTree::~LogicTree()
 	{
-		if (this->_factory)
-			delete this->_factory;
+
 	}
 
 	void	LogicTree::initialize()
 	{
+		
 #ifdef _WIN32
 		this->_chronoPool = new Ultra::Pool<Ultra::IChrono>(	Ultra::WChrono(), 25);
 #else
@@ -80,6 +81,7 @@ namespace Engine
 		for (std::list<std::list<std::pair<Ultra::IChrono*, GameObject*> >::iterator>::iterator it = list.begin(); it != list.end(); ++it)
 		{
 			this->_chronoPool->push((*it)->first);
+			(*it)->second->initialize();
 			this->_objects[(*it)->second->getID()] = (*it)->second;
 			this->_load.erase(*it);
 		}
@@ -93,6 +95,7 @@ namespace Engine
 		while (!this->_load.empty())
 		{
 			this->_chronoPool->push(this->_load.front().first);
+			this->_load.front().second->unload();
 			this->_pool[this->_load.front().second->getID()]->push(this->_load.front().second);
 		}
 		for (std::map<std::string, Ultra::Pool<GameObject>*>::iterator it = this->_pool.begin(); it != this->_pool.end(); ++it)
@@ -103,11 +106,13 @@ namespace Engine
 
 	void	LogicTree::draw(IRender* render)
 	{
-		for (std::map<std::string, GameObject*>::iterator it; it != this->_objects.end(); ++it)
-		{
-			ARenderComponent* component = dynamic_cast<ARenderComponent*>(it->second->getComponent(AComponent::RENDER));
-			if (component)
-				component->draw(render);
-		}
+		for (std::map<std::string, GameObject*>::iterator it = this->_objects.begin(); it != this->_objects.end(); ++it)
+			it->second->draw(render);
+	}
+
+	void	LogicTree::addObject(GameObject* object)
+	{
+		this->_objects[object->getID()] = object;
+		object->initialize();
 	}
 }
