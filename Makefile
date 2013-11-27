@@ -75,6 +75,7 @@ SRC_CLIENT	=	$(CLIENT_DIR)ArmorConstantComponent.cpp \
 			$(CLIENT_DIR)NetworkModule.cpp \
 			$(CLIENT_DIR)PlayCreateCallback.cpp \
 			$(CLIENT_DIR)PlayCreateState.cpp \
+			$(CLIENT_DIR)PlayJoinCallback.cpp \
 			$(CLIENT_DIR)PlayJoinState.cpp \
 			$(CLIENT_DIR)PlayState.cpp \
 			$(CLIENT_DIR)PlayStateCallback.cpp \
@@ -121,7 +122,6 @@ SRC_ENGINE	=	$(ENGINE_DIR)AArmorComponent.cpp \
 			$(ENGINE_DIR)ASpeedComponent.cpp \
 			$(ENGINE_DIR)AState.cpp \
 			$(ENGINE_DIR)AStateModule.cpp \
-#			$(ENGINE_DIR)AVisualComponent.cpp \
 			$(ENGINE_DIR)Background.cpp \
 			$(ENGINE_DIR)ButtonCallback.cpp \
 			$(ENGINE_DIR)Button.cpp \

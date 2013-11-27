@@ -77,7 +77,7 @@ void	ConnectionState::initialize()
 	{
 		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
 		size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
-		size_t	fontSize = static_cast<size_t>(width * 2.5 / 100);
+		size_t	fontSize = (size_t)((float)width * 2.5 / 100);
 
 		// Loading
 		this->_loading->setSize(46, 46);

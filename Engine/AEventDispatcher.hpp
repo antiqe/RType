@@ -17,7 +17,7 @@ namespace Engine
 		std::list<EventListener>	_els;
 	public:
 		AEventDispatcher();
-		virtual ~AEventDispatcher();
+	  virtual ~AEventDispatcher();
 
 		virtual void	addEventListener(std::string const& name, std::string const& type, Callback::EventFunction callback, int priority = 0);
 		virtual void	addEventListener(std::string const& name, Callback::EventFunction callback, int priority = 0);

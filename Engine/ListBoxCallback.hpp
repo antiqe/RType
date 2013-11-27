@@ -5,11 +5,13 @@
 #include "Event.hpp"
 #include "Core.hpp"
 #include "MouseEvent.hpp"
-#include "ListBox.hpp"
 #include "VSlider.hpp"
 
 namespace Engine
 {
+  template <typename T>
+  class ListBox;
+
 	namespace Callback
 	{
 		namespace ListBox

@@ -131,6 +131,7 @@ namespace Engine
 					this->_img[i] = this->_sourceModule->getImage(this->_file[i]);
 				this->_drawer = this->_sourceModule->getText(this->_textFont);
 			}
+
 			this->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_WHEEL, &Callback::ListBox::mouseWheel<T>);
 			this->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::ListBox::mouseClick<T>);
 			Widget::initialize();
@@ -146,7 +147,7 @@ namespace Engine
 		}
 		void	draw(Engine::IRender* render)
 		{
-			std::list<line>::iterator it = this->_start;
+		  typename std::list<line>::iterator it = this->_start;
 			unsigned int i = 0;
 
 			for(; i < this->_nbrLine && it != this->_content.end() ; ++i)
@@ -230,9 +231,10 @@ namespace Engine
 			for (int i = 0 ; i < line && this->_start != this->_content.end() ; ++i)
 				this->_start++;
 		}
-		void	focus(int nbr)
+		void	focus(unsigned int nbr)
 		{
-			this->_focus = nbr + this->_valueSaved;
+			if (nbr < this->_content.size())
+				this->_focus = nbr + this->_valueSaved;
 		}
 		void	unfocus()
 		{
@@ -299,7 +301,7 @@ namespace Engine
 		{
 			if ((int)this->_focus == -1)
 				return ("");
-			std::list<line>::iterator it = this->_start;
+			typename std::list<line>::iterator it = this->_start;
 			for (unsigned int i = 0 ; i < this->_focus - this->_valueSaved && it != this->_content.end() ; ++i)
 				++it;
 			return (it != this->_content.end() ? it->first : "");

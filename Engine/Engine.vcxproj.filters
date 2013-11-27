@@ -267,6 +267,12 @@
     <ClInclude Include="LogicTree.hpp">
       <Filter>Header Files\Object\Game Object</Filter>
     </ClInclude>
+    <ClInclude Include="GameObjectViewer.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectViewerCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -433,6 +439,12 @@
     </ClCompile>
     <ClCompile Include="LogicTree.cpp">
       <Filter>Source Files\Object\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectViewer.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectViewerCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
