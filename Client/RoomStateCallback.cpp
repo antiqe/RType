@@ -139,7 +139,7 @@ namespace Callback
 					  std::stringstream ss;
 					  dm->setAttr("statePlayer", Ultra::Value((char)((statePlayer == Network::READY)?Network::NONE:Network::READY)));
 					  mutex->unlock();
-					  RoomState *state = dynamic_cast<RoomState *>(widget->getParent());
+					  RoomState *state = dynamic_cast<RoomState *>(widget->getParent()->getParent());
 					  state->sendPlayerInfo();
 					  button->toggle();
 				}
@@ -156,7 +156,7 @@ namespace Callback
 			RoomState *state = dynamic_cast<RoomState *>(widget);
 			std::stringstream ss;
 			ss << (int)id_player;
-			Engine::Widget * wcb = state->getChild("ready" + ss.str());
+			Engine::Widget * wcb = state->getChild("player" + ss.str())->getChild("ready" + ss.str());
 			Engine::CheckBox *cb = dynamic_cast<Engine::CheckBox *>(wcb);
 
 			Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);

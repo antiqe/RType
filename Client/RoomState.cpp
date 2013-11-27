@@ -99,9 +99,14 @@ void	RoomState::initialize()
 		this->_players[3]->setSize(width * 25 / 100, height * 11 / 100);
 		this->_players[3]->setPosition(width * 54 / 100, height * 42 / 100);
 		// Ready button
+		std::stringstream ss;
 		for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
 		{
 			this->_ready[i] = this->_players[i]->getReadyButton();
+			ss << i;
+			this->_ready[i]->setName("ready" + ss.str());
+			ss.clear();
+			ss.str("");
 			this->_ready[i]->setSize(width * 9 / 100, height * 3 / 100);
 			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);
