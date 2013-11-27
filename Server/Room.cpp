@@ -143,7 +143,7 @@ void Room::onPlayerInfo(int const to, Message *msg)
 				Message *amsg = new Message(Message::ROOM_PLAYER_INFO);
 				InternalMessage *iamsg = new InternalMessage(new TCPPacket(amsg, 0), to);
 				iamsg->addReceiver(it->second->getID());
-				amsg->setAttr("id_player", Ultra::Value((char)(std::distance(this->_lplayer.begin(), it) + 1)));
+				amsg->setAttr("id_player", Ultra::Value((char)(std::distance(this->_lplayer.begin(), it))));
 				amsg->setAttr("name", Ultra::Value(it->second->getAccount()->getLogin()));
 				amsg->setAttr("id_ship", Ultra::Value(it->second->getShip()));
 				amsg->setAttr("state", Ultra::Value(it->second->getState()));
@@ -226,7 +226,7 @@ void Room::onJoin(int const to, Message *)
 		{
 			Message *rmsg = new Message(Message::ROOM_PLAYER_INFO);
 			InternalMessage *imsg = new InternalMessage(new TCPPacket(rmsg, 0), 0);
-			rmsg->setAttr("id_player", Ultra::Value((char)this->_lplayer.size()));
+			rmsg->setAttr("id_player", Ultra::Value((char)this->_lplayer.size() - 1));
 			rmsg->setAttr("name", Ultra::Value(acc->getLogin()));
 			rmsg->setAttr("id_ship", Ultra::Value((char)player->getShip()));
 			rmsg->setAttr("state", Ultra::Value((char)player->getState()));
@@ -247,7 +247,7 @@ void Room::onJoin(int const to, Message *)
 			{
 				if (it->second->getID() != to)
 				{
-					amsg->setAttr("id_player", Ultra::Value((char)(std::distance(this->_lplayer.begin(), it) + 1)));
+					amsg->setAttr("id_player", Ultra::Value((char)(std::distance(this->_lplayer.begin(), it))));
 					amsg->setAttr("name", Ultra::Value(it->second->getAccount()->getLogin()));
 					amsg->setAttr("id_ship", Ultra::Value(it->second->getShip()));
 					amsg->setAttr("state", Ultra::Value(it->second->getState()));
