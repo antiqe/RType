@@ -164,7 +164,7 @@ OBJ_CLIENT	=	$(SRC_CLIENT:.cpp=.o)
 
 TMP		=	$(SRC:.cpp=.cpp~)
 
-LDFLAGS		=	-L $(SRV_DIR)/lib/mysql -L $(LIB_CRPT)/libcryptopp.a -lmysqlclient -lcryptopp -lpthread -lm -lrt -ldl
+LDFLAGS		=	-L $(SRV_DIR)/lib/mysql -L $(LIB_CRPT) -lcryptopp -lmysqlclient -lpthread -lm -lrt -ldl
 
 CPPFLAGS	=	-Wall -Wno-overflow -Wextra
 
