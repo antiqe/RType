@@ -31,7 +31,7 @@ public:
     char *cur = reinterpret_cast<char *>(&d);
     char *end = reinterpret_cast<char *>(&d) + d_size;
 
-    if (!this->_buffer || !this->isReadable<T>())
+    if (!this->_buffer && this->isReadable<T>())
       return (false);
     
     while (cur != end)
