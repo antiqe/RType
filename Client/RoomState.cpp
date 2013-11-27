@@ -43,6 +43,8 @@ RoomState::RoomState()
 		ss.clear();
 		ss.str("");
 	}
+	this->_shipViewer[0] = new Engine::GameObjectViewer("shipViewer0", SFMLImage::BUTTON_NEXT, SFMLImage::BUTTON_CLICKED_NEXT,
+		SFMLImage::BUTTON_HOVER_NEXT, SFMLImage::BUTTON_PREV, SFMLImage::BUTTON_CLICKED_PREV, SFMLImage::BUTTON_HOVER_PREV);
 }
 
 RoomState::~RoomState()
@@ -166,7 +168,7 @@ void	RoomState::reload()
 void	RoomState::quitRoom()
 {
 	Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
-	
+
 	mutex->lock();
 	DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
 	std::string login = dm->getAttr<std::string>("login");
@@ -189,7 +191,7 @@ void	RoomState::roomTalk()
 	Message *msg = new Message(Message::ROOM_TALK);
 
 	Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
-	
+
 	mutex->lock();
 	DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
 	std::string login = dm->getAttr<std::string>("login");

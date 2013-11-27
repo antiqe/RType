@@ -53,7 +53,7 @@ namespace Engine
 	{
 		this->_next->draw(render);
 		ARenderComponent* renderComponent = dynamic_cast<ARenderComponent*>(this->_focus->second->getComponent(AComponent::RENDER));
-		//this->_img = renderComponent->getImage();
+		this->_img = renderComponent->getImage();
 		this->_img->setSize(this->_size);
 		this->_img->setPosition(this->_globalPosition);
 		this->_img->draw(render);
