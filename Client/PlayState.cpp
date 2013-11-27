@@ -51,35 +51,12 @@ void	PlayState::initialize()
 	//this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::AUTH_???));
 	if ((this->_dataModule = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
 	{
-		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
-		size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
-
-		// Loading
-		this->_loading->setSize(46, 46);
-		this->_loading->setPosition(width / 2, height / 2);
+		this->resize(this->_dataModule->getAttr<size_t>("winWidth"), this->_dataModule->getAttr<size_t>("winHeight"));
 		this->_loading->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::followMouse);
-		// Background
-		this->_background->setSize(width, height);
-		this->_background->setPosition(0, 0);
-		// Create button
-		this->_create->setSize(width * 20 / 100, height * 6 / 100);
-		this->_create->setPosition(width * 39 / 100, height * 48 / 100);	
-		// Join button
-		this->_join->setSize(width * 20 / 100, height * 6 / 100);
-		this->_join->setPosition(width * 39 / 100, height * 58 / 100);	
-		// Quit button
-		this->_quit->setSize(width * 9 / 100, height * 3 / 100);
-		this->_quit->setPosition(width * 90 / 100, height * 1 / 100);
 		this->_quit->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_quit->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::quit);
-		// Back button
-		this->_back->setSize(width * 9 / 100, height * 3 / 100);
-		this->_back->setPosition((int)((float)width * 1.5 / 100), (int)((float)height * 96.5 / 100));
 		this->_back->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::PlayState::backOnClick);
-		// Settings button
-		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
-		this->_settings->setPosition((int)((float)width * 90.0f / 100.0f), (int)((float)height * 4.5f / 100.0f));
 	}
 }
 
@@ -102,4 +79,32 @@ void	PlayState::reset()
 
 void	PlayState::reload()
 {
+}
+
+void	PlayState::resize(size_t width, size_t height)
+{
+	if (this->_dataModule)
+	{
+		// Loading
+		this->_loading->setSize(46, 46);
+		this->_loading->setPosition(width / 2, height / 2);
+		// Background
+		this->_background->setSize(width, height);
+		this->_background->setPosition(0, 0);
+		// Create button
+		this->_create->setSize(width * 20 / 100, height * 6 / 100);
+		this->_create->setPosition(width * 39 / 100, height * 48 / 100);	
+		// Join button
+		this->_join->setSize(width * 20 / 100, height * 6 / 100);
+		this->_join->setPosition(width * 39 / 100, height * 58 / 100);	
+		// Quit button
+		this->_quit->setSize(width * 9 / 100, height * 3 / 100);
+		this->_quit->setPosition(width * 90 / 100, height * 1 / 100);
+		// Back button
+		this->_back->setSize(width * 9 / 100, height * 3 / 100);
+		this->_back->setPosition((int)((float)width * 1.5 / 100), (int)((float)height * 96.5 / 100));
+		// Settings button
+		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
+		this->_settings->setPosition((int)((float)width * 90.0f / 100.0f), (int)((float)height * 4.5f / 100.0f));
+	}
 }

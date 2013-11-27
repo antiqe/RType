@@ -32,6 +32,7 @@ public:
 	void	unload();
 	void	reset();
 	void	reload();
+	void	resize(size_t width, size_t height);
 
 	void	roomListRequest();
 	void    refresh();

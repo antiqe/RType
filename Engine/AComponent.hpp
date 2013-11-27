@@ -57,6 +57,7 @@ namespace Engine
 		static std::string const	SCORE;
 		static std::string const	LEVEL;
 		static std::string const	SOUND;
+		static std::string const	POWER;
 	};
 }
 

@@ -15,6 +15,7 @@ namespace Engine
 
 		virtual void	reset() = 0;
 		virtual void	reload() = 0;
+		virtual void	resize(size_t width, size_t height) = 0;
 	};
 }
 

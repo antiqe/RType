@@ -21,7 +21,7 @@ GameObjectFactory::GameObjectFactory()
 	// Premier vaisseau
 	object.setID(Engine::GameObject::STARSHIP1);
 	object.setComponent(new Move2DComponent);
-	object.setComponent(new SpeedConstantComponent(1.5f));
+	object.setComponent(new SpeedConstantComponent(4.0f));
 	object.setComponent(new Vector2DComponent);
 	object.setComponent(new Position2DComponent);
 	object.setComponent(new LifeConstantComponent(100));
@@ -34,7 +34,7 @@ GameObjectFactory::GameObjectFactory()
 	// Deuxième vaisseau
 	object.setID(Engine::GameObject::STARSHIP2);
 	object.setComponent(new Move2DComponent);
-	object.setComponent(new SpeedConstantComponent(1.5f));
+	object.setComponent(new SpeedConstantComponent(5.0f));
 	object.setComponent(new Vector2DComponent);
 	object.setComponent(new Position2DComponent);
 	object.setComponent(new LifeConstantComponent(100));
@@ -47,7 +47,7 @@ GameObjectFactory::GameObjectFactory()
 	// Troisième vaisseau
 	object.setID(Engine::GameObject::STARSHIP3);
 	object.setComponent(new Move2DComponent);
-	object.setComponent(new SpeedConstantComponent(1.8f));
+	object.setComponent(new SpeedConstantComponent(3.5f));
 	object.setComponent(new Vector2DComponent);
 	object.setComponent(new Position2DComponent);
 	object.setComponent(new LifeConstantComponent(100));
@@ -60,7 +60,7 @@ GameObjectFactory::GameObjectFactory()
 	// Quatrième vaisseau
 	object.setID(Engine::GameObject::STARSHIP4);
 	object.setComponent(new Move2DComponent);
-	object.setComponent(new SpeedConstantComponent(1.0f));
+	object.setComponent(new SpeedConstantComponent(3.0f));
 	object.setComponent(new Vector2DComponent);
 	object.setComponent(new Position2DComponent);
 	object.setComponent(new LifeConstantComponent(100));

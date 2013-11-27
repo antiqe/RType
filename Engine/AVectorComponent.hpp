@@ -22,9 +22,12 @@ namespace Engine
 
 			for (i = 0; i < D; ++i)
 				length += pow(this->_vector.getCoordinate(i), 2.0f);
-			length = sqrt(length);
-			for (i = 0; i < D; ++i)
-				this->_vector.setCoordinate(this->_vector.getCoordinate(i) / length, i);
+			if (length)
+			{
+				length = sqrt(length);
+				for (i = 0; i < D; ++i)
+					this->_vector.setCoordinate(this->_vector.getCoordinate(i) / length, i);
+			}
 		}
 	public:
 		AVectorComponent() : AComponent() {}

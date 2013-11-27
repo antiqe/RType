@@ -279,6 +279,9 @@
     <ClInclude Include="KeyBoxCallback.hpp">
       <Filter>Header Files\Callback</Filter>
     </ClInclude>
+    <ClInclude Include="APowerComponent.hpp">
+      <Filter>Header Files\Object\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -457,6 +460,9 @@
     </ClCompile>
     <ClCompile Include="KeyBoxCallback.cpp">
       <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="APowerComponent.cpp">
+      <Filter>Source Files\Object\Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

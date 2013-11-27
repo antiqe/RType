@@ -58,46 +58,16 @@ void	PlayJoinState::initialize()
 	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_STATE), Callback::PlayJoin::onRoomState);
 	if ((this->_dataModule = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
 	{
-		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
-		size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
-
-		// Loading
-		this->_loading->setSize(46, 46);
-		this->_loading->setPosition(width / 2, height / 2);
+		this->resize(this->_dataModule->getAttr<size_t>("winWidth"), this->_dataModule->getAttr<size_t>("winHeight"));
 		this->_loading->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::followMouse);
-		// Background
-		this->_background->setSize(width, height);
-		this->_background->setPosition(0, 0);
-		// List textbox
-		this->_list->setSize((size_t)((float)width * 47.85 / 100), height * 55 / 100);
-		this->_list->setPosition((size_t)((float)width * 25.45 / 100), height * 30 / 100);
-		this->_list->setTextColor(Ultra::Color(138, 212, 241, 255));
-		this->_list->setFocusTextColor(Ultra::Color(196, 232, 249, 255));
-		this->_list->setTextStyle(0);
-		this->_list->setScrollWidth(width * 2 / 100);
-		// Select button
-		this->_select->setSize(width * 14 / 100, height * 4 / 100);
-		this->_select->setPosition(width * 42 / 100, height * 88 / 100);
 		this->_select->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_select->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::PlayJoin::selectOnClick);
-		// Quit button
-		this->_quit->setSize(width * 9 / 100, height * 3 / 100);
-		this->_quit->setPosition(width * 90 / 100, height * 1 / 100);
 		this->_quit->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_quit->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::quit);
-		// Back button
-		this->_back->setSize(width * 9 / 100, height * 3 / 100);
-		this->_back->setPosition((size_t)((float)width * 1.5 / 100), (size_t)((float)height * 96.5 / 100));
 		this->_back->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::back);
-		// Refresh button
-		this->_refresh->setSize(width * 9 / 100, height * 3 / 100);
-		this->_refresh->setPosition((size_t)((float)width * 90 / 100), (size_t)((float)height * 96.5 / 100));
 		this->_refresh->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_refresh->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::PlayJoin::refreshOnClick);
-		// Settings button
-		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
-		this->_settings->setPosition(width * 90 / 100, (size_t)((float)height * 4.5 / 100));
 	}
 	this->_networkModule = dynamic_cast<NetworkModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::NETWORK));
 }
@@ -138,7 +108,7 @@ void	PlayJoinState::refresh()
 
 void	PlayJoinState::selectServer()
 {
-  if ((int)this->_list->getFocusLine() != -1)
+	if ((int)this->_list->getFocusLine() != -1)
 	{
 		RoomInfo *rm = this->_list->getFocusData();
 		Message *msg = new Message(Message::ROOM_JOIN);
@@ -153,4 +123,39 @@ void	PlayJoinState::goToRoom()
 {
 	this->_loading->hide();
 	this->_select->active();
+}
+
+void	PlayJoinState::resize(size_t width, size_t height)
+{
+	if (this->_dataModule)
+	{
+		// Loading
+		this->_loading->setSize(46, 46);
+		this->_loading->setPosition(width / 2, height / 2);
+		// Background
+		this->_background->setSize(width, height);
+		this->_background->setPosition(0, 0);
+		// List textbox
+		this->_list->setSize((size_t)((float)width * 47.85 / 100), height * 55 / 100);
+		this->_list->setPosition((size_t)((float)width * 25.45 / 100), height * 30 / 100);
+		this->_list->setTextColor(Ultra::Color(138, 212, 241, 255));
+		this->_list->setFocusTextColor(Ultra::Color(196, 232, 249, 255));
+		this->_list->setTextStyle(0);
+		this->_list->setScrollWidth(width * 2 / 100);
+		// Select button
+		this->_select->setSize(width * 14 / 100, height * 4 / 100);
+		this->_select->setPosition(width * 42 / 100, height * 88 / 100);
+		// Quit button
+		this->_quit->setSize(width * 9 / 100, height * 3 / 100);
+		this->_quit->setPosition(width * 90 / 100, height * 1 / 100);
+		// Back button
+		this->_back->setSize(width * 9 / 100, height * 3 / 100);
+		this->_back->setPosition((size_t)((float)width * 1.5 / 100), (size_t)((float)height * 96.5 / 100));
+		// Refresh button
+		this->_refresh->setSize(width * 9 / 100, height * 3 / 100);
+		this->_refresh->setPosition((size_t)((float)width * 90 / 100), (size_t)((float)height * 96.5 / 100));
+		// Settings button
+		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
+		this->_settings->setPosition(width * 90 / 100, (size_t)((float)height * 4.5 / 100));
+	}
 }

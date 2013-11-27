@@ -15,6 +15,14 @@ public:
   static float				SCALE;
   static unsigned long		MODE;
   static std::string const	NAME;
+  static int				GLOBAL_SOUND;
+  static int				AMBIENT_SOUND;
+  static int				EFFECT_SOUND;
+  static int				UP;
+  static int				DOWN;
+  static int				LEFT;
+  static int				RIGHT;
+  static int				SHOOT;
 
   Configuration(std::string const &filename);
   ~Configuration();

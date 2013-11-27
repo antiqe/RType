@@ -22,6 +22,14 @@ void	DataModule::initialize()
 	this->_attr["winMode"] = Ultra::Value((unsigned long)Configuration::MODE);
 	this->_attr["winX"] = Ultra::Value(Configuration::X);
 	this->_attr["winY"] = Ultra::Value(Configuration::Y);
+	this->_attr["globalSound"] = Ultra::Value(Configuration::GLOBAL_SOUND);
+	this->_attr["ambientSound"] = Ultra::Value(Configuration::AMBIENT_SOUND);
+	this->_attr["effectSound"] = Ultra::Value(Configuration::EFFECT_SOUND);
+	this->_attr["upKey"] = Ultra::Value(Configuration::UP);
+	this->_attr["downKey"] = Ultra::Value(Configuration::DOWN);
+	this->_attr["leftKey"] = Ultra::Value(Configuration::LEFT);
+	this->_attr["rightKey"] = Ultra::Value(Configuration::RIGHT);
+	this->_attr["shootKey"] = Ultra::Value(Configuration::SHOOT);
 	this->_attr["mapUnit"] = Ultra::Value((short)64);
 	this->_attr["mapWidth"] = Ultra::Value((size_t)1600);
 	this->_attr["mapHeight"] = Ultra::Value((size_t)900);

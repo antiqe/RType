@@ -62,50 +62,14 @@ void	PlayCreateState::initialize()
 	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_STATE), Callback::PlayCreate::checkRoomState);
 	if ((this->_dataModule = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
 	{
-		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
-		size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
-		size_t	fontSize = static_cast<size_t>(width * 2 / 100);
-
-		// Loading
-		this->_loading->setSize(46, 46);
-		this->_loading->setPosition(width / 2, height / 2);
-		this->_loading->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::followMouse);
-		// Background
-		this->_background->setSize(width, height);
-		this->_background->setPosition(0, 0);
-		// Name textbox
-		this->_name->setSize(width * 20 / 100, height * 6 / 100);
-		this->_name->setPosition(width * 39 / 100, height * 40 / 100);
-		this->_name->setTextSize(fontSize);
-		this->_name->setTextPosition(15, 5);
-		this->_name->setTextColor(Ultra::Color(208, 154, 58, 255));
-		// Private checkbox
-		this->_private->setSize(width * 14 / 100, height * 4 / 100);
-		this->_private->setPosition(width * 39 / 100, height * 49 / 100);
-		// Password textbox
-		this->_password->setSize(width * 20 / 100, height * 6 / 100);
-		this->_password->setPosition(width * 39 / 100, height * 54 / 100);
-		this->_password->setTextSize(fontSize);
-		this->_password->setTextPosition(15, 5);
-		this->_password->setTextColor(Ultra::Color(208, 154, 58, 255));
-		// Ok button
-		this->_ok->setSize(width * 14 / 100, height * 4 / 100);
-		this->_ok->setPosition(width * 42 / 100, height * 67 / 100);
-		this->_ok->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
-		this->_ok->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::PlayCreate::createOnClick);
-		// Quit button
-		this->_quit->setSize(width * 9 / 100, height * 3 / 100);
-		this->_quit->setPosition(width * 90 / 100, height * 1 / 100);
-		this->_quit->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
-		this->_quit->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::quit);
-		// Back button
-		this->_back->setSize(width * 9 / 100, height * 3 / 100);
-		this->_back->setPosition((size_t)((float)width * 1.5 / 100), (size_t)((float)height * 96.5 / 100));
 		this->_back->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::back);
-		// Settings button
-		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
-		this->_settings->setPosition(width * 90 / 100, (size_t)((float)height * 4.5 / 100));
+		this->_quit->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+		this->_quit->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::quit);
+		this->_ok->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+		this->_ok->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::PlayCreate::createOnClick);
+		this->_loading->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::followMouse);
+		this->resize(this->_dataModule->getAttr<size_t>("winWidth"), this->_dataModule->getAttr<size_t>("winHeight"));
 	}
 	this->_networkModule = dynamic_cast<NetworkModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::NETWORK));
 }
@@ -145,7 +109,7 @@ void	PlayCreateState::reload()
 void	PlayCreateState::createRoom()
 {
 	this->_loading->show();
-	
+
 	Message *msg = new Message(Message::ROOM_CREATE);
 	msg->setAttr("name", Ultra::Value(std::string(this->_name->getText())));
 	msg->setAttr("password", Ultra::Value(std::string(this->_password->getText())));
@@ -164,4 +128,45 @@ void	PlayCreateState::displayError(std::string const &msg)
 {
 	this->_loading->hide();
 	std::cerr << msg << std::endl;
+}
+
+void	PlayCreateState::resize(size_t width, size_t height)
+{
+	if (this->_dataModule)
+	{
+		size_t	fontSize = static_cast<size_t>(width * 2 / 100);
+		// Loading
+		this->_loading->setSize(46, 46);
+		this->_loading->setPosition(width / 2, height / 2);
+		// Background
+		this->_background->setSize(width, height);
+		this->_background->setPosition(0, 0);
+		// Name textbox
+		this->_name->setSize(width * 20 / 100, height * 6 / 100);
+		this->_name->setPosition(width * 39 / 100, height * 40 / 100);
+		this->_name->setTextSize(fontSize);
+		this->_name->setTextPosition(15, 5);
+		this->_name->setTextColor(Ultra::Color(208, 154, 58, 255));
+		// Private checkbox
+		this->_private->setSize(width * 14 / 100, height * 4 / 100);
+		this->_private->setPosition(width * 39 / 100, height * 49 / 100);
+		// Password textbox
+		this->_password->setSize(width * 20 / 100, height * 6 / 100);
+		this->_password->setPosition(width * 39 / 100, height * 54 / 100);
+		this->_password->setTextSize(fontSize);
+		this->_password->setTextPosition(15, 5);
+		this->_password->setTextColor(Ultra::Color(208, 154, 58, 255));
+		// Ok button
+		this->_ok->setSize(width * 14 / 100, height * 4 / 100);
+		this->_ok->setPosition(width * 42 / 100, height * 67 / 100);
+		// Quit button
+		this->_quit->setSize(width * 9 / 100, height * 3 / 100);
+		this->_quit->setPosition(width * 90 / 100, height * 1 / 100);
+		// Back button
+		this->_back->setSize(width * 9 / 100, height * 3 / 100);
+		this->_back->setPosition((size_t)((float)width * 1.5 / 100), (size_t)((float)height * 96.5 / 100));
+		// Settings button
+		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
+		this->_settings->setPosition(width * 90 / 100, (size_t)((float)height * 4.5 / 100));
+	}
 }

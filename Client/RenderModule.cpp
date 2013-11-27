@@ -54,14 +54,48 @@ void	RenderModule::update()
 			title = this->_dataModule->getAttr<std::string>("winTitle");
 			mode = this->_dataModule->getAttr<unsigned long>("winMode");
 		}
-		if (width != this->_render->getWidth())
-			this->_render->setWidth(width);
-		if (height != this->_render->getHeight())
-			this->_render->setHeight(height);
+		if (mode != this->_render->getMode())
+		{
+			this->_render->setMode(mode);
+			if (mode == sf::Style::Fullscreen)
+			{
+				Ultra::Vector2D<size_t>	vector = this->_render->getSize();
+				Ultra::ScopeLock	lockData(Engine::Core::getInstance()->access(Engine::AModule::DATA));
+				this->_dataModule->setAttr("winWidth", (size_t)vector.getX());
+				this->_dataModule->setAttr("winHeight", (size_t)vector.getY());
+				Ultra::ScopeLock	lockState(Engine::Core::getInstance()->access(Engine::AModule::STATE));
+				if (this->_stateModule->top())
+					this->_stateModule->top()->resize(this->_dataModule->getAttr<size_t>("winWidth"), this->_dataModule->getAttr<size_t>("winHeight"));
+			}
+		}
+		if (this->_render->getMode() != sf::Style::Fullscreen)
+		{
+			bool	change = false;
+			if (width != this->_render->getWidth())
+			{
+				this->_render->setWidth(width);
+				change = true;
+				Ultra::ScopeLock	lock(Engine::Core::getInstance()->access(Engine::AModule::DATA));
+				this->_dataModule->setAttr("winWidth", width);
+			}
+			if (height != this->_render->getHeight())
+			{
+				this->_render->setHeight(height);
+				change = true;
+				Ultra::ScopeLock	lock(Engine::Core::getInstance()->access(Engine::AModule::DATA));
+				this->_dataModule->setAttr("winHeight", height);
+			}
+			if (change)
+			{
+				Ultra::ScopeLock	lockState(Engine::Core::getInstance()->access(Engine::AModule::STATE));
+				Ultra::ScopeLock	lockData(Engine::Core::getInstance()->access(Engine::AModule::DATA));
+				if (this->_stateModule->top())
+					this->_stateModule->top()->resize(this->_dataModule->getAttr<size_t>("winWidth"), this->_dataModule->getAttr<size_t>("winHeight"));
+			}
+
+		}
 		if (title != this->_render->getTitle())
 			this->_render->setTitle(title);
-		if (mode != this->_render->getMode())
-			this->_render->setMode(mode);
 	}
 }
 

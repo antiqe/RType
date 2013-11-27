@@ -73,10 +73,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ArmorConstantComponent.cpp" />
+    <ClCompile Include="GameCallback.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
     <ClCompile Include="LifeConstantComponent.cpp" />
     <ClCompile Include="Move2DComponent.cpp" />
     <ClCompile Include="Position2DComponent.cpp" />
+    <ClCompile Include="PowerConstantComponent.cpp" />
     <ClCompile Include="RenderAnimationComponent.cpp" />
     <ClCompile Include="RenderImageComponent.cpp" />
     <ClCompile Include="RenderStarshipComponent.cpp" />
@@ -142,10 +144,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArmorConstantComponent.hpp" />
+    <ClInclude Include="GameCallback.hpp" />
     <ClInclude Include="GameObjectFactory.hpp" />
     <ClInclude Include="LifeConstantComponent.hpp" />
     <ClInclude Include="Move2DComponent.hpp" />
     <ClInclude Include="Position2DComponent.hpp" />
+    <ClInclude Include="PowerConstantComponent.hpp" />
     <ClInclude Include="RenderAnimationComponent.hpp" />
     <ClInclude Include="RenderImageComponent.hpp" />
     <ClInclude Include="RenderStarshipComponent.hpp" />

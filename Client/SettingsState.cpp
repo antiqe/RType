@@ -10,6 +10,9 @@
 #include "Message.hpp"
 #include "HSlider.hpp"
 #include "SFMLText.hpp"
+#include "Core.hpp"
+#include "ScopeLock.hpp"
+#include "Configuration.hpp"
 
 //
 // CTOR / DTOR
@@ -71,17 +74,82 @@ void	SettingsState::initialize()
 	Widget::initialize();
 	this->_loading->hide();
 	this->addEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED, &Engine::Callback::quit);
-	//this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::AUTH_???));
 	if ((this->_dataModule = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
 	{
-		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
-		size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
-		size_t	fontSize = (size_t)((float)(width * 1.5 / 100));
+		this->resize(this->_dataModule->getAttr<size_t>("winWidth"), this->_dataModule->getAttr<size_t>("winHeight"));
+		this->_loading->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::followMouse);
+		this->_ambient->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_WHEEL);
+		this->_effect->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_WHEEL);
+		this->_global->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_WHEEL);
+		this->_resolution->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_WHEEL);
+		this->_moveUp->addCharacter(static_cast<Engine::Keyboard::Key>(this->_dataModule->getAttr<int>("upKey")));
+		this->_moveDown->addCharacter(static_cast<Engine::Keyboard::Key>(this->_dataModule->getAttr<int>("downKey")));
+		this->_moveLeft->addCharacter(static_cast<Engine::Keyboard::Key>(this->_dataModule->getAttr<int>("leftKey")));
+		this->_moveRight->addCharacter(static_cast<Engine::Keyboard::Key>(this->_dataModule->getAttr<int>("rightKey")));
+		this->_shoot->addCharacter(static_cast<Engine::Keyboard::Key>(this->_dataModule->getAttr<int>("shootKey")));
+		this->_ambient->setValue(this->_dataModule->getAttr<int>("ambientSound"));
+		this->_effect->setValue(this->_dataModule->getAttr<int>("effectSound"));
+		this->_global->setValue(this->_dataModule->getAttr<int>("globalSound"));
+		this->_resolution->setValue((int)(Configuration::SCALE * 100));
+		if (this->_dataModule->getAttr<unsigned long>("winMode") == sf::Style::Fullscreen)
+			this->_fullscreen->toggle();
+		this->_quit->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+		this->_quit->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::quit);
+		this->_back->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::back);
+		this->_settings->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+		this->_settings->lock();
+	}
+}
 
+void	SettingsState::update()
+{
+	Widget::update();
+	Ultra::ScopeLock	lock(Engine::Core::getInstance()->access(Engine::AModule::DATA));
+	//this->_dataModule->setAttr("upKey", Ultra::Value(this->_moveUp));
+	//this->_dataModule->setAttr("downKey", Ultra::Value(this->_moveDown));
+	//this->_dataModule->setAttr("leftKey", Ultra::Value(this->_moveLeft));
+	//this->_dataModule->setAttr("rightKey", Ultra::Value(this->_moveRight));
+	//this->_dataModule->setAttr("shootKey", Ultra::Value(this->_shoot));
+	this->_dataModule->setAttr("globalSound", Ultra::Value((int)this->_global->getValue()));
+	this->_dataModule->setAttr("ambientSound", Ultra::Value((int)this->_ambient->getValue()));
+	this->_dataModule->setAttr("effectSound", Ultra::Value((int)this->_effect->getValue()));
+	/*if (this->_fullscreen->isChecked())
+		this->_dataModule->setAttr("winMode", Ultra::Value((unsigned long)8)); 
+	else
+	{
+		this->_dataModule->setAttr("winWidth", Ultra::Value((size_t)(((float)this->_resolution->getValue()) / 100.0f * 1600.0f)));
+		this->_dataModule->setAttr("winHeight", Ultra::Value((size_t)(((float)this->_resolution->getValue()) / 100.0f * 900.0f)));
+		this->_dataModule->setAttr("winMode", Ultra::Value((unsigned long)5)); 
+	}*/
+}
+
+void	SettingsState::unload()
+{
+	this->removeEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED);
+	this->_loading->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);
+	Widget::unload();
+	this->removeAllChild();
+}
+
+void	SettingsState::reset()
+{
+
+}
+
+void	SettingsState::reload()
+{
+}
+
+void	SettingsState::resize(size_t width, size_t height)
+{
+	std::cout << "Resize !!!" << width << " - " << height << std::endl;
+	if (this->_dataModule)
+	{
+		size_t	fontSize = (size_t)((float)(width * 1.5 / 100));
 		// Loading
 		this->_loading->setSize(46, 46);
 		this->_loading->setPosition(width / 2, height / 2);
-		this->_loading->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::followMouse);
 		// Background
 		this->_background->setSize(width, height);
 		this->_background->setPosition(0, 0);
@@ -133,37 +201,11 @@ void	SettingsState::initialize()
 		// Quit button
 		this->_quit->setSize(width * 9 / 100, height * 3 / 100);
 		this->_quit->setPosition(width * 90 / 100, height * 1 / 100);
-		this->_quit->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
-		this->_quit->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::quit);
 		// Back button
 		this->_back->setSize(width * 9 / 100, height * 3 / 100);
 		this->_back->setPosition((int)((float)width * 1.5 / 100), (int)((float)height * 96.5 / 100));
-		this->_back->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
-		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::back);
 		// Settings button
 		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
 		this->_settings->setPosition((int)((float)width * 90.0f / 100.0f), (int)((float)height * 4.5f / 100.0f));
-		this->_settings->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 	}
-}
-
-void	SettingsState::update()
-{
-	Widget::update();
-}
-
-void	SettingsState::unload()
-{
-	this->removeEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED);
-	this->_loading->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);
-	Widget::unload();
-	this->removeAllChild();
-}
-
-void	SettingsState::reset()
-{
-}
-
-void	SettingsState::reload()
-{
 }

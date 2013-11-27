@@ -83,6 +83,7 @@
     <ClInclude Include="ANetworkModule.hpp" />
     <ClInclude Include="AParallax.hpp" />
     <ClInclude Include="APositionComponent.hpp" />
+    <ClInclude Include="APowerComponent.hpp" />
     <ClInclude Include="ARenderComponent.hpp" />
     <ClInclude Include="ARenderModule.hpp" />
     <ClInclude Include="ARotationComponent.hpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="AMoveComponent.cpp" />
     <ClCompile Include="ANetworkModule.cpp" />
     <ClCompile Include="AParallax.cpp" />
+    <ClCompile Include="APowerComponent.cpp" />
     <ClCompile Include="ARenderComponent.cpp" />
     <ClCompile Include="ARenderModule.cpp" />
     <ClCompile Include="AShieldComponent.cpp" />

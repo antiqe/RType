@@ -20,6 +20,7 @@ namespace Engine
 	std::string const	AComponent::SCORE = "score";
 	std::string const	AComponent::LEVEL = "level";
 	std::string const	AComponent::SOUND = "sound";
+	std::string const	AComponent::POWER = "power";
 
 	AComponent::Compare::Compare(std::string const& id)
 		: _id(id)

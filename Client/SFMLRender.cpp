@@ -170,6 +170,7 @@ void	SFMLRender::setMode(unsigned long mode)
 		this->_window->close();
 		delete this->_window;
 		this->_window = new sf::RenderWindow(sf::VideoMode(size.x, size.y), this->_title.c_str(), mode);
+		size = this->_window->getSize();
 		this->_window->setPosition(position);
 		this->_window->setVerticalSyncEnabled(true);
 		this->_window->setKeyRepeatEnabled(false);

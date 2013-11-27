@@ -100,8 +100,8 @@ namespace Engine
 		this->_flag |= 8;
 		if (!width)
 			width = 1;
-		for (std::list<Widget*>::iterator it = this->_children.begin(); it != this->_children.end(); ++it)
-			(*it)->setWidth(((*it)->getWidth() * width) / this->_size.getX());
+		/*for (std::list<Widget*>::iterator it = this->_children.begin(); it != this->_children.end(); ++it)
+			(*it)->setWidth(((*it)->getWidth() * width) / this->_size.getX());*/
 		this->_size.setX(width);
 	}
 
@@ -110,8 +110,8 @@ namespace Engine
 		this->_flag |= 16;
 		if (!height)
 			height = 1;
-		for (std::list<Widget*>::iterator it = this->_children.begin(); it != this->_children.end(); ++it)
-			(*it)->setWidth(((*it)->getHeight() * height) / this->_size.getY());
+		/*for (std::list<Widget*>::iterator it = this->_children.begin(); it != this->_children.end(); ++it)
+			(*it)->setWidth(((*it)->getHeight() * height) / this->_size.getY());*/
 		this->_size.setY(height);
 	}
 

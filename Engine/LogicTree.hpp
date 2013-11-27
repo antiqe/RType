@@ -19,6 +19,8 @@ namespace Engine
 {
 	class LogicTree : public Widget
 	{
+	public:
+		typedef void	(*Execute)(Event*);
 	private:	
 		short												_unity;
 		Ultra::Vector2D<size_t>								_size;
@@ -28,19 +30,25 @@ namespace Engine
 		std::map<std::string, Ultra::Pool<GameObject>* >	_pool;	
 		std::map<std::string, GameObject*>					_objects;
 		std::list<std::pair<Ultra::IChrono*, GameObject*> >	_load;
-
 		void	load();
 	public:
-		LogicTree(Ultra::Factory<GameObject>* factory, short unity = 64, size_t width = 32, size_t height = 16);
+		LogicTree(Ultra::Factory<GameObject>* factory, short unity = 64, size_t width = 25, size_t height = 14);
 		~LogicTree();
 
 		void	initialize();
 		void	update();
 		void	unload();
 		void	draw(IRender* render);
+		void	interpret(Engine::Event* event);
 
-		// to delete
-		void	addObject(GameObject* object);
+		void			setTarget(std::string const& id);
+		GameObject*		getTarget() const;
+
+		void	move(Ultra::Vector2D<float> const& vector);
+		void	preshoot();
+		void	shoot();
+
+		void	addObject(GameObject* object, float delay = 0.0f);
 	};
 }
 

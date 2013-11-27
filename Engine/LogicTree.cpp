@@ -2,6 +2,9 @@
 #include "AComponent.hpp"
 #include "ARenderComponent.hpp"
 #include "APositionComponent.hpp"
+#include "ASizeComponent.hpp"
+#include "AVectorComponent.hpp"
+#include "AShootComponent.hpp"
 #include "IChrono.hpp"
 #ifdef _WIN32
 #include "WChrono.hpp"
@@ -24,7 +27,7 @@ namespace Engine
 
 	void	LogicTree::initialize()
 	{
-		
+
 #ifdef _WIN32
 		this->_chronoPool = new Ultra::Pool<Ultra::IChrono>(	Ultra::WChrono(), 25);
 #else
@@ -53,20 +56,26 @@ namespace Engine
 		std::list<std::map<std::string, GameObject*>::iterator>	list;
 		for (std::map<std::string, GameObject*>::iterator it = this->_objects.begin(); it != this->_objects.end(); ++it)
 		{
-			APositionComponent<float, 2>*	component = dynamic_cast<APositionComponent<float, 2>*>(it->second->getComponent(AComponent::POSITION));
-			if (component)
+			APositionComponent<float, 2>*	vectorComponent = dynamic_cast<APositionComponent<float, 2>*>(it->second->getComponent(AComponent::POSITION));
+			if (vectorComponent)
 			{
-				Ultra::Vector<float, 2>	vector = component->getPosition();
+				ASizeComponent<2>*			sizeComponent = dynamic_cast<ASizeComponent<2>*>(it->second->getComponent(AComponent::SIZE));
+				Ultra::Vector<size_t, 2>	size;
+				if (sizeComponent)
+					size = sizeComponent->getSize();
+				Ultra::Vector<float, 2>		vector = vectorComponent->getPosition();
 				if (vector.getCoordinate(Ultra::X) < 0.0f ||
-					vector.getCoordinate(Ultra::X) > (float)(this->_size.getX() * this->_unity) ||
+					vector.getCoordinate(Ultra::X) + size.getCoordinate(Ultra::X) > (float)(this->_size.getX()) ||
 					vector.getCoordinate(Ultra::Y) < 0.0f ||
-					vector.getCoordinate(Ultra::Y) > (float)(this->_size.getY() * this->_unity))
+					vector.getCoordinate(Ultra::Y) + size.getCoordinate(Ultra::Y) > (float)(this->_size.getY()))
 					list.push_back(it);
 			}
 			it->second->update();
 		}
 		for (std::list<std::map<std::string, GameObject*>::iterator>::iterator it = list.begin(); it != list.end(); ++it)
 		{
+			if (this->_target == (*it)->second)
+				this->_target = 0;
 			this->_pool[(*it)->first]->push((*it)->second);
 			this->_objects.erase(*it);
 		}
@@ -110,9 +119,67 @@ namespace Engine
 			it->second->draw(render);
 	}
 
-	void	LogicTree::addObject(GameObject* object)
+	void	LogicTree::addObject(GameObject* object, float delay)
 	{
-		this->_objects[object->getID()] = object;
-		object->initialize();
+		if (delay)
+		{
+			Ultra::IChrono*	chrono = this->_chronoPool->pop();
+			chrono->launch(delay);
+			this->_load.push_front(std::pair<Ultra::IChrono*, GameObject*>(chrono, object));
+		}
+		else
+		{
+			this->_objects[object->getID()] = object;
+			object->initialize();
+		}
+	}
+
+	void	LogicTree::setTarget(std::string const& id)
+	{
+		std::map<std::string, GameObject*>::iterator it = this->_objects.find(id);
+
+		if (it != this->_objects.end())
+			this->_target = it->second;
+	}
+
+	GameObject*	LogicTree::getTarget() const
+	{
+		return (this->_target);
+	}
+
+	void	LogicTree::move(Ultra::Vector2D<float> const& vector)
+	{
+		if (this->_target)
+		{
+			Engine::AVectorComponent<float, 2>*	vectorComponent = dynamic_cast<Engine::AVectorComponent<float, 2>*>(this->_target->getComponent(Engine::AComponent::VECTOR));
+			if (vectorComponent)
+			{
+				Ultra::Vector<float, 2>	tmp;
+				tmp.setCoordinate(vector.getX(), Ultra::X);
+				tmp.setCoordinate(vector.getY(), Ultra::Y);
+				vectorComponent->setVector(tmp);
+			}
+		}
+	}
+
+	void	LogicTree::preshoot()
+	{
+		if (this->_target)
+		{
+			Engine::AShootComponent*	shootComponent = dynamic_cast<Engine::AShootComponent*>(this->_target->getComponent(Engine::AComponent::SHOOT));
+			if (shootComponent)
+				shootComponent->active();
+		}
+	}
+
+	void	LogicTree::shoot()
+	{
+		if (this->_target)
+		{
+			std::cout << "POUIOUUUU" << std::endl;
+			Engine::AShootComponent*	shootComponent = dynamic_cast<Engine::AShootComponent*>(this->_target->getComponent(Engine::AComponent::SHOOT));
+			if (shootComponent)
+				shootComponent->shoot();
+		}
 	}
 }

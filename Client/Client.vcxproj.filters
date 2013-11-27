@@ -194,9 +194,15 @@
     </ClCompile>
     <ClCompile Include="RenderStarshipComponent.cpp">
       <Filter>Source Files\Object</Filter>
-      </ClCompile>
+    </ClCompile>
     <ClCompile Include="SettingsState.cpp">
       <Filter>Source Files\Module\State</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerConstantComponent.cpp">
+      <Filter>Source Files\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +310,12 @@
     </ClInclude>
     <ClInclude Include="SettingsState.hpp">
       <Filter>Header Files\Module\State</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerConstantComponent.hpp">
+      <Filter>Header Files\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

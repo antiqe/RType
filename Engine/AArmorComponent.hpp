@@ -20,8 +20,10 @@ namespace Engine
 
 		std::string const		getFamilyID() const;
 
-		short	getArmor() const;
-		void	setArmor(short armor);
+		short const	getMin() const;
+		short const getMax() const;
+		short		getArmor() const;
+		void		setArmor(short armor);
 	};
 }
 
