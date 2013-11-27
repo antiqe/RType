@@ -67,6 +67,7 @@ SRC_CLIENT	=	$(CLIENT_DIR)ArmorConstantComponent.cpp \
 			$(CLIENT_DIR)DataModule.cpp \
 			$(CLIENT_DIR)EventModule.cpp \
 			$(CLIENT_DIR)FactoryModule.cpp \
+			$(CLIENT_DIR)FMODSound.cpp \
 			$(CLIENT_DIR)GameObjectFactory.cpp \
 			$(CLIENT_DIR)GameState.cpp \
 			$(CLIENT_DIR)LifeConstantComponent.cpp \
