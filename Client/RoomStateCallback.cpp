@@ -101,9 +101,15 @@ namespace Callback
 
 	  void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event)
 		{
-			std::string name = event->getAttr<std::string>("name");
+			/*std::string name = event->getAttr<std::string>("name");
+			char id_player = (char)event->getAttr<char>("id_player");
 			char specState = event->getAttr<char>("stateSpec");
-			std::cout << "===> Player Info [" << name << "] [" << ((specState == Network::MASTER) ? "MASTER" : "SIMPLE") << "] <====" << std::endl;
+
+			RoomState *state = dynamic_cast<RoomState *>(widget);
+			std::stringstream ss;
+			ss << (int)id_player;
+			Engine::Widget * wcb = state->getChild("ready" + ss.str());
+			Engine::CheckBox *cb = dynamic_cast<Engine::CheckBox *>(wcb);
 
 			Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
 			mutex->lock();
@@ -111,10 +117,11 @@ namespace Callback
 			std::string login = dm->getAttr<std::string>("login");
 			if (login == name)
 			{
-				dm->setAttr("id_player", Ultra::Value((char)event->getAttr<char>("id_player")));
+				dm->setAttr("id_player", Ultra::Value((char)id_player));
 				dm->setAttr("id_ship", Ultra::Value((char)event->getAttr<char>("id_ship")));
 				char stateSpec = event->getAttr<char>("stateSpec");
 				dm->setAttr("stateSpec", Ultra::Value((char)stateSpec));
+				cb->show();
 				if (stateSpec == Network::MASTER)
 				{
 					RoomState *state = dynamic_cast<RoomState *>(widget);
@@ -125,7 +132,10 @@ namespace Callback
 				mutex->unlock();
 			}
 			else
+			{
 				mutex->unlock();
+				cb->show();
+			}*/
 		}
-	}
+	  }
 }

@@ -273,6 +273,12 @@
     <ClInclude Include="GameObjectViewerCallback.hpp">
       <Filter>Header Files\Callback</Filter>
     </ClInclude>
+    <ClInclude Include="KeyBox.hpp">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBoxCallback.hpp">
+      <Filter>Header Files\Callback</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -444,6 +450,12 @@
       <Filter>Source Files\Graphic</Filter>
     </ClCompile>
     <ClCompile Include="GameObjectViewerCallback.cpp">
+      <Filter>Source Files\Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBox.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBoxCallback.cpp">
       <Filter>Source Files\Callback</Filter>
     </ClCompile>
   </ItemGroup>

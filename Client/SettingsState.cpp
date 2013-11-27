@@ -9,6 +9,7 @@
 //#include "SettingsStateCallback.hpp"
 #include "Message.hpp"
 #include "HSlider.hpp"
+#include "SFMLText.hpp"
 
 //
 // CTOR / DTOR
@@ -18,6 +19,11 @@ SettingsState::SettingsState()
 	: AState(State::CONNECTION),
 	_dataModule(0),
 	_background(new Engine::Background("background", SFMLImage::SETTINGS_BACKGROUND)),
+	_moveUp(new Engine::KeyBox("moveup", SFMLImage::TEXTBOX, SFMLImage::TEXTBOX, SFMLImage::TEXTBOX_HOVER, SFMLText::TEXTBOX, 1)),
+	_moveDown(new Engine::KeyBox("movedown", SFMLImage::TEXTBOX, SFMLImage::TEXTBOX, SFMLImage::TEXTBOX_HOVER, SFMLText::TEXTBOX, 1)),
+	_moveLeft(new Engine::KeyBox("moveleft", SFMLImage::TEXTBOX, SFMLImage::TEXTBOX, SFMLImage::TEXTBOX_HOVER, SFMLText::TEXTBOX, 1)),
+	_moveRight(new Engine::KeyBox("moveright", SFMLImage::TEXTBOX, SFMLImage::TEXTBOX, SFMLImage::TEXTBOX_HOVER, SFMLText::TEXTBOX, 1)),
+	_shoot(new Engine::KeyBox("shoot", SFMLImage::TEXTBOX, SFMLImage::TEXTBOX, SFMLImage::TEXTBOX_HOVER, SFMLText::TEXTBOX, 1)),
 	_ambient(new Engine::HSlider("ambient", SFMLImage::HSLIDER, SFMLImage::SLIDER_CURSOR_NORMAL,
 	SFMLImage::SLIDER_CURSOR_CLICKED, SFMLImage::SLIDER_CURSOR_HOVER)),
 	_effect(new Engine::HSlider("effect", SFMLImage::HSLIDER, SFMLImage::SLIDER_CURSOR_NORMAL,
@@ -48,6 +54,11 @@ SettingsState::~SettingsState()
 void	SettingsState::initialize()
 {
 	this->addChild(this->_background);
+	this->addChild(this->_moveUp);
+	this->addChild(this->_moveDown);
+	this->addChild(this->_moveLeft);
+	this->addChild(this->_moveRight);
+	this->addChild(this->_shoot);
 	this->addChild(this->_ambient);
 	this->addChild(this->_effect);
 	this->addChild(this->_global);
@@ -65,7 +76,11 @@ void	SettingsState::initialize()
 	{
 		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
 		size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
+<<<<<<< HEAD
+		size_t	fontSize = (size_t)((float)(width * 1.5 / 100));
+=======
 		/*		size_t	fontSize = static_cast<size_t>(width * 2.5 / 100);*/
+>>>>>>> f528b134998c486313cc51c9b78e0b9afccf650d
 
 		// Loading
 		this->_loading->setSize(46, 46);
@@ -74,6 +89,36 @@ void	SettingsState::initialize()
 		// Background
 		this->_background->setSize(width, height);
 		this->_background->setPosition(0, 0);
+		// Moveup keybox
+		this->_moveUp->setSize(width * 8 / 100, height * 4 / 100);
+		this->_moveUp->setPosition(width * 40 / 100, (int)((float)height * 28.50 / 100));
+		this->_moveUp->setTextSize(fontSize);
+		this->_moveUp->setTextPosition(15, 5);
+		this->_moveUp->setTextColor(Ultra::Color(208, 154, 58, 255));
+		// Movedown keybox
+		this->_moveDown->setSize(width * 8 / 100, height * 4 / 100);
+		this->_moveDown->setPosition(width * 65 / 100, (int)((float)height * 28.50 / 100));
+		this->_moveDown->setTextSize(fontSize);
+		this->_moveDown->setTextPosition(15, 5);
+		this->_moveDown->setTextColor(Ultra::Color(208, 154, 58, 255));
+		// MoveLeft keybox
+		this->_moveLeft->setSize(width * 8 / 100, height * 4 / 100);
+		this->_moveLeft->setPosition(width * 40 / 100, (int)((float)height * 34 / 100));
+		this->_moveLeft->setTextSize(fontSize);
+		this->_moveLeft->setTextPosition(15, 5);
+		this->_moveLeft->setTextColor(Ultra::Color(208, 154, 58, 255));
+		// MoveRight keybox
+		this->_moveRight->setSize(width * 8 / 100, height * 4 / 100);
+		this->_moveRight->setPosition(width * 65 / 100, (int)((float)height * 34 / 100));
+		this->_moveRight->setTextSize(fontSize);
+		this->_moveRight->setTextPosition(15, 5);
+		this->_moveRight->setTextColor(Ultra::Color(208, 154, 58, 255));
+		// Shoot keybox
+		this->_shoot->setSize(width * 8 / 100, height * 4 / 100);
+		this->_shoot->setPosition(width * 40 / 100, (int)((float)height * 39.50 / 100));
+		this->_shoot->setTextSize(fontSize);
+		this->_shoot->setTextPosition(15, 5);
+		this->_shoot->setTextColor(Ultra::Color(208, 154, 58, 255));
 		// Ambient Slider
 		this->_ambient->setSize(width * 13 / 100, height * 2 / 100);
 		this->_ambient->setPosition(width * 37 / 100, height * 57 / 100);
