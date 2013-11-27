@@ -130,9 +130,9 @@ namespace Callback
 					Engine::Widget * wb = state->getChild("go");
 					Engine::Button *go = dynamic_cast<Engine::Button *>(wb);
 					go->show();
-					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::CheckBox::mouseClick);
-					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::CheckBox::mouseOver);
 				}
+				cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::CheckBox::mouseClick);
+				cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::CheckBox::mouseOver);
 				mutex->unlock();
 			}
 			else
