@@ -108,6 +108,7 @@ namespace Callback
 			RoomState *state = dynamic_cast<RoomState *>(widget);
 			std::stringstream ss;
 			ss << (int)id_player;
+			std::cout << "ID Player = " << (int)id_player << std::endl;
 			Engine::Widget * wcb = state->getChild("ready" + ss.str());
 			Engine::CheckBox *cb = dynamic_cast<Engine::CheckBox *>(wcb);
 
