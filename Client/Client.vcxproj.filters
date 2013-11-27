@@ -183,6 +183,9 @@
     <ClCompile Include="RoomInfo.cpp">
       <Filter>Source Files\Module\State\Join</Filter>
     </ClCompile>
+    <ClCompile Include="SettingsState.cpp">
+      <Filter>Source Files\Module\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.hpp">
@@ -269,14 +272,14 @@
     <ClInclude Include="RoomState.hpp">
       <Filter>Header Files\Module\State</Filter>
     </ClInclude>
-    <ClInclude Include="ListBox.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RoomStateCallback.hpp">
       <Filter>Header Files\Callback</Filter>
     </ClInclude>
     <ClInclude Include="RoomInfo.hpp">
       <Filter>Header Files\Module\State\Join</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsState.hpp">
+      <Filter>Header Files\Module\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
