@@ -294,6 +294,7 @@ namespace Engine
 
 	void	TextBox::setText(std::string const &text)
 	{
+		this->_currentText = text;
 		this->_text->setString(text);
 	}
 }
