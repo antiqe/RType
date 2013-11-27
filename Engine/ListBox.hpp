@@ -230,7 +230,7 @@ namespace Engine
 			for (int i = 0 ; i < line && this->_start != this->_content.end() ; ++i)
 				this->_start++;
 		}
-		void	focus(int nbr)
+		void	focus(unsigned int nbr)
 		{
 			if (nbr < this->_content.size())
 				this->_focus = nbr + this->_valueSaved;
