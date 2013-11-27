@@ -176,7 +176,6 @@ namespace Engine
 	{
 		if (this->_target)
 		{
-			std::cout << "POUIOUUUU" << std::endl;
 			Engine::AShootComponent*	shootComponent = dynamic_cast<Engine::AShootComponent*>(this->_target->getComponent(Engine::AComponent::SHOOT));
 			if (shootComponent)
 				shootComponent->shoot();

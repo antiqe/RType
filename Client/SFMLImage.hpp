@@ -113,7 +113,6 @@ public:
 	static std::string const	SLIDER_CURSOR_NORMAL;
 	static std::string const	SLIDER_CURSOR_CLICKED;
 	static std::string const	SLIDER_CURSOR_HOVER;
-	static std::string const	TERRE;
 	static std::string const	LISTBOX_EVEN;
 	static std::string const	LISTBOX_ODD;
 	static std::string const	LISTBOX_FOCUS;
@@ -124,6 +123,11 @@ public:
 	static std::string const	JOIN_BACKGROUND;
 	static std::string const	ROOM_BACKGROUND;
 	static std::string const	SETTINGS_BACKGROUND;
+
+	static std::string const	PLANETE1;
+	static std::string const	PLANETE2;
+	static std::string const	PLANETE3;
+	static std::string const	PLANETE4;
 
 	static std::string const	ARMOR;
 	static std::string const	POWER;

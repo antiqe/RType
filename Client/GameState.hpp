@@ -19,7 +19,10 @@ class GameState : public Engine::AState
 private:
 	DataModule*								_dataModule;
 	Engine::HParallax*						_background;
-	Engine::HParallax*						_terre;
+	Engine::HParallax*						_planete1;
+	Engine::HParallax*						_planete2;
+	Engine::HParallax*						_planete3;
+	Engine::HParallax*						_planete4;
 	Engine::LogicTree*						_logicTree;
 	std::map<int, bool>						_vectorMap;
 	std::map<int, Ultra::Vector2D<float> >	_keyMap;

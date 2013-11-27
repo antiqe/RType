@@ -95,7 +95,6 @@ void	SourceModule::initialize()
 	this->_images.add(SFMLImage::SLIDER_CURSOR_NORMAL, new SFMLImage("Assets/Menu/CursorNormal.png"));
 	this->_images.add(SFMLImage::SLIDER_CURSOR_CLICKED, new SFMLImage("Assets/Menu/CursorClicked.png"));
 	this->_images.add(SFMLImage::SLIDER_CURSOR_HOVER, new SFMLImage("Assets/Menu/CursorHover.png"));
-	this->_images.add(SFMLImage::TERRE, new SFMLImage("Assets/Menu/terre.png"));
 	this->_images.add(SFMLImage::LISTBOX_EVEN, new SFMLImage("Assets/Menu/gridBarre1.png"));
 	this->_images.add(SFMLImage::LISTBOX_ODD, new SFMLImage("Assets/Menu/gridBarre2.png"));
 	this->_images.add(SFMLImage::LISTBOX_FOCUS, new SFMLImage("Assets/Menu/gridBarreSelected.png"));
@@ -109,6 +108,11 @@ void	SourceModule::initialize()
 	this->_images.add(SFMLImage::POWER, new SFMLImage("Assets/Menu/power.png"));
 	this->_images.add(SFMLImage::ARMOR, new SFMLImage("Assets/Menu/armor.png"));
 	this->_images.add(SFMLImage::SPEED, new SFMLImage("Assets/Menu/speed.png"));
+
+	this->_images.add(SFMLImage::PLANETE1, new SFMLImage("Assets/Menu/planete1.png"));
+	this->_images.add(SFMLImage::PLANETE2, new SFMLImage("Assets/Menu/planete2.png"));
+	this->_images.add(SFMLImage::PLANETE3, new SFMLImage("Assets/Menu/planete3.png"));
+	this->_images.add(SFMLImage::PLANETE4, new SFMLImage("Assets/Menu/planete4.png"));
 
 	this->_images.add(SFMLImage::STARSHIP1NORMAL, new SFMLImage("Assets/Game/Starship/starship1Normal.png"));
 	this->_images.add(SFMLImage::STARSHIP1UP, new SFMLImage("Assets/Game/Starship/starship1Up.png"));

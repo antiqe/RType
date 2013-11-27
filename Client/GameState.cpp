@@ -12,7 +12,10 @@ GameState::GameState()
 	: AState(State::CONNECTION),
 	_dataModule(0),
 	_background (new Engine::HParallax("background", SFMLImage::BACKGROUND, 0.25f)),
-	_terre(new Engine::HParallax("terre", SFMLImage::TERRE, 0.8f)),
+	_planete1(new Engine::HParallax("planete1", SFMLImage::PLANETE1, 0.8f)),
+	_planete2(new Engine::HParallax("planete2", SFMLImage::PLANETE2, 1.2f)),
+	_planete3(new Engine::HParallax("planete3", SFMLImage::PLANETE3, 1.5f)),
+	_planete4(new Engine::HParallax("planete4", SFMLImage::PLANETE4, 2.0f)),
 	_logicTree(0)
 {
 
@@ -28,7 +31,10 @@ GameState::~GameState()
 void	GameState::initialize()
 {
 	this->addChild(this->_background);
-	this->addChild(this->_terre);
+	this->addChild(this->_planete1);
+	this->addChild(this->_planete2);
+	//this->addChild(this->_planete3);
+	this->addChild(this->_planete4);
 	Widget::initialize();
 	this->addEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED, &Engine::Callback::quit);
 	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::GAME_OBJ_CREATE), &Callback::Game::logicNetwork);
@@ -74,9 +80,9 @@ void	GameState::reset()
 	this->_vectorMap[this->_dataModule->getAttr<int>("leftKey")] = false;
 	this->_vectorMap[this->_dataModule->getAttr<int>("rightKey")] = false;
 	this->_vectorMap[this->_dataModule->getAttr<int>("shootKey")] = false;
-	Engine::GameObject*	tmp = Engine::Core::gameObjectFactory->create(this->_dataModule->getAttr<std::string>("tmp"));
+	/*Engine::GameObject*	tmp = Engine::Core::gameObjectFactory->create(this->_dataModule->getAttr<std::string>("tmp"));
 	this->_logicTree->addObject(tmp);
-	this->_logicTree->setTarget(tmp->getID());
+	this->_logicTree->setTarget(tmp->getID());*/
 }
 
 void	GameState::reload()
@@ -92,8 +98,12 @@ void	GameState::resize(size_t width, size_t height)
 		this->_background->setSize(width, height);
 		this->_background->setPosition(0, 0);
 		// Terre
-		this->_terre->setSize(width * 2, height * 2);
-		this->_terre->setPosition(-(int)width, 0);
+		this->_planete1->setSize(width * 2, height * 2);
+		this->_planete1->setPosition(-(int)(width), 0);
+		this->_planete2->setSize(width * 3, height * 3);
+		this->_planete2->setPosition(-(int)(width) * 2, 0);
+		this->_planete4->setSize(width * 2, height * 2);
+		this->_planete4->setPosition(0, 0);
 	}
 }
 
@@ -148,7 +158,7 @@ void	GameState::disableAction(Engine::KeyboardEvent* event)
 	}
 }
 
-void	GameState::maj(Engine::NetworkEvent* network)
+void	GameState::maj(Engine::NetworkEvent*)
 {
-	std::cout << "OULLALA JE RECOIS DES EVENTS NETWORKS" << std::endl;
+
 }

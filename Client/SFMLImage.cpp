@@ -84,7 +84,10 @@ std::string const	SFMLImage::ROOM_BACKGROUND = "room_background";
 std::string const	SFMLImage::SETTINGS_BACKGROUND = "settings_background";
 std::string const	SFMLImage::BACKGROUND = "background";
 
-std::string const	SFMLImage::TERRE = "terre";
+std::string const	SFMLImage::PLANETE1 = "planete1";
+std::string const	SFMLImage::PLANETE2 = "planete2";
+std::string const	SFMLImage::PLANETE3 = "planete3";
+std::string const	SFMLImage::PLANETE4 = "planete4";
 std::string const	SFMLImage::POWER = "power";
 std::string const	SFMLImage::ARMOR = "armor";
 std::string const	SFMLImage::SPEED = "speed";
