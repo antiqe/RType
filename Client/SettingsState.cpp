@@ -76,8 +76,7 @@ void	SettingsState::initialize()
 	{
 		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
 		size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
-
-		size_t	fontSize = static_cast<size_t>(width * 2.5 / 100);
+		size_t	fontSize = (size_t)((float)(width * 1.5 / 100));
 
 		// Loading
 		this->_loading->setSize(46, 46);
@@ -144,6 +143,7 @@ void	SettingsState::initialize()
 		// Settings button
 		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
 		this->_settings->setPosition((int)((float)width * 90.0f / 100.0f), (int)((float)height * 4.5f / 100.0f));
+		this->_settings->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 	}
 }
 
