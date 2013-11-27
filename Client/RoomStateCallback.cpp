@@ -100,6 +100,22 @@ namespace Callback
 			lb->push(from + " : " + msg, 0, true);
 		}
 
+		
+	  void	onPlayerReady(Engine::Widget *widget, Engine::Event *event)
+	  {
+		  RoomState *state = dynamic_cast<RoomState *>(widget);
+		  Engine::Widget * wb = state->getChild("go");
+		  Engine::CheckBox *cb = dynamic_cast<Engine::CheckBox *>(wb);
+
+		  Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+		  mutex->lock();
+		  DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+		  char statePlayer = dm->getAttr<char>("statePlayer");
+		  dm->setAttr("statePlayer", Ultra::Value((char)((statePlayer == Network::READY)?Network::NONE:Network::READY)));
+		  mutex->unlock();
+		  cb->toggle();
+	  }
+
 	  void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event)
 		{
 			std::string name = event->getAttr<std::string>("name");
@@ -131,7 +147,7 @@ namespace Callback
 					Engine::Button *go = dynamic_cast<Engine::Button *>(wb);
 					go->show();
 				}
-				cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::CheckBox::mouseClick);
+				cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &onPlayerReady);
 				cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::CheckBox::mouseOver);
 				mutex->unlock();
 			}

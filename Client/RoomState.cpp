@@ -202,3 +202,21 @@ void	RoomState::roomTalk()
 
 	this->_msg->setText("");
 }
+
+void	RoomState::sendPlayerInfo()
+{
+	Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+	
+	mutex->lock();
+	DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+
+	Message *amsg = new Message(Message::ROOM_PLAYER_INFO);
+	amsg->setAttr("id_player", Ultra::Value((char)dm->getAttr<char>("id_player")));
+	amsg->setAttr("name", Ultra::Value(std::string(dm->getAttr<std::string>("login"))));
+	amsg->setAttr("id_ship", Ultra::Value((char)dm->getAttr<char>("id_ship")));
+	amsg->setAttr("state", Ultra::Value((char)dm->getAttr<char>("statePlayer")));
+	amsg->setAttr("stateSpec", Ultra::Value((char)dm->getAttr<char>("stateSpec")));
+
+	mutex->unlock();
+	this->_networkModule->addMessage(new TCPPacket(amsg, NetworkModule::ROOM), ISocket::TCP);
+}

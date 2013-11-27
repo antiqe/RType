@@ -14,6 +14,7 @@ namespace Callback
 		void	onReceiveTalk(Engine::Widget* widget, Engine::Event* event);
 		void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event);
 		void	onRoomStart(Engine::Widget *widget, Engine::Event *event);
+		void	onPlayerReady(Engine::Widget *widget, Engine::Event *event);
 	}
 }
 
