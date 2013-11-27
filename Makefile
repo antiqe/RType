@@ -39,6 +39,7 @@ SRC_ULTRA	=	$(ULT_DIR)AFramer.cpp \
 			$(ULT_DIR)Exception.cpp \
 			$(ULT_DIR)INIReader.cpp \
 			$(ULT_DIR)INISection.cpp \
+			$(ULT_DIR)LChrono.cpp \
 			$(ULT_DIR)LFramer.cpp \
 			$(ULT_DIR)LMutex.cpp \
 			$(ULT_DIR)LThread.cpp \
@@ -81,11 +82,14 @@ SRC_CLIENT	=	$(CLIENT_DIR)ArmorConstantComponent.cpp \
 			$(CLIENT_DIR)PlayState.cpp \
 			$(CLIENT_DIR)PlayStateCallback.cpp \
 			$(CLIENT_DIR)Position2DComponent.cpp \
+			$(CLIENT_DIR)RenderAnimationComponent.cpp \
 			$(CLIENT_DIR)RenderModule.cpp \
+			$(CLIENT_DIR)RenderStarshipComponent.cpp \
 			$(CLIENT_DIR)RoomInfo.cpp \
 			$(CLIENT_DIR)RoomStateCallback.cpp \
 			$(CLIENT_DIR)RoomState.cpp \
 			$(CLIENT_DIR)SettingsState.cpp \
+			$(CLIENT_DIR)Size2DComponent.cpp \
 			$(CLIENT_DIR)SFMLAnimation.cpp \
 			$(CLIENT_DIR)SFMLImage.cpp \
 			$(CLIENT_DIR)SFMLInput.cpp \
@@ -139,10 +143,12 @@ SRC_ENGINE	=	$(ENGINE_DIR)AArmorComponent.cpp \
 			$(ENGINE_DIR)HParallax.cpp \
 			$(ENGINE_DIR)HSliderCallback.cpp \
 			$(ENGINE_DIR)HSlider.cpp \
+			$(ENGINE_DIR)KeyBox.cpp \
+			$(ENGINE_DIR)KeyBoxCallback.cpp \
 			$(ENGINE_DIR)KeyboardEvent.cpp \
 			$(ENGINE_DIR)Label.cpp \
 			$(ENGINE_DIR)ListBoxCallback.cpp \
-			$(ENGINE_DIR)ListBox.cpp \
+			$(ENGINE_DIR)LogicTree.cpp \
 			$(ENGINE_DIR)MouseEvent.cpp \
 			$(ENGINE_DIR)NetworkEvent.cpp \
 			$(ENGINE_DIR)SliderCursorCallback.cpp \
