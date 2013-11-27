@@ -8,6 +8,7 @@ CLIENT_DIR	=	Client/
 ENGINE_DIR	=	Engine/
 SFML_DIR	=	./lib/SFML-2.1/
 LIB_CRPT	=	./lib/cryptopp/
+FMOD_DIR	=	./lib/fmod
 
 SRC_SRV		=	$(SRV_DIR)Account.cpp \
 			$(SRV_DIR)AccountManager.cpp \
@@ -84,6 +85,7 @@ SRC_CLIENT	=	$(CLIENT_DIR)ArmorConstantComponent.cpp \
 			$(CLIENT_DIR)RoomInfo.cpp \
 			$(CLIENT_DIR)RoomStateCallback.cpp \
 			$(CLIENT_DIR)RoomState.cpp \
+			$(CLIENT_DIR)SettingsState.cpp \
 			$(CLIENT_DIR)SFMLAnimation.cpp \
 			$(CLIENT_DIR)SFMLImage.cpp \
 			$(CLIENT_DIR)SFMLInput.cpp \
@@ -163,7 +165,8 @@ OBJ_CLIENT	=	$(SRC_CLIENT:.cpp=.o)
 
 TMP		=	$(SRC:.cpp=.cpp~)
 
-LDFLAGS		=	-L $(SRV_DIR)/lib/mysql -L $(LIB_CRPT)/libcryptopp.a -lmysqlclient -lcryptopp -lpthread -lm -lrt -ldl
+LDFLAGS		=	-L $(SRV_DIR)/lib/mysql -L $(LIB_CRPT)/libcryptopp.a -lmysqlclient -lcryptopp -lpthread -lm -lrt -ldl \
+			-L $(FMOD_DIR)/lib -Wl,--rpath=$(FMOD_DIR)/lib -lfmodex64
 
 CPPFLAGS	=	-Wall -Wno-overflow -Wextra
 
@@ -175,7 +178,9 @@ CPPFLAGS	+=	-I $(SRV_DIR) \
 			-I $(SRV_DIR)lib/mysql \
 			-I ./lib/glew/include \
 			-I $(LIB_CRPT)/include \
-			-I $(SFML_DIR)/include
+			-I $(SFML_DIR)/include \
+			-I $(FMOD_DIR)/include
+
 
 ifeq ($(DEBUG), YES)
 	CPPFLAGS += -g
@@ -199,7 +204,8 @@ $(SERVER_NAME):	$(OBJ_ULTRA) $(OBJ_NETWORK) $(OBJ_ENGINE) $(OBJ_SRV)
 		@printf "\r[\033[1;33mSERVER\033[0m] $@\n"
 
 $(CLIENT_NAME):	$(OBJ_ULTRA) $(OBJ_NETWORK) $(OBJ_ENGINE) $(OBJ_CLIENT)
-		@$(CPP) -o $@ $^ $(LDFLAGS) -L ./lib/glew/lib -Wl,--rpath=./lib/glew/lib -L $(SFML_DIR)/lib64 -Wl,--rpath=$(SFML_DIR)/lib64 -lGLEW -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-system -lsfml-window
+		@$(CPP) -o $@ $^ $(LDFLAGS) -L ./lib/glew/lib -Wl,--rpath=./lib/glew/lib \
+		-L $(SFML_DIR)/lib64 -Wl,--rpath=$(SFML_DIR)/lib64 -lGLEW -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-system -lsfml-window
 
 		@printf "\r[\033[1;33mCLIENT\033[0m] $@\n"
 

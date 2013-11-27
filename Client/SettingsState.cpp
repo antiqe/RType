@@ -76,7 +76,11 @@ void	SettingsState::initialize()
 	{
 		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
 		size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
+<<<<<<< HEAD
 		size_t	fontSize = (size_t)((float)(width * 1.5 / 100));
+=======
+		/*		size_t	fontSize = static_cast<size_t>(width * 2.5 / 100);*/
+>>>>>>> f528b134998c486313cc51c9b78e0b9afccf650d
 
 		// Loading
 		this->_loading->setSize(46, 46);

@@ -83,7 +83,7 @@ void RoomService::onRoomCreate(int const to, Message *msg)
       name = msg->getAttr<std::string>(std::string("name"));
       password = msg->getAttr<std::string>(std::string("password"));
       room = Core::room_manager->createRoom(name, password);
-      room->addPlayer(new Player(to, acc));
+	  room->addPlayer(new Player(to, acc, Player::MASTER));
       acc->setRoom(room);
 
       Message *rmsg = new Message(Message::ROOM_STATE);
