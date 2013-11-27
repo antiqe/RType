@@ -50,12 +50,18 @@ MessageFactory::MessageFactory()
   msg.setAttr("name", Ultra::Value(std::string("")));
   msg.setAttr("id_ship", Ultra::Value((char)0));
   msg.setAttr("state", Ultra::Value((char)0));
+  msg.setAttr("stateSpec", Ultra::Value((char)0));
   this->learn(Message::ROOM_PLAYER_INFO, msg);
 
   msg.clearAttrs();
   
   msg.setID(Message::ROOM_LIST);
   this->learn(Message::ROOM_LIST, msg);
+
+   msg.clearAttrs();
+  
+  msg.setID(Message::ROOM_PLAYERS);
+  this->learn(Message::ROOM_PLAYERS, msg);
 
   msg.clearAttrs();
 
@@ -69,10 +75,23 @@ MessageFactory::MessageFactory()
 
   msg.clearAttrs();
 
+  msg.setID(Message::ROOM_TALK);
+  msg.setAttr("from", Ultra::Value(std::string("")));
+  msg.setAttr("msg", Ultra::Value(std::string("")));
+  this->learn(Message::ROOM_TALK, msg);
+
+  msg.clearAttrs();
+
   msg.setID(Message::GAME_PING);
   msg.setAttr("id", Ultra::Value((int)0));
   msg.setAttr("time", Ultra::Value((unsigned long int)0));
   this->learn(Message::GAME_PING, msg);
+
+  msg.clearAttrs();
+
+  msg.setID(Message::ROOM_START);
+  msg.setAttr("port", Ultra::Value((unsigned short)0));
+  this->learn(Message::ROOM_START, msg);
 }
 
 MessageFactory::~MessageFactory()

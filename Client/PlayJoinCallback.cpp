@@ -7,7 +7,8 @@
 #include "State.hpp"
 #include "ScopeLock.hpp"
 #include "NetworkModule.hpp"
-#include "FormatRoomInfo.hpp"
+#include "RoomInfo.hpp"
+#include "StateRoom.hpp"
 
 namespace Callback
 {
@@ -19,13 +20,15 @@ namespace Callback
 
 			PlayJoinState *state = dynamic_cast<PlayJoinState *>(widget);
 			Engine::Widget * wlb = state->getChild("list");
-			Engine::ListBox *lb = dynamic_cast<Engine::ListBox *>(wlb);
+			Engine::ListBox<RoomInfo *> *lb = dynamic_cast<Engine::ListBox<RoomInfo *> *>(wlb);
 			unsigned short id = event->getAttr<unsigned short>("id");
 			std::string name = event->getAttr<std::string>("name");
 			bool priv = event->getAttr<bool>("private");
 			int cur_player = event->getAttr<char>("cur_player");
 			int max_player = event->getAttr<char>("max_player");
-			lb->push(FormatRoomInfo::toString(name, priv, cur_player, max_player), id);
+
+			RoomInfo *iroom = new RoomInfo(id, name, priv, cur_player, max_player);
+			lb->push(iroom->toString(), iroom);
 		}
 
 		void refreshOnClick(Engine::Widget* widget, Engine::Event* event)
@@ -70,6 +73,29 @@ namespace Callback
 			}
 			else
 				button->setStatus(Engine::Button::NORMAL);
+		}
+
+		void onRoomState(Engine::Widget* widget, Engine::Event* event)
+		{
+			unsigned short id = event->getAttr<unsigned short>("id");
+			char status = event->getAttr<char>("state");
+
+			if (status == Network::OK)
+			{
+				Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+				mutex->lock();
+				DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+				dm->setAttr("id_room", Ultra::Value((unsigned short)id));
+				mutex->unlock();
+
+				PlayJoinState* state = dynamic_cast<PlayJoinState *>(widget);
+				state->goToRoom();
+			}
+			/*else
+			{
+				PlayJoinState* state = dynamic_cast<PlayJoinState *>(widget);
+				state->displayError("Can't connect to room");
+			}*/
 		}
 	}
 }

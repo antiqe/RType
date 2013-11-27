@@ -47,6 +47,8 @@ namespace Engine
 	void	VSlider::moveCursor(int y)
 	{
 		int v = (this->_max - this->_min);
+		if (v <= 0)
+			return ;
 		int d = this->getHeight();
 		int hit = y - this->getY();
 		int offset = this->getY() - (this->_cursor->getHeight() / 2);

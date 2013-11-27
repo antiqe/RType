@@ -22,7 +22,7 @@ PlayJoinState::PlayJoinState()
 	: AState(State::CONNECTION),
 	_dataModule(0),
 	_background(new Engine::Background("background", SFMLImage::JOIN_BACKGROUND)),
-	_list(new Engine::ListBox("list", SFMLImage::LISTBOX_EVEN, SFMLImage::LISTBOX_ODD, SFMLImage::LISTBOX_FOCUS, SFMLImage::SLIDER,
+	_list(new Engine::ListBox<RoomInfo *>("list", SFMLImage::LISTBOX_EVEN, SFMLImage::LISTBOX_ODD, SFMLImage::LISTBOX_FOCUS, SFMLImage::SLIDER,
 	SFMLImage::SLIDER_CURSOR_NORMAL, SFMLImage::SLIDER_CURSOR_CLICKED, SFMLImage::SLIDER_CURSOR_HOVER, 15, SFMLText::TEXTBOX)),
 	_select(new Engine::Button("select", SFMLImage::BUTTON_SELECT, SFMLImage::BUTTON_CLICKED_SELECT, SFMLImage::BUTTON_HOVER_SELECT, State::ROOM)),
 	_refresh(new Engine::Button("refresh", SFMLImage::BUTTON_REFRESH, SFMLImage::BUTTON_CLICKED_REFRESH, SFMLImage::BUTTON_HOVER_REFRESH)),
@@ -55,11 +55,11 @@ void	PlayJoinState::initialize()
 	this->_loading->hide();
 	this->addEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED, &Engine::Callback::quit);
 	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_INFO), Callback::PlayJoin::getRoomInfo);
+	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_STATE), Callback::PlayJoin::onRoomState);
 	if ((this->_dataModule = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
 	{
 		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
 		size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
-		size_t	fontSize = static_cast<size_t>(width * 2 / 100);
 
 		// Loading
 		this->_loading->setSize(46, 46);
@@ -69,8 +69,8 @@ void	PlayJoinState::initialize()
 		this->_background->setSize(width, height);
 		this->_background->setPosition(0, 0);
 		// List textbox
-		this->_list->setSize(width * 47.85 / 100, height * 55 / 100);
-		this->_list->setPosition(width * 25.45 / 100, height * 30 / 100);
+		this->_list->setSize((size_t)((float)width * 47.85 / 100), height * 55 / 100);
+		this->_list->setPosition((size_t)((float)width * 25.45 / 100), height * 30 / 100);
 		this->_list->setTextColor(Ultra::Color(138, 212, 241, 255));
 		this->_list->setFocusTextColor(Ultra::Color(196, 232, 249, 255));
 		this->_list->setTextStyle(0);
@@ -87,17 +87,17 @@ void	PlayJoinState::initialize()
 		this->_quit->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::quit);
 		// Back button
 		this->_back->setSize(width * 9 / 100, height * 3 / 100);
-		this->_back->setPosition(width * 1.5 / 100, height * 96.5 / 100);
+		this->_back->setPosition((size_t)((float)width * 1.5 / 100), (size_t)((float)height * 96.5 / 100));
 		this->_back->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::back);
 		// Refresh button
 		this->_refresh->setSize(width * 9 / 100, height * 3 / 100);
-		this->_refresh->setPosition(width * 90 / 100, height * 96.5 / 100);
+		this->_refresh->setPosition((size_t)((float)width * 90 / 100), (size_t)((float)height * 96.5 / 100));
 		this->_refresh->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_refresh->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::PlayJoin::refreshOnClick);
 		// Settings button
 		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
-		this->_settings->setPosition(width * 90 / 100, height * 4.5 / 100);
+		this->_settings->setPosition(width * 90 / 100, (size_t)((float)height * 4.5 / 100));
 	}
 	this->_networkModule = dynamic_cast<NetworkModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::NETWORK));
 }
@@ -138,11 +138,19 @@ void	PlayJoinState::refresh()
 
 void	PlayJoinState::selectServer()
 {
-	Ultra::Value val(this->_list->getFocusData());
+  if ((int)this->_list->getFocusLine() != -1)
+	{
+		RoomInfo *rm = this->_list->getFocusData();
+		Message *msg = new Message(Message::ROOM_JOIN);
 
-	Message *msg = new Message(Message::ROOM_JOIN);
+		msg->setAttr("id", Ultra::Value((unsigned short)rm->getID()));
+		msg->setAttr("password", Ultra::Value(std::string("")));
+		this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
+	}
+}
 
-	msg->setAttr("id", Ultra::Value((unsigned short)1));
-	msg->setAttr("password", Ultra::Value(std::string("")));
-	this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
+void	PlayJoinState::goToRoom()
+{
+	this->_loading->hide();
+	this->_select->active();
 }

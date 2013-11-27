@@ -10,8 +10,10 @@
 
 GameObjectFactory::GameObjectFactory()
 {
-	Engine::GameObject	object("");
+	Engine::GameObject	object("", "");
 
+	// Player
+	object.setFamilyID(Engine::GameObject::PLAYER);
 	// Premier vaisseau
 	object.setID(Engine::GameObject::STARSHIP1);
 	object.setComponent(new Move2DComponent);

@@ -23,9 +23,7 @@ namespace Engine
 
 	AComponent::Compare::Compare(std::string const& id)
 		: _id(id)
-	{
-
-	}
+	{}
 
 	AComponent::Compare::~Compare()
 	{
@@ -43,7 +41,7 @@ namespace Engine
 
 	}
 
-	AComponent::AComponent(AComponent const& cpy)
+	AComponent::AComponent(AComponent const& /*cpy */)
 		: _owner(0)
 	{
 

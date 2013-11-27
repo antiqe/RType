@@ -11,6 +11,7 @@ namespace Callback
 		void getRoomInfo(Engine::Widget* widget, Engine::Event* event);
 		void refreshOnClick(Engine::Widget* widget, Engine::Event* event);
 		void selectOnClick(Engine::Widget* widget, Engine::Event* event);
+		void onRoomState(Engine::Widget* widget, Engine::Event* event);
 	}
 }
 

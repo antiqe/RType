@@ -13,7 +13,6 @@ ArmorConstantComponent::ArmorConstantComponent(short armor, short min, short max
 ArmorConstantComponent::ArmorConstantComponent(ArmorConstantComponent const& cpy)
 	: Engine::AArmorComponent(cpy)
 {
-
 }
 
 ArmorConstantComponent::~ArmorConstantComponent()
