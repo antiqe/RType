@@ -44,7 +44,7 @@ namespace Engine
 						statusStart = (statusStart == Engine::CheckBox::CHECKED_NORMAL ?
 							Engine::CheckBox::UNCHECKED_NORMAL : Engine::CheckBox::CHECKED_NORMAL);
 						CheckBox->setStatus(static_cast< Engine::CheckBox::Status>(Engine::CheckBox::CHECKED_HOVER + statusStart));
-						CheckBox->toggle();
+						CheckBox->isChecked() ? CheckBox->uncheck() : CheckBox->check();
 					}
 				}
 				else
