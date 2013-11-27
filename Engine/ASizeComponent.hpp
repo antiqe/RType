@@ -16,7 +16,7 @@ namespace Engine
 		Ultra::Vector<size_t, D>	_size;	
 	public:
 		ASizeComponent() : AComponent() {}
-		ASizeComponent(ASizeComponent const& cpy) : AComponent(), _size(cpy._size)
+		ASizeComponent(ASizeComponent const& cpy) : AComponent(), _size(cpy._size) {}
 		virtual ~ASizeComponent() {}
 
 		std::string const	getFamilyID() const

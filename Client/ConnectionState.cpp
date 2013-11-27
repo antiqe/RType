@@ -175,7 +175,7 @@ void	ConnectionState::login()
 	MD5encode md5;
 
 	Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
-	
+
 	mutex->lock();
 	DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
 	dm->setAttr("login", Ultra::Value(std::string(this->_login->getText())));
@@ -199,14 +199,14 @@ void	ConnectionState::play()
 
 void	ConnectionState::displayError(std::string const &error)
 {
-	Ultra::IMutex* mutex = Engine::Core::getInstance()->access(Engine::AModule::NETWORK);
-	mutex->lock();
-	if (this->_networkModule->isStarted())
 	{
-		NetworkModule* networkModule = dynamic_cast<NetworkModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::NETWORK));
-		networkModule->stop();
+		Ultra::ScopeLock	lock(Engine::Core::getInstance()->access(Engine::AModule::NETWORK));
+		if (this->_networkModule->isStarted())
+		{
+			NetworkModule* networkModule = dynamic_cast<NetworkModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::NETWORK));
+			networkModule->stop();
+		}
 	}
-	mutex->unlock();
 	this->_loading->hide();
 	this->_login->unlock();
 	this->_password->unlock();

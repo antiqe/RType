@@ -13,10 +13,11 @@
 #include "Vector2D.hpp"
 #include "IChrono.hpp"
 #include "IRender.hpp"
+#include "Widget.hpp"
 
 namespace Engine
 {
-	class LogicTree : IVisualObject
+	class LogicTree : public Widget
 	{
 	private:	
 		short												_unity;
@@ -37,6 +38,9 @@ namespace Engine
 		void	update();
 		void	unload();
 		void	draw(IRender* render);
+
+		// to delete
+		void	addObject(GameObject* object);
 	};
 }
 

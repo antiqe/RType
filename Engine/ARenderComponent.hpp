@@ -5,6 +5,7 @@
 
 #include "AComponent.hpp"
 #include "IRender.hpp"
+#include "IImage.hpp"
 
 namespace Engine
 {
@@ -18,6 +19,7 @@ namespace Engine
 		std::string const		getFamilyID() const;
 
 		virtual void	draw(Engine::IRender* render) = 0;
+		virtual IImage*	getImage() const = 0;
 	};
 }
 

@@ -5,13 +5,13 @@
 # include <string>
 # include <map>
 
-# include "IObject.hpp"
+# include "IVisualObject.hpp"
 # include "IPrototype.hpp"
 # include "Container.hpp"
 
 namespace Engine
 {
-	class GameObject : public IObject, public Ultra::IPrototype<GameObject>, public Ultra::Container<AComponent>
+	class GameObject : public IVisualObject, public Ultra::IPrototype<GameObject>, public Ultra::Container<AComponent>
 	{
 	private:
 		std::string _familyID;
@@ -36,6 +36,7 @@ namespace Engine
 		void			initialize();
 		void			update();
 		void			unload();
+		void			draw(IRender* render);
 		GameObject*		clone() const;
 
 		static std::string const	PLAYER;

@@ -183,6 +183,18 @@
     <ClCompile Include="RoomInfo.cpp">
       <Filter>Source Files\Module\State\Join</Filter>
     </ClCompile>
+    <ClCompile Include="RenderAnimationComponent.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Size2DComponent.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderImageComponent.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderStarshipComponent.cpp">
+      <Filter>Source Files\Object</Filter>
+      </ClCompile>
     <ClCompile Include="SettingsState.cpp">
       <Filter>Source Files\Module\State</Filter>
     </ClCompile>
@@ -277,6 +289,18 @@
     </ClInclude>
     <ClInclude Include="RoomInfo.hpp">
       <Filter>Header Files\Module\State\Join</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderAnimationComponent.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Size2DComponent.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderImageComponent.hpp">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderStarshipComponent.hpp">
+      <Filter>Header Files\Object</Filter>
     </ClInclude>
     <ClInclude Include="SettingsState.hpp">
       <Filter>Header Files\Module\State</Filter>

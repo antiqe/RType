@@ -2,6 +2,7 @@
 #include <functional>
 
 #include "GameObject.hpp"
+#include "ARenderComponent.hpp"
 
 namespace Engine
 {
@@ -102,6 +103,14 @@ namespace Engine
 	void	GameObject::unload()
 	{
 		std::for_each(this->_contents.begin(), this->_contents.end(), std::mem_fun(&AComponent::unload));
+	}
+
+	void	GameObject::draw(IRender* render)
+	{
+		ARenderComponent* component = dynamic_cast<ARenderComponent*>(this->getComponent(AComponent::RENDER));
+
+		if (component)
+			component->draw(render);
 	}
 
 	GameObject*	GameObject::clone() const

@@ -8,7 +8,7 @@ namespace Ultra
 	class IChrono : public IPrototype<IChrono>
 	{
 	public:
-		IChrono();
+		IChrono() {}
 		virtual ~IChrono() {}
 
 		virtual void	launch(float) {}

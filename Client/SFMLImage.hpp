@@ -128,6 +128,10 @@ public:
 	static std::string const	ARMOR;
 	static std::string const	POWER;
 	static std::string const	SPEED;
+
+	static std::string const	STARSHIP1NORMAL;
+	static std::string const	STARSHIP1UP;
+	static std::string const	STARSHIP1DOWN;
 };
 
 #endif

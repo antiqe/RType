@@ -22,6 +22,10 @@ void	SourceModule::initialize()
 	this->_images.add(SFMLAnimation::ASTEROID1, new SFMLAnimation("Assets/Animation/asteroid1.png", 64, 64, 0.05f));
 	this->_images.add(SFMLAnimation::ASTEROID2, new SFMLAnimation("Assets/Animation/asteroid2.png", 64, 64, 0.05f));
 	this->_images.add(SFMLAnimation::LOADING, new SFMLAnimation("Assets/Animation/loading.png", 46, 46, 0.05f));
+
+	this->_images.add(SFMLAnimation::STARSHIP2, new SFMLAnimation("Assets/Game/Starship/starship2.png", 32, 28, 0.15f));
+	this->_images.add(SFMLAnimation::STARSHIP3, new SFMLAnimation("Assets/Game/Starship/starship3.png", 63, 44, 0.15f));
+	this->_images.add(SFMLAnimation::STARSHIP4, new SFMLAnimation("Assets/Game/Starship/starship4.png", 49, 48, 0.05f));
 	// Put all images objects
 	this->_images.add(SFMLImage::BACKGROUND, new SFMLImage("Assets/Menu/background.png"));
 	this->_images.add(SFMLImage::TEXTBOX, new SFMLImage("Assets/Menu/TextBox.png"));
@@ -105,6 +109,10 @@ void	SourceModule::initialize()
 	this->_images.add(SFMLImage::POWER, new SFMLImage("Assets/Menu/power.png"));
 	this->_images.add(SFMLImage::ARMOR, new SFMLImage("Assets/Menu/armor.png"));
 	this->_images.add(SFMLImage::SPEED, new SFMLImage("Assets/Menu/speed.png"));
+
+	this->_images.add(SFMLImage::STARSHIP1NORMAL, new SFMLImage("Assets/Game/Starship/starship1Normal.png"));
+	this->_images.add(SFMLImage::STARSHIP1UP, new SFMLImage("Assets/Game/Starship/starship1Up.png"));
+	this->_images.add(SFMLImage::STARSHIP1DOWN, new SFMLImage("Assets/Game/Starship/starship1Down.png"));
 	// Put all texts objects
 	this->_texts.add(SFMLText::TEXTBOX, new SFMLText(SFMLText::TEXTBOX, "Assets/Font/prototype.ttf"));
 }
