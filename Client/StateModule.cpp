@@ -32,7 +32,6 @@ void	StateModule::initialize()
 	for (std::map<std::string, Engine::AState*>::iterator it = this->_statePool.begin(); it != this->_statePool.end(); ++it)
 		it->second->initialize();
 	this->_stateStack.push(this->_statePool[this->_mainName]);
-	this->_stateStack.push(this->_statePool[State::ROOM]);
 }
 
 void	StateModule::update()

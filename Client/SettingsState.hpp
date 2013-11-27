@@ -9,12 +9,18 @@
 # include "SFMLAnimation.hpp"
 # include "ASlider.hpp"
 # include "CheckBox.hpp"
+# include "KeyBox.hpp"
 
 class SettingsState : public Engine::AState
 {
 private:
 	DataModule*				_dataModule;
 	Engine::Background*		_background;
+	Engine::KeyBox*			_moveUp;
+	Engine::KeyBox*			_moveDown;
+	Engine::KeyBox*			_moveLeft;
+	Engine::KeyBox*			_moveRight;
+	Engine::KeyBox*			_shoot;
 	Engine::ASlider*		_ambient;
 	Engine::ASlider*		_effect;
 	Engine::ASlider*		_global;

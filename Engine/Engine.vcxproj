@@ -120,6 +120,8 @@
     <ClInclude Include="IText.hpp" />
     <ClInclude Include="IVisualObject.hpp" />
     <ClInclude Include="KeyboardEvent.hpp" />
+    <ClInclude Include="KeyBox.hpp" />
+    <ClInclude Include="KeyBoxCallback.hpp" />
     <ClInclude Include="Label.hpp" />
     <ClInclude Include="ListBox.hpp" />
     <ClInclude Include="ListBoxCallback.hpp" />
@@ -179,6 +181,8 @@
     <ClCompile Include="HSlider.cpp" />
     <ClCompile Include="HSliderCallback.cpp" />
     <ClCompile Include="KeyboardEvent.cpp" />
+    <ClCompile Include="KeyBox.cpp" />
+    <ClCompile Include="KeyBoxCallback.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="ListBox.cpp" />
     <ClCompile Include="ListBoxCallback.cpp" />
