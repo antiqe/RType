@@ -3,6 +3,7 @@
 #include "MouseEvent.hpp"
 #include "Core.hpp"
 #include "State.hpp"
+#include "StatePlayer.hpp"
 #include "ScopeLock.hpp"
 
 namespace Callback
@@ -70,7 +71,8 @@ namespace Callback
 		void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event)
 		{
 			std::string name = event->getAttr<std::string>("name");
-			std::cout << "===> Player Info [" << name << "] <====" << std::endl;
+			char specState = event->getAttr<char>("stateSpec");
+			std::cout << "===> Player Info [" << name << "] [" << ((specState == Network::MASTER) ? "MASTER" : "SIMPLE") << "] <====" << std::endl;
 
 			Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
 			mutex->lock();

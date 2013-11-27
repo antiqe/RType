@@ -9,6 +9,12 @@ namespace Network
       READY	= 2,
       LEFT	= 3
     };
+
+	enum StateSpecPlayer
+	{
+		MASTER = 1,
+		SIMPLE = 2
+	};
 }
 
 #endif

@@ -135,7 +135,20 @@ void Room::onPlayerInfo(int const to, Message *msg)
 				imsg->addReceiver(it->second->getID());
 			this->_mutex->unlock();
 			if (state == Player::LEFT)
+			{
 				this->delPlayer(to);
+				Room::ListPlayer::iterator it = this->_lplayer.begin();
+				it->second->setStateSpec(Player::MASTER);
+				Message *amsg = new Message(Message::ROOM_PLAYER_INFO);
+				InternalMessage *iamsg = new InternalMessage(new TCPPacket(amsg, 0), to);
+				iamsg->addReceiver(it->second->getID());
+				amsg->setAttr("id_player", Ultra::Value((char)(std::distance(this->_lplayer.begin(), it) + 1)));
+				amsg->setAttr("name", Ultra::Value(it->second->getAccount()->getLogin()));
+				amsg->setAttr("id_ship", Ultra::Value(it->second->getShip()));
+				amsg->setAttr("state", Ultra::Value(it->second->getState()));
+				amsg->setAttr("stateSpec", Ultra::Value(it->second->getStateSpec()));
+				Core::srv_manager->notifyService(ServiceManager::DISPATCH, iamsg);
+			}
 			else
 			{
 				this->_mutex->lock();
@@ -144,7 +157,7 @@ void Room::onPlayerInfo(int const to, Message *msg)
 				if (it == this->_lplayer.end() || this->_stateRoom == Room::READY)
 				{
 					this->_stateRoom = (this->_stateRoom != Room::READY) ? Room::READY : Room::REACHABLE;
-					Message *msg = new Message(Message::GAME_START);
+					Message *msg = new Message(Message::ROOM_START);
 					InternalMessage *readymsg = new InternalMessage(new TCPPacket(msg, 0), 0);
 					readymsg->addReceiver(this->_lplayer.begin()->second->getID());
 					Core::srv_manager->notifyService(ServiceManager::DISPATCH, readymsg);
@@ -216,6 +229,7 @@ void Room::onJoin(int const to, Message *)
 			rmsg->setAttr("name", Ultra::Value(acc->getLogin()));
 			rmsg->setAttr("id_ship", Ultra::Value((char)player->getShip()));
 			rmsg->setAttr("state", Ultra::Value((char)player->getState()));
+			rmsg->setAttr("stateSpec", Ultra::Value((char)player->getStateSpec()));
 
 			this->_mutex->lock();
 			for (Room::ListPlayer::iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
@@ -236,6 +250,7 @@ void Room::onJoin(int const to, Message *)
 					amsg->setAttr("name", Ultra::Value(it->second->getAccount()->getLogin()));
 					amsg->setAttr("id_ship", Ultra::Value(it->second->getShip()));
 					amsg->setAttr("state", Ultra::Value(it->second->getState()));
+					amsg->setAttr("stateSpec", Ultra::Value(it->second->getStateSpec()));
 					Core::srv_manager->notifyService(ServiceManager::DISPATCH, iamsg);
 				}
 			}

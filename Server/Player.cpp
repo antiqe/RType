@@ -10,8 +10,8 @@
 #include "LTimer.hpp"
 #endif
 
-Player::Player(int const id, Account *acc)
-  : _id(id), _acc(acc), _ship(0), _latency(0), _state(Player::NONE)
+Player::Player(int const id, Account *acc, Player::StateSpecPlayer const state)
+	: _id(id), _acc(acc), _ship(0), _latency(0), _state(Player::NONE), _stateSpec(state)
 {
 #ifdef _WIN32
   _mutex = new Ultra::WMutex();
@@ -48,6 +48,20 @@ void Player::setState(Player::StatePlayer const state)
   Ultra::ScopeLock sl(this->_mutex);
 
   this->_state = state;
+}
+
+char Player::getStateSpec() const
+{
+  Ultra::ScopeLock sl(this->_mutex);
+
+  return (this->_stateSpec);
+}
+
+void Player::setStateSpec(Player::StateSpecPlayer const state)
+{
+  Ultra::ScopeLock sl(this->_mutex);
+
+  this->_stateSpec = state;
 }
 
 void Player::setShip(char const ship)
