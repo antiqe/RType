@@ -75,7 +75,6 @@ void	NetworkModule::update()
 			{
 				unsigned short length = 0;
 				char *data = p.first->pack(length);
-				std::cout << "Send!" << std::endl;
 			    this->_client->send(data, length);
 			}
 			//else
@@ -92,7 +91,6 @@ void	NetworkModule::update()
 		for (int i = 0; !this->_recvQueue.empty() && i < _msgTreat; ++i)
 		{
 			Message *msg = this->_recvQueue.front();
-			std::cout << "Receive MSG [ID=" << msg->getID() << "]" << std::endl;
 			std::stringstream ss;
 			ss << msg->getID();
 			if (state)

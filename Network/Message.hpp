@@ -20,6 +20,7 @@ public:
       ROOM_STATE,
       ROOM_JOIN,
       ROOM_PLAYER_INFO,
+	  ROOM_PLAYERS,
       ROOM_LIST,
       ROOM_INFO,
 	  ROOM_TALK,

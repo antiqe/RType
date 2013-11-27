@@ -66,5 +66,24 @@ namespace Callback
 			std::string msg = event->getAttr<std::string>("msg");
 			lb->push(from + " : " + msg, 0, true);
 		}
+
+		void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event)
+		{
+			std::string name = event->getAttr<std::string>("name");
+			std::cout << "===> Player Info [" << name << "] <====" << std::endl;
+
+			Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+			mutex->lock();
+			DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+			std::string login = dm->getAttr<std::string>("login");
+			if (login == name)
+			{
+				dm->setAttr("id_player", Ultra::Value((char)event->getAttr<char>("id_player")));
+				dm->setAttr("id_ship", Ultra::Value((char)event->getAttr<char>("id_ship")));
+				mutex->unlock();
+			}
+			else
+				mutex->unlock();
+		}
 	}
 }
