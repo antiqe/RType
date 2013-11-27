@@ -60,7 +60,6 @@ void	PlayJoinState::initialize()
 	{
 		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
 		size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
-		size_t	fontSize = static_cast<size_t>(width * 2 / 100);
 
 		// Loading
 		this->_loading->setSize(46, 46);
@@ -139,7 +138,7 @@ void	PlayJoinState::refresh()
 
 void	PlayJoinState::selectServer()
 {
-	if (this->_list->getFocusLine() != -1)
+  if ((int)this->_list->getFocusLine() != -1)
 	{
 		RoomInfo *rm = this->_list->getFocusData();
 		Message *msg = new Message(Message::ROOM_JOIN);

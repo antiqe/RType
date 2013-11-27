@@ -67,7 +67,7 @@ namespace Callback
 			lb->push(from + " : " + msg, 0, true);
 		}
 
-		void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event)
+	  void	onRoomPlayerInfo(Engine::Widget* /*widget*/, Engine::Event* event)
 		{
 			std::string name = event->getAttr<std::string>("name");
 			std::cout << "===> Player Info [" << name << "] <====" << std::endl;

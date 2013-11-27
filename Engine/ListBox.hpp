@@ -154,7 +154,7 @@ namespace Engine
 			{
 				unsigned int sizeHeight = this->getHeight() / this->_nbrLine;
 				Ultra::Vector2D<int> pos = Ultra::Vector2D<int>(this->getX(), this->getY() + (i * (this->getHeight() / this->_nbrLine)));
-				int status = (i == (this->_focus - this->_valueSaved) ? ListBox::FOCUS : i % 2);
+				int status = (i == (this->_focus - this->_valueSaved) ? (int)ListBox::FOCUS : i % 2);
 
 				this->_img[status]->setSize(Ultra::Vector2D<size_t>(this->getWidth(), sizeHeight));
 				this->_img[status]->setPosition(pos);
@@ -174,7 +174,7 @@ namespace Engine
 			{
 				unsigned int sizeHeight = this->getHeight() / this->_nbrLine;
 				Ultra::Vector2D<int> pos = Ultra::Vector2D<int>(this->getX(), this->getY() + (i * (this->getHeight() / this->_nbrLine)));
-				int status = (i == (this->_focus - this->_valueSaved) ? ListBox::FOCUS : i % 2);
+				int status = (i == (this->_focus - this->_valueSaved) ? (int)ListBox::FOCUS : i % 2);
 
 				this->_img[status]->setSize(Ultra::Vector2D<size_t>(this->getWidth(), sizeHeight));
 				this->_img[status]->setPosition(pos);
