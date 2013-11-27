@@ -225,8 +225,8 @@ void Room::onJoin(int const to, Message *)
 		{
 			Message *rmsg = new Message(Message::ROOM_PLAYER_INFO);
 			InternalMessage *imsg = new InternalMessage(new TCPPacket(rmsg, 0), 0);
-			rmsg->setAttr("id_player", Ultra::Value((char)this->_lplayer.size() - 1));
-			rmsg->setAttr("name", Ultra::Value(acc->getLogin()));
+			rmsg->setAttr("id_player", Ultra::Value((char)(this->_lplayer.size() - 1)));
+			rmsg->setAttr("name", Ultra::Value(std::string(acc->getLogin())));
 			rmsg->setAttr("id_ship", Ultra::Value((char)player->getShip()));
 			rmsg->setAttr("state", Ultra::Value((char)player->getState()));
 			rmsg->setAttr("stateSpec", Ultra::Value((char)player->getStateSpec()));

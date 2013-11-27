@@ -33,7 +33,7 @@ RoomState::RoomState()
 	_back(new Engine::Button("back", SFMLImage::BUTTON_BACK, SFMLImage::BUTTON_CLICKED_BACK, SFMLImage::BUTTON_HOVER_BACK)),
 	_loading(new Engine::Background("loading", SFMLAnimation::LOADING))
 {
-	/*std::stringstream ss;
+	std::stringstream ss;
 	for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
 	{
 		ss << i;
@@ -42,7 +42,7 @@ RoomState::RoomState()
 			SFMLImage::CHECKBOX_UNCHECKED_HOVER_READY);
 		ss.clear();
 		ss.str("");
-	}*/
+	}
 }
 
 RoomState::~RoomState()
@@ -64,8 +64,8 @@ void	RoomState::initialize()
 	this->addChild(this->_chatBox);
 	this->addChild(this->_msg);
 	this->addChild(this->_send);
-	/*for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
-		this->addChild(this->_ready[i]);*/
+	for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
+		this->addChild(this->_ready[i]);
 	Widget::initialize();
 	this->_loading->hide();
 	this->addEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED, &Engine::Callback::quit);
@@ -91,7 +91,7 @@ void	RoomState::initialize()
 		this->_go->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::goOnClick);
 		this->_go->lock();
 		// Ready button
-		/*for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
+		for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
 		{
 			this->_ready[i]->setSize(width * 9 / 100, height * 3 / 100);
 			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
@@ -104,7 +104,7 @@ void	RoomState::initialize()
 		this->_ready[0]->hide();
 		this->_ready[1]->hide();
 		this->_ready[2]->hide();
-		this->_ready[3]->hide();*/
+		this->_ready[3]->hide();
 		// Chatbox button
 		this->_chatBox->setSize((size_t)((float)width * 47.50 / 100), height * 20 / 100);
 		this->_chatBox->setPosition((int)((float)width * 26.45 / 100), height * 71 / 100);

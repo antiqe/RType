@@ -101,7 +101,7 @@ namespace Callback
 
 	  void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event)
 		{
-			/*std::string name = event->getAttr<std::string>("name");
+			std::string name = event->getAttr<std::string>("name");
 			char id_player = (char)event->getAttr<char>("id_player");
 			char specState = event->getAttr<char>("stateSpec");
 
@@ -136,7 +136,7 @@ namespace Callback
 			{
 				mutex->unlock();
 				cb->show();
-			}*/
+			}
 		}
 	  }
 }
