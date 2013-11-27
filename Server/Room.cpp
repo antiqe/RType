@@ -66,6 +66,20 @@ void Room::addPlayer(Player *player)
 {
 	Ultra::ScopeLock sl(this->_mutex);
 
+	int id = 0;
+	if (!this->_qid.empty())
+	{
+		id = this->_qid.front();
+		this->_qid.pop();
+	}
+	else
+	{
+		if (this->_cur == 0)
+			id = 0;
+		else
+			id = this->getMaxID() + 1;
+	}
+	player->setRank(id);
 	this->_lplayer[player->getID()] = player;
 	this->_cur++;
 }
@@ -93,10 +107,8 @@ void Room::delPlayer(int const to)
 {
 	Ultra::ScopeLock sl(this->_mutex);
 
-	/*Room::ListPlayer::iterator it = this->_lplayer.find(to);
-	if (it != this->_lplayer.end())
-		this->_lplayer.erase(it);*/
-	this->_lplayer[to] = 0;
+	this->_qid.push(this->_lplayer[to]->getRank());
+	this->_lplayer.erase(to);
 	this->_cur--;
 }
 
@@ -183,17 +195,17 @@ void Room::onPlayerInfo(int const to, Message *msg)
 			if (state == Player::LEFT)
 			{
 				this->delPlayer(to);
-				Room::ListPlayer::iterator it = this->getLastPlayer();
+				/*Room::ListPlayer::iterator it = this->getLastPlayer();
 				it->second->setStateSpec(Player::MASTER);
 				Message *amsg = new Message(Message::ROOM_PLAYER_INFO);
 				InternalMessage *iamsg = new InternalMessage(new TCPPacket(amsg, 0), to);
 				iamsg->addReceiver(it->second->getID());
-				amsg->setAttr("id_player", Ultra::Value((char)(std::distance(this->_lplayer.begin(), it))));
-				amsg->setAttr("name", Ultra::Value(it->second->getAccount()->getLogin()));
-				amsg->setAttr("id_ship", Ultra::Value(it->second->getShip()));
-				amsg->setAttr("state", Ultra::Value(it->second->getState()));
-				amsg->setAttr("stateSpec", Ultra::Value(it->second->getStateSpec()));
-				Core::srv_manager->notifyService(ServiceManager::DISPATCH, iamsg);
+				amsg->setAttr("id_player", Ultra::Value((char)it->second->getRank()));
+				amsg->setAttr("name", Ultra::Value(std::string(it->second->getAccount()->getLogin())));
+				amsg->setAttr("id_ship", Ultra::Value((char)it->second->getShip()));
+				amsg->setAttr("state", Ultra::Value((char)it->second->getState()));
+				amsg->setAttr("stateSpec", Ultra::Value((char)it->second->getStateSpec()));
+				Core::srv_manager->notifyService(ServiceManager::DISPATCH, iamsg);*/
 			}
 			else
 			{
@@ -304,7 +316,7 @@ void Room::onJoin(int const to, Message *)
 		{
 			Message *rmsg = new Message(Message::ROOM_PLAYER_INFO);
 			InternalMessage *imsg = new InternalMessage(new TCPPacket(rmsg, 0), 0);
-			rmsg->setAttr("id_player", Ultra::Value((char)(this->_lplayer.size() - 1)));
+			rmsg->setAttr("id_player", Ultra::Value((char)(player->getRank())));
 			rmsg->setAttr("name", Ultra::Value(std::string(acc->getLogin())));
 			rmsg->setAttr("id_ship", Ultra::Value((char)player->getShip()));
 			rmsg->setAttr("state", Ultra::Value((char)player->getState()));
@@ -325,7 +337,7 @@ void Room::onJoin(int const to, Message *)
 			{
 				if (it->second && it->second->getID() != to)
 				{
-					amsg->setAttr("id_player", Ultra::Value((char)(std::distance(this->_lplayer.begin(), it))));
+					amsg->setAttr("id_player", Ultra::Value((char)(it->second->getRank())));
 					amsg->setAttr("name", Ultra::Value(std::string(it->second->getAccount()->getLogin())));
 					amsg->setAttr("id_ship", Ultra::Value((char)it->second->getShip()));
 					amsg->setAttr("state", Ultra::Value((char)it->second->getState()));
@@ -350,4 +362,15 @@ unsigned char Room::getCurrentPlayer() const
 	Ultra::ScopeLock sl(this->_mutex);  
 
 	return (this->_cur);
+}
+
+char Room::getMaxID() const
+{
+	char max = 0;
+	for (Room::ListPlayer::const_iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
+	{
+		if (it->second)
+			max = ((it->second->getRank() > max) ? it->second->getRank() : max);
+	}
+	return max;
 }

@@ -86,8 +86,8 @@ void RoomService::onRoomCreate(int const to, Message *msg)
       name = msg->getAttr<std::string>(std::string("name"));
       password = msg->getAttr<std::string>(std::string("password"));
       room = Core::room_manager->createRoom(name, password);
-	  room->addPlayer(new Player(to, acc, Player::MASTER));
-      acc->setRoom(room);
+	  room->addPlayer(new Player(0, to, acc, Player::MASTER));
+	  acc->setRoom(room);
 
       Message *rmsg = new Message(Message::ROOM_STATE);
       InternalMessage *imsg = new InternalMessage(new TCPPacket(rmsg, 0), to);
@@ -170,7 +170,6 @@ void RoomService::onRoomPlayerInfo(int const to, Message *msg)
 			}
 			else
 				room->notify(new InternalMessage(new TCPPacket(msg), to));
-
 		}
 	}
 }
@@ -186,7 +185,7 @@ void RoomService::onRoomJoin(int const to, Message *msg)
 	  if (room)
 		{
 		  acc->setRoom(room);
-		  room->addPlayer(new Player(to, acc));
+		  room->addPlayer(new Player(0, to, acc));
 		  std::string password = msg->getAttr<std::string>("password");
 		  Message *rmsg = new Message(Message::ROOM_STATE);
 		  InternalMessage *imsg = new InternalMessage(new TCPPacket(rmsg, 0), to);

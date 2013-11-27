@@ -153,6 +153,8 @@ namespace Callback
 			char specState = event->getAttr<char>("stateSpec");
 			char pstate = event->getAttr<char>("state");
 
+			std::cout << "PLAYER INFO [ID=" << (int)id_player << "] [NAME=" << name << "] " << std::endl;
+
 			RoomState *state = dynamic_cast<RoomState *>(widget);
 			std::stringstream ss;
 			ss << (int)id_player;
@@ -161,7 +163,6 @@ namespace Callback
 			Engine::CheckBox *cb = dynamic_cast<Engine::CheckBox *>(wcb);
 			Player *pl = dynamic_cast<Player *>(wpl);
 
-			std::cout << "PLAYER INFO [ID=" << (int)id_player << "] [NAME=" << name << "] " << std::endl;
 
 			Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
 			mutex->lock();
@@ -178,7 +179,6 @@ namespace Callback
 					
 					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &onPlayerReady);
 					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::CheckBox::mouseOver);
-					pl->setLogin(login);
 					pl->show();
 					//cb->show();
 				}
@@ -203,9 +203,14 @@ namespace Callback
 				{
 					if (pl->isHidden())
 					{
-						pl->setLogin(name);
 						pl->show();
-						//cb->show();
+					}
+					else
+					{
+						if (!cb->isChecked() && pstate == Network::READY)
+							cb->toggle();
+						else if (cb->isChecked() && pstate == Network::NONE)
+							cb->toggle();
 					}
 				}
 			}

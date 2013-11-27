@@ -10,8 +10,8 @@
 #include "LTimer.hpp"
 #endif
 
-Player::Player(int const id, Account *acc, Player::StateSpecPlayer const state)
-	: _id(id), _acc(acc), _ship(0), _latency(0), _stateSpec(state), _state(Player::NONE)
+Player::Player(char const rank, int const id, Account *acc, Player::StateSpecPlayer const state)
+	: _rank(rank), _id(id), _acc(acc), _ship(0), _latency(0), _stateSpec(state), _state(Player::NONE)
 {
 #ifdef _WIN32
   _mutex = new Ultra::WMutex();
@@ -126,4 +126,15 @@ void Player::stopTimer()
   
   this->_lping->stop();
   this->_latency = this->_lping->getTime();
+}
+
+void Player::setRank(char const rank)
+{
+  Ultra::ScopeLock sl(this->_mutex);
+  this->_rank = rank;
+}
+
+char Player::getRank() const
+{
+	return (this->_rank);
 }

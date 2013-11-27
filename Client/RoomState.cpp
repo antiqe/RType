@@ -167,10 +167,13 @@ void	RoomState::reset()
 {
 	for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
 		{
-			this->_players[i]->hide();
-			this->_ready[i]->hide();
-			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
-			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);
+			if (!this->_players[i]->isHidden())
+			{
+				this->_players[i]->hide();
+				//this->_ready[i]->hide();
+				this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+				this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);
+			}
 		}
 	this->_networkModule->addMessage(new TCPPacket(new Message(Message::ROOM_PLAYERS), NetworkModule::ROOM), ISocket::TCP);
 }
@@ -179,9 +182,13 @@ void	RoomState::reload()
 {
 	for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
 		{
-			this->_ready[i]->hide();
-			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
-			this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);
+			if (!this->_players[i]->isHidden())
+			{
+				this->_players[i]->hide();
+				//this->_ready[i]->hide();
+				this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+				this->_ready[i]->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE);
+			}
 		}
 }
 

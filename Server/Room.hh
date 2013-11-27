@@ -36,6 +36,7 @@ private:
   SafeQueue<InternalMessage *> _q;
   typedef std::map<int, Player *> ListPlayer;
   ListPlayer _lplayer;
+  std::queue<int> _qid;
   StateRoom _stateRoom;
   typedef void (Room::*MsgFuncTCP)(int const to, Message *msg);
   typedef void (Room::*MsgFuncUDP)(InternalMessage *msg);
@@ -61,6 +62,7 @@ public:
   unsigned char getCurrentPlayer() const;
   int getIDMaster() const;
   ListPlayer::iterator getLastPlayer();
+  char getMaxID() const;
   void kickAll();
 
 private:

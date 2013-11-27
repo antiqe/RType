@@ -21,6 +21,7 @@ public:
 		SIMPLE = 2
 	};
 private:
+  char _rank;
   int _id;
   struct sockaddr_in _uinfo;
   Account *_acc;
@@ -31,7 +32,7 @@ private:
   Ultra::ITimer *_lping;
   Ultra::IMutex *_mutex;
 public:
-	Player(int const id, Account *acc, StateSpecPlayer const state = SIMPLE);
+	Player(char const rank, int const id, Account *acc, StateSpecPlayer const state = SIMPLE);
   Account *getAccount() const;
   void setAccount(Account *acc);
   char getState() const;
@@ -47,6 +48,8 @@ public:
   long getLatency() const;
   void startTimer();
   void stopTimer();
+  void setRank(char const rank);
+  char getRank() const;
 };
 
 #endif
