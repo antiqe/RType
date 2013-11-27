@@ -43,6 +43,7 @@ public:
 	void	quitRoom();
 
 	void	roomTalk();
+	void	sendPlayerInfo();
 };
 
 #endif
