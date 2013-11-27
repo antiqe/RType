@@ -94,12 +94,12 @@ MessageFactory::MessageFactory()
   msg.clearAttrs();
 
   msg.setID(Message::ROOM_START);
-  msg.setAttr("port", Ultra::Value((unsigned short)0));
   this->learn(Message::ROOM_START, msg);
 
   msg.clearAttrs();
 
   msg.setID(Message::GAME_START);
+  msg.setAttr("port", Ultra::Value((unsigned short)0));
   this->learn(Message::GAME_START, msg);
 }
 

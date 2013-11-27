@@ -111,7 +111,10 @@ void Room::onStart(int const to, Message *)
 {
 	Ultra::ScopeLock sl(this->_mutex);
 
-	InternalMessage *imsg = new InternalMessage(new TCPPacket(new Message(Message::GAME_START), 0), 0);
+	Message *msg = new Message(Message::GAME_START);
+	msg->setAttr("port", Ultra::Value((unsigned short)Configuration::UDP_PORT));
+
+	InternalMessage *imsg = new InternalMessage(new TCPPacket(msg, 0), 0);
 
 	for (Room::ListPlayer::iterator it = this->_lplayer.begin(); it != this->_lplayer.end(); ++it)
 		if (it->second)
@@ -206,7 +209,6 @@ void Room::onPlayerInfo(int const to, Message *msg)
 				{
 					this->_stateRoom = (this->_stateRoom == Room::READY) ? Room::REACHABLE : Room::READY;
 					Message *msg = new Message(Message::ROOM_START);
-					msg->setAttr("port", Ultra::Value((unsigned short)Configuration::UDP_PORT));
 					InternalMessage *readymsg = new InternalMessage(new TCPPacket(msg, 0), 0);
 					readymsg->addReceiver(this->getIDMaster());
 					Core::srv_manager->notifyService(ServiceManager::DISPATCH, readymsg);

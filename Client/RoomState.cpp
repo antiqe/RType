@@ -238,7 +238,6 @@ void	RoomState::sendPlayerInfo()
 void RoomState::sendStartRoom()
 {
 	Message *msg = new Message(Message::ROOM_START);
-	msg->setAttr("port", Ultra::Value((unsigned short)0));
 
 	this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
 }
