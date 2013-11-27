@@ -85,7 +85,7 @@ void	NetworkModule::update()
 		while (!this->_ltcp->isEmpty())
 			this->_recvQueue.push(this->_ltcp->getMessage());
 		
-		//Ultra::ScopeLock	lock(Engine::Core::getInstance()->access(AModule::STATE));
+		Ultra::ScopeLock	lock(Engine::Core::getInstance()->access(AModule::STATE));
 		Engine::AState*		state = !this->_stateModule ? 0 : this->_stateModule->top();
 
 		for (int i = 0; !this->_recvQueue.empty() && i < _msgTreat; ++i)
