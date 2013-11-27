@@ -3,6 +3,7 @@
 #include "MouseEvent.hpp"
 #include "Core.hpp"
 #include "State.hpp"
+#include "CheckBoxCallback.hpp"
 #include "StatePlayer.hpp"
 #include "ScopeLock.hpp"
 
@@ -104,11 +105,11 @@ namespace Callback
 			std::string name = event->getAttr<std::string>("name");
 			char id_player = (char)event->getAttr<char>("id_player");
 			char specState = event->getAttr<char>("stateSpec");
+			char pstate = event->getAttr<char>("state");
 
 			RoomState *state = dynamic_cast<RoomState *>(widget);
 			std::stringstream ss;
 			ss << (int)id_player;
-			std::cout << "ID Player = " << (int)id_player << std::endl;
 			Engine::Widget * wcb = state->getChild("ready" + ss.str());
 			Engine::CheckBox *cb = dynamic_cast<Engine::CheckBox *>(wcb);
 
@@ -129,13 +130,18 @@ namespace Callback
 					Engine::Widget * wb = state->getChild("go");
 					Engine::Button *go = dynamic_cast<Engine::Button *>(wb);
 					go->show();
+					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::CheckBox::mouseClick);
+					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::CheckBox::mouseOver);
 				}
 				mutex->unlock();
 			}
 			else
 			{
 				mutex->unlock();
-				cb->show();
+				if (pstate == Network::LEFT)
+					cb->hide();
+				else
+					cb->show();
 			}
 		}
 	  }
