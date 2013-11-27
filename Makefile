@@ -84,6 +84,7 @@ SRC_CLIENT	=	$(CLIENT_DIR)ArmorConstantComponent.cpp \
 			$(CLIENT_DIR)RoomInfo.cpp \
 			$(CLIENT_DIR)RoomStateCallback.cpp \
 			$(CLIENT_DIR)RoomState.cpp \
+			$(CLIENT_DIR)SettingsState.cpp \
 			$(CLIENT_DIR)SFMLAnimation.cpp \
 			$(CLIENT_DIR)SFMLImage.cpp \
 			$(CLIENT_DIR)SFMLInput.cpp \
