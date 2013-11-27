@@ -142,4 +142,21 @@ namespace Engine
 	{
 		return (this->_focus->second);
 	}
-}
+
+	void	GameObjectViewer::lock()
+	{
+		this->_next->lock();
+		this->_prev->lock();
+	}
+
+	void	GameObjectViewer::unlock()
+	{
+		this->_next->unlock();
+		this->_prev->unlock();
+	}
+
+	bool	GameObjectViewer::isLocked()
+	{
+		return (this->_next->isLock() && this->_prev->isLock());
+	}
+}	

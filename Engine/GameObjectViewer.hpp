@@ -46,6 +46,10 @@ namespace Engine
 		void	next();
 		void	prev();
 
+		void	lock();
+		void	unlock();
+		bool	isLocked();
+
 		std::string const&	getFocusId() const;
 		GameObject const*	getFocusGameObject() const;
 	};
