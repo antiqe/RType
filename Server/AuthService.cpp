@@ -19,7 +19,7 @@ AuthService::AuthService()
 void AuthService::start()
 {
   InternalMessage *imsg;
-  
+
   this->_run = true;
   Logging::Message l("Service is running...", "AuthService", Logging::Message::NOTICE);
   this->_log << l;
@@ -31,8 +31,10 @@ void AuthService::start()
 	  APacket *pck = imsg->getPacket();
 	  Message *msg = reinterpret_cast<Message *>(pck->getData());
 	  (this->*_mfunc[msg->getID()])(imsg->getFromTCP(), msg);
+	  /* check delete */
+	  delete imsg;
 	}
-           Ultra::Sleep::usleep(300);
+      Ultra::Sleep::usleep(300);
     }
 }
 

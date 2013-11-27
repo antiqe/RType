@@ -54,6 +54,8 @@ void RoomService::start()
 	      if (room)
 			room->notify(new InternalMessage(pudp, imsg->getFromUDP()));
 	    }
+	  /* check delete */
+	  delete imsg;
 
 	}
            Ultra::Sleep::usleep(300);

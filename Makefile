@@ -138,6 +138,8 @@ SRC_ENGINE	=	$(ENGINE_DIR)AArmorComponent.cpp \
 			$(ENGINE_DIR)Event.cpp \
 			$(ENGINE_DIR)EventListener.cpp \
 			$(ENGINE_DIR)GameObject.cpp \
+			$(ENGINE_DIR)GameObjectViewer.cpp \
+			$(ENGINE_DIR)GameObjectViewerCallback.cpp \
 			$(ENGINE_DIR)Governor.cpp \
 			$(ENGINE_DIR)HGauge.cpp \
 			$(ENGINE_DIR)HParallax.cpp \
