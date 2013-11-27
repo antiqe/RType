@@ -84,6 +84,7 @@ SRC_CLIENT	=	$(CLIENT_DIR)ArmorConstantComponent.cpp \
 			$(CLIENT_DIR)Position2DComponent.cpp \
 			$(CLIENT_DIR)RenderAnimationComponent.cpp \
 			$(CLIENT_DIR)RenderModule.cpp \
+			$(CLIENT_DIR)Player.cpp \
 			$(CLIENT_DIR)RenderStarshipComponent.cpp \
 			$(CLIENT_DIR)RoomInfo.cpp \
 			$(CLIENT_DIR)RoomStateCallback.cpp \
