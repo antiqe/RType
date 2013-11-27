@@ -31,6 +31,7 @@ namespace Callback
 				button->setStatus(Engine::Button::NORMAL);
 		}
 
+
 		void	checkRoomState(Engine::Widget* widget, Engine::Event* event)
 		{
 			unsigned short id = event->getAttr<unsigned short>("id");
@@ -38,6 +39,11 @@ namespace Callback
 
 			if (status == Network::OK)
 			{
+				Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+				mutex->lock();
+				DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+				dm->setAttr("id_room", Ultra::Value((unsigned short)id));
+				mutex->unlock();
 				PlayCreateState* state = dynamic_cast<PlayCreateState *>(widget);
 				state->goToRoom();
 			}

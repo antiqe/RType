@@ -66,6 +66,7 @@ void	RoomState::initialize()
 	this->_loading->hide();
 	this->addEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED, &Engine::Callback::quit);
 	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_TALK), Callback::Room::onReceiveTalk);
+	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_PLAYER_INFO), Callback::Room::onRoomPlayerInfo);
 	if ((this->_dataModule = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
 	{
 		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
@@ -145,6 +146,7 @@ void	RoomState::unload()
 
 void	RoomState::reset()
 {
+	this->_networkModule->addMessage(new TCPPacket(new Message(Message::ROOM_PLAYERS), NetworkModule::ROOM), ISocket::TCP);
 }
 
 void	RoomState::reload()
@@ -153,10 +155,18 @@ void	RoomState::reload()
 
 void	RoomState::quitRoom()
 {
+	Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+	
+	mutex->lock();
+	DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+	std::string login = dm->getAttr<std::string>("login");
+	char id_player = dm->getAttr<char>("id_player");
+	mutex->unlock();
+
 	Message *msg = new Message(Message::ROOM_PLAYER_INFO);
 
-	msg->setAttr("id_player", Ultra::Value((char)this->_networkModule->getSock()));
-	msg->setAttr("name", Ultra::Value(std::string("")));
+	msg->setAttr("id_player", Ultra::Value((char)id_player));
+	msg->setAttr("name", Ultra::Value(std::string(login)));
 	msg->setAttr("id_ship", Ultra::Value((char)0));
 	msg->setAttr("state", Ultra::Value((char)Network::LEFT));
 
