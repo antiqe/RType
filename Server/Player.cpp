@@ -11,7 +11,7 @@
 #endif
 
 Player::Player(int const id, Account *acc, Player::StateSpecPlayer const state)
-	: _id(id), _acc(acc), _ship(0), _latency(0), _state(Player::NONE), _stateSpec(state)
+	: _id(id), _acc(acc), _ship(0), _latency(0), _stateSpec(state), _state(Player::NONE)
 {
 #ifdef _WIN32
   _mutex = new Ultra::WMutex();
