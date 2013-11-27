@@ -11,6 +11,7 @@
 # include "AGauge.hpp"
 # include "ListBox.hpp"
 # include "CheckBox.hpp"
+# include "GameObjectViewer.hpp"
 
 class RoomState : public Engine::AState
 {
@@ -25,21 +26,21 @@ private:
 
 	static unsigned int nbrPlayer;
 
-	DataModule*				_dataModule;
-	Engine::Background*		_background;
-	Engine::Button*			_go;
-	Engine::ListBox<>*		_chatBox;
-	Engine::TextBox*		_msg;
-	Engine::Button*			_send;
-	Engine::Button*			_quit;
-	Engine::Button*			_settings;
-	Engine::Button*			_back;
-	Engine::Background*		_loading;
-	Engine::CheckBox*		_ready[4];
-	SFMLImage*				_iconStats[STAT_SIZE];
-	Engine::AGauge*			_stats[STAT_SIZE];
-	//Engine::Selector*		_characterSelector[4];
-	NetworkModule*			_networkModule;
+	DataModule*					_dataModule;
+	Engine::Background*			_background;
+	Engine::Button*				_go;
+	Engine::ListBox<>*			_chatBox;
+	Engine::TextBox*			_msg;
+	Engine::Button*				_send;
+	Engine::Button*				_quit;
+	Engine::Button*				_settings;
+	Engine::Button*				_back;
+	Engine::Background*			_loading;
+	Engine::CheckBox*			_ready[4];
+	SFMLImage*					_iconStats[STAT_SIZE];
+	Engine::AGauge*				_stats[STAT_SIZE];
+	Engine::GameObjectViewer*	_shipViewer[4];
+	NetworkModule*				_networkModule;
 
 public:
 	RoomState();

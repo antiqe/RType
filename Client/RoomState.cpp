@@ -80,7 +80,7 @@ void	RoomState::initialize()
 		this->_background->setPosition(0, 0);
 		// Go button
 		this->_go->setSize(width * 5 / 100, height * 7 / 100);
-		this->_go->setPosition(width * 48.33 / 100, height * 37 / 100);
+		this->_go->setPosition((int)((float)width * 48.33 / 100), height * 37 / 100);
 		// Ready button
 		for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
 		{
@@ -96,21 +96,21 @@ void	RoomState::initialize()
 		this->_ready[2]->setPosition(width * 39 / 100, height * 66 / 100);
 		this->_ready[3]->setPosition(width * 65 / 100, height * 66 / 100);
 		// Chatbox button
-		this->_chatBox->setSize(width * 47.50 / 100, height * 20 / 100);
-		this->_chatBox->setPosition(width * 26.45 / 100, height * 71 / 100);
+		this->_chatBox->setSize((size_t)((float)width * 47.50 / 100), height * 20 / 100);
+		this->_chatBox->setPosition((int)((float)width * 26.45 / 100), height * 71 / 100);
 		this->_chatBox->setTextColor(Ultra::Color(138, 212, 241, 255));
 		this->_chatBox->setFocusTextColor(Ultra::Color(196, 232, 249, 255));
 		this->_chatBox->setTextStyle(0);
-		this->_chatBox->setScrollWidth(width * 1.50 / 100);
+		this->_chatBox->setScrollWidth((int)((float)width * 1.50 / 100));
 		// Msg textbox
-		this->_msg->setSize(width * 40 / 100, height * 2.5 / 100);
-		this->_msg->setPosition(width * 26.45 / 100, height * 91 / 100);
+		this->_msg->setSize(width * 40 / 100, (size_t)((float)(height * 2.5 / 100)));
+		this->_msg->setPosition((size_t)((float)width * 26.45 / 100), height * 91 / 100);
 		this->_msg->setTextSize(static_cast<size_t>(width * 1 / 100));
 		this->_msg->setTextPosition(15, 0);
 		this->_msg->setTextColor(Ultra::Color(208, 154, 58, 255));
 		// Send button
-		this->_send->setSize(width * 7.5 / 100, height * 2.5 / 100);
-		this->_send->setPosition(width * 67.45 / 100, height * 91 / 100);
+		this->_send->setSize((size_t)((float)width * 7.5 / 100), (size_t)((float)height * 2.5 / 100));
+		this->_send->setPosition((size_t)((float)width * 67.45 / 100), height * 91 / 100);
 		this->_send->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_send->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::sendOnClick);
 		// Quit button
@@ -120,12 +120,12 @@ void	RoomState::initialize()
 		this->_quit->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::quit);
 		// Back button
 		this->_back->setSize(width * 9 / 100, height * 3 / 100);
-		this->_back->setPosition(width * 1.5 / 100, height * 96.5 / 100);
+		this->_back->setPosition((int)((float)width * 1.5 / 100), (int)((float)height * 96.5 / 100));
 		this->_back->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::backOnClick);
 		// Settings button
 		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
-		this->_settings->setPosition(width * 90 / 100, height * 4.5 / 100);
+		this->_settings->setPosition(width * 90 / 100, (size_t)((float)height * 4.5 / 100));
 	}
 	this->_networkModule = dynamic_cast<NetworkModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::NETWORK));
 }

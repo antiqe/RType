@@ -70,8 +70,8 @@ void	PlayJoinState::initialize()
 		this->_background->setSize(width, height);
 		this->_background->setPosition(0, 0);
 		// List textbox
-		this->_list->setSize(width * 47.85 / 100, height * 55 / 100);
-		this->_list->setPosition(width * 25.45 / 100, height * 30 / 100);
+		this->_list->setSize((size_t)((float)width * 47.85 / 100), height * 55 / 100);
+		this->_list->setPosition((size_t)((float)width * 25.45 / 100), height * 30 / 100);
 		this->_list->setTextColor(Ultra::Color(138, 212, 241, 255));
 		this->_list->setFocusTextColor(Ultra::Color(196, 232, 249, 255));
 		this->_list->setTextStyle(0);
@@ -88,17 +88,17 @@ void	PlayJoinState::initialize()
 		this->_quit->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::quit);
 		// Back button
 		this->_back->setSize(width * 9 / 100, height * 3 / 100);
-		this->_back->setPosition(width * 1.5 / 100, height * 96.5 / 100);
+		this->_back->setPosition((size_t)((float)width * 1.5 / 100), (size_t)((float)height * 96.5 / 100));
 		this->_back->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::back);
 		// Refresh button
 		this->_refresh->setSize(width * 9 / 100, height * 3 / 100);
-		this->_refresh->setPosition(width * 90 / 100, height * 96.5 / 100);
+		this->_refresh->setPosition((size_t)((float)width * 90 / 100), (size_t)((float)height * 96.5 / 100));
 		this->_refresh->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_refresh->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::PlayJoin::refreshOnClick);
 		// Settings button
 		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
-		this->_settings->setPosition(width * 90 / 100, height * 4.5 / 100);
+		this->_settings->setPosition(width * 90 / 100, (size_t)((float)height * 4.5 / 100));
 	}
 	this->_networkModule = dynamic_cast<NetworkModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::NETWORK));
 }
