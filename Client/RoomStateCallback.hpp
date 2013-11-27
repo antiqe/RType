@@ -17,6 +17,8 @@ namespace Callback
 		void	onPlayerReady(Engine::Widget *widget, Engine::Event *event);
 		void	onKickEvent(Engine::Widget *widget, Engine::Event *event);
 		void	onGameStart(Engine::Widget *widget, Engine::Event *event);
+		void	onNextClick(Engine::Widget *widget, Engine::Event *event);
+		void	onPrevClick(Engine::Widget *widget, Engine::Event *event);
 	}
 }
 

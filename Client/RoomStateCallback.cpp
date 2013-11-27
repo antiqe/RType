@@ -146,14 +146,55 @@ namespace Callback
 			}
 	  }
 
+	  void	onNextClick(Engine::Widget *widget, Engine::Event *event)
+	  {
+		  Engine::Button* button = dynamic_cast<Engine::Button *>(widget);
+		  Engine::MouseEvent*	mouseEvent = dynamic_cast<Engine::MouseEvent *>(event);
+
+			if (button->isHidden())
+				return ;
+			if (button->hit(mouseEvent->getX(), mouseEvent->getY()))
+			{
+				if (mouseEvent->isPressed())
+				{
+				  Engine::GameObjectViewer* gv = dynamic_cast<Engine::GameObjectViewer *>(widget->getParent());
+				  RoomState *state = dynamic_cast<RoomState *>(gv->getParent());
+				  Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+				  mutex->lock();
+				  DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+				  std::stringstream ss;
+				  ss << gv->getFocusId();
+				  char id;
+				  ss >> id;
+				  dm->setAttr("id_ship", Ultra::Value((char)	id));
+				  mutex->unlock();
+				  state->sendPlayerInfo();
+				}
+			}
+	  }
+
+	  void onPrevClick(Engine::Widget *widget, Engine::Event *event)
+	  {
+		  Engine::GameObjectViewer* gv = dynamic_cast<Engine::GameObjectViewer *>(widget->getParent());
+		  RoomState *state = dynamic_cast<RoomState *>(gv->getParent());
+		  Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+		  mutex->lock();
+		  DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+		  std::stringstream ss;
+		  ss << gv->getFocusId();
+		  char id;
+		  ss >> id;
+		  dm->setAttr("id_ship", Ultra::Value((char)	id));
+		  mutex->unlock();
+		  state->sendPlayerInfo();
+	  }
+
 	  void	onRoomPlayerInfo(Engine::Widget* widget, Engine::Event* event)
 		{
 			std::string name = event->getAttr<std::string>("name");
 			char id_player = (char)event->getAttr<char>("id_player");
 			char specState = event->getAttr<char>("stateSpec");
 			char pstate = event->getAttr<char>("state");
-
-			std::cout << "PLAYER INFO [ID=" << (int)id_player << "] [NAME=" << name << "] " << std::endl;
 
 			RoomState *state = dynamic_cast<RoomState *>(widget);
 			std::stringstream ss;
@@ -180,7 +221,12 @@ namespace Callback
 					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &onPlayerReady);
 					cb->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_MOVE, &Engine::Callback::CheckBox::mouseOver);
 					pl->show();
-					//cb->show();
+					pl->setLogin(login);
+					Engine::GameObjectViewer* gv = dynamic_cast<Engine::GameObjectViewer *>(pl->getChild("viewer"));
+					Engine::Button *bt_next = dynamic_cast<Engine::Button *>(gv->getChild("next"));
+					Engine::Button *bt_prev = dynamic_cast<Engine::Button *>(gv->getChild("prev"));
+					//bt_next->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::onNextClick);
+					//bt_prev->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::onPrevClick);
 				}
 				if (stateSpec == Network::MASTER)
 				{
@@ -204,6 +250,9 @@ namespace Callback
 					if (pl->isHidden())
 					{
 						pl->show();
+						pl->setLogin(name);
+						Engine::GameObjectViewer* gv = dynamic_cast<Engine::GameObjectViewer *>(pl->getChild("viewer"));
+						gv->lock();
 					}
 					else
 					{
