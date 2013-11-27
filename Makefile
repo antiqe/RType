@@ -75,6 +75,7 @@ SRC_CLIENT	=	$(CLIENT_DIR)ArmorConstantComponent.cpp \
 			$(CLIENT_DIR)NetworkModule.cpp \
 			$(CLIENT_DIR)PlayCreateCallback.cpp \
 			$(CLIENT_DIR)PlayCreateState.cpp \
+			$(CLIENT_DIR)PlayJoinCallback.cpp \
 			$(CLIENT_DIR)PlayJoinState.cpp \
 			$(CLIENT_DIR)PlayState.cpp \
 			$(CLIENT_DIR)PlayStateCallback.cpp \

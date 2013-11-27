@@ -131,6 +131,7 @@ namespace Engine
 					this->_img[i] = this->_sourceModule->getImage(this->_file[i]);
 				this->_drawer = this->_sourceModule->getText(this->_textFont);
 			}
+
 			this->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_WHEEL, &Callback::ListBox::mouseWheel<T>);
 			this->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::ListBox::mouseClick<T>);
 			Widget::initialize();
