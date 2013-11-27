@@ -41,7 +41,7 @@ namespace Engine
 
 	}
 
-	AComponent::AComponent(AComponent const& cpy)
+	AComponent::AComponent(AComponent const& /*cpy */)
 		: _owner(0)
 	{
 

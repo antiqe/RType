@@ -194,6 +194,9 @@
     </ClCompile>
     <ClCompile Include="RenderStarshipComponent.cpp">
       <Filter>Source Files\Object</Filter>
+      </ClCompile>
+    <ClCompile Include="SettingsState.cpp">
+      <Filter>Source Files\Module\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -298,6 +301,9 @@
     </ClInclude>
     <ClInclude Include="RenderStarshipComponent.hpp">
       <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsState.hpp">
+      <Filter>Header Files\Module\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

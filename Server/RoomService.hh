@@ -27,6 +27,7 @@ private:
   void  onRoomJoin(int const to, Message *msg);
   void  onRoomList(int const to, Message *msg);
   void  onRoomPlayerInfo(int const to, Message *msg);
+  void  onRoomPlayers(int const to, Message *msg);
   void  onRoomTalk(int const to, Message *msg);
 };
 

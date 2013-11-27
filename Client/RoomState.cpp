@@ -66,6 +66,7 @@ void	RoomState::initialize()
 	this->_loading->hide();
 	this->addEventListener(Engine::Event::WINDOW, Engine::WindowEvent::CLOSED, &Engine::Callback::quit);
 	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_TALK), Callback::Room::onReceiveTalk);
+	this->addEventListener(Engine::Event::NETWORK, Ultra::Converter::numberToString(Message::ROOM_PLAYER_INFO), Callback::Room::onRoomPlayerInfo);
 	if ((this->_dataModule = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA))))
 	{
 		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
@@ -80,7 +81,11 @@ void	RoomState::initialize()
 		this->_background->setPosition(0, 0);
 		// Go button
 		this->_go->setSize(width * 5 / 100, height * 7 / 100);
-		this->_go->setPosition(width * 48.33 / 100, height * 37 / 100);
+		this->_go->setPosition((int)((float)width * 48.33 / 100), height * 37 / 100);
+		this->_go->hide();
+		this->_go->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
+		this->_go->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::goOnClick);
+		this->_go->lock();
 		// Ready button
 		for (unsigned int i = 0 ; i < RoomState::nbrPlayer ; ++i)
 		{
@@ -96,21 +101,21 @@ void	RoomState::initialize()
 		this->_ready[2]->setPosition(width * 39 / 100, height * 66 / 100);
 		this->_ready[3]->setPosition(width * 65 / 100, height * 66 / 100);
 		// Chatbox button
-		this->_chatBox->setSize(width * 47.50 / 100, height * 20 / 100);
-		this->_chatBox->setPosition(width * 26.45 / 100, height * 71 / 100);
+		this->_chatBox->setSize((size_t)((float)width * 47.50 / 100), height * 20 / 100);
+		this->_chatBox->setPosition((int)((float)width * 26.45 / 100), height * 71 / 100);
 		this->_chatBox->setTextColor(Ultra::Color(138, 212, 241, 255));
 		this->_chatBox->setFocusTextColor(Ultra::Color(196, 232, 249, 255));
 		this->_chatBox->setTextStyle(0);
-		this->_chatBox->setScrollWidth(width * 1.50 / 100);
+		this->_chatBox->setScrollWidth((int)((float)width * 1.50 / 100));
 		// Msg textbox
-		this->_msg->setSize(width * 40 / 100, height * 2.5 / 100);
-		this->_msg->setPosition(width * 26.45 / 100, height * 91 / 100);
+		this->_msg->setSize(width * 40 / 100, (size_t)((float)(height * 2.5 / 100)));
+		this->_msg->setPosition((size_t)((float)width * 26.45 / 100), height * 91 / 100);
 		this->_msg->setTextSize(static_cast<size_t>(width * 1 / 100));
 		this->_msg->setTextPosition(15, 0);
 		this->_msg->setTextColor(Ultra::Color(208, 154, 58, 255));
 		// Send button
-		this->_send->setSize(width * 7.5 / 100, height * 2.5 / 100);
-		this->_send->setPosition(width * 67.45 / 100, height * 91 / 100);
+		this->_send->setSize((size_t)((float)width * 7.5 / 100), (size_t)((float)height * 2.5 / 100));
+		this->_send->setPosition((size_t)((float)width * 67.45 / 100), height * 91 / 100);
 		this->_send->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_send->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::sendOnClick);
 		// Quit button
@@ -120,12 +125,12 @@ void	RoomState::initialize()
 		this->_quit->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Engine::Callback::Button::quit);
 		// Back button
 		this->_back->setSize(width * 9 / 100, height * 3 / 100);
-		this->_back->setPosition(width * 1.5 / 100, height * 96.5 / 100);
+		this->_back->setPosition((int)((float)width * 1.5 / 100), (int)((float)height * 96.5 / 100));
 		this->_back->removeEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK);
 		this->_back->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::Room::backOnClick);
 		// Settings button
 		this->_settings->setSize(width * 9 / 100, height * 3 / 100);
-		this->_settings->setPosition(width * 90 / 100, height * 4.5 / 100);
+		this->_settings->setPosition(width * 90 / 100, (size_t)((float)height * 4.5 / 100));
 	}
 	this->_networkModule = dynamic_cast<NetworkModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::NETWORK));
 }
@@ -133,6 +138,7 @@ void	RoomState::initialize()
 void	RoomState::update()
 {
 	Widget::update();
+
 }
 
 void	RoomState::unload()
@@ -145,6 +151,7 @@ void	RoomState::unload()
 
 void	RoomState::reset()
 {
+	this->_networkModule->addMessage(new TCPPacket(new Message(Message::ROOM_PLAYERS), NetworkModule::ROOM), ISocket::TCP);
 }
 
 void	RoomState::reload()
@@ -153,12 +160,21 @@ void	RoomState::reload()
 
 void	RoomState::quitRoom()
 {
+	Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
+	
+	mutex->lock();
+	DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
+	std::string login = dm->getAttr<std::string>("login");
+	char id_player = dm->getAttr<char>("id_player");
+	mutex->unlock();
+
 	Message *msg = new Message(Message::ROOM_PLAYER_INFO);
 
-	msg->setAttr("id_player", Ultra::Value((char)this->_networkModule->getSock()));
-	msg->setAttr("name", Ultra::Value(std::string("")));
+	msg->setAttr("id_player", Ultra::Value((char)id_player));
+	msg->setAttr("name", Ultra::Value(std::string(login)));
 	msg->setAttr("id_ship", Ultra::Value((char)0));
 	msg->setAttr("state", Ultra::Value((char)Network::LEFT));
+	msg->setAttr("stateSpec", Ultra::Value((char)0));
 
 	this->_networkModule->addMessage(new TCPPacket(msg, NetworkModule::ROOM), ISocket::TCP);
 }

@@ -29,9 +29,9 @@ ConnectionState::ConnectionState()
 	_password(new Engine::TextBox("password", SFMLImage::TEXTBOX, SFMLImage::TEXTBOX_SELECTED, SFMLImage::TEXTBOX_HOVER, SFMLText::TEXTBOX, 10, "password", '*')),
 	_ip(new Engine::TextBox("ip", SFMLImage::TEXTBOX, SFMLImage::TEXTBOX_SELECTED, SFMLImage::TEXTBOX_HOVER, SFMLText::TEXTBOX, 16, "host")),
 	_port(new Engine::TextBox("port", SFMLImage::TEXTBOX, SFMLImage::TEXTBOX_SELECTED, SFMLImage::TEXTBOX_HOVER, SFMLText::TEXTBOX, 4, "port")),
-	_quit(new Engine::Button("quit", SFMLImage::BUTTON_QUIT, SFMLImage::BUTTON_CLICKED_QUIT, SFMLImage::BUTTON_HOVER_QUIT)),
-	_settings(new Engine::Button("settings", SFMLImage::BUTTON_SETTINGS, SFMLImage::BUTTON_CLICKED_SETTINGS, SFMLImage::BUTTON_HOVER_SETTINGS, State::GAME)),
-	_loading(new Engine::Background("loading", SFMLAnimation::LOADING))
+	_settings(new Engine::Button("settings", SFMLImage::BUTTON_SETTINGS, SFMLImage::BUTTON_CLICKED_SETTINGS, SFMLImage::BUTTON_HOVER_SETTINGS, State::SETTINGS)),
+	_loading(new Engine::Background("loading", SFMLAnimation::LOADING)),
+	_quit(new Engine::Button("quit", SFMLImage::BUTTON_QUIT, SFMLImage::BUTTON_CLICKED_QUIT, SFMLImage::BUTTON_HOVER_QUIT))
 {
 }
 
@@ -77,7 +77,7 @@ void	ConnectionState::initialize()
 	{
 		size_t	width = this->_dataModule->getAttr<size_t>("winWidth");
 		size_t	height = this->_dataModule->getAttr<size_t>("winHeight");
-		size_t	fontSize = static_cast<size_t>(width * 2.5 / 100);
+		size_t	fontSize = (size_t)((float)width * 2.5 / 100);
 
 		// Loading
 		this->_loading->setSize(46, 46);
@@ -175,7 +175,7 @@ void	ConnectionState::login()
 	MD5encode md5;
 
 	Ultra::IMutex *mutex = Engine::Core::getInstance()->access(Engine::AModule::DATA);
-	
+
 	mutex->lock();
 	DataModule *dm = dynamic_cast<DataModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::DATA));
 	dm->setAttr("login", Ultra::Value(std::string(this->_login->getText())));
@@ -199,14 +199,14 @@ void	ConnectionState::play()
 
 void	ConnectionState::displayError(std::string const &error)
 {
-	Ultra::IMutex* mutex = Engine::Core::getInstance()->access(Engine::AModule::NETWORK);
-	mutex->lock();
-	if (this->_networkModule->isStarted())
 	{
-		NetworkModule* networkModule = dynamic_cast<NetworkModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::NETWORK));
-		networkModule->stop();
+		Ultra::ScopeLock	lock(Engine::Core::getInstance()->access(Engine::AModule::NETWORK));
+		if (this->_networkModule->isStarted())
+		{
+			NetworkModule* networkModule = dynamic_cast<NetworkModule*>(Engine::Core::getInstance()->getModule(Engine::AModule::NETWORK));
+			networkModule->stop();
+		}
 	}
-	mutex->unlock();
 	this->_loading->hide();
 	this->_login->unlock();
 	this->_password->unlock();

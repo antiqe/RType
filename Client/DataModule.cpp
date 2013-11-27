@@ -26,6 +26,10 @@ void	DataModule::initialize()
 	this->_attr["mapWidth"] = Ultra::Value((size_t)1600);
 	this->_attr["mapHeight"] = Ultra::Value((size_t)900);
 	this->_attr["login"] = Ultra::Value(std::string(""));
+	this->_attr["id_room"] = Ultra::Value((unsigned short)0);
+	this->_attr["id_player"] = Ultra::Value((char)0);
+	this->_attr["id_ship"] = Ultra::Value((char)0);
+	this->_attr["stateSpec"] = Ultra::Value((char)0);
 }
 
 void	DataModule::update()

@@ -38,7 +38,7 @@ namespace Engine
 		// ATTRIBUTES
 		//
 
-		ASourceModule*						_sourceModule;
+		ASourceModule*							_sourceModule;
 		IImage*								_img[ListBox::STATUSSIZE];
 		std::string							_file[ListBox::STATUSSIZE];
 		IText*								_drawer;
@@ -131,6 +131,7 @@ namespace Engine
 					this->_img[i] = this->_sourceModule->getImage(this->_file[i]);
 				this->_drawer = this->_sourceModule->getText(this->_textFont);
 			}
+
 			this->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::MOUSE_WHEEL, &Callback::ListBox::mouseWheel<T>);
 			this->addEventListener(Engine::Event::MOUSE, Engine::MouseEvent::LEFT_CLICK, &Callback::ListBox::mouseClick<T>);
 			Widget::initialize();
@@ -146,14 +147,14 @@ namespace Engine
 		}
 		void	draw(Engine::IRender* render)
 		{
-			std::list<line>::iterator it = this->_start;
+		  typename std::list<line>::iterator it = this->_start;
 			unsigned int i = 0;
 
 			for(; i < this->_nbrLine && it != this->_content.end() ; ++i)
 			{
 				unsigned int sizeHeight = this->getHeight() / this->_nbrLine;
 				Ultra::Vector2D<int> pos = Ultra::Vector2D<int>(this->getX(), this->getY() + (i * (this->getHeight() / this->_nbrLine)));
-				int status = (i == (this->_focus - this->_valueSaved) ? ListBox::FOCUS : i % 2);
+				int status = (i == (this->_focus - this->_valueSaved) ? (int)ListBox::FOCUS : i % 2);
 
 				this->_img[status]->setSize(Ultra::Vector2D<size_t>(this->getWidth(), sizeHeight));
 				this->_img[status]->setPosition(pos);
@@ -173,7 +174,7 @@ namespace Engine
 			{
 				unsigned int sizeHeight = this->getHeight() / this->_nbrLine;
 				Ultra::Vector2D<int> pos = Ultra::Vector2D<int>(this->getX(), this->getY() + (i * (this->getHeight() / this->_nbrLine)));
-				int status = (i == (this->_focus - this->_valueSaved) ? ListBox::FOCUS : i % 2);
+				int status = (i == (this->_focus - this->_valueSaved) ? (int)ListBox::FOCUS : i % 2);
 
 				this->_img[status]->setSize(Ultra::Vector2D<size_t>(this->getWidth(), sizeHeight));
 				this->_img[status]->setPosition(pos);
@@ -230,7 +231,7 @@ namespace Engine
 			for (int i = 0 ; i < line && this->_start != this->_content.end() ; ++i)
 				this->_start++;
 		}
-		void	focus(int nbr)
+		void	focus(unsigned int nbr)
 		{
 			if (nbr < this->_content.size())
 				this->_focus = nbr + this->_valueSaved;
@@ -300,7 +301,7 @@ namespace Engine
 		{
 			if ((int)this->_focus == -1)
 				return ("");
-			std::list<line>::iterator it = this->_start;
+			typename std::list<line>::iterator it = this->_start;
 			for (unsigned int i = 0 ; i < this->_focus - this->_valueSaved && it != this->_content.end() ; ++i)
 				++it;
 			return (it != this->_content.end() ? it->first : "");

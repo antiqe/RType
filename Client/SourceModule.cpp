@@ -83,8 +83,15 @@ void	SourceModule::initialize()
 	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_NORMAL_PRIVATE, new SFMLImage("Assets/Menu/checkBoxPrivateUncheckedNormal.png"));
 	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_CLICKED_PRIVATE, new SFMLImage("Assets/Menu/checkBoxPrivateUncheckedClicked.png"));
 	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_HOVER_PRIVATE, new SFMLImage("Assets/Menu/checkBoxPrivateUncheckedHover.png"));
+	this->_images.add(SFMLImage::CHECKBOX_CHECKED_NORMAL, new SFMLImage("Assets/Menu/checkBoxCheckedNormal.png"));
+	this->_images.add(SFMLImage::CHECKBOX_CHECKED_CLICKED, new SFMLImage("Assets/Menu/checkBoxCheckedClicked.png"));
+	this->_images.add(SFMLImage::CHECKBOX_CHECKED_HOVER, new SFMLImage("Assets/Menu/checkBoxCheckedHover.png"));
+	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_NORMAL, new SFMLImage("Assets/Menu/checkBoxUncheckedNormal.png"));
+	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_CLICKED, new SFMLImage("Assets/Menu/checkBoxUncheckedClicked.png"));
+	this->_images.add(SFMLImage::CHECKBOX_UNCHECKED_HOVER, new SFMLImage("Assets/Menu/checkBoxUncheckedHover.png"));
 
 	this->_images.add(SFMLImage::SLIDER, new SFMLImage("Assets/Menu/slidebar.png"));
+	this->_images.add(SFMLImage::HSLIDER, new SFMLImage("Assets/Menu/Hslidebar.png"));
 	this->_images.add(SFMLImage::SLIDER_CURSOR_NORMAL, new SFMLImage("Assets/Menu/CursorNormal.png"));
 	this->_images.add(SFMLImage::SLIDER_CURSOR_CLICKED, new SFMLImage("Assets/Menu/CursorClicked.png"));
 	this->_images.add(SFMLImage::SLIDER_CURSOR_HOVER, new SFMLImage("Assets/Menu/CursorHover.png"));
@@ -98,6 +105,7 @@ void	SourceModule::initialize()
 	this->_images.add(SFMLImage::PLAY_BACKGROUND, new SFMLImage("Assets/Menu/PlayBackground.png"));
 	this->_images.add(SFMLImage::JOIN_BACKGROUND, new SFMLImage("Assets/Menu/JoinBackground.png"));
 	this->_images.add(SFMLImage::ROOM_BACKGROUND, new SFMLImage("Assets/Menu/RoomBackground.png"));
+	this->_images.add(SFMLImage::SETTINGS_BACKGROUND, new SFMLImage("Assets/Menu/SettingsBackground.png"));
 	this->_images.add(SFMLImage::POWER, new SFMLImage("Assets/Menu/power.png"));
 	this->_images.add(SFMLImage::ARMOR, new SFMLImage("Assets/Menu/armor.png"));
 	this->_images.add(SFMLImage::SPEED, new SFMLImage("Assets/Menu/speed.png"));

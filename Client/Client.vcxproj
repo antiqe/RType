@@ -82,6 +82,7 @@
     <ClCompile Include="RenderStarshipComponent.cpp" />
     <ClCompile Include="RoomInfo.cpp" />
     <ClCompile Include="RoomStateCallback.cpp" />
+    <ClCompile Include="SettingsState.cpp" />
     <ClCompile Include="SFMLAnimation.cpp" />
     <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="ConnectionCallback.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="RenderStarshipComponent.hpp" />
     <ClInclude Include="RoomInfo.hpp" />
     <ClInclude Include="RoomStateCallback.hpp" />
+    <ClInclude Include="SettingsState.hpp" />
     <ClInclude Include="SFMLAnimation.hpp" />
     <ClInclude Include="Configuration.hpp" />
     <ClInclude Include="ConnectionCallback.hpp" />

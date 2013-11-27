@@ -57,8 +57,15 @@ std::string const	SFMLImage::CHECKBOX_CHECKED_HOVER_READY = "checkbox_checked_ho
 std::string const	SFMLImage::CHECKBOX_UNCHECKED_NORMAL_READY = "checkbox_unchecked_normal_ready";
 std::string const	SFMLImage::CHECKBOX_UNCHECKED_CLICKED_READY = "checkbox_unchecked_clicked_ready";
 std::string const	SFMLImage::CHECKBOX_UNCHECKED_HOVER_READY = "checkbox_unchecked_hover_ready";
+std::string const	SFMLImage::CHECKBOX_CHECKED_NORMAL = "checkbox_checked_normal";
+std::string const	SFMLImage::CHECKBOX_CHECKED_CLICKED = "checkbox_checked_clicked";
+std::string const	SFMLImage::CHECKBOX_CHECKED_HOVER = "checkbox_checked_hover";
+std::string const	SFMLImage::CHECKBOX_UNCHECKED_NORMAL = "checkbox_unchecked_normal";
+std::string const	SFMLImage::CHECKBOX_UNCHECKED_CLICKED = "checkbox_unchecked_clicked";
+std::string const	SFMLImage::CHECKBOX_UNCHECKED_HOVER = "checkbox_unchecked_hover";
 
 std::string const	SFMLImage::SLIDER = "slider";
+std::string const	SFMLImage::HSLIDER = "hslider";
 std::string const	SFMLImage::SLIDER_CURSOR_NORMAL = "slider_cursor_normal";
 std::string const	SFMLImage::SLIDER_CURSOR_CLICKED = "slider_cursor_clicked";
 std::string const	SFMLImage::SLIDER_CURSOR_HOVER = "slider_cursor_hover";
@@ -74,6 +81,7 @@ std::string const	SFMLImage::CONNECTION_BACKGROUND = "connection_background";
 std::string const	SFMLImage::PLAY_BACKGROUND = "play_background";
 std::string const	SFMLImage::JOIN_BACKGROUND = "join_background";
 std::string const	SFMLImage::ROOM_BACKGROUND = "room_background";
+std::string const	SFMLImage::SETTINGS_BACKGROUND = "settings_background";
 std::string const	SFMLImage::BACKGROUND = "background";
 
 std::string const	SFMLImage::TERRE = "terre";

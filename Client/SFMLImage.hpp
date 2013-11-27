@@ -101,8 +101,15 @@ public:
 	static std::string const	CHECKBOX_UNCHECKED_NORMAL_READY;
 	static std::string const	CHECKBOX_UNCHECKED_CLICKED_READY;
 	static std::string const	CHECKBOX_UNCHECKED_HOVER_READY;
+	static std::string const	CHECKBOX_CHECKED_NORMAL;
+	static std::string const	CHECKBOX_CHECKED_CLICKED;
+	static std::string const	CHECKBOX_CHECKED_HOVER;
+	static std::string const	CHECKBOX_UNCHECKED_NORMAL;
+	static std::string const	CHECKBOX_UNCHECKED_CLICKED;
+	static std::string const	CHECKBOX_UNCHECKED_HOVER;
 
 	static std::string const	SLIDER;
+	static std::string const	HSLIDER;
 	static std::string const	SLIDER_CURSOR_NORMAL;
 	static std::string const	SLIDER_CURSOR_CLICKED;
 	static std::string const	SLIDER_CURSOR_HOVER;
@@ -116,6 +123,7 @@ public:
 	static std::string const	PLAY_BACKGROUND;
 	static std::string const	JOIN_BACKGROUND;
 	static std::string const	ROOM_BACKGROUND;
+	static std::string const	SETTINGS_BACKGROUND;
 
 	static std::string const	ARMOR;
 	static std::string const	POWER;

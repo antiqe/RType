@@ -106,6 +106,8 @@
     <ClInclude Include="Event.hpp" />
     <ClInclude Include="EventListener.hpp" />
     <ClInclude Include="GameObject.hpp" />
+    <ClInclude Include="GameObjectViewer.hpp" />
+    <ClInclude Include="GameObjectViewerCallback.hpp" />
     <ClInclude Include="Governor.hpp" />
     <ClInclude Include="HGauge.hpp" />
     <ClInclude Include="HParallax.hpp" />
@@ -169,6 +171,8 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventListener.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameObjectViewer.cpp" />
+    <ClCompile Include="GameObjectViewerCallback.cpp" />
     <ClCompile Include="Governor.cpp" />
     <ClCompile Include="HGauge.cpp" />
     <ClCompile Include="HParallax.cpp" />
