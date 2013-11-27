@@ -43,6 +43,8 @@ RoomState::RoomState()
 		ss.clear();
 		ss.str("");
 	}*/
+	this->_shipViewer[0] = new Engine::GameObjectViewer("shipViewer0", SFMLImage::BUTTON_NEXT, SFMLImage::BUTTON_CLICKED_NEXT,
+		SFMLImage::BUTTON_HOVER_NEXT, SFMLImage::BUTTON_PREV, SFMLImage::BUTTON_CLICKED_PREV, SFMLImage::BUTTON_HOVER_PREV);
 }
 
 RoomState::~RoomState()
