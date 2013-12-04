@@ -68,6 +68,7 @@ SRC_CLIENT	=	$(CLIENT_DIR)ArmorConstantComponent.cpp \
 			$(CLIENT_DIR)EventModule.cpp \
 			$(CLIENT_DIR)FactoryModule.cpp \
 			$(CLIENT_DIR)FMODSound.cpp \
+			$(CLIENT_DIR)GameCallback.cpp \
 			$(CLIENT_DIR)GameObjectFactory.cpp \
 			$(CLIENT_DIR)GameState.cpp \
 			$(CLIENT_DIR)LifeConstantComponent.cpp \
@@ -82,6 +83,7 @@ SRC_CLIENT	=	$(CLIENT_DIR)ArmorConstantComponent.cpp \
 			$(CLIENT_DIR)PlayJoinState.cpp \
 			$(CLIENT_DIR)PlayState.cpp \
 			$(CLIENT_DIR)PlayStateCallback.cpp \
+			$(CLIENT_DIR)PowerConstantComponent.cpp \
 			$(CLIENT_DIR)Position2DComponent.cpp \
 			$(CLIENT_DIR)RenderAnimationComponent.cpp \
 			$(CLIENT_DIR)RenderModule.cpp \
@@ -113,6 +115,7 @@ SRC_ENGINE	=	$(ENGINE_DIR)AArmorComponent.cpp \
 			$(ENGINE_DIR)AEventModule.cpp \
 			$(ENGINE_DIR)AFactoryModule.cpp \
 			$(ENGINE_DIR)AGauge.cpp \
+			$(ENGINE_DIR)LogicTree.cpp \
 			$(ENGINE_DIR)AInvincibilityComponent.cpp \
 			$(ENGINE_DIR)ALifeComponent.cpp \
 			$(ENGINE_DIR)AModule.cpp \
@@ -137,6 +140,7 @@ SRC_ENGINE	=	$(ENGINE_DIR)AArmorComponent.cpp \
 			$(ENGINE_DIR)CheckBoxCallBack.cpp \
 			$(ENGINE_DIR)CheckBox.cpp \
 			$(ENGINE_DIR)Core.cpp \
+			$(ENGINE_DIR)APowerComponent.cpp \
 			$(ENGINE_DIR)Event.cpp \
 			$(ENGINE_DIR)EventListener.cpp \
 			$(ENGINE_DIR)GameObject.cpp \
